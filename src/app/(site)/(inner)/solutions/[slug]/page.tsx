@@ -74,7 +74,7 @@ async function SolutionDetailContent({ params }: SolutionPageProps) {
           titleLead="Feature"
           titleAccent="highlights"
         />
-        <ul className="mt-8 grid gap-4 sm:grid-cols-3">
+        <ul className="mt-8 grid gap-4 md:grid-cols-3">
           {solution.features.map((feature, index) => (
             <li
               key={feature}

@@ -27,7 +27,7 @@ export function MobileNav({
       <button
         type="button"
         className={cn(
-          "inline-flex size-10 items-center justify-center rounded-md transition-colors duration-300",
+          "inline-flex size-11 min-h-11 min-w-11 items-center justify-center rounded-md transition-colors duration-300",
           isHero ? "text-white hover:bg-white/10" : "text-[#252A2A] hover:bg-[#F4FBFA]",
         )}
         aria-expanded={open}
@@ -56,7 +56,7 @@ export function MobileNav({
                     item={item}
                     tone={isHero ? "hero" : "default"}
                     onNavigate={close}
-                    className="text-base"
+                    className="min-h-11 text-base leading-snug"
                   />
                   {item.children && (
                     <ul
@@ -71,7 +71,7 @@ export function MobileNav({
                             href={child.href}
                             onClick={close}
                             className={cn(
-                              "text-sm transition-colors",
+                              "block min-h-11 py-2.5 text-sm leading-snug transition-colors",
                               isHero
                                 ? "text-white/70 hover:text-white"
                                 : "text-[#737B7A] hover:text-[#009E98]",

@@ -114,7 +114,7 @@ export function ProductCarousel() {
             type="button"
             onClick={() => scrollCarousel("prev")}
             aria-label="Previous products"
-            className="absolute -left-3 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[#087F7B]/25 bg-[linear-gradient(105deg,#087F7B_0%,#009E98_55%,#45BDB5_100%)] text-white shadow-[0_4px_14px_rgba(0,158,152,0.22)] transition-all duration-300 hover:bg-[linear-gradient(105deg,#066662_0%,#087F7B_55%,#009E98_100%)] sm:-left-5"
+            className="absolute -left-1 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#087F7B]/25 bg-[linear-gradient(105deg,#087F7B_0%,#009E98_55%,#45BDB5_100%)] text-white shadow-[0_4px_14px_rgba(0,158,152,0.22)] transition-all duration-300 hover:bg-[linear-gradient(105deg,#066662_0%,#087F7B_55%,#009E98_100%)] sm:-left-5 sm:h-10 sm:w-10"
           >
             <ArrowLeft size={17} />
           </button>
@@ -177,26 +177,30 @@ export function ProductCarousel() {
             type="button"
             onClick={() => scrollCarousel("next")}
             aria-label="Next products"
-            className="absolute -right-3 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[#087F7B]/25 bg-[linear-gradient(105deg,#087F7B_0%,#009E98_55%,#45BDB5_100%)] text-white shadow-[0_4px_14px_rgba(0,158,152,0.22)] transition-all duration-300 hover:bg-[linear-gradient(105deg,#066662_0%,#087F7B_55%,#009E98_100%)] sm:-right-5"
+            className="absolute -right-1 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#087F7B]/25 bg-[linear-gradient(105deg,#087F7B_0%,#009E98_55%,#45BDB5_100%)] text-white shadow-[0_4px_14px_rgba(0,158,152,0.22)] transition-all duration-300 hover:bg-[linear-gradient(105deg,#066662_0%,#087F7B_55%,#009E98_100%)] sm:-right-5 sm:h-10 sm:w-10"
           >
             <ArrowRight size={17} />
           </button>
         </div>
 
         {/* Pagination dots */}
-        <div className="mt-5 flex items-center justify-center gap-2">
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-1 sm:gap-2">
           {products.map((product, index) => (
             <button
               key={product.name}
               type="button"
               onClick={() => scrollToIndex(index)}
               aria-label={`Go to product ${index + 1}`}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                activeIndex === index
-                  ? "w-7 bg-[#009E98]"
-                  : "w-2 bg-[#C5E5E2] hover:bg-[#009E98]/60"
-              }`}
-            />
+              className="inline-flex min-h-11 min-w-11 items-center justify-center"
+            >
+              <span
+                className={`block h-2 rounded-full transition-all duration-300 ${
+                  activeIndex === index
+                    ? "w-7 bg-[#009E98]"
+                    : "w-2 bg-[#C5E5E2] hover:bg-[#009E98]/60"
+                }`}
+              />
+            </button>
           ))}
         </div>
       </div>

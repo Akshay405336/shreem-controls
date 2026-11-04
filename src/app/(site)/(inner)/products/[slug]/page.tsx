@@ -110,7 +110,7 @@ async function ProductDetailContent({ params }: ProductPageProps) {
             titleLead="Technical"
             titleAccent="overview"
           />
-          <dl className="mt-8 grid gap-4 sm:grid-cols-3">
+          <dl className="mt-8 grid gap-4 md:grid-cols-3">
             {product.specifications.map((spec) => (
               <div
                 key={spec.label}
@@ -133,7 +133,7 @@ async function ProductDetailContent({ params }: ProductPageProps) {
             titleLead="Where this product"
             titleAccent="belongs"
           />
-          <ul className="mt-8 grid gap-4 sm:grid-cols-3">
+          <ul className="mt-8 grid gap-4 md:grid-cols-3">
             {product.applications.map((item) => (
               <li
                 key={item}
@@ -154,7 +154,7 @@ async function ProductDetailContent({ params }: ProductPageProps) {
             titleLead="Explore more"
             titleAccent="smart controls"
           />
-          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
             {related.map((item) => (
               <Link
                 key={item.slug}

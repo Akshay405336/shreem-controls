@@ -42,7 +42,7 @@ export function PageHero({
       className={cn(
         "relative isolate flex flex-col overflow-hidden",
         useImage &&
-          "min-h-[min(420px,62vh)] text-white sm:min-h-[min(460px,60vh)] lg:min-h-[min(500px,58vh)] bg-[#1a1f1f]",
+          "min-h-[min(360px,55vh)] text-white sm:min-h-[min(460px,60vh)] lg:min-h-[min(500px,58vh)] bg-[#1a1f1f]",
         isLightFlat &&
           "bg-[linear-gradient(135deg,#FFFFFF_0%,#FCFEFD_55%,#F1F9F8_100%)] pb-12 text-[#252A2A] sm:pb-14 lg:pb-16",
       )}
@@ -72,7 +72,7 @@ export function PageHero({
 
       <div
         className={cn(
-          "relative z-10 mx-auto w-full max-w-[1440px] px-[5%] pb-10 sm:px-[6%] sm:pb-12 lg:px-12 lg:pb-14",
+          "relative z-10 mx-auto min-w-0 w-full max-w-[1440px] px-[5%] pb-10 sm:px-[6%] sm:pb-12 lg:px-12 lg:pb-14",
           heroContentOffset,
         )}
       >

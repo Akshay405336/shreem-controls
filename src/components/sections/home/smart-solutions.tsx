@@ -24,10 +24,10 @@ import { HomeSectionHeading } from "@/components/ui/home-section-heading";
 import { cn } from "@/lib/cn";
 
 const solutionCardArrowClass =
-  "flex size-[30px] items-center justify-center rounded-full border border-[#087F7B]/30 bg-[linear-gradient(105deg,#087F7B_0%,#009E98_52%,#45BDB5_100%)] text-white shadow-[0_4px_14px_rgba(0,158,152,0.22)] transition-all duration-300 hover:bg-[linear-gradient(105deg,#066662_0%,#087F7B_52%,#009E98_100%)] hover:shadow-[0_6px_18px_rgba(0,158,152,0.28)]";
+  "flex size-11 items-center justify-center rounded-full border border-[#087F7B]/30 bg-[linear-gradient(105deg,#087F7B_0%,#009E98_52%,#45BDB5_100%)] text-white shadow-[0_4px_14px_rgba(0,158,152,0.22)] transition-all duration-300 hover:bg-[linear-gradient(105deg,#066662_0%,#087F7B_52%,#009E98_100%)] hover:shadow-[0_6px_18px_rgba(0,158,152,0.28)] sm:size-[30px]";
 
 const solutionCardArrowFeaturedClass =
-  "flex size-[30px] items-center justify-center rounded-full border border-white/90 bg-white text-[#087F7B] shadow-[0_6px_18px_rgba(8,127,123,0.25)] transition-all duration-300 hover:bg-[#F4FBFA] hover:text-[#009E98]";
+  "flex size-11 items-center justify-center rounded-full border border-white/90 bg-white text-[#087F7B] shadow-[0_6px_18px_rgba(8,127,123,0.25)] transition-all duration-300 hover:bg-[#F4FBFA] hover:text-[#009E98] sm:size-[30px]";
 
 const solutions = [
   {

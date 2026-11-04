@@ -59,7 +59,7 @@ export function HomeHero() {
   return (
     <section
       data-header-theme="dark"
-      className="relative isolate flex h-svh min-h-0 flex-col overflow-hidden bg-[#252A2A] text-white"
+      className="relative isolate flex min-h-[70svh] flex-col overflow-hidden bg-[#252A2A] text-white sm:min-h-0 sm:h-svh"
     >
       {/* Animated background image */}
       <motion.div
@@ -88,8 +88,8 @@ export function HomeHero() {
       />
 
       {/* Main hero content */}
-      <Container className="flex min-h-0 flex-1 items-start pb-4 pt-[clamp(90px,13vh,125px)]">
-        <div className="max-w-[700px]">
+      <Container className="flex min-h-0 min-w-0 flex-1 items-start pb-28 pt-[clamp(90px,13vh,125px)] sm:pb-4">
+        <div className="min-w-0 max-w-[700px]">
           {/* Eyebrow */}
           <motion.div
             {...reveal(0.3)}
@@ -103,8 +103,8 @@ export function HomeHero() {
           </motion.div>
 
           {/* Animated typewriter heading */}
-          <h1 className="font-display text-[clamp(2.5rem,4.2vw,4rem)] font-normal leading-[1.12] tracking-[-0.025em] text-white">
-            <span className="block whitespace-nowrap">
+          <h1 className="min-w-0 font-display text-[clamp(2rem,4.2vw,4rem)] font-normal leading-[1.12] tracking-[-0.025em] text-white">
+            <span className="block">
               <TypewriterText
                 text="Intelligent Control"
                 delay={0.8}
@@ -112,7 +112,7 @@ export function HomeHero() {
               />
             </span>
 
-            <span className="block whitespace-nowrap">
+            <span className="block">
               <TypewriterText
                 text="For Modern Spaces"
                 delay={2.1}
@@ -157,9 +157,9 @@ export function HomeHero() {
       </Container>
 
       {/* Bottom feature strip */}
-      <div className="h-[96px] shrink-0 bg-transparent">
-        <Container className="flex h-full items-center">
-          <div className="grid w-full grid-cols-5">
+      <div className="shrink-0 bg-transparent py-4 sm:h-[96px] sm:py-0">
+        <Container className="flex min-w-0 sm:h-full sm:items-center">
+          <div className="grid w-full grid-cols-2 gap-y-4 sm:grid-cols-3 sm:gap-y-3 md:grid-cols-5 md:gap-y-0">
             {features.map(({ label, detail, icon: Icon }, index) => (
               <motion.div
                 key={label}
@@ -171,20 +171,22 @@ export function HomeHero() {
                   ease: [0.22, 1, 0.36, 1],
                 }}
                 className={`flex min-w-0 flex-col items-center justify-center gap-1.5 px-2 text-center ${
-                  index !== 0 ? "border-l border-white/20" : ""
+                  index === 4 ? "col-span-2 sm:col-span-1" : ""
+                } ${index !== 0 ? "md:border-l md:border-white/20" : ""} ${
+                  index % 2 === 1 ? "max-md:border-l max-md:border-white/20" : ""
                 }`}
               >
                 <Icon
                   aria-hidden="true"
-                  className="size-5 text-white/90"
+                  className="size-5 shrink-0 text-white/90"
                   strokeWidth={1.4}
                 />
 
-                <p className="whitespace-nowrap text-[11px] font-medium leading-tight text-white">
+                <p className="text-[10px] font-medium leading-snug text-white sm:text-[11px]">
                   {label}
                 </p>
 
-                <p className="whitespace-nowrap text-[10px] leading-tight text-white/65">
+                <p className="text-[9px] leading-snug text-white/65 sm:text-[10px]">
                   {detail}
                 </p>
               </motion.div>

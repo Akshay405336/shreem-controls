@@ -78,7 +78,7 @@ export function ConsultationModal() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="consultation-title"
-            className="relative z-10 grid max-h-[min(720px,calc(100dvh-48px))] w-full max-w-2xl grid-rows-[auto_minmax(0,1fr)] overflow-hidden rounded-2xl border border-[#DDECEB] bg-[linear-gradient(180deg,#ffffff_0%,#F4FBFA_100%)] shadow-[0_24px_80px_rgba(20,16,10,0.18)]"
+            className="relative z-10 grid min-w-0 max-h-[min(720px,calc(100dvh-48px))] w-full max-w-2xl grid-rows-[auto_minmax(0,1fr)] overflow-hidden rounded-2xl border border-[#DDECEB] bg-[linear-gradient(180deg,#ffffff_0%,#F4FBFA_100%)] shadow-[0_24px_80px_rgba(20,16,10,0.18)]"
             initial={
               prefersReducedMotion ? false : { opacity: 0, y: 24, scale: 0.98 }
             }
@@ -103,7 +103,7 @@ export function ConsultationModal() {
               </p>
               <h2
                 id="consultation-title"
-                className="mt-3 pr-10 text-2xl font-medium tracking-[-0.03em] text-[#252A2A] sm:text-3xl"
+                className="mt-3 pr-10 text-[clamp(1.25rem,5vw,1.875rem)] font-medium leading-snug tracking-[-0.03em] text-[#252A2A] sm:text-3xl"
               >
                 Speak with a Shreem Controls specialist
               </h2>
@@ -112,7 +112,7 @@ export function ConsultationModal() {
             <div
               ref={scrollRef}
               data-lenis-prevent
-              className="scrollbar-hidden min-h-0 overflow-y-auto overscroll-contain px-6 pb-6 sm:px-8 sm:pb-8"
+              className="scrollbar-hidden min-h-0 min-w-0 overflow-y-auto overscroll-contain px-6 pb-6 sm:px-8 sm:pb-8"
             >
               <EnquiryForm key={JSON.stringify(context)} showIntro={false} />
             </div>

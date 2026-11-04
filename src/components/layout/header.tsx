@@ -29,7 +29,7 @@ export function Header() {
           "border-b border-[#DDECEB]/90 bg-white/88 shadow-[0_8px_24px_rgba(37,42,42,0.05)] backdrop-blur-md",
       )}
     >
-      <Container className="flex h-[88px] items-center justify-between gap-4 overflow-visible pl-[max(0.875rem,calc(var(--spacing-gutter)-0.625rem))] md:gap-6 sm:pl-[max(1rem,calc(var(--spacing-gutter)-0.75rem))]">
+      <Container className="flex h-[88px] min-w-0 items-center justify-between gap-2 overflow-visible pl-[max(0.875rem,calc(var(--spacing-gutter)-0.625rem))] sm:gap-4 md:gap-6 sm:pl-[max(1rem,calc(var(--spacing-gutter)-0.75rem))]">
         <HeaderLogo variant={isHero ? "dark" : "light"} />
 
         <div className="hidden flex-1 items-center justify-center overflow-visible md:flex">
@@ -42,7 +42,7 @@ export function Header() {
             aria-label="Search"
             onClick={openSearch}
             className={cn(
-              "flex size-10 items-center justify-center transition-colors duration-300",
+              "flex size-11 min-h-11 min-w-11 items-center justify-center transition-colors duration-300 md:size-10 md:min-h-0 md:min-w-0",
               isHero
                 ? "text-white/90 hover:text-white"
                 : "text-[#252A2A] hover:text-[#009E98]",
@@ -53,7 +53,7 @@ export function Header() {
 
           <ConsultationTrigger
             className={cn(
-              "hidden h-[46px] sm:inline-flex",
+              "hidden h-[46px] md:inline-flex",
               isHero
                 ? "inline-flex items-center justify-center gap-2 rounded-md border border-white/65 bg-transparent px-6 py-3 text-sm font-medium text-white transition-[color,background-color,border-color,box-shadow] duration-300 hover:border-white hover:bg-white/10 hover:text-white"
                 : consultationButtonClass("primary", { liftOnHover: false }),

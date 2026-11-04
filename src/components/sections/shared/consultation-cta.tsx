@@ -56,7 +56,7 @@ export function ConsultationCtaSection() {
               </ConsultationTrigger>
             </div>
 
-            <ul className="mt-8 grid gap-3 sm:grid-cols-3">
+            <ul className="mt-8 grid gap-3 md:grid-cols-3">
               {trustPoints.map((point) => (
                 <li
                   key={point}
