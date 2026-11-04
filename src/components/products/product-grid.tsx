@@ -11,6 +11,11 @@ import { HomeSectionHeading } from "@/components/ui/home-section-heading";
 import { products, productCategories } from "@/data/products";
 import { cn } from "@/lib/cn";
 
+import "./product-category-filter.css";
+
+const productCardArrowClass =
+  "flex size-[30px] items-center justify-center rounded-full border border-[#087F7B]/30 bg-[linear-gradient(105deg,#087F7B_0%,#009E98_52%,#45BDB5_100%)] text-white shadow-[0_4px_14px_rgba(0,158,152,0.22)] transition-all duration-300 hover:bg-[linear-gradient(105deg,#066662_0%,#087F7B_52%,#009E98_100%)] hover:shadow-[0_6px_18px_rgba(0,158,152,0.28)]";
+
 export function ProductGrid() {
   const [activeCategory, setActiveCategory] = useState("All");
   const shouldReduceMotion = useReducedMotion();
@@ -35,22 +40,27 @@ export function ProductGrid() {
         titleClassName="text-[clamp(1.85rem,3.4vw,3.15rem)]"
       />
 
-      <div className="mt-8 flex flex-wrap justify-center gap-2">
-        {productCategories.map((category) => (
-          <button
-            key={category}
-            type="button"
-            onClick={() => setActiveCategory(category)}
-            className={cn(
-              "rounded-full border px-4 py-2 text-[11px] font-medium transition-colors",
-              activeCategory === category
-                ? "border-[#009E98] bg-[#EFF9F8] text-[#087F7B]"
-                : "border-[#DDECEB] bg-white/80 text-[#737B7A] hover:border-[#73BDB8]",
-            )}
-          >
-            {category}
-          </button>
-        ))}
+      <div className="mt-8 flex flex-wrap justify-center gap-2 sm:gap-2.5">
+        {productCategories.map((category) => {
+          const isActive = activeCategory === category;
+
+          return (
+            <button
+              key={category}
+              type="button"
+              aria-pressed={isActive}
+              onClick={() => setActiveCategory(category)}
+              className={cn(
+                "product-category-filter",
+                isActive
+                  ? "product-category-filter--active"
+                  : "product-category-filter--inactive",
+              )}
+            >
+              {category}
+            </button>
+          );
+        })}
       </div>
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -94,7 +104,7 @@ export function ProductGrid() {
                 <Link
                   href={`/products/${product.slug}`}
                   aria-label={`View ${product.name}`}
-                  className="flex size-[30px] items-center justify-center rounded-full border border-[#009E98] text-[#009E98] transition-all duration-300 hover:bg-[#087F7B] hover:text-white"
+                  className={productCardArrowClass}
                 >
                   <ArrowUpRight size={15} strokeWidth={1.7} />
                 </Link>

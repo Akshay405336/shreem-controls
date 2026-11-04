@@ -1,17 +1,26 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+
+import { LenisRefContext } from "@/components/providers/lenis-provider";
 
 export type HeaderTheme = "hero" | "dark" | "light";
 
 /** Avoid header/button flicker when scrollY hovers around the hero threshold */
-const HERO_SCROLL_EXIT = 88;
-const HERO_SCROLL_ENTER = 28;
+const HERO_SCROLL_EXIT = 110;
+const HERO_SCROLL_ENTER = 24;
+
+function resolveHeroHeader(prev: boolean, y: number) {
+  if (prev && y > HERO_SCROLL_EXIT) return false;
+  if (!prev && y < HERO_SCROLL_ENTER) return true;
+  return prev;
+}
 
 export function useHeaderTheme() {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const lenisRef = useContext(LenisRefContext);
   const [heroHeader, setHeroHeader] = useState(isHome);
   const [sectionTheme, setSectionTheme] = useState<HeaderTheme>("light");
 
@@ -21,19 +30,58 @@ export function useHeaderTheme() {
       return;
     }
 
-    const onScroll = () => {
-      const y = window.scrollY;
-      setHeroHeader((prev) => {
-        if (prev && y > HERO_SCROLL_EXIT) return false;
-        if (!prev && y < HERO_SCROLL_ENTER) return true;
-        return prev;
-      });
+    const applyScroll = (y: number) => {
+      setHeroHeader((prev) => resolveHeroHeader(prev, y));
     };
 
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [pathname, isHome]);
+    const onWindowScroll = () => applyScroll(window.scrollY);
+
+    onWindowScroll();
+    window.addEventListener("scroll", onWindowScroll, { passive: true });
+
+    let lenisInstance = lenisRef?.current ?? null;
+    let lenisHandler: ((payload: { scroll: number }) => void) | null = null;
+
+    const attachLenis = () => {
+      const instance = lenisRef?.current;
+      if (!instance || instance === lenisInstance) return false;
+
+      if (lenisInstance && lenisHandler) {
+        lenisInstance.off("scroll", lenisHandler);
+      }
+
+      lenisInstance = instance;
+      lenisHandler = () => applyScroll(instance.scroll);
+      instance.on("scroll", lenisHandler);
+      applyScroll(instance.scroll);
+      return true;
+    };
+
+    if (!attachLenis()) {
+      let attempts = 0;
+      const attachTimer = window.setInterval(() => {
+        attempts += 1;
+        if (attachLenis() || attempts > 24) {
+          window.clearInterval(attachTimer);
+        }
+      }, 50);
+
+      return () => {
+        window.removeEventListener("scroll", onWindowScroll);
+        window.clearInterval(attachTimer);
+        if (lenisInstance && lenisHandler) {
+          lenisInstance.off("scroll", lenisHandler);
+        }
+      };
+    }
+
+    return () => {
+      window.removeEventListener("scroll", onWindowScroll);
+      if (lenisInstance && lenisHandler) {
+        lenisInstance.off("scroll", lenisHandler);
+      }
+    };
+  }, [pathname, isHome, lenisRef]);
 
   useEffect(() => {
     const sections = Array.from(

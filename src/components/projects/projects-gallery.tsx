@@ -11,6 +11,11 @@ import { HomeSectionHeading } from "@/components/ui/home-section-heading";
 import { projectCategories, projects } from "@/data/projects";
 import { cn } from "@/lib/cn";
 
+import "@/components/products/product-category-filter.css";
+
+const projectCardArrowClass =
+  "flex size-[30px] shrink-0 items-center justify-center rounded-full border border-[#087F7B]/30 bg-[linear-gradient(105deg,#087F7B_0%,#009E98_52%,#45BDB5_100%)] text-white shadow-[0_4px_14px_rgba(0,158,152,0.22)] transition-all duration-300 hover:bg-[linear-gradient(105deg,#066662_0%,#087F7B_52%,#009E98_100%)] hover:shadow-[0_6px_18px_rgba(0,158,152,0.28)]";
+
 export function ProjectsGallery() {
   const [category, setCategory] = useState<(typeof projectCategories)[number]>("All");
   const shouldReduceMotion = useReducedMotion();
@@ -32,22 +37,27 @@ export function ProjectsGallery() {
         description="Residential, villa and presentation environments featuring Shreem Controls intelligent living."
       />
 
-      <div className="mt-8 flex flex-wrap justify-center gap-2">
-        {projectCategories.map((item) => (
-          <button
-            key={item}
-            type="button"
-            onClick={() => setCategory(item)}
-            className={cn(
-              "rounded-full border px-4 py-2 text-[11px] font-medium",
-              category === item
-                ? "border-[#009E98] bg-[#EFF9F8] text-[#087F7B]"
-                : "border-[#DDECEB] bg-white text-[#737B7A]",
-            )}
-          >
-            {item}
-          </button>
-        ))}
+      <div className="mt-8 flex flex-wrap justify-center gap-2 sm:gap-2.5">
+        {projectCategories.map((item) => {
+          const isActive = category === item;
+
+          return (
+            <button
+              key={item}
+              type="button"
+              aria-pressed={isActive}
+              onClick={() => setCategory(item)}
+              className={cn(
+                "product-category-filter",
+                isActive
+                  ? "product-category-filter--active"
+                  : "product-category-filter--inactive",
+              )}
+            >
+              {item}
+            </button>
+          );
+        })}
       </div>
 
       <div className="mt-10 grid gap-4 md:grid-cols-2">
@@ -79,9 +89,10 @@ export function ProjectsGallery() {
               </div>
               <Link
                 href={`/projects/${project.slug}`}
-                className="flex size-[30px] shrink-0 items-center justify-center rounded-full border border-[#009E98] text-[#009E98] hover:bg-[#087F7B] hover:text-white"
+                aria-label={`View ${project.title}`}
+                className={projectCardArrowClass}
               >
-                <ArrowUpRight size={15} />
+                <ArrowUpRight size={15} strokeWidth={1.7} />
               </Link>
             </div>
           </motion.div>

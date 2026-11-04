@@ -30,6 +30,25 @@
     #f1f9f8 100%
   );
   --gradient-button: linear-gradient(105deg, #087f7b 0%, #009e98 52%, #45bdb5 100%);
+  --gradient-button-hover: linear-gradient(
+    105deg,
+    #066662 0%,
+    #087f7b 52%,
+    #009e98 100%
+  );
+  --gradient-product-filter-inactive: linear-gradient(
+    155deg,
+    #ffffff 0%,
+    #f4fbfa 42%,
+    #e8f7f5 78%,
+    #dff3f1 100%
+  );
+  --gradient-product-filter-inactive-hover: linear-gradient(
+    155deg,
+    #ffffff 0%,
+    #eff9f8 48%,
+    #d4efec 100%
+  );
   --gradient-card: linear-gradient(145deg, #ffffff 0%, #f8fcfb 100%);
 
   --layout-content-max: 90rem;

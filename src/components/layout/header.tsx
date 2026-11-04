@@ -23,7 +23,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 w-full overflow-visible transition-all duration-300 ease-out",
+        "fixed inset-x-0 top-0 z-50 w-full overflow-visible transition-[background-color,box-shadow,border-color,backdrop-filter] duration-300 ease-out",
         isHero && "bg-transparent shadow-none backdrop-blur-0",
         !isHero &&
           "border-b border-[#DDECEB]/90 bg-white/88 shadow-[0_8px_24px_rgba(37,42,42,0.05)] backdrop-blur-md",
@@ -56,10 +56,7 @@ export function Header() {
               "hidden h-[46px] sm:inline-flex",
               isHero
                 ? "inline-flex items-center justify-center gap-2 rounded-md border border-white/65 bg-transparent px-6 py-3 text-sm font-medium text-white transition-[color,background-color,border-color,box-shadow] duration-300 hover:border-white hover:bg-white/10 hover:text-white"
-                : cn(
-                    consultationButtonClass("primary"),
-                    "transition-[background,border-color,box-shadow,color] duration-300 hover:translate-y-0 active:translate-y-0",
-                  ),
+                : consultationButtonClass("primary", { liftOnHover: false }),
             )}
           >
             Request Consultation

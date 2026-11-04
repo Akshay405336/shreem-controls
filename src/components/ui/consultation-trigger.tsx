@@ -35,11 +35,24 @@ export function ConsultationTrigger({
   );
 }
 
-export function consultationButtonClass(variant: "primary" | "outline" = "primary") {
+type ConsultationButtonOptions = {
+  /** Disable lift on hover (fixed header — avoids “stuck” translate while scrolling) */
+  liftOnHover?: boolean;
+};
+
+export function consultationButtonClass(
+  variant: "primary" | "outline" = "primary",
+  options: ConsultationButtonOptions = {},
+) {
+  const { liftOnHover = true } = options;
+
   return cn(
-    "inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-medium transition-all duration-300",
+    "inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-medium transition-[color,background,background-color,border-color,box-shadow] duration-300",
     variant === "primary" &&
-      "border border-[#087F7B]/30 bg-[linear-gradient(105deg,#087F7B_0%,#009E98_52%,#45BDB5_100%)] text-white shadow-[0_8px_22px_rgba(0,158,152,0.22)] hover:-translate-y-0.5 hover:bg-[linear-gradient(105deg,#066662_0%,#087F7B_52%,#009E98_100%)] hover:shadow-[0_12px_28px_rgba(0,158,152,0.28)]",
+      cn(
+        "border border-[#087F7B]/30 bg-[linear-gradient(105deg,#087F7B_0%,#009E98_52%,#45BDB5_100%)] text-white shadow-[0_8px_22px_rgba(0,158,152,0.22)] hover:bg-[linear-gradient(105deg,#066662_0%,#087F7B_52%,#009E98_100%)] hover:shadow-[0_12px_28px_rgba(0,158,152,0.28)]",
+        liftOnHover && "hover:-translate-y-0.5",
+      ),
     variant === "outline" &&
       "border border-[#DDECEB] bg-white/90 text-[#252A2A] hover:border-[#009E98] hover:text-[#009E98] hover:shadow-[0_6px_20px_rgba(0,158,152,0.08)]",
   );

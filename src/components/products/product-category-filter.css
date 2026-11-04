@@ -1,0 +1,47 @@
+/* Category filter pills — shared by /products and /projects */
+
+.product-category-filter {
+  appearance: none;
+  cursor: pointer;
+  border-radius: 9999px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 0.5rem 1rem;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.25;
+  font-family: inherit;
+  transition:
+    color 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    background 200ms ease;
+}
+
+.product-category-filter--inactive {
+  border-color: var(--color-border);
+  color: var(--color-text-secondary);
+  background-color: #ffffff;
+  background-image: var(--gradient-product-filter-inactive);
+  box-shadow: 0 2px 8px rgba(37, 42, 42, 0.04);
+}
+
+.product-category-filter--inactive:hover {
+  border-color: rgba(0, 158, 152, 0.45);
+  color: var(--color-brand-deep);
+  background-image: var(--gradient-product-filter-inactive-hover);
+}
+
+.product-category-filter--active {
+  border-color: rgba(8, 127, 123, 0.4);
+  color: #ffffff;
+  background-color: var(--color-brand-deep);
+  background-image: var(--gradient-button);
+  box-shadow: 0 5px 16px rgba(0, 158, 152, 0.26);
+}
+
+.product-category-filter--active:hover {
+  border-color: rgba(6, 102, 98, 0.45);
+  background-image: var(--gradient-button-hover);
+  box-shadow: 0 7px 20px rgba(0, 158, 152, 0.32);
+}
