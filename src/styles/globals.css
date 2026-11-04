@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+:root {
+  --color-background: #ffffff;
+  --color-surface: #ffffff;
+  --color-warm-white: #fcfcfa;
+  --color-teal-pale: #f4fbfa;
+  --color-teal-mint: #eff9f8;
+  --color-teal-soft: #e8f5f4;
+  --color-cream: #f4fbfa;
+  --color-champagne: #e8f5f4;
+  --color-brand: #009e98;
+  --color-brand-deep: #087f7b;
+  --color-brand-medium: #45bdb5;
+  --color-teal-pale-surface: #e8f7f5;
+  --color-teal-muted: #73bdb8;
+  --color-teal-line: #c5e5e2;
+  --color-gold: #009e98;
+  --color-gold-muted: #73bdb8;
+  --color-charcoal: #252a2a;
+  --color-charcoal-deep: #252a2a;
+  --color-text-primary: #252a2a;
+  --color-text-secondary: #737b7a;
+  --color-border: #ddeceb;
+
+  --gradient-section: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #fcfefe 55%,
+    #f1f9f8 100%
+  );
+  --gradient-button: linear-gradient(105deg, #087f7b 0%, #009e98 52%, #45bdb5 100%);
+  --gradient-card: linear-gradient(145deg, #ffffff 0%, #f8fcfb 100%);
+
+  --layout-content-max: 90rem;
+  --layout-gutter: 1.25rem;
+  --layout-header-height: 5.5rem;
+  --inner-page-hero-offset: calc(var(--layout-header-height) + 2rem);
+
+  --transition-color: color 200ms ease, background-color 200ms ease,
+    border-color 200ms ease;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --inner-page-hero-offset: calc(var(--layout-header-height) + 2.5rem);
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --layout-gutter: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --inner-page-hero-offset: calc(var(--layout-header-height) + 3.25rem);
+  }
+}
+
+@theme inline {
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-warm-white: var(--color-warm-white);
+  --color-teal-pale: var(--color-teal-pale);
+  --color-teal-mint: var(--color-teal-mint);
+  --color-teal-soft: var(--color-teal-soft);
+  --color-cream: var(--color-cream);
+  --color-champagne: var(--color-champagne);
+  --color-brand: var(--color-brand);
+  --color-brand-deep: var(--color-brand-deep);
+  --color-teal-muted: var(--color-teal-muted);
+  --color-teal-line: var(--color-teal-line);
+  --color-gold: var(--color-gold);
+  --color-gold-muted: var(--color-gold-muted);
+  --color-charcoal: var(--color-charcoal);
+  --color-charcoal-deep: var(--color-charcoal-deep);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-border: var(--color-border);
+
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-manrope);
+
+  --spacing-gutter: var(--layout-gutter);
+  --height-header: var(--layout-header-height);
+  --width-content: var(--layout-content-max);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: auto;
+  scroll-padding-top: var(--layout-header-height);
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: var(--transition-color);
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+/** Clears fixed header on inner pages (not used on homepage hero). */
+.inner-page-hero-offset {
+  padding-top: var(--inner-page-hero-offset);
+}
+
+.scrollbar-hidden {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
