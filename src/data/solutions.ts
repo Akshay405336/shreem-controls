@@ -47,11 +47,16 @@ export const solutions: Solution[] = [
   {
     slug: "home-security",
     name: "Home Security",
-    summary: "Connected awareness within the smart home ecosystem.",
+    summary:
+      "Intelligent protection with Ajax Systems — detection, video, life safety and mobile security management.",
     description:
-      "Coordinate security-related routines with lighting and automation for a considered residential experience.",
-    image: "/images/Glowing-Smart-Display.png",
-    features: ["Scene-linked routines", "Integrated control points", "Residential peace of mind"],
+      "Plan layered security for homes and businesses with intrusion protection, video surveillance, fire and life safety devices, and connected automation from Shreem Controls.",
+    image: "/images/smart-home-villa.png",
+    features: [
+      "Ajax intrusion and video solutions",
+      "Fire and life safety integration",
+      "Mobile security status and alerts",
+    ],
   },
   {
     slug: "complete-home-automation",

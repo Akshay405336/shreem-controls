@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 
@@ -41,15 +41,16 @@ export function ProductsMegaMenu({ tone, onNavigate }: ProductsMegaMenuProps) {
     [activeSlug, activeBrandSlug],
   );
 
+  const selectCategory = useCallback((slug: MainCategorySlug) => {
+    setActiveSlug(slug);
+    setActiveBrandSlug(null);
+    setPreviewProductId(null);
+  }, []);
+
   const selectBrandFilter = useCallback((brandSlug: string | null) => {
     setActiveBrandSlug(brandSlug);
     setPreviewProductId(null);
   }, []);
-
-  useEffect(() => {
-    setActiveBrandSlug(null);
-    setPreviewProductId(null);
-  }, [activeSlug]);
 
   const previewProduct = useMemo(() => {
     if (previewProductId) {
@@ -104,8 +105,8 @@ export function ProductsMegaMenu({ tone, onNavigate }: ProductsMegaMenuProps) {
               <li key={item.slug}>
                 <button
                   type="button"
-                  onMouseEnter={() => setActiveSlug(item.slug)}
-                  onFocus={() => setActiveSlug(item.slug)}
+                  onMouseEnter={() => selectCategory(item.slug)}
+                  onFocus={() => selectCategory(item.slug)}
                   className={cn(
                     "w-full rounded-lg px-3 py-2.5 text-left text-[13px] transition-colors duration-200",
                     active

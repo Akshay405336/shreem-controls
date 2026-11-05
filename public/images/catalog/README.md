@@ -46,7 +46,7 @@ Brand logos (e.g. Akubela): `public/images/catalog/{brand-slug}/Akubela-Logo.png
 
 | File | Product |
 |------|---------|
-| `m18-smart-dimming-knob.png` | M18 Smart Dimming Knob |
+| `m18-smart-dimming-knob.png` | Smart Remote Controls |
 
 ## Basalte (`basalte/`)
 

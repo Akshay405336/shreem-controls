@@ -188,7 +188,7 @@ export function IntelligentLiving() {
               />
             </motion.div>
 
-            <h2 className="max-w-[470px] font-display text-[clamp(2.6rem,4.5vw,4.3rem)] font-normal leading-[1.02] tracking-[-0.05em]">
+            <h2 className="max-w-[470px] font-display text-[clamp(2.6rem,4.5vw,4.3rem)] font-medium leading-[1.02] tracking-[-0.05em] text-[#252A2A]">
               A smarter
               <motion.span
                 className="block text-[#009E98]"
@@ -207,7 +207,7 @@ export function IntelligentLiving() {
 
             <motion.p
               {...reveal(0.3)}
-              className="mt-5 max-w-[410px] text-[13px] leading-[1.9] text-[#737B7A] sm:text-[14px]"
+              className="mt-5 max-w-[410px] text-[14px] font-normal leading-[1.65] text-[#737B7A] sm:text-[15px]"
             >
               Seamlessly control lighting, climate, music, curtains and
               more, all from one intelligent ecosystem.

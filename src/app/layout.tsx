@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     "Smart Home Automation",
     "Smart Lighting",
     "Smart Home Control",
-    "M18 Smart Dimming Knob",
+    "Smart Remote Controls",
     "Intelligent Living",
   ],
 };

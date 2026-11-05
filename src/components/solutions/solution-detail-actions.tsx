@@ -12,6 +12,7 @@ const interestMap: Record<string, ConsultationInterest> = {
   "smart-curtains": "Smart Curtains",
   "smart-entertainment": "Smart Entertainment",
   "complete-home-automation": "Complete Smart Home",
+  "home-security": "Home Security",
 };
 
 export function SolutionDetailActions({

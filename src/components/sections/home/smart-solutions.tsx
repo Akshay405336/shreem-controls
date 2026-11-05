@@ -144,6 +144,7 @@ export function SmartSolutions() {
           <HomeSectionHeading
             align="center"
             eyebrow="Our Solutions"
+            titleClassName="font-medium"
             title={
               <>
                 Smart <span className="text-[#009E98]">ecosystem</span>

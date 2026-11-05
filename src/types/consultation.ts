@@ -4,6 +4,7 @@ export type ConsultationInterest =
   | "Smart Curtains"
   | "Smart Entertainment"
   | "Complete Smart Home"
+  | "Home Security"
   | "Other";
 
 export type PropertyType =

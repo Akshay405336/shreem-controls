@@ -15,6 +15,8 @@ type PageHeroProps = {
   titleAccent?: string;
   description?: string;
   image?: string;
+  /** Used when `image` fails to load, before the global catalogue fallback. */
+  imageFallback?: string;
   variant?: "light" | "dark" | "image";
   children?: ReactNode;
 };
@@ -30,6 +32,7 @@ export function PageHero({
   titleAccent,
   description,
   image,
+  imageFallback,
   variant = "image",
   children,
 }: PageHeroProps) {
@@ -58,7 +61,11 @@ export function PageHero({
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: shouldReduceMotion ? 0 : 1.4, ease: "easeOut" }}
           >
-            <PageHeroBackgroundImage key={image} src={image} />
+            <PageHeroBackgroundImage
+              key={image}
+              src={image}
+              fallback={imageFallback}
+            />
           </motion.div>
           <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-black/55 via-black/30 to-black/10" />
           <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-black/65 via-black/20 to-black/45" />
@@ -144,7 +151,13 @@ export function PageHero({
   );
 }
 
-function PageHeroBackgroundImage({ src }: { src: string }) {
+function PageHeroBackgroundImage({
+  src,
+  fallback,
+}: {
+  src: string;
+  fallback?: string;
+}) {
   const [currentSrc, setCurrentSrc] = useState(src);
 
   return (
@@ -156,6 +169,10 @@ function PageHeroBackgroundImage({ src }: { src: string }) {
       className="object-cover"
       sizes="100vw"
       onError={() => {
+        if (fallback && currentSrc === src) {
+          setCurrentSrc(fallback);
+          return;
+        }
         if (currentSrc !== CATALOG_IMAGE_FALLBACK) {
           setCurrentSrc(CATALOG_IMAGE_FALLBACK);
         }

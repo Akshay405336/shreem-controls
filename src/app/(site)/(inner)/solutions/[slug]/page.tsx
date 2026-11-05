@@ -7,6 +7,8 @@ import { SolutionOverviewVisual } from "@/components/solutions/solution-overview
 import { ConsultationCtaSection } from "@/components/sections/shared/consultation-cta";
 import { PageHero } from "@/components/sections/shared/page-hero";
 import { HomeSectionHeading } from "@/components/ui/home-section-heading";
+import { HomeSecurityPage } from "@/components/solutions/home-security/home-security-page";
+import { homeSecuritySeo } from "@/data/home-security";
 import { getSolutionBySlug, solutions } from "@/data/solutions";
 import { SlugPageFallback } from "@/components/layout/slug-page-fallback";
 import { createPageMetadata } from "@/lib/metadata";
@@ -23,6 +25,13 @@ export async function generateMetadata({ params }: SolutionPageProps) {
   const { slug } = await params;
   const solution = getSolutionBySlug(slug);
   if (!solution) return {};
+  if (slug === "home-security") {
+    return createPageMetadata({
+      title: homeSecuritySeo.title,
+      description: homeSecuritySeo.description,
+      path: `/solutions/${solution.slug}`,
+    });
+  }
   return createPageMetadata({
     title: solution.name,
     description: solution.description,
@@ -42,6 +51,10 @@ async function SolutionDetailContent({ params }: SolutionPageProps) {
   const { slug } = await params;
   const solution = getSolutionBySlug(slug);
   if (!solution) notFound();
+
+  if (slug === "home-security") {
+    return <HomeSecurityPage />;
+  }
 
   return (
     <>

@@ -126,7 +126,7 @@ export function WhyChooseMoorgen() {
                 </span>
               </div>
 
-              <h2 className="max-w-[700px] font-display text-[clamp(2.2rem,3.8vw,3.6rem)] font-normal leading-[1.04] tracking-[-0.05em] text-[#252A2A]">
+              <h2 className="max-w-[700px] font-display text-[clamp(2.2rem,3.8vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.05em] text-[#252A2A]">
                 Intelligence, design
                 <span className="block text-[#009E98]">
                   and reliability

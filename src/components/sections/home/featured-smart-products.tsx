@@ -117,7 +117,7 @@ export function FeaturedSmartProducts() {
               <div className="absolute inset-[8%]">
                 <Image
                   src="/images/products/m18-smart-dimming-knob.png"
-                  alt="Shreem Controls M18 smart dimming knob"
+                  alt="Moorgen Smart Remote Controls"
                   fill
                   priority={false}
                   sizes="(max-width: 1024px) 100vw, 60vw"
@@ -160,7 +160,7 @@ export function FeaturedSmartProducts() {
             </div>
 
             <p className="mt-1 text-center text-[9px] uppercase tracking-[0.25em] text-[#a69b88]">
-              M18 Smart Dimming Knob
+              Smart Remote Controls
             </p>
           </motion.div>
 
@@ -185,8 +185,8 @@ export function FeaturedSmartProducts() {
             </h3>
 
             <p className="mt-4 text-sm leading-7 text-[#737B7A]">
-              Experience effortless control with the M18 Smart
-              Dimming Knob. Its four customisable keys let you
+              Experience effortless control with Smart Remote Controls. Its four
+              customisable keys let you
               manage multiple combinations of lighting, curtains
               and entertainment through one beautifully designed
               interface.

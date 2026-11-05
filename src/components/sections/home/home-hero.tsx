@@ -126,7 +126,7 @@ export function HomeHero() {
             {...reveal(0.75)}
             className="mt-5 max-w-[430px] text-[13px] leading-[1.65] text-white/80 sm:text-[15px]"
           >
-            The M18 Smart Dimming Knob, a refined, intuitive control for
+            Smart Remote Controls — a refined, intuitive control for
             lighting, music, curtains and more.
           </motion.p>
 
@@ -139,7 +139,7 @@ export function HomeHero() {
               href="/products"
               className="group inline-flex h-[46px] items-center gap-3 rounded-[5px] bg-[#e8d6b8] px-6 text-[12px] font-medium text-[#252A2A] transition-colors duration-300 hover:bg-white"
             >
-              Explore M18
+              Explore Smart Remote Controls
 
               <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
             </Link>

@@ -24,10 +24,10 @@ const mainCategories = [
   },
   {
     id: "smart-dimming-knob",
-    name: "Smart Dimming Knob",
+    name: "Smart Remote Controls",
     slug: "smart-dimming-knob",
     description:
-      "Precision rotary controls that bring intuitive lighting adjustment and personalised smart home interactions into a refined physical interface.",
+      "Handheld and tabletop remote controls for intuitive lighting, scenes, shading and other connected home functions.",
     heroImage: "/images/products/m18-smart-dimming-knob.png",
     megaMenuImage: "/images/Smart-Dimming-Knob.png",
     displayOrder: 30,

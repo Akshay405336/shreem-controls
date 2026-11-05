@@ -99,7 +99,7 @@ export function AboutBrandPhilosophy() {
             <div className="relative z-[1] min-h-[340px] overflow-hidden rounded-[20px] border border-[#E8F5F4] bg-white shadow-[0_12px_32px_rgba(0,158,152,0.12)] sm:min-h-[380px] lg:min-h-[400px]">
               <Image
                 src="/images/products/m18-smart-dimming-knob.png"
-                alt="Shreem Controls M18 smart dimming knob"
+                alt="Moorgen Smart Remote Controls"
                 fill
                 sizes="(max-width: 1024px) 100vw, 55vw"
                 className="object-contain p-10 sm:p-12"

@@ -17,6 +17,7 @@ const interestOptions: ConsultationInterest[] = [
   "Smart Curtains",
   "Smart Entertainment",
   "Complete Smart Home",
+  "Home Security",
   "Other",
 ];
 

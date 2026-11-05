@@ -21,17 +21,15 @@ export function useHeaderTheme() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const lenisRef = useContext(LenisRefContext);
-  const [heroHeader, setHeroHeader] = useState(isHome);
+  const [scrollAtHero, setScrollAtHero] = useState(true);
   const [sectionTheme, setSectionTheme] = useState<HeaderTheme>("light");
+  const heroHeader = isHome && scrollAtHero;
 
   useEffect(() => {
-    if (!isHome) {
-      setHeroHeader(false);
-      return;
-    }
+    if (!isHome) return;
 
     const applyScroll = (y: number) => {
-      setHeroHeader((prev) => resolveHeroHeader(prev, y));
+      setScrollAtHero((prev) => resolveHeroHeader(prev, y));
     };
 
     const onWindowScroll = () => applyScroll(window.scrollY);
@@ -113,7 +111,7 @@ export function useHeaderTheme() {
 
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
-  }, [isHome, pathname, heroHeader]);
+  }, [isHome, pathname, scrollAtHero]);
 
   if (isHome && heroHeader) {
     return { appearance: "hero" as const, scrolled: !heroHeader };

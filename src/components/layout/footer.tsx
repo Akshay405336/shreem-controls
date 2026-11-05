@@ -20,19 +20,19 @@ export function Footer() {
             <Link
               href="/"
               aria-label={`${siteConfig.name} Home`}
-              className="inline-flex w-full justify-center"
+              className="inline-flex w-full justify-center leading-none"
             >
               <img
-                src="/logo/logo-white.png"
+                src="/logo/Shreem-Controls-black-logo.png"
                 alt={siteConfig.name}
-                width={220}
-                height={56}
+                width={240}
+                height={62}
                 loading="lazy"
                 decoding="async"
-                className="mx-auto h-12 w-auto max-w-[220px] object-contain sm:h-14 sm:max-w-[240px]"
+                className="mx-auto block h-14 w-auto max-w-[210px] object-contain sm:h-[3.75rem] sm:max-w-[230px] lg:h-16 lg:max-w-[240px]"
               />
             </Link>
-            <p className="mt-5 max-w-xs text-sm leading-7 text-white/75">
+            <p className="mt-2 max-w-xs text-sm leading-6 text-white/75">
               Premium smart-home automation through refined control devices and intelligent
               living experiences.
             </p>

@@ -71,9 +71,9 @@ export const catalogMaster = {
   },
   {
     "id": "smart-dimming-knob",
-    "name": "Smart Dimming Knob",
+    "name": "Smart Remote Controls",
     "slug": "smart-dimming-knob",
-    "description": "Precision rotary controls that bring intuitive lighting adjustment and personalised smart home interactions into a refined physical interface.",
+    "description": "Handheld and tabletop remote controls for intuitive lighting, scenes, shading and other connected home functions.",
     "heroImage": "/images/products/m18-smart-dimming-knob.png",
     "megaMenuImage": "/images/Smart-Dimming-Knob.png",
     "displayOrder": 30
@@ -619,12 +619,12 @@ export const catalogMaster = {
   },
   {
     "id": "moorgen-m18-smart-dimming-knob",
-    "name": "M18 Smart Dimming Knob",
+    "name": "Smart Remote Controls",
     "slug": "m18-smart-dimming-knob",
     "brandId": "moorgen",
     "categoryId": "smart-dimming-knob",
     "shortDescription": "Rotary dimming knob with four configurable keys, stepless 0–100% brightness, colour-temperature control, shading, music volume and double-tap scenes.",
-    "fullDescription": "The M18 Smart Dimming Knob is Moorgen’s tactile controller for residents who prefer physical interaction over touch glass. A rotary ring delivers stepless 0–100% brightness adjustment on selected luminaires, while four configurable keys can operate individual or synchronised lighting groups, including spotlights, strips and decorative fixtures. Single tap selects a device, rotation adjusts the active function, and double tap recalls a scene. The knob also supports colour-temperature tuning, blind and curtain motion, awning control where integrated, and background music level. Custom icons and engraved text personalise each key. A rechargeable lithium battery is specified for approximately three to six months of use per charge in Moorgen’s M18 Series documentation. Three finish variants share one product record.",
+    "fullDescription": "The M18 is Moorgen’s tactile controller for residents who prefer physical interaction over touch glass. A rotary ring delivers stepless 0–100% brightness adjustment on selected luminaires, while four configurable keys can operate individual or synchronised lighting groups, including spotlights, strips and decorative fixtures. Single tap selects a device, rotation adjusts the active function, and double tap recalls a scene. The knob also supports colour-temperature tuning, blind and curtain motion, awning control where integrated, and background music level. Custom icons and engraved text personalise each key. A rechargeable lithium battery is specified for approximately three to six months of use per charge in Moorgen’s M18 Series documentation. Three finish variants share one product record.",
     "features": [
       "Stepless 0–100% rotary dimming",
       "Four configurable physical keys",

@@ -44,3 +44,15 @@ export function hasContactDetails() {
 export function hasMapEmbed() {
   return Boolean(contactConfig.mapEmbedUrl);
 }
+
+const WHATSAPP_NUMBER = "919448524400";
+
+const WHATSAPP_PREFILL_MESSAGE =
+  "Hello Shreem Controls, I would like to know more about your smart home automation and security solutions.";
+
+export const whatsAppContact = {
+  displayNumber: "+91 94485 24400",
+  waMeNumber: WHATSAPP_NUMBER,
+  prefillMessage: WHATSAPP_PREFILL_MESSAGE,
+  href: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_PREFILL_MESSAGE)}`,
+} as const;
