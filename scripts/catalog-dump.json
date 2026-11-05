@@ -1,0 +1,906 @@
+[
+  {
+    "name": "HyPanel Supreme",
+    "brandName": "Akubela",
+    "seriesName": "HyPanel Series",
+    "categorySlug": "smart-touch-panel",
+    "shortDescription": "A 12-inch Android 12 central touchscreen with 2.5K display, integrated relays, digital inputs, sensors and multi-protocol wireless connectivity for whole-home control.",
+    "fullDescription": "HyPanel Supreme is Akubela’s large-format smart home command centre. Its 12-inch multi-touch display runs Android 12 at 2.5K resolution inside a metal frame, giving residents a vivid interface for lighting, climate, scenes and connected devices. A 5-megapixel camera with a physical privacy shutter supports video intercom where the project requires it, while six built-in relay gangs and eight digital inputs let the panel act on loads and status signals on the bus. RS485 extends integration to compatible subsystems. On-board sensors complement room automation, and ZigBee 3.0, Wi-Fi 6 and Bluetooth 5.0 provide the wireless reach expected in premium residential deployments.",
+    "features": [
+      "12-inch multi-touch display with 2.5K resolution",
+      "Android 12 operating system in a metal frame",
+      "5-megapixel camera with physical privacy shutter",
+      "Six-gang relay outputs and eight-channel digital input",
+      "RS485 interface for extended device integration",
+      "Built-in environmental and presence-oriented sensors",
+      "ZigBee 3.0, Wi-Fi 6 and Bluetooth 5.0 connectivity"
+    ],
+    "specifications": [
+      {
+        "label": "Display",
+        "value": "12-inch multi-touch, 2.5K"
+      },
+      {
+        "label": "Operating system",
+        "value": "Android 12"
+      },
+      {
+        "label": "Frame",
+        "value": "Metal"
+      },
+      {
+        "label": "Camera",
+        "value": "5 MP with privacy shutter"
+      },
+      {
+        "label": "Relay outputs",
+        "value": "6-gang integrated"
+      },
+      {
+        "label": "Digital inputs",
+        "value": "8 channels"
+      },
+      {
+        "label": "Connectivity",
+        "value": "ZigBee 3.0, Wi-Fi 6, Bluetooth 5.0, RS485"
+      }
+    ],
+    "relatedSlugs": [
+      "hypanel-ultra",
+      "hypanel-pro"
+    ],
+    "sourceDocument": "akubela Smart Home Catalogue260701.pdf",
+    "contentVerificationStatus": "verified",
+    "id": "akubela-hypanel-supreme",
+    "slug": "hypanel-supreme",
+    "brandSlug": "akubela",
+    "seriesSlug": "hypanel-series",
+    "image": "/images/catalog/akubela/hypanel-supreme.png",
+    "tagline": "A 12-inch Android 12 central touchscreen with 2.5K display, integrated relays, digital inputs, sensors and multi-protocol wireless connectivity for whole-home control.",
+    "description": "HyPanel Supreme is Akubela’s large-format smart home command centre. Its 12-inch multi-touch display runs Android 12 at 2.5K resolution inside a metal frame, giving residents a vivid interface for lighting, climate, scenes and connected devices. A 5-megapixel camera with a physical privacy shutter supports video intercom where the project requires it, while six built-in relay gangs and eight digital inputs let the panel act on loads and status signals on the bus. RS485 extends integration to compatible subsystems. On-board sensors complement room automation, and ZigBee 3.0, Wi-Fi 6 and Bluetooth 5.0 provide the wireless reach expected in premium residential deployments."
+  },
+  {
+    "name": "HyPanel Ultra",
+    "brandName": "Akubela",
+    "seriesName": "HyPanel Series",
+    "categorySlug": "smart-touch-panel",
+    "shortDescription": "A 10.36-inch Android 12 touchscreen at 2K resolution with six relay outputs, eight digital inputs, RS485, sensors and ZigBee 3.0, Wi-Fi 6 and Bluetooth 5.0.",
+    "fullDescription": "HyPanel Ultra delivers a bright 10.36-inch multi-touch canvas at 2K resolution with Android 12, suited to living areas where a prominent but slightly more compact controller is preferred over the Supreme format. The interface supports up to 16-million colours for crisp scene and device status presentation. Six relay gangs and eight digital inputs allow direct control and feedback from the panel, while RS485 connects auxiliary equipment. Integrated sensors support ambient automation logic. Wireless coverage includes ZigBee 3.0, Wi-Fi 6 and Bluetooth 5.0, positioning Ultra as a connected hub for lighting, shading, HVAC and security scenes rather than a simple scene keypad.",
+    "features": [
+      "10.36-inch multi-touch display at 2K resolution",
+      "Android 12 with 16-million-colour UI capability",
+      "Six-gang relay and eight-channel digital input",
+      "RS485 for extended subsystem integration",
+      "Integrated on-board sensors",
+      "ZigBee 3.0, Wi-Fi 6 and Bluetooth 5.0"
+    ],
+    "specifications": [
+      {
+        "label": "Display",
+        "value": "10.36-inch multi-touch, 2K"
+      },
+      {
+        "label": "Operating system",
+        "value": "Android 12"
+      },
+      {
+        "label": "Colour depth",
+        "value": "16-million-colour interface"
+      },
+      {
+        "label": "Relay outputs",
+        "value": "6-gang"
+      },
+      {
+        "label": "Digital inputs",
+        "value": "8 channels"
+      },
+      {
+        "label": "Connectivity",
+        "value": "ZigBee 3.0, Wi-Fi 6, Bluetooth 5.0, RS485"
+      }
+    ],
+    "relatedSlugs": [
+      "hypanel-supreme",
+      "hypanel-elite-10"
+    ],
+    "sourceDocument": "akubela Smart Home Catalogue260701.pdf",
+    "contentVerificationStatus": "verified",
+    "id": "akubela-hypanel-ultra",
+    "slug": "hypanel-ultra",
+    "brandSlug": "akubela",
+    "seriesSlug": "hypanel-series",
+    "image": "/images/catalog/akubela/hypanel-ultra.png",
+    "tagline": "A 10.36-inch Android 12 touchscreen at 2K resolution with six relay outputs, eight digital inputs, RS485, sensors and ZigBee 3.0, Wi-Fi 6 and Bluetooth 5.0.",
+    "description": "HyPanel Ultra delivers a bright 10.36-inch multi-touch canvas at 2K resolution with Android 12, suited to living areas where a prominent but slightly more compact controller is preferred over the Supreme format. The interface supports up to 16-million colours for crisp scene and device status presentation. Six relay gangs and eight digital inputs allow direct control and feedback from the panel, while RS485 connects auxiliary equipment. Integrated sensors support ambient automation logic. Wireless coverage includes ZigBee 3.0, Wi-Fi 6 and Bluetooth 5.0, positioning Ultra as a connected hub for lighting, shading, HVAC and security scenes rather than a simple scene keypad."
+  },
+  {
+    "name": "HyPanel Pro",
+    "brandName": "Akubela",
+    "seriesName": "HyPanel Series",
+    "categorySlug": "smart-touch-panel",
+    "shortDescription": "An 8-inch Android 10 touch controller with 1280 × 800 display, dual microphones, privacy-shutter camera, IR control, sensors and ZigBee, Wi-Fi and Ethernet.",
+    "fullDescription": "HyPanel Pro combines an 8-inch multi-touch screen at 1280 × 800 with Android 10 for responsive day-to-day smart home operation. Dual microphones improve voice-oriented interactions where enabled in the project, and the 5-megapixel camera includes a physical privacy shutter for intercom or monitoring use cases. Infrared remote-control support lets the panel command compatible AV and climate appliances from one surface. Built-in sensors feed automation routines, while ZigBee, Wi-Fi and Ethernet provide wired and wireless connectivity for device orchestration. Pro fits master suites, family rooms and entry zones that need full touch UI without the largest display format.",
+    "features": [
+      "8-inch multi-touch display, 1280 × 800",
+      "Android 10 platform",
+      "Dual microphones for voice-enabled use cases",
+      "5-megapixel camera with physical privacy shutter",
+      "Infrared remote-control transmission",
+      "Integrated sensors",
+      "ZigBee, Wi-Fi and Ethernet connectivity"
+    ],
+    "specifications": [
+      {
+        "label": "Display",
+        "value": "8-inch multi-touch, 1280 × 800"
+      },
+      {
+        "label": "Operating system",
+        "value": "Android 10"
+      },
+      {
+        "label": "Audio input",
+        "value": "Dual microphones"
+      },
+      {
+        "label": "Camera",
+        "value": "5 MP with privacy shutter"
+      },
+      {
+        "label": "Control",
+        "value": "Infrared remote support"
+      },
+      {
+        "label": "Connectivity",
+        "value": "ZigBee, Wi-Fi, Ethernet"
+      }
+    ],
+    "relatedSlugs": [
+      "hypanel-ultra",
+      "hypanel-lux-piano"
+    ],
+    "sourceDocument": "akubela Smart Home Catalogue260701.pdf",
+    "contentVerificationStatus": "verified",
+    "id": "akubela-hypanel-pro",
+    "slug": "hypanel-pro",
+    "brandSlug": "akubela",
+    "seriesSlug": "hypanel-series",
+    "image": "/images/catalog/akubela/hypanel-pro.png",
+    "tagline": "An 8-inch Android 10 touch controller with 1280 × 800 display, dual microphones, privacy-shutter camera, IR control, sensors and ZigBee, Wi-Fi and Ethernet.",
+    "description": "HyPanel Pro combines an 8-inch multi-touch screen at 1280 × 800 with Android 10 for responsive day-to-day smart home operation. Dual microphones improve voice-oriented interactions where enabled in the project, and the 5-megapixel camera includes a physical privacy shutter for intercom or monitoring use cases. Infrared remote-control support lets the panel command compatible AV and climate appliances from one surface. Built-in sensors feed automation routines, while ZigBee, Wi-Fi and Ethernet provide wired and wireless connectivity for device orchestration. Pro fits master suites, family rooms and entry zones that need full touch UI without the largest display format."
+  },
+  {
+    "name": "HyPanel Elite 10",
+    "brandName": "Akubela",
+    "seriesName": "HyPanel Series",
+    "categorySlug": "smart-touch-panel",
+    "shortDescription": "A flush-mount 10-inch Android 12 touchscreen with ZigBee, Wi-Fi, Ethernet and RS485, eight digital inputs, relay outputs and integrated sensors.",
+    "fullDescription": "HyPanel Elite 10 targets architectural installations that demand a 10-inch Android 12 interface flush-mounted into standard or custom back boxes. ZigBee, Wi-Fi, Ethernet and RS485 cover the connectivity mix typical of whole-home projects. Eight digital input channels accept status from sensors and contacts, while relay output arrangements depend on the selected model variant documented in the Akubela catalogue. On-board sensors support environmental automation without extra wall devices. Elite 10 is suited to corridors, bedrooms and lounge areas where a large, discreet touch surface controls lighting, curtains, HVAC and security scenes from one KNX-ready smart home ecosystem.",
+    "features": [
+      "10-inch touchscreen on Android 12",
+      "Flush mounting options for architectural fit-out",
+      "Eight digital input channels",
+      "Relay outputs per model variant",
+      "Integrated sensors",
+      "ZigBee, Wi-Fi, Ethernet and RS485"
+    ],
+    "specifications": [
+      {
+        "label": "Display",
+        "value": "10-inch touchscreen"
+      },
+      {
+        "label": "Operating system",
+        "value": "Android 12"
+      },
+      {
+        "label": "Digital inputs",
+        "value": "8 channels"
+      },
+      {
+        "label": "Relay outputs",
+        "value": "Model-dependent configuration"
+      },
+      {
+        "label": "Installation",
+        "value": "Flush mount"
+      },
+      {
+        "label": "Connectivity",
+        "value": "ZigBee, Wi-Fi, Ethernet, RS485"
+      }
+    ],
+    "relatedSlugs": [
+      "hypanel-ultra",
+      "hypanel-supreme"
+    ],
+    "sourceDocument": "akubela Smart Home Catalogue260701.pdf",
+    "contentVerificationStatus": "verified",
+    "id": "akubela-hypanel-elite-10",
+    "slug": "hypanel-elite-10",
+    "brandSlug": "akubela",
+    "seriesSlug": "hypanel-series",
+    "image": "/images/catalog/akubela/hypanel-elite-10.png",
+    "tagline": "A flush-mount 10-inch Android 12 touchscreen with ZigBee, Wi-Fi, Ethernet and RS485, eight digital inputs, relay outputs and integrated sensors.",
+    "description": "HyPanel Elite 10 targets architectural installations that demand a 10-inch Android 12 interface flush-mounted into standard or custom back boxes. ZigBee, Wi-Fi, Ethernet and RS485 cover the connectivity mix typical of whole-home projects. Eight digital input channels accept status from sensors and contacts, while relay output arrangements depend on the selected model variant documented in the Akubela catalogue. On-board sensors support environmental automation without extra wall devices. Elite 10 is suited to corridors, bedrooms and lounge areas where a large, discreet touch surface controls lighting, curtains, HVAC and security scenes from one KNX-ready smart home ecosystem."
+  },
+  {
+    "name": "HyPanel Lux Piano",
+    "brandName": "Akubela",
+    "seriesName": "HyPanel Series",
+    "categorySlug": "smart-touch-panel",
+    "shortDescription": "A compact 2.1-inch touchscreen with metal rotary knob, four AG glass buttons, RGB light ring, Android 10, IR, sensors and ZigBee, Wi-Fi and Bluetooth.",
+    "fullDescription": "HyPanel Lux Piano blends a 2.1-inch touchscreen with a metal knob that supports press control for tactile dimming and selection tasks. Four anti-glare glass buttons provide quick scene or device access, while an RGB light ring gives visible status feedback. Android 10 powers the interface layer. Infrared remote-control support extends reach to compatible appliances, and built-in sensors assist ambient logic. ZigBee, Wi-Fi and Bluetooth connect the panel to the wider Akubela ecosystem. Lux Piano suits bedside tables, doorways and secondary control points where a full-format display would dominate the interior architecture.",
+    "features": [
+      "2.1-inch touchscreen with Android 10",
+      "Metal rotary knob with press control",
+      "Four AG glass tactile buttons",
+      "RGB status light ring",
+      "Infrared remote-control support",
+      "Built-in sensors",
+      "ZigBee, Wi-Fi and Bluetooth"
+    ],
+    "specifications": [
+      {
+        "label": "Display",
+        "value": "2.1-inch touchscreen"
+      },
+      {
+        "label": "Operating system",
+        "value": "Android 10"
+      },
+      {
+        "label": "Physical controls",
+        "value": "Metal knob + 4 AG glass buttons"
+      },
+      {
+        "label": "Feedback",
+        "value": "RGB light ring"
+      },
+      {
+        "label": "Control",
+        "value": "Infrared remote support"
+      },
+      {
+        "label": "Connectivity",
+        "value": "ZigBee, Wi-Fi, Bluetooth"
+      }
+    ],
+    "relatedSlugs": [
+      "hypanel-pro",
+      "aura-series-smart-switch"
+    ],
+    "sourceDocument": "akubela Smart Home Catalogue260701.pdf",
+    "contentVerificationStatus": "verified",
+    "id": "akubela-hypanel-lux-piano",
+    "slug": "hypanel-lux-piano",
+    "brandSlug": "akubela",
+    "seriesSlug": "hypanel-series",
+    "image": "/images/catalog/akubela/hypanel-lux-piano.png",
+    "tagline": "A compact 2.1-inch touchscreen with metal rotary knob, four AG glass buttons, RGB light ring, Android 10, IR, sensors and ZigBee, Wi-Fi and Bluetooth.",
+    "description": "HyPanel Lux Piano blends a 2.1-inch touchscreen with a metal knob that supports press control for tactile dimming and selection tasks. Four anti-glare glass buttons provide quick scene or device access, while an RGB light ring gives visible status feedback. Android 10 powers the interface layer. Infrared remote-control support extends reach to compatible appliances, and built-in sensors assist ambient logic. ZigBee, Wi-Fi and Bluetooth connect the panel to the wider Akubela ecosystem. Lux Piano suits bedside tables, doorways and secondary control points where a full-format display would dominate the interior architecture."
+  },
+  {
+    "name": "Aura Series Smart Switch",
+    "brandName": "Akubela",
+    "seriesName": "Aura Series",
+    "categorySlug": "smart-keypad-switch",
+    "shortDescription": "Akubela Aura Series wall switches for physical lighting and scene control, documented in the Akubela smart home catalogue with range-specific finishes and gang layouts.",
+    "fullDescription": "The Aura Series Smart Switch family provides tactile wall control for lighting and connected loads as illustrated in the Akubela Smart Home Catalogue. Each model is intended for flush installation alongside other Akubela HyPanel and gateway devices, giving occupants a familiar switch feel while remaining part of the same automation ecosystem. Configurations and finishes follow the catalogue article structure rather than a single universal hardware layout. Use Aura where projects require discrete button control at doorways, bedsides and service areas while central touch panels handle richer scene editing.",
+    "features": [
+      "Physical smart switch interface for lighting and loads",
+      "Designed for flush wall installation with Akubela systems",
+      "Multiple gang and finish options per catalogue listings",
+      "Complements HyPanel touch controllers in mixed control schemes"
+    ],
+    "relatedSlugs": [
+      "hypanel-lux-piano",
+      "hypanel-pro"
+    ],
+    "sourceDocument": "akubela Smart Home Catalogue260701.pdf",
+    "contentVerificationStatus": "partial",
+    "id": "akubela-aura-series-smart-switch",
+    "slug": "aura-series-smart-switch",
+    "brandSlug": "akubela",
+    "seriesSlug": "aura-series",
+    "image": "/images/catalog/akubela/aura-series-smart-switch.png",
+    "tagline": "Akubela Aura Series wall switches for physical lighting and scene control, documented in the Akubela smart home catalogue with range-specific finishes and gang layouts.",
+    "description": "The Aura Series Smart Switch family provides tactile wall control for lighting and connected loads as illustrated in the Akubela Smart Home Catalogue. Each model is intended for flush installation alongside other Akubela HyPanel and gateway devices, giving occupants a familiar switch feel while remaining part of the same automation ecosystem. Configurations and finishes follow the catalogue article structure rather than a single universal hardware layout. Use Aura where projects require discrete button control at doorways, bedsides and service areas while central touch panels handle richer scene editing."
+  },
+  {
+    "name": "JAL Shutter Actuator",
+    "brandName": "MDT",
+    "seriesName": "Shutter Actuators",
+    "categorySlug": "curtain-controller",
+    "shortDescription": "KNX shutter actuator for 230 V AC motors with sun-position logic, absolute slat tracking, ventilation positions and scene-linked shading control.",
+    "fullDescription": "The MDT JAL Shutter Actuator is installed in the electrical distribution or KNX cabinet to drive shutter and blind motors—not a decorative wall switch. Relevant models support 230 V AC motor configurations documented in the MDT product list. Sun-position calculation enables automatic shading and slat tracking, while absolute height and slat positioning deliver precise daylight management. Dedicated ventilation positions, scene integration, alarm reactions, central overrides and locking functions align with whole-building KNX logic. Secure variants are available where the catalogue specifies enhanced behaviour.",
+    "features": [
+      "KNX actuator for shutter and blind motor control",
+      "230 V AC motor support on applicable models",
+      "Sun-position calculation and automatic shading",
+      "Absolute height and slat positioning",
+      "Ventilation positioning",
+      "Scene, alarm, central and locking functions",
+      "Secure variants where documented"
+    ],
+    "relatedSlugs": [
+      "akd-230-v-dimming-actuator",
+      "dali-control-pro64-gateway"
+    ],
+    "sourceDocument": "MDT_Productlist_EN 2026.pdf",
+    "contentVerificationStatus": "verified",
+    "id": "mdt-jal-shutter-actuator",
+    "slug": "jal-shutter-actuator",
+    "brandSlug": "mdt",
+    "seriesSlug": "shutter-actuators",
+    "image": "/images/catalog/mdt/jal-shutter-actuator.png",
+    "tagline": "KNX shutter actuator for 230 V AC motors with sun-position logic, absolute slat tracking, ventilation positions and scene-linked shading control.",
+    "description": "The MDT JAL Shutter Actuator is installed in the electrical distribution or KNX cabinet to drive shutter and blind motors—not a decorative wall switch. Relevant models support 230 V AC motor configurations documented in the MDT product list. Sun-position calculation enables automatic shading and slat tracking, while absolute height and slat positioning deliver precise daylight management. Dedicated ventilation positions, scene integration, alarm reactions, central overrides and locking functions align with whole-building KNX logic. Secure variants are available where the catalogue specifies enhanced behaviour."
+  },
+  {
+    "name": "AKD 230 V Dimming Actuator",
+    "brandName": "MDT",
+    "seriesName": "Dimming Actuators",
+    "categorySlug": "smart-lighting",
+    "shortDescription": "KNX actuator for switching and dimming 230 V lighting with leading/trailing-edge selection, load protection, soft start and measured power feedback.",
+    "fullDescription": "The AKD 230 V Dimming Actuator manages switching and dimming of compatible 230 V lighting circuits from the KNX bus. Operation is optimised for dimmable LED loads with selectable leading-edge or trailing-edge dimming modes. Effective power measurement supports energy monitoring in automation logic. Overload, short-circuit and temperature protection guard the installation, while soft-start behaviour reduces inrush stress on lamps. Day and night dimming functions extend comfort scenes. Channel count and per-channel power ratings depend on the specific AKD model selected from the MDT catalogue—those values must be taken from the order code, not assumed here.",
+    "features": [
+      "Switching and dimming of 230 V lighting circuits",
+      "Optimised dimming behaviour for dimmable LEDs",
+      "Selectable leading-edge and trailing-edge dimming",
+      "Effective power measurement",
+      "Overload, short-circuit and temperature protection",
+      "Soft-start functionality",
+      "Day/night dimming functions"
+    ],
+    "variants": [
+      {
+        "name": "Channel and power ratings",
+        "note": "Select the AKD order code for required channels and wattage per MDT_Productlist_EN 2026"
+      }
+    ],
+    "relatedSlugs": [
+      "dali-control-pro64-gateway",
+      "jal-shutter-actuator"
+    ],
+    "sourceDocument": "MDT_Productlist_EN 2026.pdf",
+    "contentVerificationStatus": "verified",
+    "id": "mdt-akd-230-v-dimming-actuator",
+    "slug": "akd-230-v-dimming-actuator",
+    "brandSlug": "mdt",
+    "seriesSlug": "dimming-actuators",
+    "image": "/images/catalog/mdt/akd-230-v-dimming-actuator.png",
+    "tagline": "KNX actuator for switching and dimming 230 V lighting with leading/trailing-edge selection, load protection, soft start and measured power feedback.",
+    "description": "The AKD 230 V Dimming Actuator manages switching and dimming of compatible 230 V lighting circuits from the KNX bus. Operation is optimised for dimmable LED loads with selectable leading-edge or trailing-edge dimming modes. Effective power measurement supports energy monitoring in automation logic. Overload, short-circuit and temperature protection guard the installation, while soft-start behaviour reduces inrush stress on lamps. Day and night dimming functions extend comfort scenes. Channel count and per-channel power ratings depend on the specific AKD model selected from the MDT catalogue—those values must be taken from the order code, not assumed here."
+  },
+  {
+    "name": "DALI Control PRO64 Gateway",
+    "brandName": "MDT",
+    "seriesName": "DALI Gateways",
+    "categorySlug": "smart-lighting",
+    "shortDescription": "KNX DALI-2 gateway controlling up to 64 ECGs and 16 groups with Tunable White, RGB/RGBW/XY, sensors, web commissioning and emergency monitoring.",
+    "fullDescription": "DALI Control PRO64 Gateway bridges KNX building logic with DALI-2 luminaires and drivers. It individually controls up to 64 electronic control gear (ECG) addresses and 16 DALI groups, carries DALI-2 Multi-Master certification, and supports DALI-2 motion detectors and light sensors where configured. DT6 and DT8 device classes enable switching and dimming plus Tunable White, RGB, RGBW and XY colour control. Integrated constant-light control serves up to three lighting groups. A web interface assists commissioning, while fault and emergency-light monitoring functions support maintenance workflows documented in the MDT catalogue.",
+    "features": [
+      "Control of up to 64 ECGs and 16 DALI groups",
+      "DALI-2 Multi-Master certification",
+      "DALI-2 motion detector and light sensor support",
+      "DT6 and DT8 device support",
+      "Tunable White and RGB/RGBW/XY colour control",
+      "Constant-light control for up to 3 groups",
+      "Web interface and commissioning tools",
+      "Fault and emergency-light monitoring"
+    ],
+    "relatedSlugs": [
+      "akd-230-v-dimming-actuator",
+      "push-button-light-55"
+    ],
+    "sourceDocument": "MDT_Productlist_EN 2026.pdf",
+    "contentVerificationStatus": "verified",
+    "id": "mdt-dali-control-pro64-gateway",
+    "slug": "dali-control-pro64-gateway",
+    "brandSlug": "mdt",
+    "seriesSlug": "dali-gateways",
+    "image": "/images/catalog/mdt/dali-control-pro64-gateway.png",
+    "tagline": "KNX DALI-2 gateway controlling up to 64 ECGs and 16 groups with Tunable White, RGB/RGBW/XY, sensors, web commissioning and emergency monitoring.",
+    "description": "DALI Control PRO64 Gateway bridges KNX building logic with DALI-2 luminaires and drivers. It individually controls up to 64 electronic control gear (ECG) addresses and 16 DALI groups, carries DALI-2 Multi-Master certification, and supports DALI-2 motion detectors and light sensors where configured. DT6 and DT8 device classes enable switching and dimming plus Tunable White, RGB, RGBW and XY colour control. Integrated constant-light control serves up to three lighting groups. A web interface assists commissioning, while fault and emergency-light monitoring functions support maintenance workflows documented in the MDT catalogue."
+  },
+  {
+    "name": "Push Button Light 55",
+    "brandName": "MDT",
+    "seriesName": "Elevio Push Buttons",
+    "categorySlug": "smart-keypad-switch",
+    "shortDescription": "MDT Elevio KNX push-button interface in 55 mm design with configurable gangs, LED indications and optional temperature sensor per catalogue model.",
+    "fullDescription": "Push Button Light 55 belongs to MDT’s Elevio range of KNX push-button interfaces. Installers choose gang configurations, LED indication layouts and optional integrated temperature sensors according to the exact order code in MDT_Productlist_EN 2026. The 55 mm form factor suits European flush back boxes where a tactile button plate is preferred over touch glass. Each configuration is treated as a variant of this product family rather than a separate marketing record, keeping the website focused on representative hardware while detailed article numbers remain in the PDF.",
+    "features": [
+      "KNX push-button control in 55 mm Elevio format",
+      "Multiple gang configurations per catalogue",
+      "LED status indications on supported models",
+      "Optional temperature sensor variants"
+    ],
+    "variants": [
+      {
+        "name": "Gang configurations",
+        "note": "See MDT Elevio order codes for button count"
+      },
+      {
+        "name": "Temperature sensor option",
+        "note": "Available on selected models only"
+      }
+    ],
+    "relatedSlugs": [
+      "glass-push-button-ii-light",
+      "ionprime-pb-knx"
+    ],
+    "sourceDocument": "MDT_Productlist_EN 2026.pdf",
+    "contentVerificationStatus": "partial",
+    "id": "mdt-push-button-light-55",
+    "slug": "push-button-light-55",
+    "brandSlug": "mdt",
+    "seriesSlug": "elevio-push-buttons",
+    "image": "/images/catalog/mdt/push-button-light-55.png",
+    "tagline": "MDT Elevio KNX push-button interface in 55 mm design with configurable gangs, LED indications and optional temperature sensor per catalogue model.",
+    "description": "Push Button Light 55 belongs to MDT’s Elevio range of KNX push-button interfaces. Installers choose gang configurations, LED indication layouts and optional integrated temperature sensors according to the exact order code in MDT_Productlist_EN 2026. The 55 mm form factor suits European flush back boxes where a tactile button plate is preferred over touch glass. Each configuration is treated as a variant of this product family rather than a separate marketing record, keeping the website focused on representative hardware while detailed article numbers remain in the PDF."
+  },
+  {
+    "name": "Glass Push Button II Light",
+    "brandName": "MDT",
+    "seriesName": "Lucilio Glass Push Buttons",
+    "categorySlug": "smart-keypad-switch",
+    "shortDescription": "Lucilio glass-finish KNX push button with configurable gangs and sensor options documented in the MDT glass push-button range.",
+    "fullDescription": "Glass Push Button II Light is MDT’s Lucilio glass-finish KNX push-button series for interiors that require a reflective, minimal plate. Gang layouts, engraving options and sensor integrations vary by catalogue article; they are grouped here as variants rather than duplicated product cards. The glass surface differentiates this range from the Elevio Push Button Light 55 while fulfilling the same KNX switching, dimming and scene triggering roles when programmed in ETS.",
+    "features": [
+      "Glass-finish KNX push-button plate (Lucilio)",
+      "Configurable gang layouts per order code",
+      "Supports KNX switching, dimming and scene triggers",
+      "Sensor options where documented for selected models"
+    ],
+    "variants": [
+      {
+        "name": "Gang and sensor options",
+        "note": "Refer to Lucilio glass push-button entries in MDT_Productlist_EN 2026"
+      }
+    ],
+    "relatedSlugs": [
+      "push-button-light-55",
+      "ionprime-pb-knx"
+    ],
+    "sourceDocument": "MDT_Productlist_EN 2026.pdf",
+    "contentVerificationStatus": "partial",
+    "id": "mdt-glass-push-button-ii-light",
+    "slug": "glass-push-button-ii-light",
+    "brandSlug": "mdt",
+    "seriesSlug": "lucilio-glass-push-buttons",
+    "image": "/images/catalog/mdt/glass-push-button-ii-light.png",
+    "tagline": "Lucilio glass-finish KNX push button with configurable gangs and sensor options documented in the MDT glass push-button range.",
+    "description": "Glass Push Button II Light is MDT’s Lucilio glass-finish KNX push-button series for interiors that require a reflective, minimal plate. Gang layouts, engraving options and sensor integrations vary by catalogue article; they are grouped here as variants rather than duplicated product cards. The glass surface differentiates this range from the Elevio Push Button Light 55 while fulfilling the same KNX switching, dimming and scene triggering roles when programmed in ETS."
+  },
+  {
+    "name": "VisuControl Plus",
+    "brandName": "MDT",
+    "seriesName": "Touch Displays",
+    "categorySlug": "smart-touch-panel",
+    "shortDescription": "MDT VisuControl Plus touch display for KNX visualization and room control—include detailed specs only from confirmed MDT catalogue entries.",
+    "fullDescription": "VisuControl Plus is listed in MDT_Productlist_EN 2026 as a touch display product for KNX projects requiring on-wall visualization. This website entry is intentionally concise: display size, resolution and processor details must be copied from the exact PDF article before publication. It is included as one of six representative MDT products covering the Smart Touch Panel category alongside actuators, gateways and push buttons. Update specifications when the confirmed catalogue page is transcribed into the project data layer.",
+    "features": [
+      "MDT touch display product for KNX installations",
+      "Used for on-wall visualization and control",
+      "Detailed hardware specs to be taken from MDT_Productlist_EN 2026 article"
+    ],
+    "contentVerificationStatus": "partial",
+    "sourceDocument": "MDT_Productlist_EN 2026.pdf",
+    "relatedSlugs": [
+      "ionprime-cp4-knx",
+      "hypanel-elite-10"
+    ],
+    "id": "mdt-visucontrol-plus",
+    "slug": "visucontrol-plus",
+    "brandSlug": "mdt",
+    "seriesSlug": "touch-displays",
+    "image": "/images/catalog/mdt/visucontrol-plus.png",
+    "tagline": "MDT VisuControl Plus touch display for KNX visualization and room control—include detailed specs only from confirmed MDT catalogue entries.",
+    "description": "VisuControl Plus is listed in MDT_Productlist_EN 2026 as a touch display product for KNX projects requiring on-wall visualization. This website entry is intentionally concise: display size, resolution and processor details must be copied from the exact PDF article before publication. It is included as one of six representative MDT products covering the Smart Touch Panel category alongside actuators, gateways and push buttons. Update specifications when the confirmed catalogue page is transcribed into the project data layer."
+  },
+  {
+    "name": "iONprime CP4 KNX",
+    "brandName": "Theben",
+    "seriesName": "iONprime Series",
+    "categorySlug": "smart-touch-panel",
+    "shortDescription": "KNX room controller with 4-inch 480 × 480 touchscreen, up to 48 functions, environmental sensors and integrated HVAC, lighting and blind logic.",
+    "fullDescription": "iONprime CP4 KNX is Theben’s touchscreen room controller for KNX installations. The 4-inch display at 480 × 480 resolution presents up to 48 functions across six configurable pages with individual icons and custom backgrounds. Integrated temperature, humidity, brightness and proximity sensors feed room automation without separate sensor plates. Residents can switch and dim lighting, adjust colour temperature and colour, operate heating and cooling thermostats, and manage fan speeds from one flush-mounted 86 × 86 × 12 mm device rated IP20. Article 4969300 identifies the base hardware in Theben’s iONprime launch documentation.",
+    "features": [
+      "4-inch touchscreen, 480 × 480 px",
+      "Up to 48 KNX functions on six pages",
+      "Temperature, humidity, brightness and proximity sensors",
+      "Lighting switching, dimming and colour control",
+      "Heating, cooling and fan-speed thermostat functions",
+      "Configurable icons and backgrounds",
+      "Flush mount 86 × 86 × 12 mm, IP20"
+    ],
+    "specifications": [
+      {
+        "label": "Protocol",
+        "value": "KNX room controller"
+      },
+      {
+        "label": "Display",
+        "value": "4-inch touchscreen, 480 × 480"
+      },
+      {
+        "label": "Functions",
+        "value": "Up to 48 across 6 pages"
+      },
+      {
+        "label": "Sensors",
+        "value": "Temperature, humidity, brightness, proximity"
+      },
+      {
+        "label": "Dimensions",
+        "value": "86 × 86 × 12 mm"
+      },
+      {
+        "label": "Protection",
+        "value": "IP20"
+      },
+      {
+        "label": "Article number",
+        "value": "4969300"
+      }
+    ],
+    "articleNumbers": [
+      "4969300"
+    ],
+    "relatedSlugs": [
+      "ionprime-pb-knx",
+      "hypanel-pro"
+    ],
+    "sourceDocument": "iONprime_Market Launch PPT_11-2025.pdf",
+    "contentVerificationStatus": "verified",
+    "id": "theben-ionprime-cp4-knx",
+    "slug": "ionprime-cp4-knx",
+    "brandSlug": "theben",
+    "seriesSlug": "ionprime-series",
+    "image": "/images/catalog/theben/ionprime-cp4-knx.png",
+    "tagline": "KNX room controller with 4-inch 480 × 480 touchscreen, up to 48 functions, environmental sensors and integrated HVAC, lighting and blind logic.",
+    "description": "iONprime CP4 KNX is Theben’s touchscreen room controller for KNX installations. The 4-inch display at 480 × 480 resolution presents up to 48 functions across six configurable pages with individual icons and custom backgrounds. Integrated temperature, humidity, brightness and proximity sensors feed room automation without separate sensor plates. Residents can switch and dim lighting, adjust colour temperature and colour, operate heating and cooling thermostats, and manage fan speeds from one flush-mounted 86 × 86 × 12 mm device rated IP20. Article 4969300 identifies the base hardware in Theben’s iONprime launch documentation."
+  },
+  {
+    "name": "iONprime PB KNX",
+    "brandName": "Theben",
+    "seriesName": "iONprime Series",
+    "categorySlug": "smart-keypad-switch",
+    "shortDescription": "KNX push-button sensor with up to eight buttons, RGB status LEDs, multi-sensor suite, four logic channels and 1-, 2- or 4-gang rockers in seven finishes.",
+    "fullDescription": "iONprime PB KNX replaces conventional keypads with a KNX push-button sensor that supports up to eight physical buttons and RGB status and operation LEDs for clear feedback. Temperature, humidity, brightness, CO₂ and proximity sensing are integrated, along with a temperature controller and four separate logic channels for switching, dimming, blinds and scenes. Installers select 1-gang, 2-gang or 4-gang rocker configurations and one of seven documented material finishes while keeping a common 86 × 86 × 11 mm flush back box. Article 4969301 refers to the base device without rocker. Rockers and finishes are grouped as variants rather than separate catalogue products.",
+    "features": [
+      "Up to eight KNX push-button inputs",
+      "RGB status and operation LEDs",
+      "Temperature, humidity, brightness, CO₂ and proximity sensors",
+      "Integrated temperature controller",
+      "Four logic channels for scenes and blinds",
+      "1-, 2- and 4-gang rocker configurations",
+      "Seven material finish options"
+    ],
+    "specifications": [
+      {
+        "label": "Protocol",
+        "value": "KNX push-button sensor"
+      },
+      {
+        "label": "Buttons",
+        "value": "Up to 8 physical"
+      },
+      {
+        "label": "Indicators",
+        "value": "RGB status and operation LEDs"
+      },
+      {
+        "label": "Sensors",
+        "value": "Temperature, humidity, brightness, CO₂, proximity"
+      },
+      {
+        "label": "Logic",
+        "value": "4 separate channels"
+      },
+      {
+        "label": "Dimensions",
+        "value": "86 × 86 × 11 mm"
+      },
+      {
+        "label": "Protection",
+        "value": "IP20"
+      },
+      {
+        "label": "Article number (base)",
+        "value": "4969301 (without rocker)"
+      }
+    ],
+    "variants": [
+      {
+        "name": "1-gang rocker",
+        "note": "Single-rocker faceplate configuration"
+      },
+      {
+        "name": "2-gang rocker",
+        "note": "Dual-rocker faceplate configuration"
+      },
+      {
+        "name": "4-gang rocker",
+        "note": "Four-rocker faceplate configuration"
+      },
+      {
+        "name": "Finish options",
+        "note": "Seven documented material finishes"
+      }
+    ],
+    "articleNumbers": [
+      "4969301"
+    ],
+    "relatedSlugs": [
+      "ionprime-cp4-knx",
+      "push-button-light-55"
+    ],
+    "sourceDocument": "iONprime_Market Launch PPT_11-2025.pdf",
+    "contentVerificationStatus": "verified",
+    "id": "theben-ionprime-pb-knx",
+    "slug": "ionprime-pb-knx",
+    "brandSlug": "theben",
+    "seriesSlug": "ionprime-series",
+    "image": "/images/catalog/theben/ionprime-pb-knx.png",
+    "tagline": "KNX push-button sensor with up to eight buttons, RGB status LEDs, multi-sensor suite, four logic channels and 1-, 2- or 4-gang rockers in seven finishes.",
+    "description": "iONprime PB KNX replaces conventional keypads with a KNX push-button sensor that supports up to eight physical buttons and RGB status and operation LEDs for clear feedback. Temperature, humidity, brightness, CO₂ and proximity sensing are integrated, along with a temperature controller and four separate logic channels for switching, dimming, blinds and scenes. Installers select 1-gang, 2-gang or 4-gang rocker configurations and one of seven documented material finishes while keeping a common 86 × 86 × 11 mm flush back box. Article 4969301 refers to the base device without rocker. Rockers and finishes are grouped as variants rather than separate catalogue products."
+  },
+  {
+    "name": "M18 Smart Dimming Knob",
+    "brandName": "Moorgen",
+    "seriesName": "M18 Series",
+    "categorySlug": "smart-dimming-knob",
+    "shortDescription": "Rotary dimming knob with four configurable keys, stepless 0–100% brightness, colour-temperature control, shading, music volume and double-tap scenes.",
+    "fullDescription": "The M18 Smart Dimming Knob is Moorgen’s tactile controller for residents who prefer physical interaction over touch glass. A rotary ring delivers stepless 0–100% brightness adjustment on selected luminaires, while four configurable keys can operate individual or synchronised lighting groups, including spotlights, strips and decorative fixtures. Single tap selects a device, rotation adjusts the active function, and double tap recalls a scene. The knob also supports colour-temperature tuning, blind and curtain motion, awning control where integrated, and background music level. Custom icons and engraved text personalise each key. A rechargeable lithium battery is specified for approximately three to six months of use per charge in Moorgen’s M18 Series documentation. Three finish variants share one product record.",
+    "features": [
+      "Stepless 0–100% rotary dimming",
+      "Four configurable physical keys",
+      "Single-tap select, rotate to adjust, double-tap scene",
+      "Colour-temperature control for compatible lights",
+      "Blind, curtain and awning control where integrated",
+      "Background music volume adjustment",
+      "Customisable icons and engraved key labels",
+      "Rechargeable lithium battery (~3–6 months per charge, brochure)"
+    ],
+    "specifications": [
+      {
+        "label": "Control keys",
+        "value": "4 configurable"
+      },
+      {
+        "label": "Dimming range",
+        "value": "0–100% stepless"
+      },
+      {
+        "label": "Primary interaction",
+        "value": "Rotary knob + tactile keys"
+      },
+      {
+        "label": "Power",
+        "value": "Rechargeable lithium battery"
+      },
+      {
+        "label": "Battery use (brochure)",
+        "value": "Approx. 3–6 months per full charge"
+      }
+    ],
+    "variants": [
+      {
+        "name": "D37 Belgium Silver",
+        "note": "Finish variant"
+      },
+      {
+        "name": "C25 Jade Black",
+        "note": "Finish variant"
+      },
+      {
+        "name": "F18 Monaco Gold",
+        "note": "Finish variant"
+      }
+    ],
+    "legacySlug": "m18-smart-dimming-knob",
+    "relatedSlugs": [
+      "hypanel-pro",
+      "ionprime-pb-knx"
+    ],
+    "sourceDocument": "2.2 M18 Series.pdf",
+    "contentVerificationStatus": "verified",
+    "id": "moorgen-m18-smart-dimming-knob",
+    "slug": "m18-smart-dimming-knob",
+    "brandSlug": "moorgen",
+    "seriesSlug": "m18-series",
+    "image": "/images/catalog/moorgen/m18-smart-dimming-knob.png",
+    "tagline": "Rotary dimming knob with four configurable keys, stepless 0–100% brightness, colour-temperature control, shading, music volume and double-tap scenes.",
+    "description": "The M18 Smart Dimming Knob is Moorgen’s tactile controller for residents who prefer physical interaction over touch glass. A rotary ring delivers stepless 0–100% brightness adjustment on selected luminaires, while four configurable keys can operate individual or synchronised lighting groups, including spotlights, strips and decorative fixtures. Single tap selects a device, rotation adjusts the active function, and double tap recalls a scene. The knob also supports colour-temperature tuning, blind and curtain motion, awning control where integrated, and background music level. Custom icons and engraved text personalise each key. A rechargeable lithium battery is specified for approximately three to six months of use per charge in Moorgen’s M18 Series documentation. Three finish variants share one product record."
+  },
+  {
+    "name": "Sentido",
+    "brandName": "Basalte",
+    "seriesName": "Sentido",
+    "categorySlug": "smart-keypad-switch",
+    "shortDescription": "Basalte Sentido multi-touch keypad documented for KNX, Cresnet and RS485 integration; verify functional details beyond backbox orientation separately.",
+    "fullDescription": "Sentido is a Basalte keypad product name confirmed in Basalte Keypad Backbox Orientation.pdf. That document specifies supported protocols as KNX, Cresnet and RS485 and provides backbox orientation guidance for installation. Full marketing features and electrical specifications are not reproduced here because they are outside the uploaded reference. Sentido is presented as a tactile control option for projects already specifying Basalte keypads with the listed field buses.",
+    "features": [
+      "Basalte Sentido keypad product family",
+      "Protocols noted in orientation document: KNX, Cresnet, RS485",
+      "Backbox orientation guidance included in manufacturer PDF"
+    ],
+    "specifications": [
+      {
+        "label": "Documented protocols",
+        "value": "KNX, Cresnet, RS485"
+      }
+    ],
+    "sourceDocument": "Basalte Keypad Backbox Orientation.pdf",
+    "contentVerificationStatus": "name-only",
+    "relatedSlugs": [
+      "fibonacci",
+      "chopin"
+    ],
+    "id": "basalte-sentido",
+    "slug": "sentido",
+    "brandSlug": "basalte",
+    "seriesSlug": "sentido",
+    "image": "/images/catalog/basalte/sentido.png",
+    "tagline": "Basalte Sentido multi-touch keypad documented for KNX, Cresnet and RS485 integration; verify functional details beyond backbox orientation separately.",
+    "description": "Sentido is a Basalte keypad product name confirmed in Basalte Keypad Backbox Orientation.pdf. That document specifies supported protocols as KNX, Cresnet and RS485 and provides backbox orientation guidance for installation. Full marketing features and electrical specifications are not reproduced here because they are outside the uploaded reference. Sentido is presented as a tactile control option for projects already specifying Basalte keypads with the listed field buses."
+  },
+  {
+    "name": "Fibonacci",
+    "brandName": "Basalte",
+    "seriesName": "Fibonacci",
+    "categorySlug": "smart-keypad-switch",
+    "shortDescription": "Basalte Fibonacci keypad with KNX, Cresnet and RS485 noted in the orientation document; detailed features require additional verified sources.",
+    "fullDescription": "Fibonacci appears in Basalte Keypad Backbox Orientation.pdf alongside installation orientation data. Supported protocols listed for Fibonacci are KNX, Cresnet and RS485. No additional sensing, button count or finish data is published on this site until confirmed from official Basalte product literature beyond the backbox reference.",
+    "features": [
+      "Basalte Fibonacci keypad product family",
+      "Protocols in orientation PDF: KNX, Cresnet, RS485"
+    ],
+    "specifications": [
+      {
+        "label": "Documented protocols",
+        "value": "KNX, Cresnet, RS485"
+      }
+    ],
+    "sourceDocument": "Basalte Keypad Backbox Orientation.pdf",
+    "contentVerificationStatus": "name-only",
+    "relatedSlugs": [
+      "sentido",
+      "chopin"
+    ],
+    "id": "basalte-fibonacci",
+    "slug": "fibonacci",
+    "brandSlug": "basalte",
+    "seriesSlug": "fibonacci",
+    "image": "/images/catalog/basalte/fibonacci.png",
+    "tagline": "Basalte Fibonacci keypad with KNX, Cresnet and RS485 noted in the orientation document; detailed features require additional verified sources.",
+    "description": "Fibonacci appears in Basalte Keypad Backbox Orientation.pdf alongside installation orientation data. Supported protocols listed for Fibonacci are KNX, Cresnet and RS485. No additional sensing, button count or finish data is published on this site until confirmed from official Basalte product literature beyond the backbox reference."
+  },
+  {
+    "name": "Chopin",
+    "brandName": "Basalte",
+    "seriesName": "Chopin",
+    "categorySlug": "smart-keypad-switch",
+    "shortDescription": "Basalte Chopin keypad with KNX, Cresnet and dry-contact protocols per the orientation PDF.",
+    "fullDescription": "Chopin is identified in Basalte Keypad Backbox Orientation.pdf with protocol support for KNX, Cresnet and dry-contact interfaces. Installers should use the PDF for mounting orientation and consult Basalte for complete functional specifications before writing project descriptions.",
+    "features": [
+      "Basalte Chopin keypad product family",
+      "Protocols in orientation PDF: KNX, Cresnet, dry-contact"
+    ],
+    "specifications": [
+      {
+        "label": "Documented protocols",
+        "value": "KNX, Cresnet, dry-contact"
+      }
+    ],
+    "sourceDocument": "Basalte Keypad Backbox Orientation.pdf",
+    "contentVerificationStatus": "name-only",
+    "relatedSlugs": [
+      "fibonacci",
+      "deseo"
+    ],
+    "id": "basalte-chopin",
+    "slug": "chopin",
+    "brandSlug": "basalte",
+    "seriesSlug": "chopin",
+    "image": "/images/catalog/basalte/chopin.png",
+    "tagline": "Basalte Chopin keypad with KNX, Cresnet and dry-contact protocols per the orientation PDF.",
+    "description": "Chopin is identified in Basalte Keypad Backbox Orientation.pdf with protocol support for KNX, Cresnet and dry-contact interfaces. Installers should use the PDF for mounting orientation and consult Basalte for complete functional specifications before writing project descriptions."
+  },
+  {
+    "name": "Deseo",
+    "brandName": "Basalte",
+    "seriesName": "Deseo",
+    "categorySlug": "smart-keypad-switch",
+    "shortDescription": "Basalte Deseo keypad family covering KNX and Crestron variants (Deseo KNX, Deseo RTR) per the orientation document.",
+    "fullDescription": "Deseo groups the Basalte Deseo KNX and Deseo RTR product names referenced in Basalte Keypad Backbox Orientation.pdf. Both variants are associated with KNX and Crestron protocol support in that document. They share a common product record here with protocol variants rather than duplicate cards.",
+    "features": [
+      "Deseo KNX and Deseo RTR variants under one product family",
+      "Protocols noted: KNX and Crestron",
+      "Backbox orientation covered in manufacturer PDF"
+    ],
+    "specifications": [
+      {
+        "label": "Documented protocols",
+        "value": "KNX, Crestron"
+      }
+    ],
+    "variants": [
+      {
+        "name": "Deseo KNX",
+        "note": "KNX variant"
+      },
+      {
+        "name": "Deseo RTR",
+        "note": "Crestron-related variant name in PDF"
+      }
+    ],
+    "sourceDocument": "Basalte Keypad Backbox Orientation.pdf",
+    "contentVerificationStatus": "name-only",
+    "relatedSlugs": [
+      "chopin",
+      "sentido"
+    ],
+    "id": "basalte-deseo",
+    "slug": "deseo",
+    "brandSlug": "basalte",
+    "seriesSlug": "deseo",
+    "image": "/images/catalog/basalte/deseo.png",
+    "tagline": "Basalte Deseo keypad family covering KNX and Crestron variants (Deseo KNX, Deseo RTR) per the orientation document.",
+    "description": "Deseo groups the Basalte Deseo KNX and Deseo RTR product names referenced in Basalte Keypad Backbox Orientation.pdf. Both variants are associated with KNX and Crestron protocol support in that document. They share a common product record here with protocol variants rather than duplicate cards."
+  },
+  {
+    "name": "Lisa",
+    "brandName": "Basalte",
+    "seriesName": "Lisa",
+    "categorySlug": "smart-touch-panel",
+    "shortDescription": "Basalte Lisa product name confirmed in the keypad backbox orientation document; publish full touch specifications only when verified separately.",
+    "fullDescription": "Lisa is listed among Basalte products in Basalte Keypad Backbox Orientation.pdf. The uploaded reference focuses on backbox orientation rather than display or sensor specifications, so this entry remains factual and brief. Assign Lisa to Smart Touch Panel navigation when projects standardise on Basalte touch hardware pending fuller catalogue transcription.",
+    "features": [
+      "Basalte Lisa product name confirmed in orientation PDF",
+      "Installation orientation data available in manufacturer document"
+    ],
+    "sourceDocument": "Basalte Keypad Backbox Orientation.pdf",
+    "contentVerificationStatus": "name-only",
+    "relatedSlugs": [
+      "ellie",
+      "ionprime-cp4-knx"
+    ],
+    "id": "basalte-lisa",
+    "slug": "lisa",
+    "brandSlug": "basalte",
+    "seriesSlug": "lisa",
+    "image": "/images/catalog/basalte/lisa.png",
+    "tagline": "Basalte Lisa product name confirmed in the keypad backbox orientation document; publish full touch specifications only when verified separately.",
+    "description": "Lisa is listed among Basalte products in Basalte Keypad Backbox Orientation.pdf. The uploaded reference focuses on backbox orientation rather than display or sensor specifications, so this entry remains factual and brief. Assign Lisa to Smart Touch Panel navigation when projects standardise on Basalte touch hardware pending fuller catalogue transcription."
+  },
+  {
+    "name": "Ellie",
+    "brandName": "Basalte",
+    "seriesName": "Ellie",
+    "categorySlug": "smart-touch-panel",
+    "shortDescription": "Basalte Ellie product name from the orientation PDF; detailed touch UI specs omitted until verified from official Basalte literature.",
+    "fullDescription": "Ellie appears in Basalte Keypad Backbox Orientation.pdf alongside other Basalte control products. No display size, protocol list or sensor data is inferred on this website. Ellie is grouped under Smart Touch Panel as a placeholder record for confirmed product naming until extended Basalte documentation is added to the project sources.",
+    "features": [
+      "Basalte Ellie product name confirmed in orientation PDF",
+      "Further specifications pending verified manufacturer sources"
+    ],
+    "sourceDocument": "Basalte Keypad Backbox Orientation.pdf",
+    "contentVerificationStatus": "name-only",
+    "relatedSlugs": [
+      "lisa",
+      "hypanel-lux-piano"
+    ],
+    "id": "basalte-ellie",
+    "slug": "ellie",
+    "brandSlug": "basalte",
+    "seriesSlug": "ellie",
+    "image": "/images/catalog/basalte/ellie.png",
+    "tagline": "Basalte Ellie product name from the orientation PDF; detailed touch UI specs omitted until verified from official Basalte literature.",
+    "description": "Ellie appears in Basalte Keypad Backbox Orientation.pdf alongside other Basalte control products. No display size, protocol list or sensor data is inferred on this website. Ellie is grouped under Smart Touch Panel as a placeholder record for confirmed product naming until extended Basalte documentation is added to the project sources."
+  }
+]

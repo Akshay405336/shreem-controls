@@ -31,9 +31,26 @@ const propertyOptions: PropertyType[] = [
 type EnquiryFormProps = {
   className?: string;
   showIntro?: boolean;
+  intro?: string;
+  submitLabel?: string;
+  loadingLabel?: string;
+  locationFieldLabel?: string;
+  locationPlaceholder?: string;
+  messagePlaceholder?: string;
+  successEyebrow?: string;
 };
 
-export function EnquiryForm({ className, showIntro = true }: EnquiryFormProps) {
+export function EnquiryForm({
+  className,
+  showIntro = true,
+  intro,
+  submitLabel = "Submit Enquiry",
+  loadingLabel = "Submitting…",
+  locationFieldLabel = "Project Location",
+  locationPlaceholder,
+  messagePlaceholder,
+  successEyebrow = "Enquiry received",
+}: EnquiryFormProps) {
   const { context } = useConsultation();
   const [form, setForm] = useState<EnquiryPayload>({
     fullName: "",
@@ -110,7 +127,7 @@ export function EnquiryForm({ className, showIntro = true }: EnquiryFormProps) {
     return (
       <div className={cn("rounded-2xl border border-[#DDECEB] bg-[#EFF9F8] p-8", className)}>
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#009E98]">
-          Enquiry received
+          {successEyebrow}
         </p>
         <p className="mt-3 text-lg text-[#252A2A]">{serverMessage}</p>
       </div>
@@ -121,8 +138,8 @@ export function EnquiryForm({ className, showIntro = true }: EnquiryFormProps) {
     <form onSubmit={handleSubmit} className={cn("space-y-5", className)} noValidate>
       {showIntro && (
         <p className="text-sm leading-7 text-[#737B7A]">
-          Share a few details and our smart living specialists will follow up with personalised
-          guidance.
+          {intro ??
+            "Share a few details and our smart living specialists will follow up with personalised guidance."}
         </p>
       )}
 
@@ -196,11 +213,12 @@ export function EnquiryForm({ className, showIntro = true }: EnquiryFormProps) {
         </Field>
       </div>
 
-      <Field label="Project Location" required error={errors.projectLocation}>
+      <Field label={locationFieldLabel} required error={errors.projectLocation}>
         <input
           value={form.projectLocation}
           onChange={(e) => updateField("projectLocation", e.target.value)}
           className={inputClass(errors.projectLocation)}
+          placeholder={locationPlaceholder}
         />
       </Field>
 
@@ -210,6 +228,7 @@ export function EnquiryForm({ className, showIntro = true }: EnquiryFormProps) {
           value={form.message}
           onChange={(e) => updateField("message", e.target.value)}
           className={cn(inputClass(errors.message), "resize-y min-h-[120px]")}
+          placeholder={messagePlaceholder}
         />
       </Field>
 
@@ -224,7 +243,7 @@ export function EnquiryForm({ className, showIntro = true }: EnquiryFormProps) {
         disabled={status === "loading"}
         className="inline-flex h-12 w-full items-center justify-center rounded-md bg-[linear-gradient(120deg,#087F7B_0%,#009E98_100%)] px-6 text-sm font-medium text-white shadow-[0_8px_24px_rgba(0,158,152,0.2)] transition-all hover:bg-[linear-gradient(120deg,#066662_0%,#087F7B_100%)] hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
       >
-        {status === "loading" ? "Submitting…" : "Submit Enquiry"}
+        {status === "loading" ? loadingLabel : submitLabel}
       </button>
     </form>
   );

@@ -8,7 +8,8 @@ import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
   title: "Contact",
-  description: "Contact Shreem Controls for consultations, project enquiries and smart-home guidance.",
+  description:
+    "Contact us for product information, general enquiries and customer assistance.",
   path: "/contact",
 });
 
@@ -17,9 +18,12 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        titleLead="Speak with our"
-        titleAccent="smart living team"
-        description="Share your project details and we will connect you with a Shreem Controls specialist."
+        title={
+          <>
+            Speak with <span className="text-[#73BDB8]">our team</span>
+          </>
+        }
+        description="Have a question or need assistance? Get in touch with our team. We'd be happy to help."
         image="/images/solutions/Living-Room.png"
         variant="image"
       />
@@ -27,18 +31,30 @@ export default function ContactPage() {
       <PageSection theme="white" waves="ambient" scene="orb-bottom-left">
         <HomeSectionHeading
           align="center"
-          eyebrow="Get in Touch"
-          titleLead="Consultation and"
-          titleAccent="project enquiries"
-          description="Use the form below or contact us directly for smart-home enquiries."
+          eyebrow="Contact"
+          title="Get in Touch"
+          description="Get in touch with us for product information, general enquiries or assistance. Our team is happy to help."
         />
 
         <div className="mt-10 grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
           <ContactDetails />
           <div className="rounded-[20px] border border-[#DDECEB] bg-[#F4FBFA] p-6 shadow-[0_6px_20px_rgba(37,42,42,0.06)] sm:p-8">
-            <h2 className="font-display text-[22px] text-[#252A2A]">Enquiry form</h2>
+            <h2 className="font-display text-[22px] tracking-[-0.03em] text-[#252A2A] sm:text-[24px]">
+              Send Us a Message
+            </h2>
+            <p className="mt-2 text-[13px] leading-[1.7] text-[#737B7A] sm:text-[14px]">
+              Have a question? Fill out the form and our team will get back to you.
+            </p>
             <div className="mt-6">
-              <EnquiryForm />
+              <EnquiryForm
+                showIntro={false}
+                submitLabel="Send Enquiry"
+                loadingLabel="Sending…"
+                locationFieldLabel="City / Location"
+                locationPlaceholder="Your city or area"
+                messagePlaceholder="How can we help you today?"
+                successEyebrow="Message received"
+              />
             </div>
           </div>
         </div>

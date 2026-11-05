@@ -1,33 +1,49 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
+import { SlugPageFallback } from "@/components/layout/slug-page-fallback";
 import { PageSection } from "@/components/layout/page-section";
+import { CatalogProductImage } from "@/components/products/catalog-product-image";
+import { ProductBreadcrumbs } from "@/components/products/product-breadcrumbs";
 import { ProductDetailActions } from "@/components/products/product-detail-actions";
 import { ConsultationCtaSection } from "@/components/sections/shared/consultation-cta";
 import { PageHero } from "@/components/sections/shared/page-hero";
 import { HomeSectionHeading } from "@/components/ui/home-section-heading";
-import { getProductBySlug, getRelatedProducts, products } from "@/data/products";
-import { SlugPageFallback } from "@/components/layout/slug-page-fallback";
+import { catalogProducts } from "@/data/catalog";
+import { getMainCategoryBySlug } from "@/data/main-categories";
+import {
+  getProductByCompositeSlug,
+  getRelatedCatalogProducts,
+  productDetailPath,
+} from "@/lib/product-catalog-utils";
 import { createPageMetadata } from "@/lib/metadata";
 
 type ProductPageProps = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ categorySlug: string; brandSlug: string; productSlug: string }>;
 };
 
 export function generateStaticParams() {
-  return products.map((product) => ({ slug: product.slug }));
+  return catalogProducts.map((product) => ({
+    categorySlug: product.categorySlug,
+    brandSlug: product.brandSlug,
+    productSlug: product.slug,
+  }));
 }
 
 export async function generateMetadata({ params }: ProductPageProps) {
-  const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const { categorySlug, brandSlug, productSlug } = await params;
+  const product = getProductByCompositeSlug(
+    catalogProducts,
+    categorySlug,
+    brandSlug,
+    productSlug,
+  );
   if (!product) return {};
   return createPageMetadata({
     title: product.name,
     description: product.description,
-    path: `/products/${product.slug}`,
+    path: productDetailPath(product),
   });
 }
 
@@ -40,43 +56,60 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
 }
 
 async function ProductDetailContent({ params }: ProductPageProps) {
-  const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const { categorySlug, brandSlug, productSlug } = await params;
+  const product = getProductByCompositeSlug(
+    catalogProducts,
+    categorySlug,
+    brandSlug,
+    productSlug,
+  );
   if (!product) notFound();
 
-  const related = getRelatedProducts(product.relatedSlugs);
+  const category = getMainCategoryBySlug(categorySlug);
+  if (!category) notFound();
+
+  const related = getRelatedCatalogProducts(catalogProducts, product.relatedSlugs);
 
   return (
     <>
       <PageHero
-        eyebrow={product.category}
+        eyebrow={category.name}
         title={product.name}
-        description={product.tagline}
+        description={product.shortDescription}
         image={product.image}
         variant="image"
       />
 
       <PageSection theme="white" waves="ambient" scene="orb-top-right">
+        <ProductBreadcrumbs category={category} product={product} />
         <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
           <div className="relative aspect-square overflow-hidden rounded-[20px] border border-[#DDECEB] bg-[#F4FBFA] shadow-[0_6px_20px_rgba(37,42,42,0.06)]">
-            <Image
+            <CatalogProductImage
               src={product.image}
               alt={product.name}
               fill
-              className="object-contain p-8"
+              className="p-8"
               sizes="(max-width:1024px) 100vw, 50vw"
               priority
             />
           </div>
 
           <div>
-            <HomeSectionHeading
-              eyebrow="Product Introduction"
-              titleLead="Intelligent control,"
-              titleAccent="refined for premium spaces"
-              description={product.description}
-            />
-            <ProductDetailActions productSlug={product.slug} />
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#009E98]">
+              {product.brandName}
+              {product.seriesName ? ` · ${product.seriesName}` : ""}
+            </p>
+            <p className="mt-3 text-[13px] leading-[1.75] text-[#737B7A] sm:text-[14px]">
+              {product.fullDescription}
+            </p>
+            {product.articleNumbers && product.articleNumbers.length > 0 && (
+              <p className="mt-4 text-[11px] text-[#737B7A]">
+                Article{" "}
+                {product.articleNumbers.length > 1 ? "numbers" : "number"}:{" "}
+                {product.articleNumbers.join(", ")}
+              </p>
+            )}
+            <ProductDetailActions productSlug={product.legacySlug ?? product.slug} />
           </div>
         </div>
       </PageSection>
@@ -126,20 +159,46 @@ async function ProductDetailContent({ params }: ProductPageProps) {
         </PageSection>
       )}
 
-      {product.applications && (
+      {product.variants && product.variants.length > 0 && (
         <PageSection theme="mint" waves="bottom">
           <HomeSectionHeading
-            eyebrow="Applications"
-            titleLead="Where this product"
-            titleAccent="belongs"
+            eyebrow="Variants"
+            titleLead="Available"
+            titleAccent="configurations"
           />
-          <ul className="mt-8 grid gap-4 md:grid-cols-3">
-            {product.applications.map((item) => (
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+            {product.variants.map((variant) => (
               <li
-                key={item}
-                className="rounded-[20px] border border-[#DDECEB] bg-[linear-gradient(145deg,#FFFFFF_0%,#F8FCFB_100%)] p-5 text-[12px] leading-[1.65] text-[#737B7A] shadow-[0_6px_24px_rgba(37,42,42,0.05)]"
+                key={variant.name}
+                className="rounded-[20px] border border-[#DDECEB] bg-white px-5 py-4 shadow-[0_4px_14px_rgba(37,42,42,0.04)]"
               >
-                {item}
+                <p className="font-medium text-[#252A2A]">{variant.name}</p>
+                {variant.note && (
+                  <p className="mt-1 text-[12px] leading-relaxed text-[#737B7A]">{variant.note}</p>
+                )}
+                {variant.articleNumber && (
+                  <p className="mt-2 text-[10px] uppercase tracking-[0.14em] text-[#009E98]">
+                    Art. {variant.articleNumber}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+        </PageSection>
+      )}
+
+      {product.downloads && product.downloads.length > 0 && (
+        <PageSection theme="white" waves="ambient">
+          <HomeSectionHeading eyebrow="Downloads" title="Documentation" />
+          <ul className="mt-6 space-y-2">
+            {product.downloads.map((file) => (
+              <li key={file.href}>
+                <Link
+                  href={file.href}
+                  className="text-[13px] text-[#087F7B] underline-offset-2 hover:text-[#009E98] hover:underline"
+                >
+                  {file.label}
+                </Link>
               </li>
             ))}
           </ul>
@@ -152,17 +211,19 @@ async function ProductDetailContent({ params }: ProductPageProps) {
             align="center"
             eyebrow="Related Products"
             titleLead="Explore more"
-            titleAccent="smart controls"
+            titleAccent="in this range"
           />
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {related.map((item) => (
               <Link
-                key={item.slug}
-                href={`/products/${item.slug}`}
+                key={`${item.brandSlug}-${item.slug}`}
+                href={productDetailPath(item)}
                 className="rounded-[20px] border border-[#DDECEB] bg-[#F4FBFA] p-5 transition-all hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(0,158,152,0.08)]"
               >
-                <p className="font-display text-[17px] text-[#252A2A]">{item.name}</p>
-                <p className="mt-2 text-[11px] text-[#737B7A]">{item.category}</p>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#009E98]">
+                  {item.brandName}
+                </p>
+                <p className="mt-1 font-display text-[17px] text-[#252A2A]">{item.name}</p>
               </Link>
             ))}
           </div>

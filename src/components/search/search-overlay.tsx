@@ -6,7 +6,9 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { useSearch } from "@/components/providers/search-provider";
-import { products } from "@/data/products";
+import { catalogProducts } from "@/data/product-catalog";
+import { mainCategories } from "@/data/main-categories";
+import { categoryPath, productDetailPath } from "@/lib/product-catalog-utils";
 import { solutions } from "@/data/solutions";
 import { resources } from "@/data/resources";
 
@@ -42,15 +44,29 @@ export function SearchOverlay() {
     const q = query.trim().toLowerCase();
     if (!q) return [];
 
-    const productResults = products
+    const categoryResults = mainCategories
       .filter(
         (item) =>
           item.name.toLowerCase().includes(q) ||
-          item.category.toLowerCase().includes(q),
+          item.description.toLowerCase().includes(q),
       )
       .map((item) => ({
         title: item.name,
-        href: `/products/${item.slug}`,
+        href: categoryPath(item.slug),
+        type: "Category",
+      }));
+
+    const productResults = catalogProducts
+      .filter(
+        (item) =>
+          item.name.toLowerCase().includes(q) ||
+          item.brandName.toLowerCase().includes(q) ||
+          item.categorySlug.replace(/-/g, " ").includes(q),
+      )
+      .slice(0, 12)
+      .map((item) => ({
+        title: item.name,
+        href: productDetailPath(item),
         type: "Product",
       }));
 
@@ -82,10 +98,13 @@ export function SearchOverlay() {
       .filter((item) => item.title.toLowerCase().includes(q))
       .map((item) => ({ ...item, type: "Page" }));
 
-    return [...productResults, ...solutionResults, ...resourceResults, ...pageResults].slice(
-      0,
-      12,
-    );
+    return [
+      ...categoryResults,
+      ...productResults,
+      ...solutionResults,
+      ...resourceResults,
+      ...pageResults,
+    ].slice(0, 14);
   }, [query]);
 
   return (

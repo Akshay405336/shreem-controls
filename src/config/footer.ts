@@ -1,3 +1,6 @@
+import { mainCategories } from "@/data/main-categories";
+import { categoryPath } from "@/lib/product-catalog-utils";
+
 export const footerNavigation = {
   explore: [
     { label: "Products", href: "/products" },
@@ -6,13 +9,10 @@ export const footerNavigation = {
     { label: "Projects", href: "/projects" },
     { label: "About", href: "/about" },
   ],
-  products: [
-    { label: "Smart Lighting", href: "/solutions/smart-lighting" },
-    { label: "Smart Touch Panels", href: "/products/m7-smart-touch-panel" },
-    { label: "Smart Switches", href: "/products/k1-smart-keypad-switch" },
-    { label: "Curtain Controllers", href: "/products/curtain-controller" },
-    { label: "Smart Controls", href: "/products/m18-smart-dimming-knob" },
-  ],
+  products: mainCategories.map((category) => ({
+    label: category.name,
+    href: categoryPath(category.slug),
+  })),
   support: [
     { label: "Contact", href: "/contact" },
     { label: "Resources", href: "/resources" },

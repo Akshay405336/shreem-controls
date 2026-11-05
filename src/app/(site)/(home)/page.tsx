@@ -4,6 +4,7 @@ import { SmartSolutions } from "@/components/sections/home/smart-solutions";
 import { WhyChooseMoorgen } from "@/components/sections/home/why-choose-moorgen";
 import { MoorgenDifference } from "@/components/sections/home/moorgen-difference";
 import { SmartLivingEcosystem } from "@/components/sections/home/smart-living-ecosystem";
+import { BrandCarouselSection } from "@/components/sections/home/brand-carousel-section";
 import { ProductCarousel } from "@/components/sections/home/product-carousel";
 import { ConsultationCtaSection } from "@/components/sections/shared/consultation-cta";
 
@@ -16,6 +17,7 @@ export default function HomePage() {
       <WhyChooseMoorgen />
       <MoorgenDifference />
       <SmartLivingEcosystem />
+      <BrandCarouselSection />
       <ProductCarousel />
       <ConsultationCtaSection />
     </>

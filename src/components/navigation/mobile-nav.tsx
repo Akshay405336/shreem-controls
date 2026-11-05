@@ -65,7 +65,7 @@ export function MobileNav({
                         isHero ? "border-white/10" : "border-[#DDECEB]",
                       )}
                     >
-                      {item.children.slice(0, 5).map((child) => (
+                      {item.children.slice(0, 6).map((child) => (
                         <li key={child.href}>
                           <Link
                             href={child.href}

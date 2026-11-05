@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
+
+import { CATALOG_IMAGE_FALLBACK } from "@/data/catalog/catalog-image-paths";
 
 import { cn } from "@/lib/cn";
 
@@ -56,7 +58,7 @@ export function PageHero({
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: shouldReduceMotion ? 0 : 1.4, ease: "easeOut" }}
           >
-            <Image src={image} alt="" fill priority className="object-cover" sizes="100vw" />
+            <PageHeroBackgroundImage key={image} src={image} />
           </motion.div>
           <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-black/55 via-black/30 to-black/10" />
           <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-black/65 via-black/20 to-black/45" />
@@ -139,5 +141,25 @@ export function PageHero({
         </motion.div>
       </div>
     </section>
+  );
+}
+
+function PageHeroBackgroundImage({ src }: { src: string }) {
+  const [currentSrc, setCurrentSrc] = useState(src);
+
+  return (
+    <Image
+      src={currentSrc}
+      alt=""
+      fill
+      priority
+      className="object-cover"
+      sizes="100vw"
+      onError={() => {
+        if (currentSrc !== CATALOG_IMAGE_FALLBACK) {
+          setCurrentSrc(CATALOG_IMAGE_FALLBACK);
+        }
+      }}
+    />
   );
 }

@@ -1,19 +1,24 @@
 import type { NavItem } from "@/types/navigation";
-import { products } from "@/data/products";
+import { mainCategories } from "@/data/main-categories";
 import { solutions } from "@/data/solutions";
 import { resources } from "@/data/resources";
+import { categoryPath } from "@/lib/product-catalog-utils";
 
 export const primaryNavigation: NavItem[] = [
   {
     label: "Products",
     href: "/products",
-    description: "Premium smart controls and interfaces",
+    description: "Premium smart home product categories",
+    megaMenu: "products",
     children: [
-      { label: "All Products", href: "/products", description: "Explore the full range" },
-      ...products.slice(0, 5).map((product) => ({
-        label: product.name,
-        href: `/products/${product.slug}`,
-        description: product.category,
+      { label: "All Products", href: "/products", description: "Browse all categories" },
+      ...mainCategories.map((category) => ({
+        label: category.name,
+        href: categoryPath(category.slug),
+        description:
+          category.description.length > 80
+            ? `${category.description.slice(0, 77)}…`
+            : category.description,
       })),
     ],
   },

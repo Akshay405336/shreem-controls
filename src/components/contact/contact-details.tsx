@@ -12,8 +12,7 @@ export function ContactDetails() {
       </div>
 
       <p className="text-[12px] leading-[1.75] text-[#737B7A] sm:text-[14px]">
-        Reach {contactConfig.companyName} for Shreem Controls smart-home consultations, product
-        guidance and project support.
+        Phone, email, address and showroom details are listed below.
       </p>
 
       <div className="mt-8">

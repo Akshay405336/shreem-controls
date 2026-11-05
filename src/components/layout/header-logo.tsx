@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 
 import { siteConfig } from "@/config/site";
@@ -28,29 +27,30 @@ export function HeaderLogo({ variant, className }: HeaderLogoProps) {
       )}
     >
       <span className="relative block h-12 sm:h-14 lg:h-[58px]">
-        <Image
+        {/* Native img avoids next/image SSR/client style mismatches when height is set via CSS. */}
+        <img
           src="/logo/logo-dark.png"
           alt=""
           width={640}
           height={160}
-          sizes="(max-width: 640px) 42vw, (max-width: 1024px) 280px, 320px"
+          decoding="async"
+          fetchPriority="high"
           aria-hidden
           className={cn(
             "absolute inset-y-0 left-0 w-auto",
             logoClass,
             useDarkLogo ? "opacity-100" : "opacity-0",
           )}
-          priority
         />
-        <Image
+        <img
           src="/logo/logo-white.png"
           alt=""
           width={640}
           height={160}
-          sizes="(max-width: 640px) 42vw, (max-width: 1024px) 280px, 320px"
+          decoding="async"
+          fetchPriority="high"
           aria-hidden
           className={cn("relative w-auto", logoClass, useDarkLogo ? "opacity-0" : "opacity-100")}
-          priority
         />
       </span>
     </Link>

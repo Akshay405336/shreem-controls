@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
 import { NavDropdownPanel } from "@/components/navigation/nav-dropdown-panel";
+import { ProductsMegaMenu } from "@/components/products/products-mega-menu";
 import { primaryNavigation } from "@/config/navigation";
 import { NavLink } from "@/components/navigation/nav-link";
 import { cn } from "@/lib/cn";
@@ -32,7 +33,8 @@ function DesktopNavItem({
 }) {
   const anchorRef = useRef<HTMLDivElement>(null);
   const hasChildren = Boolean(item.children?.length);
-  const isMega = hasChildren && (item.children?.length ?? 0) > 3;
+  const isProductsMega = item.megaMenu === "products";
+  const isMega = isProductsMega || (hasChildren && (item.children?.length ?? 0) > 3);
   const isHero = tone === "hero";
 
   return (
@@ -79,53 +81,60 @@ function DesktopNavItem({
           anchorRef={anchorRef}
           isMega={isMega}
           isHero={isHero}
+          panelWidth={isProductsMega ? 1060 : undefined}
           onMouseEnter={onHoverOpen}
           onMouseLeave={() => {
             if (!pinnedByClick) onHoverClose();
           }}
         >
-          {item.description && isMega && (
-            <p
-              className={cn(
-                "mb-4 text-xs uppercase tracking-[0.2em]",
-                isHero ? "text-white/70" : "text-[#009E98]",
-              )}
-            >
-              {item.description}
-            </p>
-          )}
-          <ul
-            className={cn(
-              isMega
-                ? "grid gap-2 md:grid-cols-1 lg:grid-cols-2"
-                : "flex flex-col gap-1",
-            )}
-          >
-            {item.children?.map((child) => (
-              <li key={child.href}>
-                <NavLink
-                  item={child}
-                  tone={isHero ? "hero" : "default"}
-                  onNavigate={onClose}
+          {isProductsMega ? (
+            <ProductsMegaMenu tone={tone} onNavigate={onClose} />
+          ) : (
+            <>
+              {item.description && isMega && (
+                <p
                   className={cn(
-                    "w-full rounded-md px-3 py-2 text-sm",
-                    isMega && "block py-3",
-                    isHero ? "hover:bg-white/5" : "hover:bg-[#F4FBFA]",
+                    "mb-4 text-xs uppercase tracking-[0.2em]",
+                    isHero ? "text-[#73BDB8]" : "text-[#009E98]",
                   )}
-                />
-                {child.description && isMega && (
-                  <p
-                    className={cn(
-                      "px-3 pb-2 text-xs",
-                      isHero ? "text-white/55" : "text-[#737B7A]",
-                    )}
-                  >
-                    {child.description}
-                  </p>
+                >
+                  {item.description}
+                </p>
+              )}
+              <ul
+                className={cn(
+                  isMega
+                    ? "grid gap-2 md:grid-cols-1 lg:grid-cols-2"
+                    : "flex flex-col gap-1",
                 )}
-              </li>
-            ))}
-          </ul>
+              >
+                {item.children?.map((child) => (
+                  <li key={child.href}>
+                    <NavLink
+                      item={child}
+                      tone={tone}
+                      onNavigate={onClose}
+                      className={cn(
+                        "w-full rounded-md px-3 py-2 text-sm",
+                        isMega && "block py-3",
+                        isHero ? "hover:bg-white/5" : "hover:bg-[#F4FBFA]",
+                      )}
+                    />
+                    {child.description && isMega && (
+                      <p
+                        className={cn(
+                          "px-3 pb-2 text-xs",
+                          isHero ? "text-white/55" : "text-[#737B7A]",
+                        )}
+                      >
+                        {child.description}
+                      </p>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </NavDropdownPanel>
       )}
     </li>

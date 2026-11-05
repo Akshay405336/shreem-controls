@@ -3,6 +3,7 @@
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 
+import { megaMenuPanelShellClass } from "@/components/navigation/mega-menu-panel-theme";
 import { useDropdownPosition } from "@/hooks/use-dropdown-position";
 import { cn } from "@/lib/cn";
 
@@ -11,6 +12,7 @@ type NavDropdownPanelProps = {
   anchorRef: React.RefObject<HTMLElement | null>;
   isMega: boolean;
   isHero: boolean;
+  panelWidth?: number;
   children: React.ReactNode;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
@@ -24,12 +26,16 @@ export function NavDropdownPanel({
   anchorRef,
   isMega,
   isHero,
+  panelWidth: panelWidthOverride,
   children,
   onMouseEnter,
   onMouseLeave,
 }: NavDropdownPanelProps) {
+  const tone = isHero ? "hero" : "default";
+  const useDarkPanel = isHero;
   const prefersReducedMotion = useReducedMotion();
-  const panelWidth = isMega ? MEGA_WIDTH : SIMPLE_WIDTH;
+  const panelWidth =
+    panelWidthOverride ?? (isMega ? MEGA_WIDTH : SIMPLE_WIDTH);
   const position = useDropdownPosition({
     open,
     anchorRef,
@@ -63,11 +69,10 @@ export function NavDropdownPanel({
           onMouseLeave={onMouseLeave}
         >
           <div
+            data-nav-dropdown-theme={useDarkPanel ? "dark" : "light"}
             className={cn(
-              "max-h-[var(--dropdown-max-height)] overflow-y-auto overscroll-contain rounded-xl border shadow-2xl backdrop-blur-xl",
-              isHero
-                ? "border-white/10 bg-[#252A2A]/95"
-                : "border-[#DDECEB] bg-white/98 shadow-[0_16px_48px_rgba(37,42,42,0.08)]",
+              "max-h-[var(--dropdown-max-height)] overflow-y-auto overscroll-contain rounded-xl border shadow-2xl transition-[background-color,border-color,color,box-shadow] duration-300",
+              megaMenuPanelShellClass(tone),
               isMega ? "p-5" : "p-3",
             )}
           >

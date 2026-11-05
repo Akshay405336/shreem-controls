@@ -8,9 +8,8 @@ export function ContactMap() {
       <HomeSectionHeading
         align="left"
         eyebrow="Location"
-        titleLead="Showroom & office"
-        titleAccent="map"
-        description={`Find ${contactConfig.companyName} on Kengeri Road (562130).`}
+        title="Showroom & office"
+        description="Find us on Kengeri Road (562130)."
       />
 
       {hasMapEmbed() ? (

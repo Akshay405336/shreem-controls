@@ -3,4 +3,5 @@ export type NavItem = {
   href: string;
   description?: string;
   children?: NavItem[];
+  megaMenu?: "products";
 };

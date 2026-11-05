@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 
 import { ContactInfoList } from "@/components/contact/contact-info-list";
@@ -23,11 +22,13 @@ export function Footer() {
               aria-label={`${siteConfig.name} Home`}
               className="inline-flex w-full justify-center"
             >
-              <Image
+              <img
                 src="/logo/logo-white.png"
                 alt={siteConfig.name}
                 width={220}
                 height={56}
+                loading="lazy"
+                decoding="async"
                 className="mx-auto h-12 w-auto max-w-[220px] object-contain sm:h-14 sm:max-w-[240px]"
               />
             </Link>

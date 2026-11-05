@@ -37,11 +37,11 @@ export function validateEnquiry(payload: EnquiryPayload): FieldErrors {
   }
 
   if (!payload.projectLocation.trim()) {
-    errors.projectLocation = "Project location is required.";
+    errors.projectLocation = "Location is required.";
   }
 
   if (!payload.message.trim()) {
-    errors.message = "Please share a brief message.";
+    errors.message = "Please enter your message.";
   }
 
   return errors;

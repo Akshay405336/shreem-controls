@@ -1,39 +1,45 @@
-
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
-import { motion } from "motion/react";
-import {
-  ArrowLeft,
-  ArrowRight,
-  ChevronRight,
-} from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 
 import { SectionSceneDecor } from "@/components/decorations/section-scene-decor";
+import { HomeProductShowcaseCard } from "@/components/sections/home/home-product-showcase-card";
 import { HomeSectionHeading } from "@/components/ui/home-section-heading";
-import { products as productCatalog } from "@/data/products";
+import { catalogProducts, mainCategories } from "@/data/catalog";
+import {
+  showcaseTabInactiveClass,
+  showcaseTealActiveClass,
+} from "@/components/sections/home/home-product-showcase-styles";
+import { cn } from "@/lib/cn";
+import type { MainCategorySlug } from "@/types/product-catalog";
 
-const products = productCatalog.map((product) => ({
-  name: product.name,
-  category: product.category,
-  image: product.image,
-  href: `/products/${product.slug}`,
-}));
+const ALL_PRODUCTS = "all" as const;
+type CategoryFilter = typeof ALL_PRODUCTS | MainCategorySlug;
 
 export function ProductCarousel() {
   const carouselRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeCategory, setActiveCategory] = useState<CategoryFilter>(ALL_PRODUCTS);
+
+  const filteredProducts = useMemo(() => {
+    if (activeCategory === ALL_PRODUCTS) {
+      return catalogProducts;
+    }
+    return catalogProducts.filter((product) => product.categorySlug === activeCategory);
+  }, [activeCategory]);
+
+  useEffect(() => {
+    const container = carouselRef.current;
+    if (!container) return;
+    container.scrollLeft = 0;
+  }, [activeCategory]);
 
   const scrollCarousel = (direction: "prev" | "next") => {
     const container = carouselRef.current;
     if (!container) return;
 
-    const card = container.querySelector<HTMLElement>(
-      "[data-product-card]"
-    );
-
+    const card = container.querySelector<HTMLElement>("[data-product-card]");
     if (!card) return;
 
     const gap = 20;
@@ -45,43 +51,13 @@ export function ProductCarousel() {
     });
   };
 
-  const handleScroll = () => {
-    const container = carouselRef.current;
-    if (!container) return;
-
-    const card = container.querySelector<HTMLElement>(
-      "[data-product-card]"
-    );
-
-    if (!card) return;
-
-    const gap = 20;
-    const index = Math.round(
-      container.scrollLeft / (card.offsetWidth + gap)
-    );
-
-    setActiveIndex(
-      Math.min(index, products.length - 1)
-    );
-  };
-
-  const scrollToIndex = (index: number) => {
-    const container = carouselRef.current;
-    if (!container) return;
-
-    const card = container.querySelector<HTMLElement>(
-      "[data-product-card]"
-    );
-
-    if (!card) return;
-
-    container.scrollTo({
-      left: index * (card.offsetWidth + 20),
-      behavior: "smooth",
-    });
-
-    setActiveIndex(index);
-  };
+  const categoryTabs: { id: CategoryFilter; label: string }[] = [
+    { id: ALL_PRODUCTS, label: "All Products" },
+    ...mainCategories.map((category) => ({
+      id: category.slug as MainCategorySlug,
+      label: category.name,
+    })),
+  ];
 
   return (
     <section
@@ -97,19 +73,44 @@ export function ProductCarousel() {
           eyebrow="Our Products"
           title={
             <>
-              Explore our smart home{" "}
-              <span className="text-[#009E98]">range</span>
+              Explore our smart home <span className="text-[#009E98]">range</span>
             </>
           }
           description="Premium smart controls, designed for modern living."
-          className="mb-9 lg:mb-11"
+          className="mb-6 lg:mb-8"
           titleClassName="text-[clamp(1.85rem,3.4vw,3.15rem)]"
         />
 
-        {/* Product carousel */}
-        <div className="relative">
+        <div className="mb-6 sm:mb-8">
+          <div className="scrollbar-hidden w-full overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div
+              role="tablist"
+              aria-label="Filter products by category"
+              className="mx-auto flex w-max max-w-full flex-nowrap items-center justify-center gap-2 px-2 pb-1 md:flex-wrap"
+            >
+              {categoryTabs.map((tab) => {
+                const selected = activeCategory === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={selected}
+                    onClick={() => setActiveCategory(tab.id)}
+                    className={cn(
+                      "shrink-0 rounded-full px-4 py-2 text-[11px] font-medium sm:px-5 sm:text-xs",
+                      selected ? showcaseTealActiveClass : showcaseTabInactiveClass,
+                    )}
+                  >
+                    {tab.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
 
-          {/* Previous button */}
+        <div className="relative">
           <button
             type="button"
             onClick={() => scrollCarousel("prev")}
@@ -119,60 +120,21 @@ export function ProductCarousel() {
             <ArrowLeft size={17} />
           </button>
 
-          {/* Product cards */}
           <div
             ref={carouselRef}
-            onScroll={handleScroll}
-            className="product-carousel-track flex snap-x snap-mandatory gap-5 overflow-x-auto overflow-y-hidden scroll-smooth px-1 pb-2"
-            style={{
-              scrollbarWidth: "none",
-              msOverflowStyle: "none",
-            }}
+            key={activeCategory}
+            className="scrollbar-hidden flex snap-x snap-mandatory gap-5 overflow-x-auto overflow-y-hidden scroll-smooth px-1 pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
-            {products.map((product, index) => (
-              <motion.div
-                key={product.name}
-                data-product-card
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.08,
-                }}
-                className="group w-[75%] shrink-0 snap-start sm:w-[45%] lg:w-[calc((100%-80px)/5)]"
+            {filteredProducts.map((product) => (
+              <div
+                key={product.id}
+                className="flex h-auto w-[min(85vw,300px)] shrink-0 snap-start sm:w-[calc((100%-20px)/2)] lg:w-[calc((100%-60px)/4)]"
               >
-                <Link
-                  href={product.href}
-                  className="flex min-h-[270px] h-full flex-col items-center rounded-2xl border border-[#DDECEB] bg-white/70 px-4 pb-4 pt-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#009E98]/35 hover:bg-[#F4FBFA] hover:shadow-[0_12px_35px_rgba(0,158,152,0.1)] sm:min-h-[290px]"
-                >
-                  {/* Product image */}
-                  <div className="relative flex h-[145px] w-full items-center justify-center sm:h-[160px]">
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      fill
-                      sizes="(max-width: 640px) 75vw, (max-width: 1024px) 45vw, 20vw"
-                      className="object-contain p-2 transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-
-                  {/* Product name */}
-                  <h3 className="mt-2 min-h-[42px] text-center text-sm font-semibold leading-5 text-[#252A2A] sm:text-[15px]">
-                    {product.name}
-                  </h3>
-
-                  {/* Category */}
-                  <span className="mt-3 inline-flex items-center gap-2 rounded-full border border-[#087F7B]/25 bg-[linear-gradient(105deg,#066662_0%,#087F7B_48%,#009E98_100%)] px-4 py-2 text-[10px] font-medium text-white shadow-[0_6px_16px_rgba(0,158,152,0.2)] transition-all duration-300 group-hover:bg-[linear-gradient(105deg,#055856_0%,#066662_48%,#087F7B_100%)] group-hover:shadow-[0_8px_20px_rgba(0,158,152,0.28)] sm:text-[11px]">
-                    {product.category}
-                    <ChevronRight size={13} />
-                  </span>
-                </Link>
-              </motion.div>
+                <HomeProductShowcaseCard product={product} />
+              </div>
             ))}
           </div>
 
-          {/* Next button */}
           <button
             type="button"
             onClick={() => scrollCarousel("next")}
@@ -183,41 +145,16 @@ export function ProductCarousel() {
           </button>
         </div>
 
-        {/* Pagination dots */}
-        <div className="mt-5 flex flex-wrap items-center justify-center gap-1 sm:gap-2">
-          {products.map((product, index) => (
-            <button
-              key={product.name}
-              type="button"
-              onClick={() => scrollToIndex(index)}
-              aria-label={`Go to product ${index + 1}`}
-              className="inline-flex min-h-11 min-w-11 items-center justify-center"
-            >
-              <span
-                className={`block h-2 rounded-full transition-all duration-300 ${
-                  activeIndex === index
-                    ? "w-7 bg-[#009E98]"
-                    : "w-2 bg-[#C5E5E2] hover:bg-[#009E98]/60"
-                }`}
-              />
-            </button>
-          ))}
+        <div className="mt-8 flex justify-center sm:mt-10">
+          <Link
+            href="/products"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#087F7B] transition-colors hover:text-[#009E98]"
+          >
+            View All Products
+            <ArrowUpRight className="size-4" aria-hidden />
+          </Link>
         </div>
       </div>
-
-      {/* Hide scrollbar in all browsers */}
-      <style jsx>{`
-        .product-carousel-track {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-        }
-
-        .product-carousel-track::-webkit-scrollbar {
-          display: none;
-          width: 0;
-          height: 0;
-        }
-      `}</style>
     </section>
   );
 }
