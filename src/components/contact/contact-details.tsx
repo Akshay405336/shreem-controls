@@ -1,5 +1,4 @@
 import { ContactInfoList } from "@/components/contact/contact-info-list";
-import { contactConfig } from "@/config/contact";
 
 export function ContactDetails() {
   return (
@@ -12,7 +11,7 @@ export function ContactDetails() {
       </div>
 
       <p className="text-[12px] leading-[1.75] text-[#737B7A] sm:text-[14px]">
-        Phone, email, address and showroom details are listed below.
+        Phone, email, address and social profiles are listed below.
       </p>
 
       <div className="mt-8">

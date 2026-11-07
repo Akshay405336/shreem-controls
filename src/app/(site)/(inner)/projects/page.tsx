@@ -1,4 +1,5 @@
 import { ProjectsGallery } from "@/components/projects/projects-gallery";
+import { ProjectsShowcaseVideo } from "@/components/projects/projects-showcase-video";
 import { ConsultationCtaSection } from "@/components/sections/shared/consultation-cta";
 import { PageHero } from "@/components/sections/shared/page-hero";
 import { createPageMetadata } from "@/lib/metadata";
@@ -20,6 +21,7 @@ export default function ProjectsPage() {
         image="/images/Sunset-Smart.png"
         variant="image"
       />
+      <ProjectsShowcaseVideo />
       <ProjectsGallery />
       <ConsultationCtaSection />
     </>

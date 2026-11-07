@@ -1,5 +1,6 @@
 import { Globe, Mail, MapPin, Phone } from "lucide-react";
 
+import { SocialIconLinks } from "@/components/contact/social-icon-links";
 import { contactConfig } from "@/config/contact";
 import { cn } from "@/lib/cn";
 
@@ -7,12 +8,14 @@ type ContactInfoListProps = {
   tone?: "light" | "dark";
   className?: string;
   showCompany?: boolean;
+  showSocials?: boolean;
 };
 
 export function ContactInfoList({
   tone = "light",
   className,
   showCompany = true,
+  showSocials = true,
 }: ContactInfoListProps) {
   const isDark = tone === "dark";
 
@@ -70,7 +73,7 @@ export function ContactInfoList({
         </li>
         <li>
           <ContactRow tone={tone} icon={MapPin} label="Address">
-            {contactConfig.address}
+            <span className="text-pretty break-words">{contactConfig.address}</span>
           </ContactRow>
         </li>
         <li>
@@ -85,6 +88,20 @@ export function ContactInfoList({
           </ContactRow>
         </li>
       </ul>
+
+      {showSocials ? (
+        <div>
+          <p
+            className={cn(
+              "mb-2.5 text-[9px] font-semibold uppercase tracking-[0.16em]",
+              isDark ? "text-[#73BDB8]" : "text-[#009E98]",
+            )}
+          >
+            Follow us
+          </p>
+          <SocialIconLinks tone={tone} />
+        </div>
+      ) : null}
     </div>
   );
 }

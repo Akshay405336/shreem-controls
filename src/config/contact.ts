@@ -2,15 +2,18 @@ const defaults = {
   companyName: "Shreem Controls",
   tagline: "Integrating technology, simplifying life.",
   category: "Home Automation",
-  email: "info@shreemcontrols.in",
-  phoneDisplay: "9448524400",
+  email: "sales@shreemcontrols.in",
+  phoneDisplay: "+91 94485 24400",
   phoneTel: "+919448524400",
-  address: "Kengeri Road, 562130",
+  address:
+    "No 6, ASB LOTUS City, Kengeri Tavarekere Main Road, Bangalore - 562130, Karnataka, India.",
   websiteUrl: "https://shreemcontrols.in",
   websiteLabel: "shreemcontrols.in",
   businessHours: "",
   mapEmbedUrl:
-    "https://maps.google.com/maps?q=Kengeri+Road,+562130&hl=en&z=15&output=embed",
+    "https://maps.google.com/maps?q=No+6,+ASB+LOTUS+City,+Kengeri+Tavarekere+Main+Road,+Bangalore+562130&hl=en&z=15&output=embed",
+  instagramUrl: "https://www.instagram.com/shreemcontrols",
+  twitterUrl: "https://x.com/shreemcontrols",
 } as const;
 
 export const contactConfig = {
@@ -30,6 +33,9 @@ export const contactConfig = {
     process.env.NEXT_PUBLIC_CONTACT_WEBSITE_LABEL ?? defaults.websiteLabel,
   businessHours: process.env.NEXT_PUBLIC_CONTACT_HOURS ?? defaults.businessHours,
   mapEmbedUrl: process.env.NEXT_PUBLIC_MAP_EMBED_URL ?? defaults.mapEmbedUrl,
+  instagramUrl:
+    process.env.NEXT_PUBLIC_CONTACT_INSTAGRAM ?? defaults.instagramUrl,
+  twitterUrl: process.env.NEXT_PUBLIC_CONTACT_TWITTER ?? defaults.twitterUrl,
 } as const;
 
 export function hasContactDetails() {

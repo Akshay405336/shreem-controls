@@ -89,9 +89,9 @@ export const catalogMaster = {
   },
   {
     "id": "smart-lighting",
-    "name": "Smart Lighting",
+    "name": "Actuator",
     "slug": "smart-lighting",
-    "description": "Explore smart lighting fixtures, dimming solutions, LED controllers and lighting automation devices designed to create flexible, comfortable and personalised lighting environments.",
+    "description": "Explore dimming actuators, lighting control modules and related automation devices for flexible, comfortable and personalised lighting environments.",
     "heroImage": "/images/solutions/Living-Room.png",
     "megaMenuImage": "/images/solutions/Living-Room.png",
     "displayOrder": 50

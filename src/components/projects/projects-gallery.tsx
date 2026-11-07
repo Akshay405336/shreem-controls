@@ -28,7 +28,7 @@ export function ProjectsGallery() {
   );
 
   return (
-    <PageSection theme="white" waves="ambient" scene="orb-top-right">
+    <PageSection id="project-gallery" theme="white" waves="ambient" scene="orb-top-right">
       <HomeSectionHeading
         align="center"
         eyebrow="Project Gallery"

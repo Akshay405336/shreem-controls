@@ -3,6 +3,7 @@
 import Link from "next/link";
 
 import { ContactInfoList } from "@/components/contact/contact-info-list";
+import { SocialIconLinks } from "@/components/contact/social-icon-links";
 import { Container } from "@/components/ui/container";
 import { footerNavigation } from "@/config/footer";
 import { siteConfig } from "@/config/site";
@@ -36,6 +37,13 @@ export function Footer() {
               Premium smart-home automation through refined control devices and intelligent
               living experiences.
             </p>
+
+            <div className="mt-6 flex w-full max-w-xs flex-col items-center">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#C5E5E2]">
+                Follow Us
+              </p>
+              <SocialIconLinks tone="dark" className="mt-3 justify-center" />
+            </div>
           </div>
 
           <FooterColumn title="Explore" links={footerNavigation.explore} />
@@ -46,7 +54,7 @@ export function Footer() {
               Support
             </p>
             <div className="mt-4 max-w-sm">
-              <ContactInfoList tone="dark" showCompany={false} />
+              <ContactInfoList tone="dark" showCompany={false} showSocials={false} />
             </div>
           </div>
         </div>

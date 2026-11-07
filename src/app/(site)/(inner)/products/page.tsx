@@ -8,7 +8,7 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata = createPageMetadata({
   title: "Products",
   description:
-    "Browse Smart Touch Panels, Curtain Controllers, Smart Remote Controls, Keypad Switches and Smart Lighting by brand and series.",
+    "Browse Smart Touch Panels, Curtain Controllers, Smart Remote Controls, Keypad Switches and Actuator products by brand and series.",
   path: "/products",
 });
 

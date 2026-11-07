@@ -1,10 +1,9 @@
 "use client";
 
-import { ArrowUpRight, Search } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 import { DesktopNav } from "@/components/navigation/desktop-nav";
 import { MobileNav } from "@/components/navigation/mobile-nav";
-import { useSearch } from "@/components/providers/search-provider";
 import {
   ConsultationTrigger,
   consultationButtonClass,
@@ -16,7 +15,6 @@ import { cn } from "@/lib/cn";
 
 export function Header() {
   const { appearance } = useHeaderTheme();
-  const { openSearch } = useSearch();
 
   const isHero = appearance === "hero";
 
@@ -37,20 +35,6 @@ export function Header() {
         </div>
 
         <div className="flex shrink-0 items-center gap-3 sm:gap-4 lg:gap-5">
-          <button
-            type="button"
-            aria-label="Search"
-            onClick={openSearch}
-            className={cn(
-              "flex size-11 min-h-11 min-w-11 items-center justify-center transition-colors duration-300 md:size-10 md:min-h-0 md:min-w-0",
-              isHero
-                ? "text-white/90 hover:text-white"
-                : "text-[#252A2A] hover:text-[#009E98]",
-            )}
-          >
-            <Search className="size-[21px]" strokeWidth={1.6} />
-          </button>
-
           <ConsultationTrigger
             className={cn(
               "hidden h-[46px] md:inline-flex",

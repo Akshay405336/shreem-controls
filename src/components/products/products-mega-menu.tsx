@@ -23,11 +23,18 @@ type ProductsMegaMenuProps = {
   onNavigate: () => void;
 };
 
+function firstBrandSlugForCategory(categorySlug: MainCategorySlug) {
+  return getBrandsInCategory(catalogProducts, categorySlug)[0]?.slug ?? null;
+}
+
 export function ProductsMegaMenu({ tone, onNavigate }: ProductsMegaMenuProps) {
   const prefersReducedMotion = useReducedMotion();
   const isHero = tone === "hero";
-  const [activeSlug, setActiveSlug] = useState<MainCategorySlug>(mainCategories[0]!.slug);
-  const [activeBrandSlug, setActiveBrandSlug] = useState<string | null>(null);
+  const initialCategorySlug = mainCategories[0]!.slug;
+  const [activeSlug, setActiveSlug] = useState<MainCategorySlug>(initialCategorySlug);
+  const [activeBrandSlug, setActiveBrandSlug] = useState<string | null>(
+    () => firstBrandSlugForCategory(initialCategorySlug),
+  );
   const [previewProductId, setPreviewProductId] = useState<string | null>(null);
 
   const category = mainCategories.find((c) => c.slug === activeSlug)!;
@@ -43,11 +50,11 @@ export function ProductsMegaMenu({ tone, onNavigate }: ProductsMegaMenuProps) {
 
   const selectCategory = useCallback((slug: MainCategorySlug) => {
     setActiveSlug(slug);
-    setActiveBrandSlug(null);
+    setActiveBrandSlug(firstBrandSlugForCategory(slug));
     setPreviewProductId(null);
   }, []);
 
-  const selectBrandFilter = useCallback((brandSlug: string | null) => {
+  const selectBrandFilter = useCallback((brandSlug: string) => {
     setActiveBrandSlug(brandSlug);
     setPreviewProductId(null);
   }, []);
@@ -147,17 +154,6 @@ export function ProductsMegaMenu({ tone, onNavigate }: ProductsMegaMenuProps) {
           </p>
 
           <div className="mt-4 flex flex-wrap gap-2" role="tablist" aria-label="Filter by brand">
-            <button
-              type="button"
-              role="tab"
-              aria-selected={activeBrandSlug === null}
-              onMouseEnter={() => selectBrandFilter(null)}
-              onFocus={() => selectBrandFilter(null)}
-              onClick={() => selectBrandFilter(null)}
-              className={brandTabClass(activeBrandSlug === null)}
-            >
-              All Brands
-            </button>
             {brandsInCategory.map((brand) => (
               <button
                 key={brand.slug}

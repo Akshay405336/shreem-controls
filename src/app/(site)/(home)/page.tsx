@@ -14,12 +14,12 @@ export default function HomePage() {
     <>
       <HomeHero />
       <IntelligentLiving />
+            <BrandCarouselSection />
       <SmartSolutions />
       <WhyChooseMoorgen />
       <MoorgenDifference />
       <SmartLivingEcosystem />
       <ThebenMobileShowcase />
-      <BrandCarouselSection />
       <ProductCarousel />
       <ConsultationCtaSection />
     </>
