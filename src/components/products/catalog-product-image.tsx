@@ -10,6 +10,7 @@ type CatalogProductImageProps = {
   src: string;
   alt: string;
   fill?: boolean;
+  /** Above-the-fold product imagery (maps to eager + high fetchPriority). */
   priority?: boolean;
   sizes?: string;
   className?: string;
@@ -18,24 +19,26 @@ type CatalogProductImageProps = {
 export function CatalogProductImage({
   src,
   alt,
-  fill,
-  priority,
-  sizes,
+  fill = true,
+  priority = false,
+  sizes = "(max-width: 768px) 100vw, 33vw",
   className,
 }: CatalogProductImageProps) {
-  const [currentSrc, setCurrentSrc] = useState(src);
+  const [failedForSrc, setFailedForSrc] = useState<string | null>(null);
+  const currentSrc = failedForSrc === src ? CATALOG_IMAGE_FALLBACK : src;
 
   return (
     <Image
       src={currentSrc}
       alt={alt}
       fill={fill}
-      priority={priority}
+      loading={priority ? "eager" : "lazy"}
+      fetchPriority={priority ? "high" : "auto"}
       sizes={sizes}
       className={cn("object-contain", className)}
       onError={() => {
-        if (currentSrc !== CATALOG_IMAGE_FALLBACK) {
-          setCurrentSrc(CATALOG_IMAGE_FALLBACK);
+        if (src !== CATALOG_IMAGE_FALLBACK) {
+          setFailedForSrc(src);
         }
       }}
     />

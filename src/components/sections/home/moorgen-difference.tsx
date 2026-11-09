@@ -57,7 +57,7 @@ export function MoorgenDifference() {
   return (
     <section
       data-header-theme="dark"
-      className="relative isolate mt-8 overflow-hidden rounded-t-[24px] bg-[linear-gradient(145deg,#066662_0%,#087F7B_38%,#009E98_72%,#087F7B_100%)] py-10 text-white sm:mt-10 sm:rounded-t-[28px] sm:py-12 lg:mt-12 lg:py-14"
+      className="relative isolate mt-6 overflow-hidden rounded-t-[24px] bg-[linear-gradient(145deg,#066662_0%,#087F7B_38%,#009E98_72%,#087F7B_100%)] py-8 text-white sm:mt-10 sm:rounded-t-[28px] sm:py-12 lg:mt-12 lg:py-14"
     >
       <div
         aria-hidden="true"
@@ -92,7 +92,7 @@ export function MoorgenDifference() {
           </p>
         </motion.div>
 
-        <div className="mt-9 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4 lg:gap-0">
+        <div className="mt-7 grid grid-cols-1 gap-6 min-[480px]:grid-cols-2 sm:mt-9 sm:gap-7 lg:mt-12 lg:grid-cols-4 lg:gap-0">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
 

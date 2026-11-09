@@ -77,7 +77,7 @@ export function ProjectsShowcaseVideo() {
   const [controlsVisible, setControlsVisible] = useState(false);
   const [isCoarsePointer, setIsCoarsePointer] = useState(false);
 
-  const createPlayer = useCallback(async (controls: 0 | 1, startSeconds = 0) => {
+  const createPlayer = async (controls: 0 | 1, startSeconds = 0) => {
     if (!hostRef.current) return;
 
     if (recreatingRef.current) {
@@ -157,7 +157,7 @@ export function ProjectsShowcaseVideo() {
         void createPlayer(pending, currentTime);
       }
     }
-  }, []);
+  };
 
   const syncControls = useCallback(
     (nextVisible: boolean) => {
@@ -202,24 +202,24 @@ export function ProjectsShowcaseVideo() {
     <section
       data-header-theme="light"
       aria-label="Project showcase video"
-      className="bg-[#FCFCFA] py-8 sm:py-10 lg:py-12"
+      className="bg-[#FCFCFA] py-7 sm:py-9 md:py-10 lg:py-12"
     >
       <Container>
-        <div className="grid items-center gap-8 md:grid-cols-[0.35fr_0.65fr] md:gap-8 lg:grid-cols-[0.3fr_0.7fr] lg:gap-10">
+        <div className="grid items-center gap-6 sm:gap-8 md:grid-cols-[0.35fr_0.65fr] md:gap-8 lg:grid-cols-[0.3fr_0.7fr] lg:gap-10">
           <div className="min-w-0 max-w-md md:max-w-none">
-            <div className="mb-4 flex items-center gap-3">
+            <div className="mb-3 flex items-center gap-3 sm:mb-4">
               <span className="h-px w-9 shrink-0 bg-[#009E98]" />
               <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#087F7B]">
                 OUR WORK
               </span>
             </div>
 
-            <h2 className="font-display text-[clamp(1.85rem,3.2vw,2.55rem)] font-medium leading-[1.08] tracking-[-0.04em] text-[#252A2A]">
+            <h2 className="font-display text-[clamp(1.7rem,3.2vw,2.55rem)] font-medium leading-[1.08] tracking-[-0.04em] text-[#252A2A]">
               Ideas Into{" "}
               <span className="text-[#009E98]">Reality.</span>
             </h2>
 
-            <p className="mt-4 text-[15px] leading-[1.7] text-[#737B7A] sm:text-[16px] sm:leading-[1.75] lg:text-[17px]">
+            <p className="mt-3 text-[14px] leading-[1.7] text-[#737B7A] sm:mt-4 sm:text-[16px] sm:leading-[1.75] lg:text-[17px]">
               Explore our completed smart home automation and security projects. Discover how we
               bring intelligent technology, thoughtful design and seamless control together to
               create exceptional living and working spaces.

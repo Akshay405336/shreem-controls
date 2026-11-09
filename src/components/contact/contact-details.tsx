@@ -10,11 +10,7 @@ export function ContactDetails() {
         </span>
       </div>
 
-      <p className="text-[12px] leading-[1.75] text-[#737B7A] sm:text-[14px]">
-        Phone, email, address and social profiles are listed below.
-      </p>
-
-      <div className="mt-8">
+      <div className="mt-6">
         <ContactInfoList tone="light" />
       </div>
     </div>

@@ -63,11 +63,11 @@ export function ProductCarousel() {
     <section
       id="products"
       data-header-theme="light"
-      className="relative isolate overflow-hidden bg-[linear-gradient(135deg,#ffffff_0%,#FCFCFA_42%,#EFF9F8_100%)] py-10 sm:py-12 lg:py-14"
+      className="relative isolate overflow-hidden bg-[linear-gradient(135deg,#ffffff_0%,#FCFCFA_42%,#EFF9F8_100%)] py-8 sm:py-10 md:py-12 lg:py-14"
     >
       <SectionSceneDecor variant="orb-dual" />
 
-      <div className="relative mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+      <div className="relative mx-auto max-w-[1440px] px-4 sm:px-8 lg:px-12">
         <HomeSectionHeading
           align="center"
           eyebrow="Our Products"
@@ -128,7 +128,7 @@ export function ProductCarousel() {
             {filteredProducts.map((product) => (
               <div
                 key={product.id}
-                className="flex h-auto w-[min(85vw,300px)] shrink-0 snap-start sm:w-[calc((100%-20px)/2)] lg:w-[calc((100%-60px)/4)]"
+                className="flex h-auto w-[min(78vw,280px)] shrink-0 snap-start min-[480px]:w-[min(70vw,300px)] sm:w-[calc((100%-20px)/2)] lg:w-[calc((100%-60px)/4)]"
               >
                 <HomeProductShowcaseCard product={product} />
               </div>

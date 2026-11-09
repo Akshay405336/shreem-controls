@@ -47,9 +47,9 @@ export function PageHero({
       className={cn(
         "relative isolate flex flex-col overflow-hidden",
         useImage &&
-          "min-h-[min(360px,55vh)] text-white sm:min-h-[min(460px,60vh)] lg:min-h-[min(500px,58vh)] bg-[#1a1f1f]",
+          "min-h-[min(300px,52vh)] text-white sm:min-h-[min(400px,56vh)] md:min-h-[min(460px,60vh)] lg:min-h-[min(500px,58vh)] bg-[#1a1f1f]",
         isLightFlat &&
-          "bg-[linear-gradient(135deg,#FFFFFF_0%,#FCFEFD_55%,#F1F9F8_100%)] pb-12 text-[#252A2A] sm:pb-14 lg:pb-16",
+          "bg-[linear-gradient(135deg,#FFFFFF_0%,#FCFEFD_55%,#F1F9F8_100%)] pb-10 text-[#252A2A] sm:pb-12 md:pb-14 lg:pb-16",
       )}
     >
       {useImage && image && (
@@ -81,7 +81,7 @@ export function PageHero({
 
       <div
         className={cn(
-          "relative z-10 mx-auto min-w-0 w-full max-w-[1440px] px-[5%] pb-10 sm:px-[6%] sm:pb-12 lg:px-12 lg:pb-14",
+          "relative z-10 mx-auto min-w-0 w-full max-w-[1440px] px-[5%] pb-8 sm:px-[6%] sm:pb-10 md:pb-12 lg:px-12 lg:pb-14",
           heroContentOffset,
         )}
       >
@@ -158,24 +158,35 @@ function PageHeroBackgroundImage({
   src: string;
   fallback?: string;
 }) {
-  const [currentSrc, setCurrentSrc] = useState(src);
+  const [stage, setStage] = useState<"primary" | "fallback" | "catalog">("primary");
+  const [trackedSrc, setTrackedSrc] = useState(src);
+  if (trackedSrc !== src) {
+    setTrackedSrc(src);
+    setStage("primary");
+  }
+
+  const currentSrc =
+    stage === "primary"
+      ? src
+      : stage === "fallback" && fallback
+        ? fallback
+        : CATALOG_IMAGE_FALLBACK;
 
   return (
     <Image
       src={currentSrc}
       alt=""
       fill
-      priority
+      loading="eager"
+      fetchPriority="high"
       className="object-cover"
       sizes="100vw"
       onError={() => {
-        if (fallback && currentSrc === src) {
-          setCurrentSrc(fallback);
+        if (stage === "primary" && fallback && fallback !== src) {
+          setStage("fallback");
           return;
         }
-        if (currentSrc !== CATALOG_IMAGE_FALLBACK) {
-          setCurrentSrc(CATALOG_IMAGE_FALLBACK);
-        }
+        if (stage !== "catalog") setStage("catalog");
       }}
     />
   );

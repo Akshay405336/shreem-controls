@@ -1,5 +1,10 @@
 /** Content and asset paths for the Home Security solution page (Ajax Systems). */
 
+/**
+ * Dedicated Ajax/home-security photography is not in `public/` yet.
+ * Primary `image` values use existing site assets so production does not 404.
+ * Expected dedicated paths (still missing) are noted in comments below.
+ */
 export const homeSecuritySeo = {
   title: "Home Security",
   description:
@@ -12,7 +17,8 @@ export const homeSecurityHero = {
   titleAccent: "Smarter Peace of Mind.",
   description:
     "Protect your home and business with intelligent security solutions powered by advanced detection, video surveillance and connected safety technology.",
-  image: "/images/solutions/home-security/hero.jpg",
+  // Missing: /images/solutions/home-security/hero.jpg
+  image: "/images/smart-home-villa.png",
   imageFallback: "/images/smart-home-villa.png",
 };
 
@@ -22,8 +28,10 @@ export const ajaxBrandSection = {
   titleAccent: "AJAX",
   description:
     "Bring intelligent protection to every corner of your property with connected security technology designed to detect threats, deliver alerts and simplify security management.",
-  logo: "/images/solutions/home-security/ajax-logo.png",
-  showcaseImage: "/images/solutions/home-security/ajax-ecosystem.jpg",
+  // Missing: /images/solutions/home-security/ajax-logo.png — omit until asset exists
+  logo: null as string | null,
+  // Missing: /images/solutions/home-security/ajax-ecosystem.jpg
+  showcaseImage: "/images/solutions/Control-Panel.png",
   showcaseFallback: "/images/solutions/Control-Panel.png",
 };
 
@@ -50,7 +58,8 @@ export const securityCategories: SecurityCategory[] = [
       "Keypads and panic buttons",
       "Indoor and outdoor sirens",
     ],
-    image: "/images/solutions/home-security/category-intrusion.jpg",
+    // Missing: /images/solutions/home-security/category-intrusion.jpg
+    image: "/images/solutions/Living-Room.png",
     imageFallback: "/images/solutions/Living-Room.png",
   },
   {
@@ -64,7 +73,8 @@ export const securityCategories: SecurityCategory[] = [
       "Camera-based event verification",
       "Centralised monitoring",
     ],
-    image: "/images/solutions/home-security/category-video.jpg",
+    // Missing: /images/solutions/home-security/category-video.jpg
+    image: "/images/Sunset-Smart.png",
     imageFallback: "/images/Sunset-Smart.png",
   },
   {
@@ -78,7 +88,8 @@ export const securityCategories: SecurityCategory[] = [
       "Connected fire alarms",
       "Audible alerts and notifications",
     ],
-    image: "/images/solutions/home-security/category-fire.jpg",
+    // Missing: /images/solutions/home-security/category-fire.jpg
+    image: "/images/smart-home-villa.png",
     imageFallback: "/images/smart-home-villa.png",
   },
   {
@@ -92,7 +103,8 @@ export const securityCategories: SecurityCategory[] = [
       "Connected lighting and appliance control",
       "Automated scenarios",
     ],
-    image: "/images/solutions/home-security/category-automation.jpg",
+    // Missing: /images/solutions/home-security/category-automation.jpg
+    image: "/images/Glowing-Smart-Display.png",
     imageFallback: "/images/Glowing-Smart-Display.png",
   },
 ];
@@ -137,7 +149,8 @@ export const applicationCards = [
     description:
       "Security layouts can be planned around how you live — entry points, shared spaces and private zones — with devices and scenes matched to your residence.",
     items: ["Apartments", "Villas", "Independent houses", "Luxury residences"],
-    image: "/images/solutions/home-security/residential.jpg",
+    // Missing: /images/solutions/home-security/residential.jpg
+    image: "/images/smart-home-villa.png",
     imageFallback: "/images/smart-home-villa.png",
   },
   {
@@ -145,7 +158,8 @@ export const applicationCards = [
     description:
       "Offices, retail and commercial buildings benefit from layered protection — access paths, working areas and after-hours monitoring — configured to operational needs.",
     items: ["Offices", "Retail spaces", "Showrooms", "Commercial buildings"],
-    image: "/images/solutions/home-security/commercial.jpg",
+    // Missing: /images/solutions/home-security/commercial.jpg
+    image: "/images/solutions/Living-Room.png",
     imageFallback: "/images/solutions/Living-Room.png",
   },
 ] as const;

@@ -59,7 +59,8 @@ async function BrandPageContent({ params }: BrandPageProps) {
                 fill
                 className="object-contain"
                 sizes="200px"
-                priority
+                loading="eager"
+                fetchPriority="high"
               />
             </div>
           </div>

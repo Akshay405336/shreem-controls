@@ -119,7 +119,7 @@ export function FeaturedSmartProducts() {
                   src="/images/products/m18-smart-dimming-knob.png"
                   alt="Moorgen Smart Remote Controls"
                   fill
-                  priority={false}
+                  loading="lazy"
                   sizes="(max-width: 1024px) 100vw, 60vw"
                   className="object-contain"
                 />

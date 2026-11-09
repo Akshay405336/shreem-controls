@@ -19,7 +19,7 @@ function WhatsAppBrandIcon({ className }: { className?: string }) {
 
 export function FloatingWhatsAppButton() {
   return (
-    <div className="pointer-events-none fixed bottom-4 right-4 z-[55] md:bottom-6 md:right-6">
+    <div className="pointer-events-none fixed bottom-3 right-3 z-[55] min-[400px]:bottom-4 min-[400px]:right-4 md:bottom-6 md:right-6">
       <a
         href={whatsAppContact.href}
         target="_blank"
@@ -52,8 +52,8 @@ export function FloatingWhatsAppButton() {
 
         <span
           className={cn(
-            "relative flex size-[54px] shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_24px_rgba(37,211,102,0.35)] transition-transform duration-300 ease-out",
-            "group-hover:scale-105 group-focus-visible:scale-105 md:size-[58px]",
+            "relative flex size-[50px] shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_24px_rgba(37,211,102,0.35)] transition-transform duration-300 ease-out",
+            "group-hover:scale-105 group-focus-visible:scale-105 min-[400px]:size-[54px] md:size-[58px]",
             "motion-safe:before:absolute motion-safe:before:inset-0 motion-safe:before:animate-[whatsapp-pulse_2.8s_ease-out_infinite] motion-safe:before:rounded-full motion-safe:before:bg-[#25D366]/40 motion-safe:before:content-['']",
           )}
         >

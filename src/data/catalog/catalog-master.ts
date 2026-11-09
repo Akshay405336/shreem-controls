@@ -182,7 +182,7 @@ export const catalogMaster = {
       "Built-in sensors",
       "Infrared remote-control support"
     ],
-    "image": "/images/catalog/akubela/hypanel-lux-piano.png",
+    "image": "/images/catalog/akubela/HyPanel-Lux-Piano.png",
     "displayStatus": "published",
     "displayOrder": 30,
     "contentVerificationStatus": "verified",
@@ -682,6 +682,212 @@ export const catalogMaster = {
     ],
     "legacySlug": "m18-smart-dimming-knob",
     "sourceDocument": "2.2 M18 Series.pdf"
+  },
+  {
+    "id": "moorgen-mk-8072-c02",
+    "name": "2-Fold Metal Pushbutton Cover",
+    "slug": "mk-8072-c02",
+    "brandId": "moorgen",
+    "categoryId": "smart-keypad-switch",
+    "seriesName": "Swiss Series, C Series",
+    "shortDescription": "A premium two-fold metal pushbutton cover from Moorgen's Swiss C Series, finished in Ferrari Red and supplied with back power and frame for KNX installations.",
+    "fullDescription": "The Moorgen MK 8072 C02 is a two-fold metal pushbutton cover from the Swiss Series C range. Its Ferrari Red finish gives the control interface a distinctive appearance, making it suitable for interiors where coordinated architectural finishes are important. The listed configuration includes back power and frame and is identified as a KNX product in the August 2026 price list.",
+    "features": [
+      "Two-fold metal pushbutton cover",
+      "Swiss Series C Series design",
+      "Ferrari Red finish",
+      "KNX product",
+      "Supplied with back power and frame"
+    ],
+    "image": "/images/catalog/moorgen/Moorgen-MK-8072-C02.png",
+    "displayStatus": "published",
+    "displayOrder": 151,
+    "contentVerificationStatus": "verified",
+    "specifications": [
+      { "label": "Model", "value": "MK 8072 C02" },
+      { "label": "Product type", "value": "Metal Pushbutton Cover" },
+      { "label": "Configuration", "value": "2 Fold" },
+      { "label": "Series", "value": "Swiss Series, C Series" },
+      { "label": "Finish", "value": "Ferrari Red" },
+      { "label": "Protocol", "value": "KNX" },
+      { "label": "Included components", "value": "Back Power and Frame" }
+    ],
+    "relatedSlugs": ["mk-8070-c27", "aura-series-smart-switch"],
+    "sourceDocument": "MOORGEN - KNX PRICE LIST - AUG -2026.pdf",
+    "sourcePage": "1"
+  },
+  {
+    "id": "moorgen-mk-8070-c27",
+    "name": "Smart Thermostat",
+    "slug": "mk-8070-c27",
+    "brandId": "moorgen",
+    "categoryId": "smart-keypad-switch",
+    "seriesName": "Steve Leung Supercar Series, C Series",
+    "shortDescription": "A premium KNX smart thermostat from Moorgen's Steve Leung Series, featuring a Mica Black finish and an 80 mm design.",
+    "fullDescription": "The Moorgen MK 8070 C27 is a smart thermostat from the Steve Leung Supercar Series. The listed C Series configuration features a Mica Black finish and an 80 mm format. The product is specified for KNX installations and is supplied with back power and frame. Its refined dark appearance complements contemporary interiors and coordinated smart-home control installations.",
+    "features": [
+      "Smart thermostat",
+      "Steve Leung Supercar Series",
+      "C Series configuration",
+      "Mica Black finish",
+      "KNX product",
+      "80 mm format",
+      "Supplied with back power and frame"
+    ],
+    "image": "/images/catalog/moorgen/Moorgen-MK-8070-C27.png",
+    "displayStatus": "published",
+    "displayOrder": 152,
+    "contentVerificationStatus": "verified",
+    "specifications": [
+      { "label": "Model", "value": "MK 8070 C27" },
+      { "label": "Product type", "value": "Smart Thermostat" },
+      { "label": "Series", "value": "Steve Leung Supercar Series" },
+      { "label": "Configuration", "value": "C Series" },
+      { "label": "Finish", "value": "Mica Black" },
+      { "label": "Protocol", "value": "KNX" },
+      { "label": "Format", "value": "80 mm" },
+      { "label": "Included components", "value": "Back Power and Frame" }
+    ],
+    "relatedSlugs": ["mk-8072-c02", "m18-smart-dimming-knob"],
+    "sourceDocument": "MOORGEN - KNX PRICE LIST - AUG -2026.pdf",
+    "sourcePage": "3"
+  },
+  {
+    "id": "moorgen-mt8123-smart-touch-s10",
+    "name": "Moorgen KNX Smart Touch S10",
+    "slug": "mt8123-smart-touch-s10",
+    "brandId": "moorgen",
+    "categoryId": "smart-touch-panel",
+    "seriesName": "S10",
+    "shortDescription": "A Moorgen KNX Smart Touch S10 control panel featuring a 10-inch screen for smart-home control.",
+    "fullDescription": "The Moorgen MT8123 is listed as the KNX Smart Touch S10 in Moorgen's Smart LCD Panel range. Featuring a 10-inch screen, it provides a touchscreen interface for smart-home control installations. Its large-screen format makes it a central visual control option for projects incorporating Moorgen KNX solutions.",
+    "features": [
+      "Smart Touch S10 panel",
+      "10-inch screen",
+      "KNX product",
+      "Smart LCD panel category"
+    ],
+    "image": "/images/catalog/moorgen/Moorgen-MT8123.png",
+    "displayStatus": "published",
+    "displayOrder": 153,
+    "contentVerificationStatus": "verified",
+    "specifications": [
+      { "label": "Model", "value": "MT8123" },
+      { "label": "Product type", "value": "Smart Touch Panel" },
+      { "label": "Product series", "value": "S10" },
+      { "label": "Display", "value": "10-inch screen" },
+      { "label": "Protocol", "value": "KNX" }
+    ],
+    "relatedSlugs": ["hypanel-supreme", "m18-smart-dimming-knob"],
+    "sourceDocument": "MOORGEN - KNX PRICE LIST - AUG -2026.pdf",
+    "sourcePage": "4"
+  },
+  {
+    "id": "moorgen-mqe005f18-m50-remote",
+    "name": "8-Key Smart Remote Control",
+    "slug": "mqe005f18-m50-remote",
+    "brandId": "moorgen",
+    "categoryId": "smart-dimming-knob",
+    "seriesName": "M50 Series",
+    "shortDescription": "An eight-key smart remote control from Moorgen's M50 Series, featuring a premium Monaco Gold finish.",
+    "fullDescription": "The Moorgen MQE005F18 is an eight-key smart remote control from the M50 Series. Its Monaco Gold finish gives the remote a refined appearance suited to premium residential interiors. It belongs to Moorgen's wireless remote product range and expands the available physical control options within an integrated smart-home installation.",
+    "features": [
+      "Eight-key smart remote control",
+      "M50 Series",
+      "Monaco Gold finish",
+      "Wireless remote product range"
+    ],
+    "image": "/images/catalog/moorgen/Moorgen-MQE005F18.png",
+    "displayStatus": "published",
+    "displayOrder": 154,
+    "contentVerificationStatus": "verified",
+    "specifications": [
+      { "label": "Model", "value": "MQE005F18" },
+      { "label": "Product type", "value": "Smart Remote Control" },
+      { "label": "Key configuration", "value": "8 keys" },
+      { "label": "Series", "value": "M50" },
+      { "label": "Finish", "value": "Monaco Gold" },
+      { "label": "Product range", "value": "Wireless Remotes" }
+    ],
+    "relatedSlugs": [
+      "mqe610f18-m56-remote",
+      "mqe079-d37-m78-crystal-remote",
+      "m18-smart-dimming-knob"
+    ],
+    "sourceDocument": "MOORGEN - KNX PRICE LIST - AUG -2026.pdf",
+    "sourcePage": "6"
+  },
+  {
+    "id": "moorgen-mqe610f18-m56-remote",
+    "name": "4-Key Rotary Smart Remote Control",
+    "slug": "mqe610f18-m56-remote",
+    "brandId": "moorgen",
+    "categoryId": "smart-dimming-knob",
+    "seriesName": "M56 Series",
+    "shortDescription": "A four-key rotary smart remote control from Moorgen's M56 Series, featuring an elegant Monaco Gold finish.",
+    "fullDescription": "The Moorgen MQE610F18 is a four-key rotary smart remote control from the M56 Series. Its Monaco Gold finish combines a distinctive rotary control design with a premium decorative appearance. The product belongs to Moorgen's wireless remote range and offers a physical control option for smart-home environments.",
+    "features": [
+      "Four-key rotary smart remote control",
+      "M56 Series",
+      "Monaco Gold finish",
+      "Wireless remote product range",
+      "Rotary control design"
+    ],
+    "image": "/images/catalog/moorgen/Moorgen-MQE610F18.png",
+    "displayStatus": "published",
+    "displayOrder": 155,
+    "contentVerificationStatus": "verified",
+    "specifications": [
+      { "label": "Model", "value": "MQE610F18" },
+      { "label": "Product type", "value": "Rotary Smart Remote Control" },
+      { "label": "Key configuration", "value": "4 keys" },
+      { "label": "Series", "value": "M56" },
+      { "label": "Finish", "value": "Monaco Gold" },
+      { "label": "Product range", "value": "Wireless Remotes" }
+    ],
+    "relatedSlugs": [
+      "mqe005f18-m50-remote",
+      "mqe079-d37-m78-crystal-remote",
+      "m18-smart-dimming-knob"
+    ],
+    "sourceDocument": "MOORGEN - KNX PRICE LIST - AUG -2026.pdf",
+    "sourcePage": "7"
+  },
+  {
+    "id": "moorgen-mqe079-d37-m78-crystal-remote",
+    "name": "Crystal Rotary Smart Remote Control",
+    "slug": "mqe079-d37-m78-crystal-remote",
+    "brandId": "moorgen",
+    "categoryId": "smart-dimming-knob",
+    "seriesName": "M78 Series",
+    "shortDescription": "A premium crystal rotary smart remote control from Moorgen's M78 Series, featuring a Belgium Silver finish and matching silver base.",
+    "fullDescription": "The Moorgen MQE079 D37 is a crystal rotary smart remote control from the M78 Series. The listed configuration combines a Belgium Silver finish with a silver base. Its faceted crystal-inspired control surface and polished metallic appearance make it a distinctive premium remote option for sophisticated smart-home interiors.",
+    "features": [
+      "Crystal rotary smart remote control",
+      "M78 Series",
+      "Belgium Silver finish",
+      "Silver base",
+      "Wireless remote product range"
+    ],
+    "image": "/images/catalog/moorgen/Moorgen-MQE079-D37.png",
+    "displayStatus": "published",
+    "displayOrder": 156,
+    "contentVerificationStatus": "verified",
+    "specifications": [
+      { "label": "Model", "value": "MQE079 D37" },
+      { "label": "Product type", "value": "Crystal Rotary Smart Remote Control" },
+      { "label": "Series", "value": "M78" },
+      { "label": "Finish", "value": "Belgium Silver" },
+      { "label": "Base", "value": "Silver" },
+      { "label": "Product range", "value": "Wireless Remotes" }
+    ],
+    "relatedSlugs": [
+      "mqe005f18-m50-remote",
+      "mqe610f18-m56-remote",
+      "m18-smart-dimming-knob"
+    ],
+    "sourceDocument": "MOORGEN - KNX PRICE LIST - AUG -2026.pdf",
+    "sourcePage": "8"
   },
   {
     "id": "basalte-sentido",

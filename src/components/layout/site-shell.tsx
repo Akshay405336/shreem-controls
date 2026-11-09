@@ -11,9 +11,9 @@ type SiteShellProps = {
 
 export function SiteShell({ children }: SiteShellProps) {
   return (
-    <div className="flex min-h-dvh flex-col bg-background text-text-primary">
+    <div className="flex min-h-dvh min-w-0 flex-col overflow-x-clip bg-background text-text-primary">
       <Header />
-      <Main className="overflow-x-hidden">{children}</Main>
+      <Main className="min-w-0 overflow-x-clip">{children}</Main>
       <Footer />
       <FloatingWhatsAppButton />
     </div>

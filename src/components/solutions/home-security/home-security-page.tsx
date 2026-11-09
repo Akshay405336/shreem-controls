@@ -37,7 +37,7 @@ export function HomeSecurityPage() {
       </PageHero>
 
       <PageSection theme="cream-gradient" waves="ambient" scene="orb-top-right">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-center">
+        <div className="grid gap-7 sm:gap-8 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-10">
           <div>
             <HomeSectionHeading
               eyebrow={ajaxBrandSection.eyebrow}
@@ -45,25 +45,27 @@ export function HomeSecurityPage() {
               titleAccent={ajaxBrandSection.titleAccent}
               description={ajaxBrandSection.description}
             />
-            <div className="mt-8 flex items-center gap-4">
-              <div className="relative h-10 w-28 shrink-0">
-                <SolutionAssetImage
-                  src={ajaxBrandSection.logo}
-                  fallback=""
-                  alt="Ajax Systems"
-                  fill
-                  sizes="112px"
-                  className="object-contain object-left"
-                />
-              </div>
-              <p className="text-[12px] leading-[1.65] text-[#737B7A]">
+            <div className="mt-6 flex items-center gap-3 sm:mt-8 sm:gap-4">
+              {ajaxBrandSection.logo ? (
+                <div className="relative h-9 w-24 shrink-0 sm:h-10 sm:w-28">
+                  <SolutionAssetImage
+                    src={ajaxBrandSection.logo}
+                    fallback=""
+                    alt="Ajax Systems"
+                    fill
+                    sizes="112px"
+                    className="object-contain object-left"
+                  />
+                </div>
+              ) : null}
+              <p className="min-w-0 text-[12px] leading-[1.65] text-[#737B7A]">
                 Professional wireless security technology for residential and commercial
                 properties.
               </p>
             </div>
           </div>
-          <FadeInView className="relative overflow-hidden rounded-[24px] border border-[#DDECEB] bg-white shadow-[0_10px_36px_rgba(37,42,42,0.07)]">
-            <div className="relative aspect-[4/3] w-full min-h-[220px]">
+          <FadeInView className="relative overflow-hidden rounded-[20px] border border-[#DDECEB] bg-white shadow-[0_10px_36px_rgba(37,42,42,0.07)] sm:rounded-[24px]">
+            <div className="relative aspect-[4/3] w-full min-h-[180px] sm:min-h-[220px]">
               <SolutionAssetImage
                 src={ajaxBrandSection.showcaseImage}
                 fallback={ajaxBrandSection.showcaseFallback}
@@ -164,7 +166,7 @@ export function HomeSecurityPage() {
           align="center"
         />
 
-        <ol className="relative mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <ol className="relative mt-8 grid gap-4 sm:mt-10 sm:gap-6 md:mt-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           <div
             aria-hidden
             className="pointer-events-none absolute left-[12.5%] right-[12.5%] top-[2.75rem] hidden h-px bg-gradient-to-r from-transparent via-[#009E98]/35 to-transparent lg:block"
@@ -196,7 +198,7 @@ export function HomeSecurityPage() {
       </PageSection>
 
       <PageSection theme="cream" scene="orb-top-right">
-        <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center lg:gap-14">
+        <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center lg:gap-14">
           <div className="max-w-xl">
             <HomeSectionHeading
               eyebrow={mobileSecuritySection.eyebrow}

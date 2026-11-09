@@ -15,9 +15,9 @@ export function Footer() {
       data-header-theme="dark"
       className="mt-auto border-t border-[#066662] bg-[linear-gradient(180deg,#087F7B_0%,#066662_100%)] text-white"
     >
-      <Container className="pt-12 pb-4 lg:pt-14 lg:pb-5">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-          <div className="flex flex-col items-center text-center lg:items-center">
+      <Container className="pt-10 pb-4 sm:pt-12 lg:pt-14 lg:pb-5">
+        <div className="grid gap-8 sm:gap-9 md:grid-cols-2 md:gap-10 lg:grid-cols-4">
+          <div className="flex flex-col items-center text-center md:items-start md:text-left lg:items-center lg:text-center">
             <Link
               href="/"
               aria-label={`${siteConfig.name} Home`}
@@ -38,11 +38,14 @@ export function Footer() {
               living experiences.
             </p>
 
-            <div className="mt-6 flex w-full max-w-xs flex-col items-center">
+            <div className="mt-5 flex w-full max-w-xs flex-col items-center md:items-start lg:items-center sm:mt-6">
               <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#C5E5E2]">
                 Follow Us
               </p>
-              <SocialIconLinks tone="dark" className="mt-3 justify-center" />
+              <SocialIconLinks
+                tone="dark"
+                className="mt-3 justify-center md:justify-start lg:justify-center"
+              />
             </div>
           </div>
 
@@ -59,8 +62,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col gap-2 border-t border-white/12 pt-3 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-[13px] leading-snug text-white/55">{siteConfig.copyright}</p>
+        <div className="mt-7 flex flex-col gap-2 border-t border-white/12 pt-3 sm:mt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-[12px] leading-snug text-white/55 sm:text-[13px]">
+            {siteConfig.copyright}
+          </p>
           <div className="flex flex-wrap gap-x-4 gap-y-1">
             {footerNavigation.legal.map((link) => (
               <Link

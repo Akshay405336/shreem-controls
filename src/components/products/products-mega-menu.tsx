@@ -104,7 +104,7 @@ export function ProductsMegaMenu({ tone, onNavigate }: ProductsMegaMenuProps) {
         "max-h-[min(520px,calc(var(--dropdown-max-height,480px)-2.5rem))]",
       )}
     >
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,200px)_minmax(0,1fr)_minmax(200px,260px)] lg:gap-8">
+      <div className="grid min-w-0 gap-5 md:gap-6 lg:grid-cols-[minmax(0,200px)_minmax(0,1fr)_minmax(200px,260px)] lg:gap-8">
         <ul className="flex flex-col gap-0.5">
           {mainCategories.map((item) => {
             const active = item.slug === activeSlug;

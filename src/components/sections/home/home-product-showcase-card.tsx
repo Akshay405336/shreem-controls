@@ -22,10 +22,10 @@ export function HomeProductShowcaseCard({ product }: HomeProductShowcaseCardProp
   return (
     <article
       data-product-card
-      className="group flex h-full min-h-[320px] w-full shrink-0 snap-start flex-col rounded-2xl border border-[#DDECEB] bg-white px-4 pb-4 pt-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#009E98]/35 hover:shadow-[0_12px_35px_rgba(0,158,152,0.1)] sm:min-h-[336px]"
+      className="group flex h-full min-h-[280px] w-full shrink-0 snap-start flex-col rounded-2xl border border-[#DDECEB] bg-white px-3 pb-3.5 pt-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#009E98]/35 hover:shadow-[0_12px_35px_rgba(0,158,152,0.1)] sm:min-h-[320px] sm:px-4 sm:pb-4 sm:pt-5 md:min-h-[336px]"
     >
       <Link href={href} className="flex flex-1 flex-col items-center text-center">
-        <div className="relative h-[145px] w-full max-w-[220px] sm:h-[160px]">
+        <div className="relative h-[120px] w-full max-w-[200px] sm:h-[145px] sm:max-w-[220px] md:h-[160px]">
           <CatalogProductImage
             src={product.image}
             alt={product.name}

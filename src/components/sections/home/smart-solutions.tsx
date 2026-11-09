@@ -74,7 +74,7 @@ export function SmartSolutions() {
   return (
     <section
       data-header-theme="light"
-      className="relative isolate overflow-hidden bg-white py-9 text-[#252A2A] sm:py-11 lg:py-12"
+      className="relative isolate overflow-hidden bg-white py-7 text-[#252A2A] sm:py-9 md:py-11 lg:py-12"
     >
       {/* Soft ambient background */}
       <div
@@ -155,7 +155,7 @@ export function SmartSolutions() {
         </motion.div>
 
         {/* Solution cards */}
-        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-10 lg:grid-cols-4 lg:gap-3">
+        <div className="mt-6 grid grid-cols-1 gap-3 min-[480px]:grid-cols-2 sm:mt-8 sm:gap-4 lg:mt-10 lg:grid-cols-4 lg:gap-3">
           {solutions.map((solution, index) => {
             const Icon = solution.icon;
             const isFeaturedGradient = index === 2;

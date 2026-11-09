@@ -62,7 +62,7 @@ export function ConsultationModal() {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden p-4 sm:p-6"
+          className="fixed inset-0 z-[100] flex items-end justify-center overflow-hidden p-3 sm:items-center sm:p-6"
           initial={{ opacity: prefersReducedMotion ? 1 : 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -78,7 +78,7 @@ export function ConsultationModal() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="consultation-title"
-            className="relative z-10 grid min-w-0 max-h-[min(720px,calc(100dvh-48px))] w-full max-w-2xl grid-rows-[auto_minmax(0,1fr)] overflow-hidden rounded-2xl border border-[#DDECEB] bg-[linear-gradient(180deg,#ffffff_0%,#F4FBFA_100%)] shadow-[0_24px_80px_rgba(20,16,10,0.18)]"
+            className="relative z-10 grid min-w-0 max-h-[min(720px,calc(100dvh-24px))] w-full max-w-2xl grid-rows-[auto_minmax(0,1fr)] overflow-hidden rounded-2xl border border-[#DDECEB] bg-[linear-gradient(180deg,#ffffff_0%,#F4FBFA_100%)] shadow-[0_24px_80px_rgba(20,16,10,0.18)] sm:max-h-[min(720px,calc(100dvh-48px))]"
             initial={
               prefersReducedMotion ? false : { opacity: 0, y: 24, scale: 0.98 }
             }
@@ -88,7 +88,7 @@ export function ConsultationModal() {
             }
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="sticky top-0 z-10 shrink-0 bg-[linear-gradient(180deg,#ffffff_0%,#F4FBFA_100%)] px-6 pb-4 pt-6 sm:px-8 sm:pt-8">
+            <div className="sticky top-0 z-10 shrink-0 bg-[linear-gradient(180deg,#ffffff_0%,#F4FBFA_100%)] px-4 pb-3.5 pt-5 sm:px-8 sm:pb-4 sm:pt-8">
               <button
                 type="button"
                 onClick={closeConsultation}
@@ -112,7 +112,7 @@ export function ConsultationModal() {
             <div
               ref={scrollRef}
               data-lenis-prevent
-              className="scrollbar-hidden min-h-0 min-w-0 overflow-y-auto overscroll-contain px-6 pb-6 sm:px-8 sm:pb-8"
+              className="scrollbar-hidden min-h-0 min-w-0 overflow-y-auto overscroll-contain px-4 pb-5 sm:px-8 sm:pb-8"
             >
               <EnquiryForm key={JSON.stringify(context)} showIntro={false} />
             </div>

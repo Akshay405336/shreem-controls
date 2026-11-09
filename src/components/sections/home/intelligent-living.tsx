@@ -159,9 +159,9 @@ export function IntelligentLiving() {
 
       <Container className="relative z-10">
         {/* Main introduction and visual */}
-        <div className="grid items-center gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-8">
+        <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-8">
           {/* Left content */}
-          <motion.div {...reveal(0)}>
+          <motion.div {...reveal(0)} className="min-w-0">
             <motion.div
               className="mb-6 flex items-center gap-3"
               initial={shouldReduceMotion ? false : { opacity: 0, x: -18 }}
@@ -188,7 +188,7 @@ export function IntelligentLiving() {
               />
             </motion.div>
 
-            <h2 className="max-w-[470px] font-display text-[clamp(2.6rem,4.5vw,4.3rem)] font-medium leading-[1.02] tracking-[-0.05em] text-[#252A2A]">
+            <h2 className="max-w-[470px] font-display text-[clamp(2.35rem,4.5vw,4.3rem)] font-medium leading-[1.02] tracking-[-0.05em] text-[#252A2A]">
               A smarter
               <motion.span
                 className="block text-[#009E98]"
@@ -217,13 +217,13 @@ export function IntelligentLiving() {
             <motion.div {...reveal(0.4)}>
               <Link
                 href="/about"
-                className="group relative mt-7 inline-flex h-[48px] items-center gap-7 overflow-hidden rounded-md border border-[#087F7B]/30 bg-[linear-gradient(105deg,#087F7B_0%,#009E98_52%,#45BDB5_100%)] px-6 text-[11px] font-medium text-white shadow-[0_8px_22px_rgba(0,158,152,0.22)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(0,158,152,0.28)]"
+                className="group relative mt-7 inline-flex h-[48px] max-w-full items-center gap-5 overflow-hidden rounded-md border border-[#087F7B]/30 bg-[linear-gradient(105deg,#087F7B_0%,#009E98_52%,#45BDB5_100%)] px-5 text-[11px] font-medium text-white shadow-[0_8px_22px_rgba(0,158,152,0.22)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(0,158,152,0.28)] sm:gap-7 sm:px-6"
               >
-                <span className="relative z-10">
+                <span className="relative z-10 whitespace-nowrap">
                   Explore the Experience
                 </span>
 
-                <ArrowUpRight className="relative z-10 size-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                <ArrowUpRight className="relative z-10 size-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
 
                 <span className="absolute inset-0 translate-x-[-110%] bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-700 group-hover:translate-x-[110%]" />
               </Link>
@@ -234,7 +234,7 @@ export function IntelligentLiving() {
               {...reveal(0.5)}
               className="mt-8 flex items-center gap-3"
             >
-              <div className="flex -space-x-2">
+              <div className="flex shrink-0 -space-x-2">
                 {[House, Wifi, ShieldCheck].map((Icon, index) => (
                   <div
                     key={index}
@@ -245,10 +245,11 @@ export function IntelligentLiving() {
                 ))}
               </div>
 
-              <div>
+              <div className="min-w-0">
                 <p className="text-[10px] font-semibold tracking-wide text-[#252A2A]">
                   One intelligent ecosystem
                 </p>
+
                 <p className="mt-0.5 text-[10px] text-[#737B7A]">
                   Everything works beautifully together
                 </p>
@@ -259,7 +260,7 @@ export function IntelligentLiving() {
           {/* Right image composition */}
           <motion.div
             {...reveal(0.15)}
-            className="relative mx-auto h-[280px] w-full max-w-[680px] sm:h-[340px] lg:h-[390px]"
+            className="relative mx-auto h-[220px] w-full max-w-[680px] min-[400px]:h-[260px] sm:h-[340px] lg:h-[390px]"
           >
             <div
               aria-hidden
@@ -286,7 +287,7 @@ export function IntelligentLiving() {
                   src="/images/Glowing-Smart-Display.png"
                   alt="Luxury contemporary smart home interior"
                   fill
-                  sizes="(max-width: 1024px) 35vw, 25vw"
+                  sizes="(max-width: 640px) 35vw, (max-width: 1024px) 35vw, 25vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.08]"
                   style={{ objectPosition: panel.position }}
                 />
@@ -311,6 +312,7 @@ export function IntelligentLiving() {
                 <p className="text-[10px] font-semibold text-[#252A2A]">
                   Smart Living
                 </p>
+
                 <p className="text-[9px] text-[#737B7A]">
                   Connected by design
                 </p>
@@ -322,22 +324,22 @@ export function IntelligentLiving() {
         </div>
 
         {/* Experience feature cards */}
-        <div className="relative mt-12 grid gap-3 border-t border-[#DDECEB] pt-7 md:grid-cols-3 md:gap-4 md:pt-8">
+        <div className="relative mt-12 grid grid-cols-1 gap-3 border-t border-[#DDECEB] pt-7 sm:grid-cols-2 sm:gap-4 sm:pt-8 md:grid-cols-3">
           {experiences.map((item, index) => {
             const Icon = item.icon;
 
             return (
               <motion.div
-                key={item.number}
+                key={item.title}
                 {...reveal(0.15 + index * 0.13)}
                 whileHover={
                   shouldReduceMotion
                     ? undefined
                     : { y: -6, transition: { duration: 0.3 } }
                 }
-                className={`group relative flex gap-4 overflow-hidden rounded-2xl border border-transparent px-3 py-5 transition-all duration-300 hover:border-[#A8DCD6] hover:bg-white/85 hover:shadow-[0_14px_34px_rgba(0,110,105,0.10)] md:px-4 ${
+                className={`group relative flex min-w-0 gap-3 overflow-hidden rounded-2xl border border-transparent px-3 py-5 transition-all duration-300 hover:border-[#A8DCD6] hover:bg-white/85 hover:shadow-[0_14px_34px_rgba(0,110,105,0.10)] sm:gap-4 md:px-4 ${
                   index !== 0
-                    ? "border-t border-[#DDECEB] md:border-t-0"
+                    ? "border-t border-[#DDECEB] sm:border-t-0"
                     : ""
                 }`}
               >
@@ -371,11 +373,7 @@ export function IntelligentLiving() {
 
                 {/* Card text */}
                 <div className="relative z-10 min-w-0 flex-1">
-                  <span className="text-[10px] font-semibold tracking-[0.15em] text-[#009E98] transition-colors duration-300 group-hover:text-[#087F7B]">
-                    {item.number}
-                  </span>
-
-                  <h3 className="mt-1 font-display text-[22px] font-normal leading-tight tracking-[-0.035em] text-[#252A2A] transition-colors duration-300 group-hover:text-[#066662]">
+                  <h3 className="mt-0 font-display text-[22px] font-normal leading-tight tracking-[-0.035em] text-[#252A2A] transition-colors duration-300 group-hover:text-[#066662]">
                     {item.title}
                   </h3>
 

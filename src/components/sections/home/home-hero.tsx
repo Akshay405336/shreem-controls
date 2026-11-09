@@ -1,6 +1,7 @@
 
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -59,22 +60,29 @@ export function HomeHero() {
   return (
     <section
       data-header-theme="dark"
-      className="relative isolate flex min-h-[70svh] flex-col overflow-hidden bg-[#252A2A] text-white sm:min-h-0 sm:h-svh"
+      className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-[#252A2A] text-white sm:h-svh sm:min-h-[600px]"
     >
-      {/* Animated background image */}
+      {/* Animated LCP background — next/image with eager/high fetch (not CSS url) */}
       <motion.div
         aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/images/Smart-Dimming-Knob.png')",
-        }}
+        className="absolute inset-0 -z-20"
         initial={shouldReduceMotion ? false : { scale: 1.08, opacity: 0.7 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{
           duration: shouldReduceMotion ? 0 : 2,
           ease: "easeOut",
         }}
-      />
+      >
+        <Image
+          src="/images/Smart-Dimming-Knob.png"
+          alt=""
+          fill
+          loading="eager"
+          fetchPriority="high"
+          sizes="100vw"
+          className="object-cover object-[center_55%] sm:object-center"
+        />
+      </motion.div>
 
       {/* Background overlays */}
       <div
@@ -88,22 +96,22 @@ export function HomeHero() {
       />
 
       {/* Main hero content */}
-      <Container className="flex min-h-0 min-w-0 flex-1 items-start pb-28 pt-[clamp(90px,13vh,125px)] sm:pb-4">
-        <div className="min-w-0 max-w-[700px]">
+      <Container className="flex min-h-0 min-w-0 flex-1 items-center pb-10 pt-[clamp(100px,15vh,150px)] sm:items-start sm:pb-6 sm:pt-[clamp(100px,16vh,150px)]">
+        <div className="w-full min-w-0 max-w-[700px]">
           {/* Eyebrow */}
           <motion.div
             {...reveal(0.3)}
-            className="mb-5 flex items-center gap-3"
+            className="mb-4 flex items-center gap-3 sm:mb-5"
           >
-            <span className="h-px w-9 bg-white/85" />
+            <span className="h-px w-9 shrink-0 bg-white/85" />
 
-            <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-white/90 sm:text-[11px]">
+            <span className="text-[9px] font-medium uppercase tracking-[0.25em] text-white/90 min-[400px]:text-[10px] sm:text-[11px] sm:tracking-[0.3em]">
               Smart Home Automation
             </span>
           </motion.div>
 
           {/* Animated typewriter heading */}
-          <h1 className="min-w-0 font-display text-[clamp(2rem,4.2vw,4rem)] font-normal leading-[1.12] tracking-[-0.025em] text-white">
+          <h1 className="min-w-0 font-display text-[clamp(2rem,7vw,4rem)] font-normal leading-[1.12] tracking-[-0.025em] text-white sm:text-[clamp(2.5rem,4.2vw,4rem)]">
             <span className="block">
               <TypewriterText
                 text="Intelligent Control"
@@ -124,46 +132,52 @@ export function HomeHero() {
           {/* Description */}
           <motion.p
             {...reveal(0.75)}
-            className="mt-5 max-w-[430px] text-[13px] leading-[1.65] text-white/80 sm:text-[15px]"
+            className="mt-4 max-w-[430px] text-[12px] leading-[1.7] text-white/80 min-[400px]:text-[13px] sm:mt-5 sm:text-[15px]"
           >
-            Smart Remote Controls — a refined, intuitive control for
+            Smart Remote Controls, a refined, intuitive control for
             lighting, music, curtains and more.
           </motion.p>
 
           {/* Hero buttons */}
           <motion.div
             {...reveal(0.95)}
-            className="mt-7 flex flex-wrap items-center gap-4"
+            className="mt-6 flex w-full flex-col items-start gap-3 min-[420px]:flex-row min-[420px]:flex-wrap min-[420px]:items-center min-[420px]:gap-4 sm:mt-7"
           >
             <Link
               href="/products"
-              className="group inline-flex h-[46px] items-center gap-3 rounded-[5px] bg-[#e8d6b8] px-6 text-[12px] font-medium text-[#252A2A] transition-colors duration-300 hover:bg-white"
+              className="group inline-flex h-[46px] w-full max-w-[290px] items-center justify-center gap-3 rounded-[5px] bg-[#e8d6b8] px-4 text-[11px] font-medium text-[#252A2A] transition-colors duration-300 hover:bg-white min-[420px]:w-auto min-[420px]:px-6 min-[420px]:text-[12px]"
             >
-              Explore Smart Remote Controls
+              <span className="whitespace-nowrap">
+                Explore Smart Remote Controls
+              </span>
 
-              <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+              <ArrowUpRight className="size-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
             </Link>
 
             <Link
               href="/products"
-              className="group inline-flex h-[46px] items-center gap-3 rounded-[5px] border border-white/60 px-6 text-[12px] font-medium text-white transition-colors duration-300 hover:border-white hover:bg-white hover:text-[#252A2A]"
+              className="group inline-flex h-[46px] w-full max-w-[290px] items-center justify-center gap-3 rounded-[5px] border border-white/60 px-5 text-[11px] font-medium text-white transition-colors duration-300 hover:border-white hover:bg-white hover:text-[#252A2A] min-[420px]:w-auto min-[420px]:px-6 min-[420px]:text-[12px]"
             >
-              View All Products
+              <span className="whitespace-nowrap">
+                View All Products
+              </span>
 
-              <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+              <ArrowUpRight className="size-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
             </Link>
           </motion.div>
         </div>
       </Container>
 
       {/* Bottom feature strip */}
-      <div className="shrink-0 bg-transparent py-4 sm:h-[96px] sm:py-0">
+      <div className="relative z-10 shrink-0 bg-black/10 py-5 backdrop-blur-[2px] sm:h-[96px] sm:bg-transparent sm:py-0 sm:backdrop-blur-none">
         <Container className="flex min-w-0 sm:h-full sm:items-center">
-          <div className="grid w-full grid-cols-2 gap-y-4 sm:grid-cols-3 sm:gap-y-3 md:grid-cols-5 md:gap-y-0">
+          <div className="grid w-full grid-cols-2 gap-y-5 sm:grid-cols-3 sm:gap-y-3 md:grid-cols-5 md:gap-y-0">
             {features.map(({ label, detail, icon: Icon }, index) => (
               <motion.div
                 key={label}
-                initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
+                initial={
+                  shouldReduceMotion ? false : { opacity: 0, y: 18 }
+                }
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: shouldReduceMotion ? 0 : 0.65,
@@ -172,8 +186,14 @@ export function HomeHero() {
                 }}
                 className={`flex min-w-0 flex-col items-center justify-center gap-1.5 px-2 text-center ${
                   index === 4 ? "col-span-2 sm:col-span-1" : ""
-                } ${index !== 0 ? "md:border-l md:border-white/20" : ""} ${
-                  index % 2 === 1 ? "max-md:border-l max-md:border-white/20" : ""
+                } ${
+                  index !== 0
+                    ? "md:border-l md:border-white/20"
+                    : ""
+                } ${
+                  index % 2 === 1
+                    ? "max-md:border-l max-md:border-white/20"
+                    : ""
                 }`}
               >
                 <Icon

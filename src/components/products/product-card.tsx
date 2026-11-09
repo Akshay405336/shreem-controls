@@ -36,21 +36,21 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
           src={product.image}
           alt={product.name}
           fill
-          className="p-6 transition-transform duration-700 group-hover:scale-105"
-          sizes="(max-width:768px) 50vw, (max-width:1280px) 33vw, 25vw"
+          className="object-contain p-4 transition-transform duration-700 group-hover:scale-105 sm:p-6"
+          sizes="(max-width:480px) 100vw, (max-width:768px) 50vw, (max-width:1280px) 33vw, 25vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/[0.04] to-transparent" />
       </Link>
 
-      <div className="flex flex-1 flex-col px-5 pb-5 pt-4">
+      <div className="flex flex-1 flex-col px-4 pb-4 pt-3.5 sm:px-5 sm:pb-5 sm:pt-4">
         <span className="text-[9px] font-semibold tracking-[0.18em] text-[#009E98]">
           {product.brandName}
           {product.seriesName ? ` · ${product.seriesName}` : ""}
         </span>
-        <h3 className="mt-1 font-display text-[18px] font-normal leading-tight tracking-[-0.035em] text-[#252A2A] sm:text-[19px]">
+        <h3 className="mt-1 font-display text-[16px] font-normal leading-tight tracking-[-0.035em] text-[#252A2A] sm:text-[18px] md:text-[19px]">
           {product.name}
         </h3>
-        <p className="mt-2 line-clamp-3 min-h-[2.75rem] text-[11px] leading-[1.65] text-[#737B7A] sm:text-[12px]">
+        <p className="mt-2 line-clamp-3 min-h-[2.5rem] text-[11px] leading-[1.65] text-[#737B7A] sm:min-h-[2.75rem] sm:text-[12px]">
           {product.shortDescription}
         </p>
         {product.features.length > 0 && (

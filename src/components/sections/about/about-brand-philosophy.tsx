@@ -30,12 +30,12 @@ export function AboutBrandPhilosophy() {
   return (
     <section
       data-header-theme="light"
-      className="relative isolate overflow-hidden bg-[linear-gradient(135deg,#FFFFFF_0%,#FFFFFF_48%,#F4FBFA_60%,#E8F7F5_74%,#D4EFEC_88%,#C7ECE8_100%)] py-10 text-[#252A2A] sm:py-12 lg:py-14"
+      className="relative isolate overflow-hidden bg-[linear-gradient(135deg,#FFFFFF_0%,#FFFFFF_48%,#F4FBFA_60%,#E8F7F5_74%,#D4EFEC_88%,#C7ECE8_100%)] py-8 text-[#252A2A] sm:py-10 md:py-12 lg:py-14"
     >
       <AboutPhilosophyBackdrop />
 
       <Container className="relative z-10">
-        <div className="grid items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-12">
+        <div className="grid items-center gap-7 sm:gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-12">
           <motion.div
             initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -85,7 +85,7 @@ export function AboutBrandPhilosophy() {
               delay: shouldReduceMotion ? 0 : 0.08,
               ease: "easeOut",
             }}
-            className="relative min-h-[340px] sm:min-h-[380px] lg:min-h-[400px]"
+            className="relative min-h-[260px] sm:min-h-[340px] md:min-h-[380px] lg:min-h-[400px]"
           >
             <FloatingSmartTiles
               className="absolute inset-0 z-[3]"
@@ -96,7 +96,7 @@ export function AboutBrandPhilosophy() {
               ]}
             />
 
-            <div className="relative z-[1] min-h-[340px] overflow-hidden rounded-[20px] border border-[#E8F5F4] bg-white shadow-[0_12px_32px_rgba(0,158,152,0.12)] sm:min-h-[380px] lg:min-h-[400px]">
+            <div className="relative z-[1] min-h-[260px] overflow-hidden rounded-[20px] border border-[#E8F5F4] bg-white shadow-[0_12px_32px_rgba(0,158,152,0.12)] sm:min-h-[340px] md:min-h-[380px] lg:min-h-[400px]">
               <Image
                 src="/images/products/m18-smart-dimming-knob.png"
                 alt="Moorgen Smart Remote Controls"

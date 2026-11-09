@@ -63,7 +63,7 @@ export function ProductGrid() {
         })}
       </div>
 
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid gap-3 min-[480px]:grid-cols-2 sm:mt-10 sm:gap-4 lg:grid-cols-3">
         {filtered.map((product, index) => (
           <motion.div
             key={product.slug}
@@ -84,17 +84,17 @@ export function ProductGrid() {
                 src={product.image}
                 alt={product.name}
                 fill
-                className="object-contain p-6 transition-transform duration-700 group-hover:scale-105"
-                sizes="(max-width:768px) 100vw, 33vw"
+                className="object-contain p-4 transition-transform duration-700 group-hover:scale-105 sm:p-6"
+                sizes="(max-width:480px) 100vw, (max-width:768px) 50vw, 33vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
             </Link>
 
-            <div className="flex flex-1 flex-col px-5 pb-5 pt-4">
+            <div className="flex flex-1 flex-col px-4 pb-4 pt-3.5 sm:px-5 sm:pb-5 sm:pt-4">
               <span className="text-[9px] font-semibold tracking-[0.18em] text-[#009E98]">
                 {product.category}
               </span>
-              <h3 className="mt-1 font-display text-[19px] font-normal leading-tight tracking-[-0.035em] text-[#252A2A]">
+              <h3 className="mt-1 font-display text-[17px] font-normal leading-tight tracking-[-0.035em] text-[#252A2A] sm:text-[19px]">
                 {product.name}
               </h3>
               <p className="mt-2 min-h-[40px] text-[11px] leading-[1.65] text-[#737B7A] sm:text-[12px]">

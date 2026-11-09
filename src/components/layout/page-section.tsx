@@ -58,7 +58,7 @@ export function PageSection({
       id={id}
       data-header-theme={resolvedHeaderTheme}
       className={cn(
-        "relative isolate overflow-hidden py-9 sm:py-11 lg:py-12",
+        "relative isolate overflow-hidden py-7 sm:py-9 md:py-11 lg:py-12",
         themeClasses[theme],
         className,
       )}

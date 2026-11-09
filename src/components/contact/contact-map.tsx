@@ -17,7 +17,7 @@ export function ContactMap() {
           <iframe
             title="Shreem Controls location map"
             src={contactConfig.mapEmbedUrl}
-            className="h-[420px] w-full"
+            className="h-[240px] w-full sm:h-[320px] md:h-[380px] lg:h-[420px]"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />

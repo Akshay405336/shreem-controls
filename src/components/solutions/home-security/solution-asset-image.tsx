@@ -13,6 +13,7 @@ type SolutionAssetImageProps = {
   className?: string;
   fill?: boolean;
   sizes?: string;
+  /** Above-the-fold (maps to eager + high fetchPriority). */
   priority?: boolean;
 };
 
@@ -22,19 +23,45 @@ export function SolutionAssetImage({
   alt,
   className,
   fill,
-  sizes,
-  priority,
+  sizes = "(max-width: 1024px) 100vw, 50vw",
+  priority = false,
 }: SolutionAssetImageProps) {
-  const [currentSrc, setCurrentSrc] = useState(src);
+  const [stage, setStage] = useState<"primary" | "fallback" | "catalog" | "gone">(
+    "primary",
+  );
+
+  // Reset derived stage when the requested src changes without an effect.
+  const [trackedSrc, setTrackedSrc] = useState(src);
+  if (trackedSrc !== src) {
+    setTrackedSrc(src);
+    setStage("primary");
+  }
+
+  const currentSrc =
+    stage === "primary"
+      ? src
+      : stage === "fallback" && fallback
+        ? fallback
+        : stage === "catalog"
+          ? CATALOG_IMAGE_FALLBACK
+          : src;
+
+  if (stage === "gone") return null;
 
   const handleError = () => {
-    if (fallback && currentSrc === src && fallback !== src) {
-      setCurrentSrc(fallback);
+    if (stage === "primary" && fallback && fallback !== src) {
+      setStage("fallback");
       return;
     }
-    if (currentSrc !== CATALOG_IMAGE_FALLBACK && currentSrc !== fallback) {
-      setCurrentSrc(CATALOG_IMAGE_FALLBACK);
+    if (stage !== "catalog" && currentSrc !== CATALOG_IMAGE_FALLBACK) {
+      if (!fallback) {
+        setStage("gone");
+        return;
+      }
+      setStage("catalog");
+      return;
     }
+    if (!fallback) setStage("gone");
   };
 
   if (fill) {
@@ -43,7 +70,8 @@ export function SolutionAssetImage({
         src={currentSrc}
         alt={alt}
         fill
-        priority={priority}
+        loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : "auto"}
         className={cn("object-cover", className)}
         sizes={sizes}
         onError={handleError}
@@ -57,7 +85,8 @@ export function SolutionAssetImage({
       alt={alt}
       width={800}
       height={600}
-      priority={priority}
+      loading={priority ? "eager" : "lazy"}
+      fetchPriority={priority ? "high" : "auto"}
       className={cn("h-full w-full object-cover", className)}
       sizes={sizes}
       onError={handleError}

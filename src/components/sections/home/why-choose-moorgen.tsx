@@ -91,7 +91,7 @@ export function WhyChooseMoorgen() {
   return (
     <section
       data-header-theme="light"
-      className="relative isolate overflow-hidden bg-white pb-8 pt-12 text-[#252A2A] sm:pb-10 sm:pt-14 lg:pb-12 lg:pt-16"
+      className="relative isolate overflow-hidden bg-white pb-7 pt-9 text-[#252A2A] sm:pb-10 sm:pt-12 md:pt-14 lg:pb-12 lg:pt-16"
     >
       <div className="grid lg:min-h-[440px] lg:grid-cols-[40%_60%]">
         {/* Left architectural image */}
@@ -100,21 +100,21 @@ export function WhyChooseMoorgen() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative min-h-[260px] overflow-hidden rounded-tr-[2.5rem] sm:min-h-[320px] sm:rounded-tr-[3.25rem] lg:min-h-[440px] lg:rounded-tr-[4.5rem]"
+          className="relative min-h-[220px] overflow-hidden rounded-tr-[2.5rem] sm:min-h-[300px] sm:rounded-tr-[3.25rem] md:min-h-[320px] lg:min-h-[440px] lg:rounded-tr-[4.5rem]"
         >
           <Image
             src="/images/Sunset-Smart.png"
             alt="Luxury smart home interior with integrated wall control"
             fill
             sizes="(max-width: 1024px) 100vw, 40vw"
-            className="object-cover"
+            className="object-cover object-center"
           />
 
           <div className="absolute inset-0 rounded-tr-[2.5rem] bg-gradient-to-t from-black/15 via-transparent to-transparent sm:rounded-tr-[3.25rem] lg:rounded-tr-[4.5rem]" />
         </motion.div>
 
         {/* Right content */}
-        <div className="relative flex items-center bg-[linear-gradient(135deg,#FFFFFF_0%,#FFFFFF_35%,#F4FBFA_55%,#E8F7F5_75%,#D4EFEC_90%,#FFFFFF_100%)] px-6 py-9 sm:px-9 sm:py-10 lg:px-10 xl:px-14 lg:py-12">
+        <div className="relative flex items-center bg-[linear-gradient(135deg,#FFFFFF_0%,#FFFFFF_35%,#F4FBFA_55%,#E8F7F5_75%,#D4EFEC_90%,#FFFFFF_100%)] px-5 py-7 sm:px-9 sm:py-10 lg:px-10 xl:px-14 lg:py-12">
           <div className="relative z-20 w-full max-w-[850px]">
             {/* Heading */}
             <motion.div {...reveal(0)}>

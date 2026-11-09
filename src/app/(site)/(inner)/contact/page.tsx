@@ -36,10 +36,10 @@ export default function ContactPage() {
           description="Get in touch with us for product information, general enquiries or assistance. Our team is happy to help."
         />
 
-        <div className="mt-10 grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+        <div className="mt-8 grid gap-6 sm:mt-10 sm:gap-8 lg:grid-cols-[0.85fr_1.15fr]">
           <ContactDetails />
-          <div className="rounded-[20px] border border-[#DDECEB] bg-[#F4FBFA] p-6 shadow-[0_6px_20px_rgba(37,42,42,0.06)] sm:p-8">
-            <h2 className="font-display text-[22px] tracking-[-0.03em] text-[#252A2A] sm:text-[24px]">
+          <div className="rounded-[20px] border border-[#DDECEB] bg-[#F4FBFA] p-5 shadow-[0_6px_20px_rgba(37,42,42,0.06)] sm:p-8">
+            <h2 className="font-display text-[20px] tracking-[-0.03em] text-[#252A2A] sm:text-[24px]">
               Send Us a Message
             </h2>
             <p className="mt-2 text-[13px] leading-[1.7] text-[#737B7A] sm:text-[14px]">

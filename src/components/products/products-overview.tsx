@@ -35,7 +35,7 @@ export function ProductsOverview({ categories, products }: ProductsOverviewProps
         titleClassName="text-[clamp(1.85rem,3.4vw,3.15rem)]"
       />
 
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid gap-3 min-[480px]:grid-cols-2 sm:mt-10 sm:gap-4 lg:grid-cols-3">
         {categories.map((category, index) => {
           const brands = getBrandsInCategory(products, category.slug);
           const href = categoryPath(category.slug);

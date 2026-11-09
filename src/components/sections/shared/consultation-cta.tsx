@@ -21,7 +21,7 @@ export function ConsultationCtaSection() {
     <section
       id="consultation"
       data-header-theme="light"
-      className="relative isolate overflow-hidden bg-[linear-gradient(135deg,#FFFFFF_0%,#EFF9F8_22%,#E8F7F5_48%,#D4EFEC_72%,#C7ECE8_100%)] py-12 sm:py-14 lg:py-16"
+      className="relative isolate overflow-hidden bg-[linear-gradient(135deg,#FFFFFF_0%,#EFF9F8_22%,#E8F7F5_48%,#D4EFEC_72%,#C7ECE8_100%)] py-9 sm:py-12 md:py-14 lg:py-16"
     >
       <div className="absolute inset-0">
         <Image
@@ -38,7 +38,7 @@ export function ConsultationCtaSection() {
       <SectionSceneDecor variant="orb-top-right" />
 
       <Container className="relative z-10">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div className="grid gap-7 sm:gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-10">
           <div>
             <HomeSectionHeading
               eyebrow="Ready to experience a smarter home?"

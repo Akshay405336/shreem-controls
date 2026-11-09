@@ -67,7 +67,7 @@ async function SolutionDetailContent({ params }: SolutionPageProps) {
       />
 
       <PageSection theme="white" waves="ambient" scene="orb-top-right">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-center">
+        <div className="grid gap-8 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-10">
           <div>
             <HomeSectionHeading
               eyebrow="Overview"
@@ -87,7 +87,7 @@ async function SolutionDetailContent({ params }: SolutionPageProps) {
           titleLead="Feature"
           titleAccent="highlights"
         />
-        <ul className="mt-8 grid gap-4 md:grid-cols-3">
+        <ul className="mt-6 grid gap-3 sm:mt-8 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {solution.features.map((feature, index) => (
             <li
               key={feature}
