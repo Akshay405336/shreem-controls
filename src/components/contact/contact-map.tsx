@@ -1,3 +1,4 @@
+import { ConsentGatedMap } from "@/components/contact/consent-gated-map";
 import { PageSection } from "@/components/layout/page-section";
 import { HomeSectionHeading } from "@/components/ui/home-section-heading";
 import { contactConfig, hasMapEmbed } from "@/config/contact";
@@ -14,17 +15,7 @@ export function ContactMap() {
 
       {hasMapEmbed() ? (
         <div className="mt-8 overflow-hidden rounded-[20px] border border-[#DDECEB] bg-white shadow-[0_6px_20px_rgba(37,42,42,0.06)]">
-          <iframe
-            title="Shreem Controls Office Location"
-            src={contactConfig.mapEmbedUrl}
-            width="600"
-            height="450"
-            className="h-[240px] w-full max-w-full border-0 sm:h-[320px] md:h-[380px] lg:h-[420px]"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="strict-origin-when-cross-origin"
-          />
+          <ConsentGatedMap />
           <div className="border-t border-[#DDECEB] px-5 py-3.5 sm:px-6">
             <a
               href={contactConfig.mapExternalUrl}

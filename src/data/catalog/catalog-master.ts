@@ -48,6 +48,32 @@ export const catalogMaster = {
     "displayOrder": 50,
     "logo": "/images/catalog/basalte/basalte-logo.png",
     "status": "active"
+  },
+  {
+    "id": "somfy",
+    "name": "Somfy",
+    "slug": "somfy",
+    "displayOrder": 60,
+    "description": "Somfy develops motorised curtain, blind and shading solutions for residential and commercial automation.",
+    "status": "active"
+  },
+  {
+    "id": "schneider-electric",
+    "name": "Schneider Electric",
+    "slug": "schneider-electric",
+    "displayOrder": 70,
+    "logo": "/images/catalog/schneider/Schneider-Logo.png",
+    "description": "Schneider Electric is a global energy management and automation technology company offering smart-home control products and KNX automation solutions.",
+    "status": "active"
+  },
+  {
+    "id": "onetouch",
+    "name": "OneTouch",
+    "slug": "onetouch",
+    "displayOrder": 80,
+    "logo": "/images/catalog/onetouch/OneTouch-Logo.png",
+    "description": "OneTouch offers communication and security solutions for modern residential and commercial environments, including digital door locks, video door phones, visitor communication and connected access-control systems.",
+    "status": "active"
   }
 ],
   categories: [
@@ -95,6 +121,24 @@ export const catalogMaster = {
     "heroImage": "/images/solutions/Living-Room.png",
     "megaMenuImage": "/images/solutions/Living-Room.png",
     "displayOrder": 50
+  },
+  {
+    "id": "video-door-phone-vdp",
+    "name": "Video Door Phone (VDP)",
+    "slug": "video-door-phone-vdp",
+    "description": "Smart video door phone and visitor communication solutions combining camera monitoring, indoor displays, mobile connectivity and intelligent access management.",
+    "heroImage": "/images/catalog/onetouch/OneTouch-OT-IP-VDP-C3-W.png",
+    "megaMenuImage": "/images/catalog/onetouch/OneTouch-ADP-A4-Video-Door-Phone.png",
+    "displayOrder": 60
+  },
+  {
+    "id": "door-lock-system",
+    "name": "Door Lock System",
+    "slug": "door-lock-system",
+    "description": "Advanced digital door locking solutions featuring biometric authentication, password access, connected mobile control and intelligent entry security.",
+    "heroImage": "/images/catalog/onetouch/OneTouch-OT-630-Pro-Smart-Door-Lock.png",
+    "megaMenuImage": "/images/catalog/onetouch/OneTouch-OT-630-Digital-Door-Lock.png",
+    "displayOrder": 70
   }
 ],
   products: [
@@ -293,11 +337,63 @@ export const catalogMaster = {
     "sourceDocument": "akubela Smart Home Catalogue260701.pdf"
   },
   {
+    "id": "somfy-glydea-ultra-35e-rts-mic",
+    "name": "GLYDEA ULTRA 35e RTS MIC",
+    "slug": "glydea-ultra-35e-rts-mic",
+    "brandId": "somfy",
+    "categoryId": "curtain-controller",
+    "seriesName": "GLYDEA",
+    "shortDescription": "Premium motorised curtain system designed for smooth, quiet and convenient curtain operation with compatible RTS wireless controls.",
+    "fullDescription": "Somfy GLYDEA ULTRA 35e RTS MIC is a premium motorised curtain system for smooth, quiet and convenient curtain operation. It is designed to work with compatible RTS wireless controls, supporting everyday residential and commercial curtain automation where RTS integration is configured.",
+    "features": [
+      "Premium motorised curtain operation",
+      "Smooth and quiet curtain movement",
+      "Compatible RTS wireless controls",
+      "Suitable for residential and commercial interiors"
+    ],
+    "image": "/images/catalog/somfy/Somfy-Glydea-Ultra-35e-RTS-MIC.png",
+    "displayStatus": "published",
+    "displayOrder": 68,
+    "contentVerificationStatus": "partial",
+    "specifications": [
+      { "label": "Brand", "value": "Somfy" },
+      { "label": "Model", "value": "GLYDEA ULTRA 35e RTS MIC" },
+      { "label": "Technology", "value": "RTS Wireless" }
+    ],
+    "relatedSlugs": ["designo-35-wt"]
+  },
+  {
+    "id": "somfy-designo-35-wt",
+    "name": "DESIGNO 35 WT",
+    "slug": "designo-35-wt",
+    "brandId": "somfy",
+    "categoryId": "curtain-controller",
+    "seriesName": "DESIGNO",
+    "shortDescription": "A motorised curtain solution designed for smooth and reliable automated curtain operation in residential and commercial interiors.",
+    "fullDescription": "Somfy DESIGNO 35 WT is a motorised curtain solution designed for smooth and reliable automated curtain operation. Wired Technology (WT) support suits installations where wired curtain control is preferred for residential and commercial interiors.",
+    "features": [
+      "Motorised curtain operation",
+      "Smooth and reliable automation",
+      "Wired Technology (WT)",
+      "Suitable for residential and commercial interiors"
+    ],
+    "image": "/images/catalog/somfy/Somfy-Desingo-35-WT.png",
+    "displayStatus": "published",
+    "displayOrder": 69,
+    "contentVerificationStatus": "partial",
+    "specifications": [
+      { "label": "Brand", "value": "Somfy" },
+      { "label": "Model", "value": "DESIGNO 35 WT" },
+      { "label": "Technology", "value": "Wired Technology (WT)" }
+    ],
+    "relatedSlugs": ["glydea-ultra-35e-rts-mic"]
+  },
+  {
     "id": "mdt-jal-shutter-actuator",
     "name": "JAL Shutter Actuator",
     "slug": "jal-shutter-actuator",
     "brandId": "mdt",
-    "categoryId": "curtain-controller",
+    "categoryId": "smart-lighting",
     "shortDescription": "KNX shutter actuator for 230 V AC motors with sun-position logic, absolute slat tracking, ventilation positions and scene-linked shading control.",
     "fullDescription": "The MDT JAL Shutter Actuator is installed in the electrical distribution or KNX cabinet to drive shutter and blind motors—not a decorative wall switch. Relevant models support 230 V AC motor configurations documented in the MDT product list. Sun-position calculation enables automatic shading and slat tracking, while absolute height and slat positioning deliver precise daylight management. Dedicated ventilation positions, scene integration, alarm reactions, central overrides and locking functions align with whole-building KNX logic. Secure variants are available where the catalogue specifies enhanced behaviour.",
     "features": [
@@ -450,28 +546,156 @@ export const catalogMaster = {
     "sourceDocument": "MDT_Productlist_EN 2026.pdf"
   },
   {
-    "id": "mdt-visucontrol-plus",
-    "name": "VisuControl Plus",
-    "slug": "visucontrol-plus",
+    "id": "mdt-aurelio-assortment-touch",
+    "name": "Aurelio Assortment Touch",
+    "slug": "aurelio-assortment-touch",
     "brandId": "mdt",
     "categoryId": "smart-touch-panel",
-    "shortDescription": "MDT VisuControl Plus touch display for KNX visualization and room control—include detailed specs only from confirmed MDT catalogue entries.",
-    "fullDescription": "VisuControl Plus is listed in MDT_Productlist_EN 2026 as a touch display product for KNX projects requiring on-wall visualization. This website entry is intentionally concise: display size, resolution and processor details must be copied from the exact PDF article before publication. It is included as one of six representative MDT products covering the Smart Touch Panel category alongside actuators, gateways and push buttons. Update specifications when the confirmed catalogue page is transcribed into the project data layer.",
+    "seriesName": "Aurelio",
+    "shortDescription": "A premium 6-inch KNX glass touch panel combining an elegant glass and brushed aluminium design with intuitive smart-home control and customisable room functions.",
+    "fullDescription": "The MDT Aurelio Assortment Touch features a high-resolution 6-inch capacitive TFT colour display and an intuitive interface for controlling multiple room functions. Its glass and brushed aluminium design, white circumferential orientation light and configurable function levels make it suitable for sophisticated smart-home environments. The product requires a separate 24 V DC auxiliary power supply, for example STV-0024.01.",
     "features": [
-      "MDT touch display product for KNX installations",
-      "Used for on-wall visualization and control",
-      "Detailed hardware specs to be taken from MDT_Productlist_EN 2026 article"
+      "6-inch capacitive TFT colour display",
+      "Resolution: 1440 × 720 pixels",
+      "White circumferential orientation light",
+      "Up to 64 functions across independent levels",
+      "Up to 12 status indications in standby",
+      "Switching, dimming, tunable white, HSV, RGB and RGBW control",
+      "Sun shading and HVAC control",
+      "Integrated room temperature controller with temperature sensor",
+      "Logic functions, scene control and group control",
+      "Code-lock security function",
+      "Customisable logo, background image and design colour",
+      "Anti-theft and anti-dismantling protection",
+      "KNX Data Secure",
+      "Integrated bus coupler",
+      "Horizontal or vertical installation"
     ],
-    "image": "/images/catalog/mdt/visucontrol-plus.png",
+    "image": "/images/catalog/mdt/MDT-Aurelio-Assortment-Touch-6-inch.png",
     "displayStatus": "published",
     "displayOrder": 120,
-    "contentVerificationStatus": "partial",
-    "seriesName": "Touch Displays",
-    "relatedSlugs": [
-      "ionprime-cp4-knx",
-      "hypanel-supreme"
+    "contentVerificationStatus": "verified",
+    "specifications": [
+      { "label": "Display", "value": "6-inch TFT" },
+      { "label": "Resolution", "value": "1440 × 720 px" },
+      { "label": "Dimensions", "value": "92 × 160 × 12.5 mm" },
+      { "label": "Installation", "value": "Standard switch box" },
+      { "label": "Mounting", "value": "Horizontal or vertical" },
+      { "label": "Power", "value": "24 V DC auxiliary supply" },
+      { "label": "Protocol", "value": "KNX Data Secure" },
+      { "label": "Auxiliary supply example", "value": "STV-0024.01" }
     ],
-    "sourceDocument": "MDT_Productlist_EN 2026.pdf"
+    "variants": [
+      {
+        "name": "Black",
+        "articleNumber": "BE-GTS06TS.01S"
+      },
+      {
+        "name": "White",
+        "articleNumber": "BE-GTS06TW.01S"
+      }
+    ],
+    "articleNumbers": [
+      "BE-GTS06TS.01S",
+      "BE-GTS06TW.01S"
+    ],
+    "relatedSlugs": [
+      "glass-push-button-plus-8-gang",
+      "glass-room-temperature-controller-smart"
+    ]
+  },
+  {
+    "id": "mdt-glass-push-button-plus-8-gang",
+    "name": "Glass Push Button Plus, 8-Gang, with Temperature Sensor",
+    "slug": "glass-push-button-plus-8-gang",
+    "brandId": "mdt",
+    "categoryId": "smart-touch-panel",
+    "seriesName": "Glass Push Button Plus",
+    "shortDescription": "An elegant 8-gang glass KNX push button featuring an integrated temperature sensor, configurable touch functions and customisable LED orientation lighting for intelligent room control.",
+    "fullDescription": "The MDT Glass Push Button Plus 8-Gang combines configurable touch operation with room temperature measurement and integrated orientation lighting. Individual sensor areas can be configured as single or paired buttons to support a range of room-control functions.",
+    "features": [
+      "Eight configurable touch areas",
+      "Integrated room temperature sensor",
+      "Buttons configurable as pairs or individual buttons",
+      "Value sending, forced operation and switching commands",
+      "Short and long button press functionality with two objects",
+      "Surrounding orientation light",
+      "White and red LEDs for each sensor area",
+      "Five adjustable LED brightness levels using day/night control",
+      "Single and double push-button operation for dimming and shutter functions",
+      "Labelling foil included in delivery",
+      "Integrated KNX bus coupler"
+    ],
+    "image": "/images/catalog/mdt/MDT-Glass-Push-Button-Plus-8-Gang.png",
+    "displayStatus": "published",
+    "displayOrder": 121,
+    "contentVerificationStatus": "verified",
+    "specifications": [
+      { "label": "Product type", "value": "Glass Push Button Plus" },
+      { "label": "Configuration", "value": "8-Gang" },
+      { "label": "Temperature sensor", "value": "Integrated" },
+      { "label": "LED colours", "value": "White / Red" },
+      { "label": "LED brightness", "value": "5 levels" },
+      { "label": "Button operation", "value": "Single / Double" },
+      { "label": "Installation", "value": "Double installation box" },
+      { "label": "Dimensions (H × W)", "value": "163 × 92 mm" },
+      { "label": "Bus coupler", "value": "Integrated" },
+      { "label": "Labelling foil", "value": "ZFOL-GT, included" }
+    ],
+    "relatedSlugs": [
+      "aurelio-assortment-touch",
+      "glass-room-temperature-controller-smart"
+    ]
+  },
+  {
+    "id": "mdt-glass-room-temperature-controller-smart",
+    "name": "Glass Room Temperature Controller Smart",
+    "slug": "glass-room-temperature-controller-smart",
+    "brandId": "mdt",
+    "categoryId": "smart-touch-panel",
+    "seriesName": "Glass Room Temperature Controller",
+    "shortDescription": "A KNX glass room temperature controller featuring an active colour display for temperature monitoring, heating and cooling control, ventilation management and convenient room climate adjustment.",
+    "fullDescription": "The MDT Glass Room Temperature Controller Smart provides intuitive room climate management through an active colour display and dedicated temperature adjustment controls. It supports configurable heating and cooling control strategies, temperature monitoring and manual or automatic ventilation operation.",
+    "features": [
+      "Active colour display for function and status indication",
+      "Selectable white or black display background",
+      "Adjustable display brightness",
+      "Displays actual and set temperatures",
+      "Integrated room temperature measurement",
+      "Temperature measurement range: -10°C to +50°C",
+      "Selectable controller types: 2-step, PI and PWM",
+      "Can operate as a room temperature extension unit",
+      "Dedicated plus and minus setpoint buttons",
+      "Supports 1-bit, 1-byte and 2-byte setpoint adjustment objects",
+      "Setpoint storage during KNX bus power failure",
+      "Minimum and maximum temperature memory",
+      "Frost and heat protection alarms",
+      "Operating mode changes through Bit/Byte objects",
+      "Manual and automatic ventilation control",
+      "14-byte plain-text diagnostic object",
+      "Installation frame included",
+      "Integrated KNX bus coupler"
+    ],
+    "image": "/images/catalog/mdt/MDT-Glass-Room-Temperature-Controller-Smart.png",
+    "displayStatus": "published",
+    "displayOrder": 122,
+    "contentVerificationStatus": "verified",
+    "specifications": [
+      { "label": "Product type", "value": "Glass Room Temperature Controller" },
+      { "label": "Display", "value": "Active colour display" },
+      { "label": "Background", "value": "White / Black" },
+      { "label": "Measurement range", "value": "-10°C to +50°C" },
+      { "label": "Controller types", "value": "2-step / PI / PWM" },
+      { "label": "Setpoint adjustment", "value": "1-bit / 1-byte / 2-byte" },
+      { "label": "Ventilation", "value": "Manual / Automatic" },
+      { "label": "Communication", "value": "KNX" },
+      { "label": "Installation", "value": "Installation box" },
+      { "label": "Bus coupler", "value": "Integrated" }
+    ],
+    "relatedSlugs": [
+      "aurelio-assortment-touch",
+      "glass-push-button-plus-8-gang"
+    ]
   },
   {
     "id": "theben-ionprime-cp4-knx",
@@ -1062,13 +1286,358 @@ export const catalogMaster = {
       "hypanel-lux-piano"
     ],
     "sourceDocument": "Basalte Keypad Backbox Orientation.pdf"
+  },
+  {
+    "id": "schneider-electric-unica-knx-pushbutton-6-key-silver",
+    "name": "Unica KNX Pushbutton, 6-Key, Silver",
+    "slug": "unica-knx-pushbutton-6-key-silver",
+    "brandId": "schneider-electric",
+    "categoryId": "smart-keypad-switch",
+    "seriesName": "Unica",
+    "shortDescription": "A six-key KNX smart pushbutton from Schneider Electric's Unica range, designed for convenient control of connected lighting and other compatible home automation functions.",
+    "fullDescription": "The Schneider Electric Unica KNX Pushbutton features six physical control keys in a refined silver finish. Designed for KNX smart-home installations, it provides a convenient physical interface for operating configured lighting and other compatible automation functions.",
+    "features": [
+      "Six physical keys",
+      "Two-column, three-row button arrangement",
+      "Silver finish",
+      "KNX technology",
+      "Compact wall-mounted control design"
+    ],
+    "image": "/images/catalog/schneider/Schneider-Unica-KNX-Pushbutton-6-Key-Silver.png",
+    "displayStatus": "published",
+    "displayOrder": 220,
+    "contentVerificationStatus": "partial",
+    "specifications": [
+      { "label": "Product range", "value": "Unica" },
+      { "label": "Model", "value": "6-Key" },
+      { "label": "Finish", "value": "Silver" },
+      { "label": "Technology", "value": "KNX" }
+    ],
+    "relatedSlugs": [
+      "unica-knx-thermostat-8-key-metallic-silver",
+      "unica-knx-thermostat-5-key-wine-gold"
+    ]
+  },
+  {
+    "id": "schneider-electric-unica-knx-thermostat-8-key-metallic-silver",
+    "name": "Unica KNX Thermostat, 8-Key, Metallic Silver",
+    "slug": "unica-knx-thermostat-8-key-metallic-silver",
+    "brandId": "schneider-electric",
+    "categoryId": "smart-keypad-switch",
+    "seriesName": "Unica",
+    "shortDescription": "A metallic silver 8-key KNX thermostat and control interface from Schneider Electric's Unica range, combining room temperature display with physical buttons for controlling compatible home automation functions.",
+    "fullDescription": "The Schneider Electric Unica KNX Thermostat combines a digital temperature display with eight physical control keys in a metallic silver finish. It provides a convenient interface for room temperature monitoring and compatible smart-home control functions through a KNX installation.",
+    "features": [
+      "Integrated digital temperature display",
+      "Eight physical control keys",
+      "Metallic silver finish",
+      "Temperature and fan-control indicators",
+      "Lighting and blind-control symbols",
+      "KNX technology"
+    ],
+    "image": "/images/catalog/schneider/Schneider-Unica-KNX-Thermostat-8-Key-Metallic-Silver.png",
+    "displayStatus": "published",
+    "displayOrder": 221,
+    "contentVerificationStatus": "partial",
+    "specifications": [
+      { "label": "Product range", "value": "Unica" },
+      { "label": "Model", "value": "8-Key" },
+      { "label": "Finish", "value": "Metallic Silver" },
+      { "label": "Technology", "value": "KNX" }
+    ],
+    "relatedSlugs": [
+      "unica-knx-pushbutton-6-key-silver",
+      "unica-knx-thermostat-5-key-wine-gold"
+    ]
+  },
+  {
+    "id": "schneider-electric-unica-knx-thermostat-5-key-wine-gold",
+    "name": "Unica KNX Thermostat, 5-Key, Wine Gold",
+    "slug": "unica-knx-thermostat-5-key-wine-gold",
+    "brandId": "schneider-electric",
+    "categoryId": "smart-keypad-switch",
+    "seriesName": "Unica",
+    "shortDescription": "A sophisticated five-key KNX thermostat and control interface from Schneider Electric's Unica range, combining room temperature display with physical controls for compatible smart-home functions.",
+    "fullDescription": "The Schneider Electric Unica KNX Thermostat features a digital temperature display and five physical control keys in a distinctive wine gold finish. Designed for KNX smart-home installations, it offers a convenient interface for room temperature monitoring and configured home automation functions.",
+    "features": [
+      "Integrated digital temperature display",
+      "Five physical control keys",
+      "Wine gold metallic finish",
+      "Temperature adjustment interface",
+      "Heating and cooling indicators",
+      "Fan and lighting control symbols",
+      "KNX technology"
+    ],
+    "image": "/images/catalog/schneider/Schneider-Unica-KNX-Thermostat-5-Key-Wine-Gold.png",
+    "displayStatus": "published",
+    "displayOrder": 222,
+    "contentVerificationStatus": "partial",
+    "specifications": [
+      { "label": "Product range", "value": "Unica" },
+      { "label": "Model", "value": "5-Key" },
+      { "label": "Finish", "value": "Wine Gold" },
+      { "label": "Technology", "value": "KNX" }
+    ],
+    "relatedSlugs": [
+      "unica-knx-pushbutton-6-key-silver",
+      "unica-knx-thermostat-8-key-metallic-silver"
+    ]
+  },
+  {
+    "id": "onetouch-smart-door-lock-ot-630-pro",
+    "name": "Smart Door Lock OT 630 PRO",
+    "slug": "smart-door-lock-ot-630-pro",
+    "brandId": "onetouch",
+    "categoryId": "door-lock-system",
+    "seriesName": "OT 630",
+    "shortDescription": "A premium smart door lock featuring palm vein and face recognition, multiple biometric access options, video calling, Wi-Fi connectivity and intelligent security functions for modern homes.",
+    "fullDescription": "The OneTouch OT 630 PRO Smart Door Lock combines advanced biometric authentication with connected video door phone functionality. Designed for convenient and secure home access, it supports multiple unlocking methods, including palm vein recognition, face recognition, fingerprint, password, RFID card, mechanical key, mobile app and OTP. Its integrated 4-inch HD video screen and mobile video-call functionality help users identify and communicate with visitors. Additional features such as temporary passwords, door-force alarms and automatic locking provide enhanced access management.",
+    "features": [
+      "Palm vein recognition",
+      "Face recognition",
+      "Biometric authentication",
+      "Password access",
+      "RFID card access",
+      "Mechanical key access",
+      "Mobile app access",
+      "OTP access",
+      "4-inch HD video screen",
+      "Video calling through the mobile app",
+      "Bell push function",
+      "Temporary passwords",
+      "Wi-Fi interface",
+      "Door-force alarm",
+      "Door passage mode",
+      "Emergency USB port for power backup",
+      "Automatic lockout after three incorrect attempts",
+      "SS304 mortise with four bolts",
+      "Zinc alloy construction",
+      "Electroplated body",
+      "Lithium-ion battery"
+    ],
+    "image": "/images/catalog/onetouch/OneTouch-OT-630-Pro-Smart-Door-Lock.png",
+    "displayStatus": "published",
+    "displayOrder": 230,
+    "contentVerificationStatus": "verified",
+    "specifications": [
+      { "label": "Model", "value": "OT 630 PRO" },
+      { "label": "Display", "value": "4-inch HD video screen" },
+      { "label": "Width", "value": "62 mm" },
+      { "label": "Height", "value": "422 mm" },
+      { "label": "Access methods", "value": "Palm vein, face, biometric, password, card, mechanical key, app and OTP" },
+      { "label": "Mortise", "value": "SS304, 4 bolts" },
+      { "label": "Body material", "value": "Zinc alloy" },
+      { "label": "Finish", "value": "Electroplated" },
+      { "label": "Battery", "value": "Lithium-ion" },
+      { "label": "Connectivity", "value": "Wi-Fi" },
+      { "label": "Emergency power", "value": "USB port" },
+      { "label": "Incorrect attempts", "value": "Auto-lock after 3 attempts" }
+    ],
+    "relatedSlugs": [
+      "digital-door-lock-ot-630",
+      "video-door-phone-ot-ip-vdp-c3-w"
+    ]
+  },
+  {
+    "id": "onetouch-digital-door-lock-ot-630",
+    "name": "Digital Door Lock OT 630",
+    "slug": "digital-door-lock-ot-630",
+    "brandId": "onetouch",
+    "categoryId": "door-lock-system",
+    "seriesName": "OT 630",
+    "shortDescription": "A stylish digital door lock featuring face recognition, biometric authentication, mobile app access and video door phone integration for convenient and secure home entry.",
+    "fullDescription": "The OneTouch Digital Door Lock OT 630 combines multiple access methods with connected security functionality. Its black and copper-finish design incorporates a digital keypad and biometric access interface. Wi-Fi connectivity, video door phone integration and optional remote control provide additional convenience for modern residential access management.",
+    "features": [
+      "Face recognition",
+      "Biometric authentication",
+      "Password access",
+      "Card access",
+      "Mechanical key",
+      "Mobile app access",
+      "OTP access",
+      "Video Door Phone integration",
+      "Wi-Fi interface",
+      "Optional remote control",
+      "Door-force alarm",
+      "Door passage mode",
+      "Emergency USB port for power backup",
+      "Automatic lockout after three incorrect attempts",
+      "SS304 mortise with four bolts",
+      "Aluminium alloy construction",
+      "Electroplated body",
+      "8 × AA battery power"
+    ],
+    "image": "/images/catalog/onetouch/OneTouch-OT-630-Digital-Door-Lock.png",
+    "displayStatus": "published",
+    "displayOrder": 231,
+    "contentVerificationStatus": "verified",
+    "specifications": [
+      { "label": "Model", "value": "OT 630" },
+      { "label": "Width", "value": "69 mm" },
+      { "label": "Height", "value": "422 mm" },
+      { "label": "Access methods", "value": "Face, biometric, password, card, mechanical key, app and OTP" },
+      { "label": "Mortise", "value": "SS304, 4 bolts" },
+      { "label": "Body material", "value": "Aluminium alloy" },
+      { "label": "Finish", "value": "Electroplated" },
+      { "label": "Battery", "value": "8 × AA" },
+      { "label": "Connectivity", "value": "Wi-Fi" },
+      { "label": "Emergency power", "value": "USB port" },
+      { "label": "Remote control", "value": "Optional" }
+    ],
+    "relatedSlugs": [
+      "smart-door-lock-ot-630-pro",
+      "video-door-phone-kit-ot-adp-a4"
+    ]
+  },
+  {
+    "id": "onetouch-video-door-phone-ot-ip-vdp-c3-w",
+    "name": "Video Door Phone OT-IP-VDP-C3 W",
+    "slug": "video-door-phone-ot-ip-vdp-c3-w",
+    "brandId": "onetouch",
+    "categoryId": "video-door-phone-vdp",
+    "seriesName": "IP Video Door Phone",
+    "shortDescription": "A smart IP video door phone featuring a 2 MP HDR camera, wide-angle viewing, night vision and integrated access-control capabilities for secure visitor management.",
+    "fullDescription": "The OneTouch OT-IP-VDP-C3 W is an IP-based video door phone outdoor station designed for visitor identification and connected entry management. Its 2 MP HDR camera provides 1080p video with a 125-degree viewing angle, while white LED night vision supports visibility in low-light environments. The unit also supports MIFARE card, Bluetooth and NFC access, along with IP camera integration and a relay interface for compatible door-lock systems.",
+    "features": [
+      "2 MP HDR CMOS camera",
+      "Full HD 1080p resolution",
+      "125° wide viewing angle",
+      "White LED night vision",
+      "H.265 video compression",
+      "MIFARE card access",
+      "Bluetooth and NFC access",
+      "Built-in advanced motion sensor",
+      "Relay port for door-lock integration",
+      "Surface-mount installation",
+      "ONVIF compliance",
+      "Vandal alarm",
+      "IP65 protection rating",
+      "PoE 802.3af support"
+    ],
+    "image": "/images/catalog/onetouch/OneTouch-OT-IP-VDP-C3-W.png",
+    "displayStatus": "published",
+    "displayOrder": 232,
+    "contentVerificationStatus": "verified",
+    "specifications": [
+      { "label": "Model", "value": "OT-IP-VDP-C3 W" },
+      { "label": "Camera", "value": "2 MP HDR CMOS" },
+      { "label": "Resolution", "value": "1080p" },
+      { "label": "Viewing angle", "value": "125°" },
+      { "label": "Video compression", "value": "H.265" },
+      { "label": "Access", "value": "MIFARE / Bluetooth / NFC" },
+      { "label": "Installation", "value": "Surface mount" },
+      { "label": "Protection rating", "value": "IP65" },
+      { "label": "Power", "value": "PoE 802.3af" },
+      { "label": "Width", "value": "70 mm" },
+      { "label": "Height", "value": "145 mm" }
+    ],
+    "relatedSlugs": [
+      "android-video-door-phone-ot-ip-vdp-v4",
+      "video-door-phone-kit-ot-adp-a4"
+    ]
+  },
+  {
+    "id": "onetouch-android-video-door-phone-ot-ip-vdp-v4",
+    "name": "Android Video Door Phone OT-IP-VDP-V4",
+    "slug": "android-video-door-phone-ot-ip-vdp-v4",
+    "brandId": "onetouch",
+    "categoryId": "video-door-phone-vdp",
+    "seriesName": "IP Video Door Phone",
+    "shortDescription": "A 10-inch Android-based smart video door phone monitor featuring a capacitive touchscreen, visitor video communication, security monitoring and smart-home application support.",
+    "fullDescription": "The OneTouch OT-IP-VDP-V4 is a 10-inch Android-based indoor video door phone monitor designed to bring visitor communication and connected security functions into one convenient interface. It supports Wi-Fi and wired LAN connectivity, visitor snapshots, video recording, voice messaging and third-party home automation applications. Its ONVIF IP camera viewing support and integrated 8-zone alarm panel provide additional monitoring and security functionality.",
+    "features": [
+      "10-inch capacitive HD touchscreen",
+      "1280 × 800 screen resolution",
+      "Android operating system",
+      "Wi-Fi and wired LAN dual-network connectivity",
+      "2 GB RAM",
+      "8 GB internal storage",
+      "Visitor snapshots and video recording",
+      "Voice messaging",
+      "Digital photo frame",
+      "Video door intercom",
+      "H.265 video compression",
+      "8-zone alarm panel",
+      "Supports third-party home automation applications",
+      "ONVIF IP camera viewing",
+      "Community contact directory",
+      "Smartphone integration"
+    ],
+    "image": "/images/catalog/onetouch/OneTouch-OT-IP-VDP-V4-Android.png",
+    "displayStatus": "published",
+    "displayOrder": 233,
+    "contentVerificationStatus": "verified",
+    "specifications": [
+      { "label": "Model", "value": "OT-IP-VDP-V4" },
+      { "label": "Operating system", "value": "Android" },
+      { "label": "Display", "value": "10-inch capacitive" },
+      { "label": "Resolution", "value": "1280 × 800" },
+      { "label": "RAM", "value": "2 GB" },
+      { "label": "Storage", "value": "8 GB" },
+      { "label": "Connectivity", "value": "Wi-Fi / Wired LAN" },
+      { "label": "Video compression", "value": "H.265" },
+      { "label": "Alarm panel", "value": "8 zones" },
+      { "label": "Width", "value": "255 mm" },
+      { "label": "Height", "value": "186 mm" }
+    ],
+    "relatedSlugs": [
+      "video-door-phone-ot-ip-vdp-c3-w",
+      "video-door-phone-kit-ot-adp-a4"
+    ]
+  },
+  {
+    "id": "onetouch-video-door-phone-kit-ot-adp-a4",
+    "name": "Video Door Phone Kit OT-ADP-A4",
+    "slug": "video-door-phone-kit-ot-adp-a4",
+    "brandId": "onetouch",
+    "categoryId": "video-door-phone-vdp",
+    "seriesName": "Video Door Phone Kit",
+    "shortDescription": "A smart video door phone system combining a 7-inch indoor touchscreen monitor and an outdoor camera station, with visitor communication, video recording and smartphone integration.",
+    "fullDescription": "The OneTouch OT-ADP-A4 is a connected video door phone kit featuring a 7-inch indoor touchscreen monitor and a dedicated outdoor camera and doorbell station. The system supports visitor snapshots, video recording, voice messaging, voice-changing functionality and digital photo frame operation. It can also integrate with additional outdoor units, indoor monitors and CCTV cameras for expanded monitoring.",
+    "features": [
+      "7-inch capacitive HD touchscreen",
+      "1024 × 600 screen resolution",
+      "2.4 GHz Wi-Fi",
+      "SD card support up to 128 GB",
+      "Visitor snapshots and video recording",
+      "Voice changer",
+      "Voice messaging",
+      "Digital photo frame",
+      "Sensor integration",
+      "Expandable to 2 outdoor units",
+      "Supports up to 3 indoor monitors",
+      "Supports up to 2 CCTV cameras",
+      "2-channel AHD camera viewing and recording",
+      "Smartphone integration"
+    ],
+    "image": "/images/catalog/onetouch/OneTouch-ADP-A4-Video-Door-Phone.png",
+    "displayStatus": "published",
+    "displayOrder": 234,
+    "contentVerificationStatus": "verified",
+    "specifications": [
+      { "label": "Model", "value": "OT-ADP-A4" },
+      { "label": "Indoor display", "value": "7-inch capacitive HD" },
+      { "label": "Resolution", "value": "1024 × 600" },
+      { "label": "Wi-Fi", "value": "2.4 GHz" },
+      { "label": "Storage expansion", "value": "SD card up to 128 GB" },
+      { "label": "Indoor monitor dimensions", "value": "180 × 180 mm" },
+      { "label": "Outdoor unit dimensions", "value": "135 × 50 mm" },
+      { "label": "Outdoor expansion", "value": "Up to 2 units" },
+      { "label": "Indoor expansion", "value": "Up to 3 monitors" },
+      { "label": "CCTV support", "value": "Up to 2 AHD cameras" }
+    ],
+    "relatedSlugs": [
+      "video-door-phone-ot-ip-vdp-c3-w",
+      "android-video-door-phone-ot-ip-vdp-v4"
+    ]
   }
 ],
   legacyProductSlugRedirects: {
   "m18-smart-dimming-knob": "smart-dimming-knob/moorgen/m18-smart-dimming-knob",
   "m7-smart-touch-panel": "smart-touch-panel/akubela/hypanel-supreme",
   "k1-smart-keypad-switch": "smart-keypad-switch/akubela/aura-series-smart-switch",
-  "curtain-controller": "curtain-controller/mdt/jal-shutter-actuator",
+  "jal-shutter-actuator": "smart-lighting/mdt/jal-shutter-actuator",
+  "visucontrol-plus": "smart-touch-panel",
   "smart-lighting": "smart-lighting/mdt/akd-230-v-dimming-actuator",
   "smart-control-panel": "smart-touch-panel/akubela/hypanel-supreme"
 },

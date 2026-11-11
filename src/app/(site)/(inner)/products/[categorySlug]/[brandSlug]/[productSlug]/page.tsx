@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { Suspense } from "react";
 
 import { SlugPageFallback } from "@/components/layout/slug-page-fallback";
@@ -10,7 +10,7 @@ import { ProductDetailActions } from "@/components/products/product-detail-actio
 import { ConsultationCtaSection } from "@/components/sections/shared/consultation-cta";
 import { PageHero } from "@/components/sections/shared/page-hero";
 import { HomeSectionHeading } from "@/components/ui/home-section-heading";
-import { catalogProducts } from "@/data/catalog";
+import { catalogProducts, legacyProductSlugRedirects } from "@/data/catalog";
 import { getMainCategoryBySlug } from "@/data/main-categories";
 import {
   getProductByCompositeSlug,
@@ -18,6 +18,31 @@ import {
   productDetailPath,
 } from "@/lib/product-catalog-utils";
 import { createPageMetadata } from "@/lib/metadata";
+
+function findCatalogProduct(
+  categorySlug: string,
+  brandSlug: string,
+  productSlug: string,
+) {
+  return (
+    getProductByCompositeSlug(
+      catalogProducts,
+      categorySlug,
+      brandSlug,
+      productSlug,
+    ) ??
+    catalogProducts.find(
+      (item) => item.brandSlug === brandSlug && item.slug === productSlug,
+    )
+  );
+}
+
+function redirectRemovedProduct(productSlug: string) {
+  const legacyPath = legacyProductSlugRedirects[productSlug];
+  if (legacyPath) {
+    redirect(`/products/${legacyPath}`);
+  }
+}
 
 type ProductPageProps = {
   params: Promise<{ categorySlug: string; brandSlug: string; productSlug: string }>;
@@ -33,12 +58,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: ProductPageProps) {
   const { categorySlug, brandSlug, productSlug } = await params;
-  const product = getProductByCompositeSlug(
-    catalogProducts,
-    categorySlug,
-    brandSlug,
-    productSlug,
-  );
+  const product = findCatalogProduct(categorySlug, brandSlug, productSlug);
   if (!product) return {};
   return createPageMetadata({
     title: product.name,
@@ -57,15 +77,21 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
 
 async function ProductDetailContent({ params }: ProductPageProps) {
   const { categorySlug, brandSlug, productSlug } = await params;
-  const product = getProductByCompositeSlug(
-    catalogProducts,
-    categorySlug,
-    brandSlug,
-    productSlug,
-  );
-  if (!product) notFound();
+  const product = findCatalogProduct(categorySlug, brandSlug, productSlug);
+  if (!product) {
+    redirectRemovedProduct(productSlug);
+    notFound();
+  }
 
-  const category = getMainCategoryBySlug(categorySlug);
+  if (
+    product.categorySlug !== categorySlug ||
+    product.brandSlug !== brandSlug ||
+    product.slug !== productSlug
+  ) {
+    redirect(productDetailPath(product));
+  }
+
+  const category = getMainCategoryBySlug(product.categorySlug);
   if (!category) notFound();
 
   const related = getRelatedCatalogProducts(catalogProducts, product.relatedSlugs);

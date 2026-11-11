@@ -30,6 +30,8 @@ const MEGA_MENU_CATEGORY_ORDER: readonly MainCategorySlug[] = [
   "curtain-controller",
   "smart-lighting",
   "smart-touch-panel",
+  "video-door-phone-vdp",
+  "door-lock-system",
 ];
 
 function firstBrandSlugForCategory(categorySlug: MainCategorySlug) {

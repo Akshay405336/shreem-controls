@@ -3,6 +3,7 @@
 import type { ReactNode } from "react";
 
 import { ConsultationProvider } from "@/components/providers/consultation-provider";
+import { CookieConsentProvider } from "@/components/providers/cookie-consent-provider";
 import { GsapProvider } from "@/components/providers/gsap-provider";
 import { LenisProvider } from "@/components/providers/lenis-provider";
 import { MotionProvider } from "@/components/providers/motion-provider";
@@ -16,7 +17,9 @@ export function Providers({ children }: ProvidersProps) {
     <MotionProvider>
       <GsapProvider>
         <LenisProvider>
-          <ConsultationProvider>{children}</ConsultationProvider>
+          <CookieConsentProvider>
+            <ConsultationProvider>{children}</ConsultationProvider>
+          </CookieConsentProvider>
         </LenisProvider>
       </GsapProvider>
     </MotionProvider>

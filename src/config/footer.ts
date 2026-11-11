@@ -20,8 +20,8 @@ export const footerNavigation = {
     { label: "Request Consultation", href: "#consultation" },
   ],
   legal: [
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms and Conditions", href: "/terms" },
-    { label: "Cookie Policy", href: "/cookies" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms and Conditions", href: "/terms-and-conditions" },
+    { label: "Cookie Policy", href: "/cookie-policy" },
   ],
 } as const;

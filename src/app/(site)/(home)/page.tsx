@@ -16,11 +16,11 @@ export default function HomePage() {
       <IntelligentLiving />
             <BrandCarouselSection />
       <SmartSolutions />
+            <ProductCarousel />
       <WhyChooseMoorgen />
       <MoorgenDifference />
       <SmartLivingEcosystem />
       <ThebenMobileShowcase />
-      <ProductCarousel />
       <ConsultationCtaSection />
     </>
   );

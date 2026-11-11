@@ -6,6 +6,8 @@ export const MAIN_CATEGORY_SLUGS = [
   "smart-dimming-knob",
   "smart-keypad-switch",
   "smart-lighting",
+  "video-door-phone-vdp",
+  "door-lock-system",
 ] as const;
 
 export type MainCategorySlug = (typeof MAIN_CATEGORY_SLUGS)[number];

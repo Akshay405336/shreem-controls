@@ -8,6 +8,13 @@ const nextConfig: NextConfig = {
       { pathname: "/logo/**" },
     ],
   },
+  async redirects() {
+    return [
+      { source: "/privacy", destination: "/privacy-policy", permanent: true },
+      { source: "/terms", destination: "/terms-and-conditions", permanent: true },
+      { source: "/cookies", destination: "/cookie-policy", permanent: true },
+    ];
+  },
   experimental: {
     agentFeedback: true,
   },

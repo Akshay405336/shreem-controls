@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { Main } from "@/components/layout/main";
+import { CookieConsentBanner } from "@/components/legal/cookie-consent-banner";
 import { FloatingWhatsAppButton } from "@/components/ui/floating-whatsapp-button";
 
 type SiteShellProps = {
@@ -16,6 +17,7 @@ export function SiteShell({ children }: SiteShellProps) {
       <Main className="min-w-0 overflow-x-clip">{children}</Main>
       <Footer />
       <FloatingWhatsAppButton />
+      <CookieConsentBanner />
     </div>
   );
 }
