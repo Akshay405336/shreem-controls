@@ -39,7 +39,7 @@ export default function SolutionsPage() {
           eyebrow="Our Solutions"
           titleLead="Applications for"
           titleAccent="intelligent living"
-          description="Explore Shreem Controls solutions shaped for lighting, climate, curtains, entertainment and whole-home automation."
+          description="Explore Shreem Controls solutions shaped for lighting, Smart Climate Control, curtains, entertainment, security and whole-home automation."
         />
 
         <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3">

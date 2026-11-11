@@ -8,7 +8,7 @@ import type { ConsultationInterest } from "@/types/consultation";
 
 const interestMap: Record<string, ConsultationInterest> = {
   "smart-lighting": "Smart Lighting",
-  "smart-climate": "Smart Climate",
+  "smart-climate": "Smart Climate Control",
   "smart-curtains": "Smart Curtains",
   "smart-entertainment": "Smart Entertainment",
   "complete-home-automation": "Complete Smart Home",

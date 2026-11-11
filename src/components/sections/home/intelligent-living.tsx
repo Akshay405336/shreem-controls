@@ -28,7 +28,7 @@ const experiences = [
   },
   {
     number: "02",
-    title: "Climate",
+    title: "Smart Climate Control",
     description:
       "Maintain ideal temperature and comfort, effortlessly.",
     icon: Thermometer,

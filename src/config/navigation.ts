@@ -38,9 +38,9 @@ export const primaryNavigation: NavItem[] = [
     description: "The Shreem Controls ecosystem",
     children: [
       { label: "Technology Overview", href: "/technology", description: "How Shreem Controls connects" },
-      { label: "Intelligent Control", href: "/technology#intelligent-control" },
-      { label: "Smart Scenes", href: "/technology#smart-scenes" },
-      { label: "System Integration", href: "/technology#system-integration" },
+      { label: "Smart Climate Control", href: "/technology#smart-climate-control" },
+      { label: "Voice Control & Smart Assistants", href: "/technology#voice-control" },
+      { label: "Integrated Home Automation", href: "/technology#integrated-home-automation" },
     ],
   },
   {

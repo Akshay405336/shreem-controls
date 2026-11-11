@@ -1,16 +1,14 @@
 export const aboutContent = {
   intro:
-    "Shreem Controls creates intelligent smart-home experiences through beautifully designed control devices and connected living ecosystems.",
+    "Shreem Controls supplies carefully selected smart-home automation products and solutions from established technology brands, helping customers create intelligent living experiences.",
   philosophy:
     "We believe technology should feel natural in the home — refined, intuitive and visually quiet, yet capable of orchestrating complex environments with ease.",
   vision:
     "To elevate everyday living through intelligent control that respects architecture, comfort and personal rhythm.",
   mission:
-    "Design and deliver premium smart-home interfaces that make lighting, climate, curtains and entertainment feel effortless.",
+    "Help customers explore, select and implement premium smart-home products and automation solutions that make lighting, climate, curtains and entertainment feel effortless.",
   designPhilosophy:
-    "Every Shreem Controls product is shaped for tactile clarity, material quality and harmony with contemporary interiors.",
-  innovation:
-    "From rotary dimming knobs to touch panels and keypads, Shreem Controls explores control formats that match how people actually live.",
+    "Shreem Controls brings together carefully selected smart home automation products from established technology brands. From elegant rotary controls and touch panels to smart keypads and intelligent automation devices, we help customers explore the right products for their spaces, requirements and lifestyles.",
   values: [
     { title: "Craftsmanship", text: "Hardware and interaction design treated with equal care." },
     { title: "Intelligence", text: "Automation that simplifies rather than overwhelms." },

@@ -19,12 +19,20 @@ export const solutions: Solution[] = [
   },
   {
     slug: "smart-climate",
-    name: "Smart Climate",
-    summary: "Comfortable environments with effortless control.",
+    name: "Smart Climate Control",
+    summary:
+      "Intelligent temperature management that works alongside lighting, curtains and connected devices to create a comfortable, personalised living environment.",
     description:
-      "Maintain ideal temperature and comfort as part of a connected home ecosystem.",
+      "Compatible thermostats and climate controllers help regulate temperature as part of a connected home. Coordinate climate settings with lighting and curtains through configured automation, schedules and supported touch panel or mobile interfaces.",
     image: "/images/smart-home-villa.png",
-    features: ["Climate coordination", "Scene integration", "Whole-home comfort"],
+    features: [
+      "Intelligent temperature regulation",
+      "Coordination with lighting and curtains",
+      "Climate-based automation scenarios",
+      "Scheduled temperature adjustments",
+      "Supported home automation integration",
+      "Centralised panel and mobile control",
+    ],
   },
   {
     slug: "smart-curtains",
@@ -46,16 +54,16 @@ export const solutions: Solution[] = [
   },
   {
     slug: "home-security",
-    name: "Home Security",
+    name: "Home Security & VDP",
     summary:
-      "Intelligent protection with Ajax Systems — detection, video, life safety and mobile security management.",
+      "Intelligent home protection with Ajax security systems and smart Video Door Phone solutions. Monitor visitors, manage entry and stay connected to your home.",
     description:
-      "Plan layered security for homes and businesses with intrusion protection, video surveillance, fire and life safety devices, and connected automation from Shreem Controls.",
+      "Plan layered security and entrance communication for homes and businesses with Ajax security systems, video door phone solutions, and connected automation guidance from Shreem Controls.",
     image: "/images/smart-home-villa.png",
     features: [
       "Ajax intrusion and video solutions",
-      "Fire and life safety integration",
-      "Mobile security status and alerts",
+      "Smart Video Door Phone capabilities",
+      "Mobile security status and visitor alerts",
     ],
   },
   {

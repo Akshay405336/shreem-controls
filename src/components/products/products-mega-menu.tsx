@@ -23,6 +23,15 @@ type ProductsMegaMenuProps = {
   onNavigate: () => void;
 };
 
+/** Mega-menu-only category order — does not change shared catalogue displayOrder. */
+const MEGA_MENU_CATEGORY_ORDER: readonly MainCategorySlug[] = [
+  "smart-keypad-switch",
+  "smart-dimming-knob",
+  "curtain-controller",
+  "smart-lighting",
+  "smart-touch-panel",
+];
+
 function firstBrandSlugForCategory(categorySlug: MainCategorySlug) {
   return getBrandsInCategory(catalogProducts, categorySlug)[0]?.slug ?? null;
 }
@@ -30,14 +39,21 @@ function firstBrandSlugForCategory(categorySlug: MainCategorySlug) {
 export function ProductsMegaMenu({ tone, onNavigate }: ProductsMegaMenuProps) {
   const prefersReducedMotion = useReducedMotion();
   const isHero = tone === "hero";
-  const initialCategorySlug = mainCategories[0]!.slug;
+  const megaMenuCategories = useMemo(
+    () =>
+      MEGA_MENU_CATEGORY_ORDER.map(
+        (slug) => mainCategories.find((category) => category.slug === slug)!,
+      ),
+    [],
+  );
+  const initialCategorySlug = megaMenuCategories[0]!.slug;
   const [activeSlug, setActiveSlug] = useState<MainCategorySlug>(initialCategorySlug);
   const [activeBrandSlug, setActiveBrandSlug] = useState<string | null>(
     () => firstBrandSlugForCategory(initialCategorySlug),
   );
   const [previewProductId, setPreviewProductId] = useState<string | null>(null);
 
-  const category = mainCategories.find((c) => c.slug === activeSlug)!;
+  const category = megaMenuCategories.find((c) => c.slug === activeSlug)!;
   const brandsInCategory = useMemo(
     () => getBrandsInCategory(catalogProducts, activeSlug),
     [activeSlug],
@@ -106,7 +122,7 @@ export function ProductsMegaMenu({ tone, onNavigate }: ProductsMegaMenuProps) {
     >
       <div className="grid min-w-0 gap-5 md:gap-6 lg:grid-cols-[minmax(0,200px)_minmax(0,1fr)_minmax(200px,260px)] lg:gap-8">
         <ul className="flex flex-col gap-0.5">
-          {mainCategories.map((item) => {
+          {megaMenuCategories.map((item) => {
             const active = item.slug === activeSlug;
             return (
               <li key={item.slug}>
@@ -201,14 +217,6 @@ export function ProductsMegaMenu({ tone, onNavigate }: ProductsMegaMenuProps) {
                       )}
                     >
                       <span className="font-medium">{product.name}</span>
-                      <span
-                        className={cn(
-                          "ml-2 text-xs",
-                          isHero ? "text-white/45" : "text-[#737B7A]",
-                        )}
-                      >
-                        {product.brandName}
-                      </span>
                     </Link>
                   </li>
                 );

@@ -1,23 +1,21 @@
-/** Content and asset paths for the Home Security solution page (Ajax Systems). */
+/** Content and asset paths for the Home Security & VDP solution page. */
 
 /**
- * Dedicated Ajax/home-security photography is not in `public/` yet.
+ * Dedicated Ajax/VDP photography is not in `public/` yet.
  * Primary `image` values use existing site assets so production does not 404.
- * Expected dedicated paths (still missing) are noted in comments below.
  */
 export const homeSecuritySeo = {
-  title: "Home Security",
+  title: "Home Security & VDP",
   description:
-    "Intelligent home and business security with Ajax Systems — intrusion protection, video surveillance, fire and life safety, automation, and mobile security management from Shreem Controls.",
+    "Intelligent home protection with Ajax security systems and smart Video Door Phone solutions. Monitor visitors, manage entry and stay connected to your home with Shreem Controls.",
 };
 
 export const homeSecurityHero = {
   eyebrow: "SMART SECURITY SOLUTIONS",
-  titleLead: "Complete Protection.",
-  titleAccent: "Smarter Peace of Mind.",
+  titleLead: "Security That Keeps",
+  titleAccent: "You Connected.",
   description:
-    "Protect your home and business with intelligent security solutions powered by advanced detection, video surveillance and connected safety technology.",
-  // Missing: /images/solutions/home-security/hero.jpg
+    "Protect your home with intelligent security systems and smart video door phone technology. See who's at your door, communicate with visitors and manage access while staying connected to your property.",
   image: "/images/smart-home-villa.png",
   imageFallback: "/images/smart-home-villa.png",
 };
@@ -28,9 +26,7 @@ export const ajaxBrandSection = {
   titleAccent: "AJAX",
   description:
     "Bring intelligent protection to every corner of your property with connected security technology designed to detect threats, deliver alerts and simplify security management.",
-  // Missing: /images/solutions/home-security/ajax-logo.png — omit until asset exists
   logo: null as string | null,
-  // Missing: /images/solutions/home-security/ajax-ecosystem.jpg
   showcaseImage: "/images/solutions/Control-Panel.png",
   showcaseFallback: "/images/solutions/Control-Panel.png",
 };
@@ -48,7 +44,8 @@ export const securityCategories: SecurityCategory[] = [
   {
     id: "intrusion",
     title: "Intrusion Protection",
-    summary: "Protect entry points and detect unexpected activity across your property.",
+    summary:
+      "Protect entry points and detect unexpected activity across your property with layered sensing and clear alerts.",
     items: [
       "Smart security hubs",
       "Indoor motion detectors",
@@ -57,15 +54,16 @@ export const securityCategories: SecurityCategory[] = [
       "Glass-break detectors",
       "Keypads and panic buttons",
       "Indoor and outdoor sirens",
+      "Security notifications and monitoring",
     ],
-    // Missing: /images/solutions/home-security/category-intrusion.jpg
     image: "/images/solutions/Living-Room.png",
     imageFallback: "/images/solutions/Living-Room.png",
   },
   {
     id: "video",
     title: "Video Surveillance",
-    summary: "Provide visual awareness of your property when cameras are part of the plan.",
+    summary:
+      "Provide visual awareness of your property when cameras are part of the plan — indoors, outdoors and for event verification.",
     items: [
       "Indoor security cameras",
       "Outdoor security cameras",
@@ -73,7 +71,6 @@ export const securityCategories: SecurityCategory[] = [
       "Camera-based event verification",
       "Centralised monitoring",
     ],
-    // Missing: /images/solutions/home-security/category-video.jpg
     image: "/images/Sunset-Smart.png",
     imageFallback: "/images/Sunset-Smart.png",
   },
@@ -88,22 +85,22 @@ export const securityCategories: SecurityCategory[] = [
       "Connected fire alarms",
       "Audible alerts and notifications",
     ],
-    // Missing: /images/solutions/home-security/category-fire.jpg
     image: "/images/smart-home-villa.png",
     imageFallback: "/images/smart-home-villa.png",
   },
   {
     id: "comfort",
     title: "Comfort and Automation",
-    summary: "Connect security with everyday property management and automation.",
+    summary:
+      "Connect security with everyday property management and smart automation where the selected system supports it.",
     items: [
       "Water-leak detection",
       "Automation relays",
       "Smart sockets",
       "Connected lighting and appliance control",
       "Automated scenarios",
+      "Smart automation integration",
     ],
-    // Missing: /images/solutions/home-security/category-automation.jpg
     image: "/images/Glowing-Smart-Display.png",
     imageFallback: "/images/Glowing-Smart-Display.png",
   },
@@ -143,47 +140,140 @@ export const mobileSecuritySection = {
     "Stay connected to your property's security status through supported mobile controls and notifications.",
 };
 
+export const vdpSection = {
+  eyebrow: "SMART VIDEO DOOR PHONE",
+  titleLead: "See Who's There.",
+  titleAccent: "Stay in Control.",
+  description:
+    "Experience a smarter way to manage your entrance. Video Door Phone solutions let you see visitors, communicate with them and manage door access through connected indoor and mobile interfaces, depending on the selected system.",
+};
+
+export const vdpCapabilities = [
+  {
+    title: "Live Visitor View",
+    description:
+      "See who is standing at your entrance through a connected video interface.",
+  },
+  {
+    title: "Two-Way Communication",
+    description: "Speak with visitors before deciding to open the door.",
+  },
+  {
+    title: "Smart Door Access",
+    description:
+      "Manage entry using supported door-release and access-control integrations.",
+  },
+  {
+    title: "Mobile Connectivity",
+    description:
+      "View visitor activity and communicate remotely where supported by the selected system.",
+  },
+  {
+    title: "Indoor Monitoring",
+    description:
+      "Use an indoor monitor or compatible interface to manage visitor communication.",
+  },
+  {
+    title: "Connected Security",
+    description:
+      "Integrate entrance management with the wider smart-home system where compatible.",
+  },
+] as const;
+
+/** Conceptual showcase frames using existing site photography — no invented product brands. */
+export const vdpShowcaseFrames = [
+  {
+    title: "Modern entrance",
+    description: "Outdoor video door stations suit contemporary residential entries.",
+    image: "/images/smart-home-villa.png",
+  },
+  {
+    title: "Indoor interface",
+    description: "Connected indoor monitors help you see and speak with visitors.",
+    image: "/images/Glowing-Smart-Display.png",
+  },
+  {
+    title: "Mobile view",
+    description: "Stay connected to visitor activity when remote viewing is supported.",
+    image: "/images/solutions/Control-Panel.png",
+  },
+  {
+    title: "Residential setting",
+    description: "VDP solutions complement premium homes and shared living spaces.",
+    image: "/images/solutions/Living-Room.png",
+  },
+] as const;
+
+export const vdpProcessSteps = [
+  {
+    step: "01",
+    title: "Visitor Arrives",
+    description: "The outdoor door station detects a visitor.",
+  },
+  {
+    step: "02",
+    title: "View",
+    description: "The indoor monitor or connected device displays the visitor.",
+  },
+  {
+    step: "03",
+    title: "Communicate",
+    description: "Speak with the visitor through supported two-way communication.",
+  },
+  {
+    step: "04",
+    title: "Manage Entry",
+    description: "Grant access through a compatible door-release system.",
+  },
+] as const;
+
 export const applicationCards = [
   {
-    title: "Residential Security",
+    title: "Residential Security & VDP",
     description:
-      "Security layouts can be planned around how you live — entry points, shared spaces and private zones — with devices and scenes matched to your residence.",
-    items: ["Apartments", "Villas", "Independent houses", "Luxury residences"],
-    // Missing: /images/solutions/home-security/residential.jpg
+      "Plan security and entrance communication around how you live — entry points, private zones and visitor flow — with solutions matched to apartments, villas and luxury residences.",
+    items: [
+      "Luxury residences",
+      "Apartments",
+      "Villas and gated communities",
+      "Independent houses",
+    ],
     image: "/images/smart-home-villa.png",
     imageFallback: "/images/smart-home-villa.png",
   },
   {
-    title: "Commercial Security",
+    title: "Commercial Security & Reception",
     description:
-      "Offices, retail and commercial buildings benefit from layered protection — access paths, working areas and after-hours monitoring — configured to operational needs.",
-    items: ["Offices", "Retail spaces", "Showrooms", "Commercial buildings"],
-    // Missing: /images/solutions/home-security/commercial.jpg
+      "Offices, commercial buildings and reception areas benefit from layered protection and clearer visitor handling at the entrance.",
+    items: ["Offices", "Commercial buildings", "Reception areas", "Showrooms"],
     image: "/images/solutions/Living-Room.png",
     imageFallback: "/images/solutions/Living-Room.png",
   },
 ] as const;
 
 export const whyShreemSecurity = [
-  "Security solution planning",
-  "Product selection and system configuration",
-  "Professional installation",
-  "Integration with suitable smart-home systems",
-  "Testing and commissioning",
-  "Ongoing support",
+  "Product selection guidance",
+  "Brand and technology options",
+  "Solution planning",
+  "Project consultation",
+  "Integration guidance where supported",
+  "Ongoing customer support",
 ] as const;
+
+export const whyShreemSecurityIntro =
+  "Shreem Controls helps customers explore smart security and video door phone products from established technology brands, with guidance on selecting solutions suited to their property, requirements and lifestyle.";
 
 export const homeSecurityConsultation = {
   eyebrow: "Get started",
-  titleLead: "Let's Secure",
-  titleAccent: "What Matters.",
+  titleLead: "Make Your Entrance",
+  titleAccent: "Smarter and More Secure.",
   description:
-    "Discover a smarter approach to protecting your home or business with intelligent security solutions.",
-  buttonLabel: "Request Security Consultation",
+    "Explore intelligent security and video door phone solutions for your home or commercial property.",
+  buttonLabel: "Talk to Our Team",
 };
 
 export const homeSecurityConsultationContext = {
   solutionSlug: "home-security",
   interestedIn: "Home Security" as const,
-  source: "solution:Home Security",
+  source: "solution:Home Security & VDP",
 };

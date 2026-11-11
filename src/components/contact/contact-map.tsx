@@ -8,19 +8,33 @@ export function ContactMap() {
       <HomeSectionHeading
         align="left"
         eyebrow="Location"
-        title="Showroom & office"
-        description="Find us on Kengeri Road (562130)."
+        title="Office"
+        description="Find us on Kengeri Tavarekere Main Road, Bangalore - 562130."
       />
 
       {hasMapEmbed() ? (
         <div className="mt-8 overflow-hidden rounded-[20px] border border-[#DDECEB] bg-white shadow-[0_6px_20px_rgba(37,42,42,0.06)]">
           <iframe
-            title="Shreem Controls location map"
+            title="Shreem Controls Office Location"
             src={contactConfig.mapEmbedUrl}
-            className="h-[240px] w-full sm:h-[320px] md:h-[380px] lg:h-[420px]"
+            width="600"
+            height="450"
+            className="h-[240px] w-full max-w-full border-0 sm:h-[320px] md:h-[380px] lg:h-[420px]"
+            style={{ border: 0 }}
+            allowFullScreen
             loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
+            referrerPolicy="strict-origin-when-cross-origin"
           />
+          <div className="border-t border-[#DDECEB] px-5 py-3.5 sm:px-6">
+            <a
+              href={contactConfig.mapExternalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[12px] font-medium text-[#087F7B] transition-colors hover:text-[#009E98] sm:text-[13px]"
+            >
+              Open in Google Maps
+            </a>
+          </div>
         </div>
       ) : (
         <p className="mt-8 rounded-[20px] border border-dashed border-[#DDECEB] bg-white p-6 text-[12px] leading-[1.75] text-[#737B7A] sm:text-[14px]">

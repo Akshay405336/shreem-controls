@@ -13,7 +13,7 @@ import type {
 
 const interestOptions: ConsultationInterest[] = [
   "Smart Lighting",
-  "Smart Climate",
+  "Smart Climate Control",
   "Smart Curtains",
   "Smart Entertainment",
   "Complete Smart Home",

@@ -41,8 +41,9 @@ const solutions = [
   },
   {
     number: "02",
-    title: "Smart Climate",
-    description: "Automatic comfort, in perfect balance.",
+    title: "Smart Climate Control",
+    description:
+      "Intelligent temperature management coordinated with lighting, curtains and connected devices.",
     image: "/images/solutions/Control-Panel.png",
     alt: "Smart climate control touchscreen",
     icon: Thermometer,

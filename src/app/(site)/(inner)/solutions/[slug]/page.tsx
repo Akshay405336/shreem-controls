@@ -8,7 +8,9 @@ import { ConsultationCtaSection } from "@/components/sections/shared/consultatio
 import { PageHero } from "@/components/sections/shared/page-hero";
 import { HomeSectionHeading } from "@/components/ui/home-section-heading";
 import { HomeSecurityPage } from "@/components/solutions/home-security/home-security-page";
+import { SmartClimatePage } from "@/components/solutions/smart-climate/smart-climate-page";
 import { homeSecuritySeo } from "@/data/home-security";
+import { smartClimateSeo } from "@/data/smart-climate";
 import { getSolutionBySlug, solutions } from "@/data/solutions";
 import { SlugPageFallback } from "@/components/layout/slug-page-fallback";
 import { createPageMetadata } from "@/lib/metadata";
@@ -29,6 +31,13 @@ export async function generateMetadata({ params }: SolutionPageProps) {
     return createPageMetadata({
       title: homeSecuritySeo.title,
       description: homeSecuritySeo.description,
+      path: `/solutions/${solution.slug}`,
+    });
+  }
+  if (slug === "smart-climate") {
+    return createPageMetadata({
+      title: smartClimateSeo.title,
+      description: smartClimateSeo.description,
       path: `/solutions/${solution.slug}`,
     });
   }
@@ -54,6 +63,10 @@ async function SolutionDetailContent({ params }: SolutionPageProps) {
 
   if (slug === "home-security") {
     return <HomeSecurityPage />;
+  }
+
+  if (slug === "smart-climate") {
+    return <SmartClimatePage />;
   }
 
   return (

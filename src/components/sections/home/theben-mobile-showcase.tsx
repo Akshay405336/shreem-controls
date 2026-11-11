@@ -11,7 +11,7 @@ const VIDEO_SRC = "/theben-video.mp4";
 
 const featurePills = [
   { label: "Lighting Control", icon: Lightbulb },
-  { label: "Climate Control", icon: ThermometerSun },
+  { label: "Smart Climate Control", icon: ThermometerSun },
   { label: "Curtain Control", icon: Blinds },
   { label: "Scene Management", icon: Layers },
 ] as const;

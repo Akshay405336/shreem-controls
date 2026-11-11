@@ -1,4 +1,15 @@
-import { Bell, CheckCircle2, Radio, ScanSearch, ShieldCheck } from "lucide-react";
+import {
+  Bell,
+  CheckCircle2,
+  DoorOpen,
+  Eye,
+  MessageSquare,
+  Radio,
+  ScanSearch,
+  ShieldCheck,
+  Smartphone,
+  Video,
+} from "lucide-react";
 
 import { FadeInView } from "@/components/animations/fade-in-view";
 import { PageSection } from "@/components/layout/page-section";
@@ -14,12 +25,19 @@ import {
   mobileSecuritySection,
   securityCategories,
   securityProcessSteps,
+  vdpCapabilities,
+  vdpProcessSteps,
+  vdpSection,
+  vdpShowcaseFrames,
   whyShreemSecurity,
+  whyShreemSecurityIntro,
 } from "@/data/home-security";
 
 import { HomeSecurityConsultationCta } from "./home-security-consultation-cta";
 
-const processIcons = [ScanSearch, Radio, Bell, ShieldCheck] as const;
+const securityProcessIcons = [ScanSearch, Radio, Bell, ShieldCheck] as const;
+const vdpProcessIcons = [DoorOpen, Eye, MessageSquare, ShieldCheck] as const;
+const vdpCapabilityIcons = [Video, MessageSquare, DoorOpen, Smartphone, Eye, ShieldCheck] as const;
 
 export function HomeSecurityPage() {
   return (
@@ -36,6 +54,7 @@ export function HomeSecurityPage() {
         <HomeSecurityHeroActions />
       </PageHero>
 
+      {/* —— Ajax Systems —— */}
       <PageSection theme="cream-gradient" waves="ambient" scene="orb-top-right">
         <div className="grid gap-7 sm:gap-8 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-10">
           <div>
@@ -162,7 +181,7 @@ export function HomeSecurityPage() {
             </>
           }
           titleClassName="text-balance"
-          description="A connected ecosystem that keeps you informed when events matter."
+          description="A connected security ecosystem that keeps you informed when events matter."
           align="center"
         />
 
@@ -172,7 +191,7 @@ export function HomeSecurityPage() {
             className="pointer-events-none absolute left-[12.5%] right-[12.5%] top-[2.75rem] hidden h-px bg-gradient-to-r from-transparent via-[#009E98]/35 to-transparent lg:block"
           />
           {securityProcessSteps.map((step, index) => {
-            const Icon = processIcons[index] ?? ShieldCheck;
+            const Icon = securityProcessIcons[index] ?? ShieldCheck;
             return (
               <li key={step.title} className="list-none">
                 <FadeInView delay={index * 0.06} className="h-full">
@@ -228,17 +247,134 @@ export function HomeSecurityPage() {
         </div>
       </PageSection>
 
+      {/* —— Smart Video Door Phone —— */}
+      <PageSection id="video-door-phone" theme="white" waves="bottom" scene="orb-bottom-left">
+        <HomeSectionHeading
+          eyebrow={vdpSection.eyebrow}
+          titleLead={vdpSection.titleLead}
+          titleAccent={vdpSection.titleAccent}
+          description={vdpSection.description}
+          align="center"
+        />
+
+        <p className="mx-auto mt-4 max-w-2xl text-center text-[11px] leading-[1.65] text-[#9AA3A2] sm:text-[12px]">
+          Capabilities below describe what Video Door Phone solutions can offer depending on the
+          selected system — not guaranteed features of every product.
+        </p>
+
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-5">
+          {vdpCapabilities.map((capability, index) => {
+            const Icon = vdpCapabilityIcons[index] ?? Video;
+            return (
+              <FadeInView key={capability.title} delay={index * 0.04}>
+                <article className="flex h-full flex-col rounded-[20px] border border-[#DDECEB] bg-[linear-gradient(145deg,#FFFFFF_0%,#F8FCFB_100%)] p-5 shadow-[0_6px_24px_rgba(37,42,42,0.05)] sm:p-6">
+                  <span className="flex size-11 items-center justify-center rounded-xl bg-[#EFF9F8] text-[#009E98]">
+                    <Icon className="size-5" strokeWidth={1.75} />
+                  </span>
+                  <h3 className="mt-4 font-display text-[18px] font-medium tracking-[-0.02em] text-[#252A2A]">
+                    {capability.title}
+                  </h3>
+                  <p className="mt-2 text-[12px] leading-[1.7] text-[#737B7A] sm:text-[13px]">
+                    {capability.description}
+                  </p>
+                </article>
+              </FadeInView>
+            );
+          })}
+        </div>
+      </PageSection>
+
+      <PageSection theme="mint" waves="ambient" scene="orb-top-right">
+        <HomeSectionHeading
+          eyebrow="Visual showcase"
+          titleLead="Entrance,"
+          titleAccent="monitor and mobile"
+          description="A connected entrance experience can bring outdoor door stations, indoor interfaces and mobile viewing together — shaped around the system you select."
+          align="center"
+        />
+
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:gap-5">
+          {vdpShowcaseFrames.map((frame, index) => (
+            <FadeInView key={frame.title} delay={index * 0.05}>
+              <figure className="overflow-hidden rounded-[20px] border border-[#DDECEB] bg-white shadow-[0_8px_28px_rgba(37,42,42,0.06)] sm:rounded-[24px]">
+                <div className="relative aspect-[16/10] w-full">
+                  <SolutionAssetImage
+                    src={frame.image}
+                    alt={frame.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <figcaption className="p-5 sm:p-6">
+                  <h3 className="font-display text-[17px] font-medium tracking-[-0.02em] text-[#252A2A]">
+                    {frame.title}
+                  </h3>
+                  <p className="mt-1.5 text-[12px] leading-[1.65] text-[#737B7A]">
+                    {frame.description}
+                  </p>
+                </figcaption>
+              </figure>
+            </FadeInView>
+          ))}
+        </div>
+      </PageSection>
+
+      <PageSection theme="cream-gradient" scene="orb-bottom-left">
+        <HomeSectionHeading
+          eyebrow="How VDP works"
+          title={
+            <>
+              From arrival to{" "}
+              <span className="text-[#009E98]">managed entry</span>
+            </>
+          }
+          titleClassName="text-balance"
+          description="A simple flow for visitor communication and access, depending on the selected Video Door Phone system."
+          align="center"
+        />
+
+        <ol className="relative mt-8 grid gap-4 sm:mt-10 sm:gap-6 md:mt-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute left-[12.5%] right-[12.5%] top-[2.75rem] hidden h-px bg-gradient-to-r from-transparent via-[#009E98]/35 to-transparent lg:block"
+          />
+          {vdpProcessSteps.map((step, index) => {
+            const Icon = vdpProcessIcons[index] ?? DoorOpen;
+            return (
+              <li key={step.title} className="list-none">
+                <FadeInView delay={index * 0.06} className="h-full">
+                  <div className="relative flex h-full flex-col rounded-[20px] border border-[#DDECEB] bg-white/80 p-6 shadow-[0_6px_24px_rgba(37,42,42,0.05)] backdrop-blur-sm">
+                    <span className="flex size-11 items-center justify-center rounded-full bg-[#EFF9F8] text-[#009E98] ring-1 ring-[#009E98]/15">
+                      <Icon className="size-5" strokeWidth={1.75} />
+                    </span>
+                    <p className="mt-4 text-[10px] font-semibold tracking-[0.2em] text-[#009E98]">
+                      {step.step}
+                    </p>
+                    <h3 className="mt-1 font-display text-lg font-medium tracking-[-0.02em] text-[#252A2A]">
+                      {step.title}
+                    </h3>
+                    <p className="mt-2 text-[12px] leading-[1.7] text-[#737B7A]">
+                      {step.description}
+                    </p>
+                  </div>
+                </FadeInView>
+              </li>
+            );
+          })}
+        </ol>
+      </PageSection>
+
       <PageSection theme="white" waves="bottom">
         <HomeSectionHeading
           eyebrow="Applications"
           title={
             <>
               Home &{" "}
-              <span className="text-[#009E98]">commercial security</span>
+              <span className="text-[#009E98]">commercial spaces</span>
             </>
           }
           titleClassName="text-balance"
-          description="Configurations shaped around your property, layout and protection needs."
+          description="Security and video door phone solutions shaped around residences, offices and reception areas."
           align="center"
         />
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
@@ -281,9 +417,9 @@ export function HomeSecurityPage() {
         <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
           <HomeSectionHeading
             eyebrow="Why Shreem Controls"
-            titleLead="Expert guidance,"
-            titleAccent="end to end"
-            description="From the first conversation through installation and support, we help you plan security that fits your property and smart-home goals."
+            titleLead="Guidance for"
+            titleAccent="security & VDP"
+            description={whyShreemSecurityIntro}
           />
           <ul className="grid gap-3 sm:grid-cols-2">
             {whyShreemSecurity.map((item) => (

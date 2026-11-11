@@ -64,8 +64,9 @@ export function HomeSecurityConsultationCta() {
           className="mx-auto mt-10 max-w-xl rounded-[20px] border border-[#DDECEB] bg-[#F4FBFA]/90 p-6 text-center shadow-[0_6px_20px_rgba(37,42,42,0.06)] sm:p-8"
         >
           <p className="text-[12px] leading-[1.75] text-[#737B7A] sm:text-[14px]">
-            Tell us about your property and protection priorities. We will recommend Ajax Systems
-            devices and a configuration approach suited to your home or business.
+            Tell us about your property, security priorities and entrance requirements. We will
+            help you explore Ajax security and video door phone options suited to your home or
+            business.
           </p>
         </FadeInView>
       </Container>

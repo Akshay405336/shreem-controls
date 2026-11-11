@@ -24,8 +24,8 @@ const features = [
     icon: Lightbulb,
   },
   {
-    title: "Climate Control",
-    description: "Comfort in every season",
+    title: "Smart Climate Control",
+    description: "Comfort coordinated with your home",
     icon: Thermometer,
   },
   {
@@ -114,18 +114,18 @@ export function SmartLivingEcosystem() {
                 id="smart-living-heading"
                 className="max-w-[650px] font-display text-[clamp(2.35rem,4.2vw,3.8rem)] font-medium leading-[1.06] tracking-[-0.045em] text-[#252A2A]"
               >
-                One connected home,
+                One Intelligent System.
                 <span className="block font-semibold text-[#009E98]">
-                  complete control.
+                  Connected Experiences.
                 </span>
               </h2>
 
               {/* Description */}
               <p className="mt-5 max-w-[540px] text-[14px] leading-[1.8] text-[#737B7A] sm:text-[15px]">
-                Seamlessly manage lighting, climate, security, entertainment
-                and more, from a single, intelligent system. Every part of
-                your home works together to create a more comfortable,
-                connected living experience.
+                Smart home automation brings multiple technologies together,
+                allowing connected devices and configured scenes to work in
+                coordination rather than independently — lighting, Smart Climate
+                Control, curtains, security, entertainment and more.
               </p>
             </motion.div>
 
