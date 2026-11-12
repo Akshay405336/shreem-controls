@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -31,16 +32,14 @@ function BrandLogoImage({ src }: { src: string }) {
 function BrandLogoItem({ brand }: { brand: MasterBrand }) {
   const href = getBrandListingHref(brand.slug);
 
-  if (!brand.logo) {
-    return null;
-  }
+  if (!brand.logo) return null;
 
   return (
     <Link
       href={href}
       className={cn(
         logoSlotClass,
-        "opacity-90 transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100",
+        "opacity-90 transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100"
       )}
       aria-label={`${brand.name} products`}
     >
@@ -62,18 +61,25 @@ function BrandLogoGroup({
     <div
       className={cn(
         "flex shrink-0 items-center gap-10 px-8 sm:gap-14 sm:px-10 md:gap-16 md:px-12",
-        decorative && "brand-marquee-set-decorative",
+        decorative && "brand-marquee-set-decorative"
       )}
       aria-hidden={decorative || undefined}
     >
       {brands.map((brand) =>
         decorative ? (
-          <div key={`${groupKey}-${brand.id}`} className={logoSlotClass} aria-hidden>
+          <div
+            key={`${groupKey}-${brand.id}`}
+            className={logoSlotClass}
+            aria-hidden
+          >
             {brand.logo ? <BrandLogoImage src={brand.logo} /> : null}
           </div>
         ) : (
-          <BrandLogoItem key={`${groupKey}-${brand.id}`} brand={brand} />
-        ),
+          <BrandLogoItem
+            key={`${groupKey}-${brand.id}`}
+            brand={brand}
+          />
+        )
       )}
     </div>
   );
@@ -81,6 +87,8 @@ function BrandLogoGroup({
 
 export function BrandCarousel({ brands }: BrandCarouselProps) {
   const brandsWithLogos = brands.filter((brand) => brand.logo);
+
+  if (!brandsWithLogos.length) return null;
 
   return (
     <section
@@ -92,12 +100,15 @@ export function BrandCarousel({ brands }: BrandCarouselProps) {
           from { transform: translate3d(0, 0, 0); }
           to { transform: translate3d(-50%, 0, 0); }
         }
+
         .brand-marquee-track {
           animation: brand-marquee-scroll 50s linear infinite;
         }
+
         .brand-marquee-shell:hover .brand-marquee-track {
           animation-play-state: paused;
         }
+
         @media (prefers-reduced-motion: reduce) {
           .brand-marquee-track {
             animation: none;
@@ -107,6 +118,7 @@ export function BrandCarousel({ brands }: BrandCarouselProps) {
             gap: 1.5rem;
             padding-inline: 1rem;
           }
+
           .brand-marquee-set-decorative {
             display: none;
           }
@@ -115,35 +127,27 @@ export function BrandCarousel({ brands }: BrandCarouselProps) {
 
       <SectionSceneDecor variant="orb-top-right" />
 
+      {/* Section heading */}
       <div className="relative mx-auto mb-7 max-w-[1440px] px-4 sm:mb-9 sm:px-8 lg:mb-10 lg:px-12">
-        <div className="grid grid-cols-1 items-center gap-6 sm:gap-8 md:grid-cols-[minmax(0,1.85fr)_minmax(0,1fr)] md:gap-8 lg:gap-12">
-          <HomeSectionHeading
-            align="left"
-            eyebrow="Partners"
-            title={
-              <>
-                Explore Our <span className="text-[#009E98]">Brands</span>
-              </>
-            }
-            description="Discover thoughtfully selected smart-home technologies from leading brands, bringing intelligent control, refined design and seamless automation together."
-            className="mb-0 max-w-none"
-            titleClassName="text-[clamp(1.85rem,3.4vw,3.15rem)]"
-          />
-
-          <div className="flex justify-center">
-            <div className="relative h-[4.5rem] w-full max-w-[240px] sm:h-20 sm:max-w-[260px] lg:h-[5.5rem] lg:max-w-[280px]">
-              <Image
-                src="/images/KNX-Partner-Logo.png"
-                alt="KNX Partner"
-                fill
-                className="object-contain object-center"
-                sizes="(max-width: 768px) 240px, 280px"
-              />
-            </div>
+        <div className="flex items-center justify-center">
+          <div className="max-w-3xl">
+            <HomeSectionHeading
+            align="center"
+              eyebrow="Brands We Integrate"
+              title={
+                <>
+    Trusted <span className="text-[#009E98]">Smart Technologies</span>
+                </>
+              }
+              description="We bring together trusted smart-home brands and innovative technologies, integrating their products to create intelligent, connected and seamless living experiences."
+              className="mb-0 max-w-none"
+              titleClassName="text-[clamp(1.85rem,3.4vw,3.15rem)]"
+            />
           </div>
         </div>
       </div>
 
+      {/* Infinite brand marquee */}
       <div
         className="brand-marquee-shell w-full overflow-x-hidden py-2"
         style={{
@@ -152,7 +156,11 @@ export function BrandCarousel({ brands }: BrandCarouselProps) {
         }}
       >
         <div className="brand-marquee-track flex w-max will-change-transform">
-          <BrandLogoGroup brands={brandsWithLogos} groupKey="a" />
+          <BrandLogoGroup
+            brands={brandsWithLogos}
+            groupKey="a"
+          />
+
           <BrandLogoGroup
             brands={brandsWithLogos}
             groupKey="b"
