@@ -135,16 +135,16 @@ export function BlogEditor({
 
   return (
     <div
-      className={`flex flex-col overflow-hidden rounded-xl border bg-white transition-colors ${
+      className={`flex flex-col overflow-hidden rounded-lg border bg-white transition-colors ${
         isFocused
           ? "border-[#009E98] shadow-[0_0_0_1px_rgba(0,158,152,0.08)]"
-          : "border-[#E2ECEB]"
+          : "border-[#DDECEB]"
       }`}
     >
       {/* Editor Toolbar */}
-      <div className="flex flex-wrap items-center gap-1.5 border-b border-[#E2ECEB] bg-[#F8FAFA] p-2 text-[#252A2A]">
+      <div className="flex flex-wrap items-center gap-1.5 border-b border-[#DDECEB] bg-[#F8FAFA] p-2 text-[#252A2A]">
         {/* Headings */}
-        <div className="mr-1 flex items-center gap-1 border-r border-[#E2ECEB] pr-2">
+        <div className="mr-1 flex items-center gap-1 border-r border-[#DDECEB] pr-2">
           <button
             type="button"
             onMouseDown={preventToolbarLoss}
@@ -188,7 +188,7 @@ export function BlogEditor({
         </div>
 
         {/* Inline styles */}
-        <div className="mr-1 flex items-center gap-1 border-r border-[#E2ECEB] pr-2">
+        <div className="mr-1 flex items-center gap-1 border-r border-[#DDECEB] pr-2">
           <button
             type="button"
             onMouseDown={preventToolbarLoss}
@@ -222,7 +222,7 @@ export function BlogEditor({
         </div>
 
         {/* Lists & Quotation */}
-        <div className="mr-1 flex items-center gap-1 border-r border-[#E2ECEB] pr-2">
+        <div className="mr-1 flex items-center gap-1 border-r border-[#DDECEB] pr-2">
           <button
             type="button"
             onMouseDown={preventToolbarLoss}
@@ -266,7 +266,7 @@ export function BlogEditor({
         </div>
 
         {/* Link / Unlink */}
-        <div className="mr-1 flex items-center gap-1 border-r border-[#E2ECEB] pr-2">
+        <div className="mr-1 flex items-center gap-1 border-r border-[#DDECEB] pr-2">
           <button
             type="button"
             onMouseDown={preventToolbarLoss}
@@ -333,7 +333,7 @@ export function BlogEditor({
             className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[12px] font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50 ${
               isSourceMode
                 ? "bg-[#252A2A] text-white hover:bg-[#3A4241]"
-                : "border border-[#E2ECEB] bg-white text-[#52615F] hover:bg-[#EFF9F8] hover:text-[#009E98]"
+                : "border border-[#DDECEB] bg-white text-[#52615F] hover:bg-[#EFF9F8] hover:text-[#009E98]"
             }`}
           >
             <Code className="h-3.5 w-3.5" />
@@ -367,12 +367,12 @@ export function BlogEditor({
             handleContentChange();
           }}
           data-placeholder={placeholder}
-          className="min-h-[220px] max-h-[460px] overflow-y-auto bg-white p-4 text-[15px] leading-relaxed text-[#252A2A] focus:outline-none disabled:cursor-not-allowed [&:empty]:before:text-[#81908E]/70 [&:empty]:before:content-[attr(data-placeholder)] [&_h2]:mb-2 [&_h2]:mt-4 [&_h2]:text-[22px] [&_h2]:font-medium [&_h2]:tracking-tight [&_h2]:text-[#252A2A] [&_h3]:mb-1.5 [&_h3]:mt-3 [&_h3]:text-[18px] [&_h3]:font-medium [&_h3]:text-[#252A2A] [&_h4]:mb-1 [&_h4]:mt-2 [&_h4]:text-[16px] [&_h4]:font-semibold [&_h4]:text-[#252A2A] [&_p]:mb-3 [&_ul]:mb-3 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:mb-3 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mb-1.5 [&_blockquote]:my-3 [&_blockquote]:rounded-r-lg [&_blockquote]:border-l-4 [&_blockquote]:border-[#009E98] [&_blockquote]:bg-[#F4FBFA] [&_blockquote]:py-2 [&_blockquote]:pl-4 [&_blockquote]:italic [&_a]:text-[#009E98] [&_a]:underline"
+          className="min-h-[220px] max-h-[460px] overflow-y-auto bg-white p-4 text-[14px] leading-relaxed text-[#252A2A] focus:outline-none disabled:cursor-not-allowed [&:empty]:before:text-[#81908E]/70 [&:empty]:before:content-[attr(data-placeholder)] [&_h2]:mb-2 [&_h2]:mt-4 [&_h2]:text-[22px] [&_h2]:font-medium [&_h2]:tracking-tight [&_h2]:text-[#252A2A] [&_h3]:mb-1.5 [&_h3]:mt-3 [&_h3]:text-[18px] [&_h3]:font-medium [&_h3]:text-[#252A2A] [&_h4]:mb-1 [&_h4]:mt-2 [&_h4]:text-[16px] [&_h4]:font-semibold [&_h4]:text-[#252A2A] [&_p]:mb-3 [&_ul]:mb-3 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:mb-3 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mb-1.5 [&_blockquote]:my-3 [&_blockquote]:rounded-r-lg [&_blockquote]:border-l-4 [&_blockquote]:border-[#009E98] [&_blockquote]:bg-[#F4FBFA] [&_blockquote]:py-2 [&_blockquote]:pl-4 [&_blockquote]:italic [&_a]:text-[#009E98] [&_a]:underline"
         />
       )}
 
       {/* Editor Footer */}
-      <div className="flex items-center justify-between border-t border-[#E2ECEB] bg-[#F8FAFA] px-4 py-2 text-[12px] text-[#71817F]">
+      <div className="flex items-center justify-between border-t border-[#DDECEB] bg-[#F8FAFA] px-4 py-2 text-[12px] text-[#737B7A]">
         <span>
           {isSourceMode ? "Raw HTML Mode" : "Rich Text Formatting Enabled"}
         </span>

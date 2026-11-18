@@ -24,9 +24,13 @@ import { BLOGS_CONFIG } from "./config";
  */
 export function revalidateBlogCache(slug?: string): void {
   try {
+    revalidatePath("/blog");
+    revalidatePath("/blog", "page");
     revalidatePath("/blogs");
     revalidatePath("/blogs", "page");
     if (slug) {
+      revalidatePath(`/blog/${slug}`);
+      revalidatePath(`/blog/${slug}`, "page");
       revalidatePath(`/blogs/${slug}`);
       revalidatePath(`/blogs/${slug}`, "page");
     }

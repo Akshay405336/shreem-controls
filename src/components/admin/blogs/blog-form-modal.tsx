@@ -413,21 +413,21 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 sm:p-6 backdrop-blur-xs"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 sm:p-6 backdrop-blur-xs"
       onClick={onClose}
     >
       <div
         data-lenis-prevent
         onClick={(e) => e.stopPropagation()}
-        className="flex max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-3rem)] w-full max-w-3xl flex-col rounded-2xl border border-[#E2ECEB] bg-white shadow-2xl animate-in fade-in-0 zoom-in-95 overflow-hidden"
+        className="flex max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-3rem)] w-full max-w-2xl flex-col rounded-2xl border border-[#DDECEB] bg-white shadow-2xl animate-in fade-in-0 zoom-in-95 overflow-hidden"
       >
         {/* Modal Header */}
-        <div className="shrink-0 flex items-start justify-between border-b border-[#E2ECEB] px-6 sm:px-8 py-5 bg-white">
+        <div className="shrink-0 flex items-start justify-between border-b border-[#DDECEB] px-5 sm:px-6 py-4 bg-white">
           <div>
-            <h2 className="font-display text-[22px] sm:text-[28px] font-medium tracking-tight text-[#252A2A]">
+            <h2 className="font-display text-[20px] sm:text-[22px] font-bold tracking-tight text-[#252A2A]">
               {isEditing ? "Edit Blog" : "Create Blog"}
             </h2>
-            <p className="mt-1 text-[14px] sm:text-[16px] text-[#71817F] leading-relaxed">
+            <p className="mt-1 text-[12px] sm:text-[13px] text-[#737B7A] leading-relaxed">
               {isEditing
                 ? "Update your blog article, content, cover image, and publication status."
                 : "Create and publish a new blog article on your website."}
@@ -437,7 +437,7 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
             type="button"
             onClick={onClose}
             disabled={isSubmitting}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#E2ECEB] text-[#71817F] hover:border-[#009E98] hover:bg-[#EFF9F8] hover:text-[#252A2A] transition-colors"
+            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#DDECEB] text-[#737B7A] hover:border-[#009E98] hover:bg-[#EFF9F8] hover:text-[#252A2A] transition-colors"
             aria-label="Close dialog"
           >
             <X className="h-4 w-4" />
@@ -452,13 +452,13 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
           {/* Scrollable Content Body */}
           <div
             data-lenis-prevent
-            className="flex-1 min-h-0 overflow-y-auto px-6 sm:px-8 py-6 space-y-6 overscroll-contain"
+            className="flex-1 min-h-0 overflow-y-auto px-5 sm:px-6 py-5 space-y-5 overscroll-contain"
             style={{ WebkitOverflowScrolling: "touch" }}
           >
             {globalError && (
               <div
                 role="alert"
-                className="flex items-start gap-2.5 rounded-xl border border-red-200 bg-red-50 p-4 text-[14px] text-red-700"
+                className="flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 p-3 text-[12px] text-red-700"
               >
                 <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />
                 <div className="flex-1 font-medium">{globalError}</div>
@@ -472,11 +472,11 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
                 <div className="flex items-center justify-between mb-2">
                   <label
                     htmlFor="blog-title"
-                    className="text-[15px] sm:text-[16px] font-medium text-[#252A2A]"
+                    className="text-[13px] font-bold text-[#252A2A]"
                   >
                     Blog Title <span className="text-red-500 font-medium">*</span>
                   </label>
-                  <span className="text-[13px] text-[#71817F]">
+                  <span className="text-[13px] text-[#737B7A]">
                     {title.length}/255
                   </span>
                 </div>
@@ -491,12 +491,12 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
                     onChange={(e) => handleTitleChange(e.target.value)}
                     onBlur={() => setTitleTouched(true)}
                     placeholder="e.g., Transforming Modern Living with Smart Automation"
-                    className={`h-11 w-full rounded-xl px-4 text-[15px] sm:text-[16px] text-[#252A2A] placeholder:text-[#71817F]/50 transition-colors focus:bg-white focus:outline-none focus:ring-1 disabled:bg-slate-50 ${
+                    className={`h-10 w-full rounded-lg px-3.5 text-[14px] text-[#252A2A] placeholder:text-[#737B7A]/50 transition-colors focus:bg-white focus:outline-none focus:ring-1 disabled:bg-slate-50 ${
                       titleError
                         ? "border border-red-500 bg-red-50/20 pr-10 focus:border-red-500 focus:ring-red-500"
                         : isTitleValid
-                        ? "border border-[#009E98] bg-[#F4FBFA] pr-10 focus:border-[#009E98] focus:ring-[#009E98]"
-                        : "border border-[#E2ECEB] bg-[#F4FBFA] focus:border-[#009E98] focus:ring-[#009E98]"
+                        ? "border border-[#009E98] bg-[#F7FAFF] pr-10 focus:border-[#009E98] focus:ring-[#009E98]"
+                        : "border border-[#DDECEB] bg-[#F7FAFF] focus:border-[#009E98] focus:ring-[#009E98]"
                     }`}
                   />
                   {isTitleValid && (
@@ -523,7 +523,7 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
                   <div className="flex items-center gap-2">
                     <label
                       htmlFor="blog-slug"
-                      className="text-[15px] sm:text-[16px] font-medium text-[#252A2A]"
+                      className="text-[13px] font-bold text-[#252A2A]"
                     >
                       URL Slug <span className="text-red-500 font-medium">*</span>
                     </label>
@@ -538,10 +538,10 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
                     </button>
                   </div>
                   <span
-                    className="text-[12px] text-[#71817F] font-mono truncate max-w-[140px]"
-                    title={`/blogs/${slug || "..."}`}
+                    className="text-[12px] text-[#737B7A] font-mono truncate max-w-[140px]"
+                    title={`/blog/${slug || "..."}`}
                   >
-                    /blogs/{slug || "..."}
+                    /blog/{slug || "..."}
                   </span>
                 </div>
 
@@ -556,17 +556,17 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
                     onChange={(e) => handleSlugChange(e.target.value)}
                     onBlur={() => setSlugTouched(true)}
                     placeholder="transforming-modern-living-with-smart-automation"
-                    className={`h-11 w-full rounded-xl px-4 font-mono text-[14px] text-[#252A2A] placeholder:text-[#71817F]/50 transition-colors focus:bg-white focus:outline-none focus:ring-1 disabled:bg-slate-50 ${
+                    className={`h-10 w-full rounded-lg px-3.5 font-mono text-[13px] text-[#252A2A] placeholder:text-[#737B7A]/50 transition-colors focus:bg-white focus:outline-none focus:ring-1 disabled:bg-slate-50 ${
                       slugError
                         ? "border border-red-500 bg-red-50/20 pr-10 focus:border-red-500 focus:ring-red-500"
                         : isSlugValid
-                        ? "border border-[#009E98] bg-[#F4FBFA] pr-10 focus:border-[#009E98] focus:ring-[#009E98]"
-                        : "border border-[#E2ECEB] bg-[#F4FBFA] focus:border-[#009E98] focus:ring-[#009E98]"
+                        ? "border border-[#009E98] bg-[#F7FAFF] pr-10 focus:border-[#009E98] focus:ring-[#009E98]"
+                        : "border border-[#DDECEB] bg-[#F7FAFF] focus:border-[#009E98] focus:ring-[#009E98]"
                     }`}
                   />
 
                   {slugCheckStatus === "checking" && (
-                    <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#71817F]">
+                    <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#737B7A]">
                       <Loader2 className="h-4 w-4 animate-spin" />
                     </div>
                   )}
@@ -600,11 +600,11 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
               <div className="flex items-center justify-between mb-2">
                 <label
                   htmlFor="blog-excerpt"
-                  className="text-[15px] sm:text-[16px] font-medium text-[#252A2A]"
+                  className="text-[13px] font-bold text-[#252A2A]"
                 >
                   Short Description / Excerpt <span className="text-red-500 font-medium">*</span>
                 </label>
-                <span className="text-[13px] text-[#71817F]">
+                <span className="text-[13px] text-[#737B7A]">
                   {excerpt.length}/500
                 </span>
               </div>
@@ -618,12 +618,12 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
                 onChange={(e) => handleExcerptChange(e.target.value)}
                 onBlur={() => setExcerptTouched(true)}
                 placeholder="Provide a compelling 1-3 sentence summary that will appear on blog listing cards and search engine results..."
-                className={`w-full rounded-xl p-3.5 text-[15px] sm:text-[16px] text-[#252A2A] placeholder:text-[#71817F]/50 transition-colors focus:bg-white focus:outline-none focus:ring-1 disabled:bg-slate-50 ${
+                className={`w-full rounded-lg p-3 text-[14px] text-[#252A2A] placeholder:text-[#737B7A]/50 transition-colors focus:bg-white focus:outline-none focus:ring-1 disabled:bg-slate-50 ${
                   excerptError
                     ? "border border-red-500 bg-red-50/20 focus:border-red-500 focus:ring-red-500"
                     : isExcerptValid
-                    ? "border border-[#009E98] bg-[#F4FBFA] focus:border-[#009E98] focus:ring-[#009E98]"
-                    : "border border-[#E2ECEB] bg-[#F4FBFA] focus:border-[#009E98] focus:ring-[#009E98]"
+                    ? "border border-[#009E98] bg-[#F7FAFF] focus:border-[#009E98] focus:ring-[#009E98]"
+                    : "border border-[#DDECEB] bg-[#F7FAFF] focus:border-[#009E98] focus:ring-[#009E98]"
                 }`}
               />
               {excerptError && (
@@ -636,10 +636,10 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
             {/* ROW 3: Blog Content * */}
             <div>
               <div className="flex items-center justify-between mb-2">
-                <label className="text-[15px] sm:text-[16px] font-medium text-[#252A2A]">
+                <label className="text-[13px] font-bold text-[#252A2A]">
                   Blog Content <span className="text-red-500 font-medium">*</span>
                 </label>
-                <span className="text-[13px] text-[#71817F]">
+                <span className="text-[13px] text-[#737B7A]">
                   Headings, bold, lists, links
                 </span>
               </div>
@@ -660,10 +660,10 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {/* LEFT: Cover Image Upload */}
               <div>
-                <span className="mb-2 block text-[15px] sm:text-[16px] font-medium text-[#252A2A]">
+                <span className="mb-2 block text-[13px] font-bold text-[#252A2A]">
                   Cover Image Upload {!isEditing && <span className="text-red-500 font-medium">*</span>}
                   {isEditing && (
-                    <span className="text-[#71817F] font-normal ml-1">
+                    <span className="text-[#737B7A] font-normal ml-1">
                       (Leave unchanged to keep current image)
                     </span>
                   )}
@@ -675,14 +675,14 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
                   onDragLeave={handleDragLeave}
                   onDrop={handleDrop}
                   onClick={() => fileInputRef.current?.click()}
-                  className={`flex h-48 cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed p-4 text-center transition-colors ${
+                  className={`flex h-44 cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed p-4 text-center transition-colors ${
                     isDragging
                       ? "border-[#009E98] bg-[#EFF9F8]"
                       : fileError
                       ? "border-red-400 bg-red-50/20 hover:border-red-500"
                       : selectedFile
                       ? "border-[#009E98]/60 bg-[#F4FBFA] hover:border-[#009E98]"
-                      : "border-[#E2ECEB] bg-[#F4FBFA] hover:border-[#009E98] hover:bg-[#EFF9F8]"
+                      : "border-[#DDECEB] bg-[#F4FBFA] hover:border-[#009E98] hover:bg-[#EFF9F8]"
                   }`}
                 >
                   {selectedFile ? (
@@ -691,28 +691,28 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
                       <p className="text-[14px] sm:text-[15px] font-semibold text-[#252A2A]">
                         New Image Selected
                       </p>
-                      <p className="mt-1 text-[13px] text-[#71817F]">
+                      <p className="mt-1 text-[13px] text-[#737B7A]">
                         Click to change, or drag a replacement file
                       </p>
                     </>
                   ) : existingImageUrl && !isImageRemoved ? (
                     <>
-                      <RefreshCw className="h-8 w-8 text-[#71817F] mb-2" />
+                      <RefreshCw className="h-8 w-8 text-[#737B7A] mb-2" />
                       <p className="text-[14px] sm:text-[15px] font-semibold text-[#252A2A]">
                         Current Image Saved
                       </p>
-                      <p className="mt-1 text-[13px] text-[#71817F]">
+                      <p className="mt-1 text-[13px] text-[#737B7A]">
                         Click to upload replacement, or leave as-is
                       </p>
                     </>
                   ) : (
                     <>
-                      <UploadCloud className="h-9 w-9 text-[#71817F] mb-2" />
+                      <UploadCloud className="h-8 w-8 text-[#737B7A] mb-2" />
                       <p className="text-[14px] sm:text-[15px] font-medium text-[#252A2A]">
                         Drag and drop cover image here, or{" "}
                         <span className="underline font-semibold text-[#009E98]">Browse</span>
                       </p>
-                      <p className="mt-1 text-[13px] text-[#71817F]">
+                      <p className="mt-1 text-[13px] text-[#737B7A]">
                         JPEG, PNG, WebP or AVIF (Max 10 MB)
                       </p>
                     </>
@@ -729,11 +729,11 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
 
                 {/* Selected File Details & Actions */}
                 {selectedFile && (
-                  <div className="mt-2.5 flex items-center justify-between rounded-xl border border-[#E2ECEB] bg-[#F4FBFA] px-3.5 py-2 text-[14px] text-[#252A2A]">
+                  <div className="mt-2.5 flex items-center justify-between rounded-lg border border-[#DDECEB] bg-[#F4FBFA] px-3 py-2 text-[12px] text-[#252A2A]">
                     <div className="flex items-center gap-2 truncate pr-2">
                       <Check className="h-4 w-4 shrink-0 text-[#009E98]" />
                       <span className="truncate font-medium">{selectedFile.name}</span>
-                      <span className="text-[#71817F] text-[13px] shrink-0">
+                      <span className="text-[#737B7A] text-[13px] shrink-0">
                         ({formatBytes(selectedFile.size)})
                       </span>
                     </div>
@@ -743,7 +743,7 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
                         e.stopPropagation();
                         handleRemoveFile();
                       }}
-                      className="text-[#71817F] hover:text-red-600 transition-colors p-1"
+                      className="text-[#737B7A] hover:text-red-600 transition-colors p-1"
                       title="Remove selected image"
                       aria-label="Remove image"
                     >
@@ -761,10 +761,10 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
 
               {/* RIGHT: Cover Image Preview */}
               <div>
-                <span className="mb-2 block text-[15px] sm:text-[16px] font-medium text-[#252A2A]">
+                <span className="mb-2 block text-[13px] font-bold text-[#252A2A]">
                   Cover Image Preview
                 </span>
-                <div className="relative flex h-48 items-center justify-center overflow-hidden rounded-xl border border-[#E2ECEB] bg-[#F8FAFA] p-2 text-center group">
+                <div className="relative flex h-44 items-center justify-center overflow-hidden rounded-lg border border-[#DDECEB] bg-[#F8FAFA] p-2 text-center group">
                   {previewUrl ? (
                     <>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -781,24 +781,24 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
                           onClick={() => fileInputRef.current?.click()}
                           title="Replace image"
                           aria-label="Replace image"
-                          className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#E2ECEB] bg-white/95 text-[#252A2A] shadow-xs backdrop-blur-xs transition-colors hover:border-[#009E98] hover:bg-[#EFF9F8] hover:text-[#009E98] focus:outline-none focus:ring-1 focus:ring-[#009E98]"
+                          className="flex h-7 w-7 items-center justify-center rounded-md border border-[#DDECEB] bg-white/95 text-[#252A2A] shadow-xs backdrop-blur-xs transition-colors hover:border-[#009E98] hover:bg-[#EFF9F8] hover:text-[#009E98] focus:outline-none focus:ring-1 focus:ring-[#009E98]"
                         >
-                          <RefreshCw className="h-4 w-4" />
+                          <RefreshCw className="h-3.5 w-3.5" />
                         </button>
                         <button
                           type="button"
                           onClick={handleDeletePreviewImage}
                           title="Remove image"
                           aria-label="Remove image"
-                          className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#E2ECEB] bg-white/95 text-[#252A2A] shadow-xs backdrop-blur-xs transition-colors hover:border-red-200 hover:bg-red-50 hover:text-red-600 focus:outline-none focus:ring-1 focus:ring-red-400"
+                          className="flex h-7 w-7 items-center justify-center rounded-md border border-[#DDECEB] bg-white/95 text-[#252A2A] shadow-xs backdrop-blur-xs transition-colors hover:border-red-200 hover:bg-red-50 hover:text-red-600 focus:outline-none focus:ring-1 focus:ring-red-400"
                         >
-                          <Trash2 className="h-4 w-4" />
+                          <Trash2 className="h-3.5 w-3.5" />
                         </button>
                       </div>
                     </>
                   ) : (
-                    <div className="flex flex-col items-center justify-center text-[#71817F]">
-                      <ImageIcon className="h-9 w-9 mb-1.5 opacity-35" />
+                    <div className="flex flex-col items-center justify-center text-[#737B7A]">
+                      <ImageIcon className="h-8 w-8 mb-1.5 opacity-35" />
                       <span className="text-[14px]">No cover image selected</span>
                     </div>
                   )}
@@ -807,25 +807,25 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
             </div>
 
             {/* ROW 5: SEO Details */}
-            <div className="rounded-xl border border-[#E2ECEB] bg-white overflow-hidden">
+            <div className="rounded-xl border border-[#DDECEB] bg-white overflow-hidden">
               <button
                 type="button"
                 onClick={() => setIsSeoOpen((prev) => !prev)}
-                className="flex w-full items-center justify-between p-4 text-left text-[15px] sm:text-[16px] font-medium text-[#252A2A] hover:bg-[#F5FAF9] transition-colors"
+                className="flex w-full items-center justify-between p-4 text-left text-[13px] font-bold text-[#252A2A] hover:bg-[#F5FAF9] transition-colors"
               >
-                <div className="flex items-center gap-2.5">
+                <div className="flex items-center gap-2">
                   <Globe className="h-4 w-4 text-[#009E98]" />
                   <span>SEO Settings (Optional Search Engine Optimization)</span>
                 </div>
                 {isSeoOpen ? (
-                  <ChevronUp className="h-4 w-4 text-[#71817F]" />
+                  <ChevronUp className="h-4 w-4 text-[#737B7A]" />
                 ) : (
-                  <ChevronDown className="h-4 w-4 text-[#71817F]" />
+                  <ChevronDown className="h-4 w-4 text-[#737B7A]" />
                 )}
               </button>
 
               {isSeoOpen && (
-                <div className="border-t border-[#E2ECEB] p-5 space-y-4 bg-[#F8FAFA]">
+                <div className="border-t border-[#DDECEB] p-5 space-y-4 bg-[#F8FAFA]">
                   {/* Meta Title */}
                   <div>
                     <div className="flex items-center justify-between mb-1.5">
@@ -835,7 +835,7 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
                       >
                         Meta Title
                       </label>
-                      <span className="text-[12px] text-[#71817F]">
+                      <span className="text-[12px] text-[#737B7A]">
                         {metaTitle.length}/100
                       </span>
                     </div>
@@ -847,9 +847,9 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
                       value={metaTitle}
                       onChange={(e) => setMetaTitle(e.target.value)}
                       placeholder={title || "Custom search engine title"}
-                      className="h-10 w-full rounded-xl border border-[#E2ECEB] bg-white px-3.5 text-[14px] sm:text-[15px] text-[#252A2A] placeholder:text-[#71817F]/50 focus:border-[#009E98] focus:outline-none focus:ring-1 focus:ring-[#009E98]"
+                      className="h-10 w-full rounded-xl border border-[#DDECEB] bg-white px-3.5 text-[14px] sm:text-[15px] text-[#252A2A] placeholder:text-[#737B7A]/50 focus:border-[#009E98] focus:outline-none focus:ring-1 focus:ring-[#009E98]"
                     />
-                    <p className="mt-1 text-[12px] text-[#71817F]">
+                    <p className="mt-1 text-[12px] text-[#737B7A]">
                       Defaults to blog title if left blank.
                     </p>
                   </div>
@@ -863,7 +863,7 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
                       >
                         Meta Description
                       </label>
-                      <span className="text-[12px] text-[#71817F]">
+                      <span className="text-[12px] text-[#737B7A]">
                         {metaDescription.length}/300
                       </span>
                     </div>
@@ -875,9 +875,9 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
                       value={metaDescription}
                       onChange={(e) => setMetaDescription(e.target.value)}
                       placeholder={excerpt || "Custom search engine snippet"}
-                      className="w-full rounded-xl border border-[#E2ECEB] bg-white p-3 text-[14px] sm:text-[15px] text-[#252A2A] placeholder:text-[#71817F]/50 focus:border-[#009E98] focus:outline-none focus:ring-1 focus:ring-[#009E98]"
+                      className="w-full rounded-xl border border-[#DDECEB] bg-white p-3 text-[14px] sm:text-[15px] text-[#252A2A] placeholder:text-[#737B7A]/50 focus:border-[#009E98] focus:outline-none focus:ring-1 focus:ring-[#009E98]"
                     />
-                    <p className="mt-1 text-[12px] text-[#71817F]">
+                    <p className="mt-1 text-[12px] text-[#737B7A]">
                       Defaults to blog excerpt if left blank.
                     </p>
                   </div>
@@ -887,50 +887,24 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
 
             {/* ROW 6: Publication Status */}
             <div>
-              <span className="mb-2 block text-[15px] sm:text-[16px] font-medium text-[#252A2A]">
+              <span className="mb-1.5 block text-[13px] font-bold text-[#252A2A]">
                 Publication Status
               </span>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3">
                 <label
-                  className={`flex cursor-pointer items-center justify-between rounded-xl border p-4 text-[14px] transition-colors ${
-                    status === "ACTIVE"
-                      ? "border-[#009E98] bg-[#EFF9F8] text-[#252A2A] shadow-2xs ring-1 ring-[#009E98]"
-                      : "border-[#E2ECEB] bg-[#F4FBFA] text-[#71817F] hover:bg-[#EFF9F8]"
-                  }`}
-                >
-                  <div>
-                    <div className="font-semibold text-[#252A2A] text-[15px] flex items-center gap-2">
-                      <span className="h-2 w-2 rounded-full bg-[#009E98]" />
-                      Active
-                    </div>
-                    <div className="text-[13px] text-[#71817F] mt-0.5">
-                      Published and visible to all website visitors
-                    </div>
-                  </div>
-                  <input
-                    type="radio"
-                    name="blog-status"
-                    value="ACTIVE"
-                    checked={status === "ACTIVE"}
-                    onChange={() => setStatus("ACTIVE")}
-                    className="accent-[#009E98] text-[#009E98] h-4 w-4"
-                  />
-                </label>
-
-                <label
-                  className={`flex cursor-pointer items-center justify-between rounded-xl border p-4 text-[14px] transition-colors ${
+                  className={`flex cursor-pointer items-center justify-between rounded-lg border p-3 text-[12px] transition-colors ${
                     status === "INACTIVE"
-                      ? "border-[#009E98] bg-[#EFF9F8] text-[#252A2A] shadow-2xs ring-1 ring-[#009E98]"
-                      : "border-[#E2ECEB] bg-[#F4FBFA] text-[#71817F] hover:bg-[#EFF9F8]"
+                      ? "border-gray-400 bg-gray-50 text-[#252A2A] ring-1 ring-gray-300"
+                      : "border-[#DDECEB] bg-white text-[#737B7A] hover:bg-gray-50"
                   }`}
                 >
                   <div>
-                    <div className="font-semibold text-[#252A2A] text-[15px] flex items-center gap-2">
-                      <span className="h-2 w-2 rounded-full bg-[#71817F]/60" />
+                    <div className="flex items-center gap-1.5 text-[13px] font-semibold text-gray-600">
+                      <span className="h-1.5 w-1.5 rounded-full bg-gray-400" />
                       Inactive
                     </div>
-                    <div className="text-[13px] text-[#71817F] mt-0.5">
-                      Hidden from public site, only visible in admin
+                    <div className="mt-0.5 text-[11px] text-[#737B7A]">
+                      Only visible to administrators
                     </div>
                   </div>
                   <input
@@ -939,7 +913,33 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
                     value="INACTIVE"
                     checked={status === "INACTIVE"}
                     onChange={() => setStatus("INACTIVE")}
-                    className="accent-[#009E98] text-[#009E98] h-4 w-4"
+                    className="h-3.5 w-3.5 accent-gray-500"
+                  />
+                </label>
+
+                <label
+                  className={`flex cursor-pointer items-center justify-between rounded-lg border p-3 text-[12px] transition-colors ${
+                    status === "ACTIVE"
+                      ? "border-green-500 bg-green-50 text-[#252A2A] ring-1 ring-green-300"
+                      : "border-[#DDECEB] bg-white text-[#737B7A] hover:bg-green-50/50"
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-center gap-1.5 text-[13px] font-semibold text-green-600">
+                      <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
+                      Active
+                    </div>
+                    <div className="mt-0.5 text-[11px] text-[#737B7A]">
+                      Live on the public website blog
+                    </div>
+                  </div>
+                  <input
+                    type="radio"
+                    name="blog-status"
+                    value="ACTIVE"
+                    checked={status === "ACTIVE"}
+                    onChange={() => setStatus("ACTIVE")}
+                    className="h-3.5 w-3.5 accent-green-600"
                   />
                 </label>
               </div>
@@ -947,24 +947,24 @@ function BlogFormInner({ blogToEdit, onClose, onSuccess }: BlogFormInnerProps) {
           </div>
 
           {/* Modal Footer - Fixed at bottom */}
-          <div className="shrink-0 flex items-center justify-end gap-3 border-t border-[#E2ECEB] px-6 sm:px-8 py-4.5 bg-white">
+          <div className="shrink-0 flex items-center justify-end gap-2.5 border-t border-[#DDECEB] bg-white px-5 sm:px-6 py-3">
             <button
               type="button"
               onClick={onClose}
               disabled={isSubmitting}
-              className="rounded-xl border border-[#E2ECEB] bg-white px-5 py-2.5 text-[15px] sm:text-[16px] font-medium text-[#252A2A] shadow-2xs transition-colors hover:bg-[#F5FAF9] focus:outline-none"
+              className="rounded-lg border border-[#DDECEB] bg-white px-4 py-2 text-[13px] font-medium text-[#252A2A] shadow-2xs transition-colors hover:bg-[#F4FBFA] focus:outline-none"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isSubmitting}
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[linear-gradient(105deg,#087F7B_0%,#009E98_52%,#45BDB5_100%)] px-6 py-2.5 text-[15px] sm:text-[16px] font-medium text-white shadow-xs transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#009E98] disabled:cursor-not-allowed disabled:opacity-60"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[linear-gradient(105deg,#087F7B_0%,#009E98_52%,#45BDB5_100%)] px-5 py-2 text-[13px] font-medium text-white shadow-xs transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#009E98] disabled:cursor-not-allowed disabled:opacity-60"
             >
               {isSubmitting ? (
                 <>
                   <Loader2 className="h-4 w-4 animate-spin" />
-                  <span>{isEditing ? "Saving Changes..." : "Creating Blog..."}</span>
+                  <span>{isEditing ? "Saving changes..." : "Creating Blog..."}</span>
                 </>
               ) : (
                 <span>{isEditing ? "Save Changes" : "Create Blog"}</span>

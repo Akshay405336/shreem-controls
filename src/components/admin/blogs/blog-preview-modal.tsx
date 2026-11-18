@@ -62,13 +62,13 @@ export function BlogPreviewModal({
             >
               {blog.status === "ACTIVE" ? "Active (Live)" : "Inactive (Draft)"}
             </span>
-            <span className="text-[13px] text-[#737B7A] font-mono">/blogs/{blog.slug}</span>
+            <span className="text-[13px] text-[#737B7A] font-mono">/blog/{blog.slug}</span>
           </div>
 
           <div className="flex items-center gap-2.5">
             {blog.status === "ACTIVE" && (
               <Link
-                href={`/blogs/${blog.slug}`}
+                href={`/blog/${blog.slug}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl border border-[#DDECEB] bg-white px-3.5 py-2 text-[14px] font-medium text-[#252A2A] hover:border-[#009E98] hover:bg-[#F4FBFA] transition-colors"
@@ -144,7 +144,7 @@ export function BlogPreviewModal({
                 Google Search Appearance Preview
               </div>
               <div className="text-[12px] text-[#087F7B] font-mono truncate">
-                https://shreemcontrols.com/blogs/{blog.slug}
+                https://shreemcontrols.in/blog/{blog.slug}
               </div>
               <div className="text-[16px] font-medium text-[#087F7B] hover:underline cursor-pointer truncate mt-0.5">
                 {blog.metaTitle || blog.title}

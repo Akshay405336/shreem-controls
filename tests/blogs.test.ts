@@ -128,7 +128,7 @@ describe("Blog Management Module", () => {
   });
 
   describe("2. Blog Image Processor & Storage", () => {
-    it("validates, resizes and saves image buffer as WebP in public/blogs", async () => {
+    it("validates, resizes and saves image buffer as WebP in public/blog-covers", async () => {
       const buffer = await generateTestImageBuffer(800, 600, "png");
       const validation = await validateImageBuffer(buffer);
 
@@ -139,7 +139,7 @@ describe("Blog Management Module", () => {
       createdTestFileNames.push(processed.fileName);
 
       expect(processed.fileName).toMatch(/^blog-\d+-[a-f0-9]+\.webp$/);
-      expect(processed.imageUrl).toBe(`/blogs/${processed.fileName}`);
+      expect(processed.imageUrl).toBe(`/blog-covers/${processed.fileName}`);
       expect(processed.mimeType).toBe("image/webp");
       expect(processed.size).toBeGreaterThan(0);
     });
@@ -250,7 +250,9 @@ describe("Blog Management Module", () => {
       createdTestFileNames.push(updatedImage.coverImageFileName);
 
       expect(updatedImage.coverImageFileName).not.toBe(created.coverImageFileName);
-      expect(updatedImage.coverImage).toBe(`/blogs/${updatedImage.coverImageFileName}`);
+      expect(updatedImage.coverImage).toBe(
+        `/blog-covers/${updatedImage.coverImageFileName}`,
+      );
     });
 
     it("toggles status between ACTIVE and INACTIVE immediately", async () => {

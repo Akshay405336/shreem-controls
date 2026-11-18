@@ -44,7 +44,7 @@ export async function validateImageBuffer(buffer: Buffer): Promise<ImageValidati
 }
 
 /**
- * Ensures the public/blogs directory exists.
+ * Ensures the public/blog-covers directory exists.
  */
 export function ensureBlogsDirExists(): void {
   if (!fsSync.existsSync(BLOGS_CONFIG.UPLOAD_DIR)) {
@@ -70,7 +70,7 @@ export function sanitizeFileName(fileName: string): string {
 }
 
 /**
- * Returns safe absolute path for a filename strictly inside public/blogs/.
+ * Returns safe absolute path for a filename strictly inside public/blog-covers/.
  */
 export function getSafeFilePath(fileName: string): string {
   const safeName = sanitizeFileName(fileName);
@@ -84,7 +84,7 @@ export function getSafeFilePath(fileName: string): string {
 }
 
 /**
- * Validates, compresses and saves an uploaded image buffer to public/blogs as optimized WebP.
+ * Validates, compresses and saves an uploaded image buffer to public/blog-covers as optimized WebP.
  */
 export async function processAndSaveBlogImage(
   buffer: Buffer,

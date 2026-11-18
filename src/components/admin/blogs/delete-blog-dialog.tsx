@@ -112,7 +112,7 @@ export function DeleteBlogDialog({
             <div className="min-w-0 flex-1">
               <p className="truncate text-[15px] font-medium text-[#252A2A]">{blog.title}</p>
               <p className="truncate text-[13px] font-mono text-[#087F7B] mt-0.5">
-                /blogs/{blog.slug}
+                /blog/{blog.slug}
               </p>
             </div>
           </div>

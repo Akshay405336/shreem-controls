@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import { prisma } from "../db/prisma";
 import type { Prisma } from "@prisma/client";
 import {
@@ -16,6 +17,26 @@ import type {
   UpdateGalleryInput,
 } from "./types";
 import { GALLERY_CONFIG } from "./config";
+
+/** Safely revalidate the public Gallery page after CMS mutations. */
+export function revalidateGalleryCache(): void {
+  try {
+    revalidatePath("/gallery");
+    revalidatePath("/gallery", "page");
+  } catch {
+    // Non-fatal outside Next.js request context
+  }
+}
+
+/** Published gallery images for the public website, ordered for display. */
+export async function getPublishedGalleryImages(): Promise<GalleryImageDto[]> {
+  const records = await prisma.galleryImage.findMany({
+    where: { status: "PUBLISHED" },
+    orderBy: [{ sortOrder: "asc" }, { createdAt: "desc" }],
+  });
+
+  return records as GalleryImageDto[];
+}
 
 export async function getGalleryImages(
   options: GalleryQueryOptions = {},
@@ -114,6 +135,7 @@ export async function createGalleryImage(
       },
     });
 
+    revalidateGalleryCache();
     return created as GalleryImageDto;
   } catch (error) {
     // If DB record creation failed, clean up the newly saved file on disk
@@ -169,6 +191,7 @@ export async function updateGalleryImage(
       // 3. Only after DB update succeeds, safely delete old file
       await safeDeleteGalleryFile(existing.imageFileName);
 
+      revalidateGalleryCache();
       return updated as GalleryImageDto;
     } catch (dbError) {
       // If DB update failed, delete the newly created image file and preserve old image
@@ -183,6 +206,7 @@ export async function updateGalleryImage(
     data: dataToUpdate,
   });
 
+  revalidateGalleryCache();
   return updated as GalleryImageDto;
 }
 
@@ -207,6 +231,7 @@ export async function deleteGalleryImage(id: string): Promise<{ success: boolean
     // 3. Delete the staged temporary file after successful DB deletion
     await commitFileDeletion(stagedTempName);
 
+    revalidateGalleryCache();
     return { success: true, id };
   } catch (dbError) {
     // If DB deletion failed, rollback and restore the original file
@@ -243,5 +268,6 @@ export async function reorderGalleryImages(
     ),
   );
 
+  revalidateGalleryCache();
   return { count: items.length };
 }

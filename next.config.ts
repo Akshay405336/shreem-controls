@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
       { pathname: "/images/**" },
       { pathname: "/logo/**" },
       { pathname: "/gallery/**" },
-      { pathname: "/blogs/**" },
+      { pathname: "/blog-covers/**" },
     ],
   },
   async redirects() {
@@ -15,8 +15,13 @@ const nextConfig: NextConfig = {
       { source: "/privacy", destination: "/privacy-policy", permanent: true },
       { source: "/terms", destination: "/terms-and-conditions", permanent: true },
       { source: "/cookies", destination: "/cookie-policy", permanent: true },
-      { source: "/blog", destination: "/blogs", permanent: true },
-      { source: "/blog/:slug", destination: "/blogs/:slug", permanent: true },
+      { source: "/blogs", destination: "/blog", permanent: true },
+      {
+        source: "/blogs/blog-:timestamp(\\d+)-:hash([a-f0-9]+).webp",
+        destination: "/blog-covers/blog-:timestamp-:hash.webp",
+        permanent: true,
+      },
+      { source: "/blogs/:slug", destination: "/blog/:slug", permanent: true },
     ];
   },
   experimental: {

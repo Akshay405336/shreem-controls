@@ -2,11 +2,11 @@ import path from "node:path";
 
 export const BLOGS_CONFIG = {
   /** Relative directory inside project where blog images are stored */
-  RELATIVE_DIR: "public/blogs",
+  RELATIVE_DIR: "public/blog-covers",
   /** Absolute directory resolved from current working directory */
-  UPLOAD_DIR: path.join(process.cwd(), "public", "blogs"),
-  /** Public URL prefix */
-  PUBLIC_URL_PREFIX: "/blogs",
+  UPLOAD_DIR: path.join(process.cwd(), "public", "blog-covers"),
+  /** Public URL prefix (must not overlap with /blogs → /blog redirects) */
+  PUBLIC_URL_PREFIX: "/blog-covers",
   /** Maximum upload size in bytes (10 MB) */
   MAX_FILE_SIZE_BYTES: 10 * 1024 * 1024,
   /** Maximum input dimensions in pixels */
