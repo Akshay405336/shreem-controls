@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
       // Omit `search` so any query string (e.g. ?v= cache keys) is allowed.
       { pathname: "/images/**" },
       { pathname: "/logo/**" },
+      { pathname: "/gallery/**" },
     ],
   },
   async redirects() {

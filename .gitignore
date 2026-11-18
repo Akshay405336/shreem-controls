@@ -30,11 +30,19 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# env files
+.env*.local
+.env
+.env.production
+.env.development
+!.env.example
 
 # vercel
 .vercel
+
+# uploads
+/public/gallery/*
+!/public/gallery/.gitkeep
 
 # typescript
 *.tsbuildinfo

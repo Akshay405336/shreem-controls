@@ -1,0 +1,107 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum AdminRole {
+  SUPER_ADMIN
+}
+
+enum GalleryStatus {
+  PUBLISHED
+  DRAFT
+}
+
+enum BlogStatus {
+  ACTIVE
+  INACTIVE
+}
+
+model AdminUser {
+  id                 String         @id @default(cuid())
+  name               String
+  email              String         @unique
+  passwordHash       String
+  role               AdminRole      @default(SUPER_ADMIN)
+  isActive           Boolean        @default(true)
+  isBootstrapManaged Boolean        @default(false)
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @updatedAt
+  lastLoginAt        DateTime?
+  sessions           AdminSession[]
+
+  @@index([email])
+  @@index([isBootstrapManaged])
+  @@map("admin_users")
+}
+
+model AdminSession {
+  id               String     @id @default(cuid())
+  adminUserId      String
+  adminUser        AdminUser  @relation(fields: [adminUserId], references: [id], onDelete: Cascade)
+  refreshTokenHash String     @unique
+  accessTokenHash  String?
+  expiresAt        DateTime
+  refreshExpiresAt DateTime
+  revokedAt        DateTime?
+  lastUsedAt       DateTime   @default(now())
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+  userAgent        String?
+  ipAddress        String?
+
+  @@index([adminUserId])
+  @@index([refreshTokenHash])
+  @@index([expiresAt])
+  @@index([refreshExpiresAt])
+  @@map("admin_sessions")
+}
+
+model GalleryImage {
+  id            String        @id @default(cuid())
+  title         String
+  imageUrl      String
+  imageFileName String        @unique
+  imageMimeType String        @default("image/webp")
+  imageSize     Int
+  width         Int
+  height        Int
+  status        GalleryStatus @default(DRAFT)
+  sortOrder     Int           @default(0)
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@index([status])
+  @@index([sortOrder])
+  @@index([createdAt])
+  @@map("gallery_images")
+}
+
+model Blog {
+  id                 String     @id @default(cuid())
+  title              String
+  slug               String     @unique
+  excerpt            String     @db.Text
+  content            String     @db.Text
+  coverImage         String
+  coverImageFileName String     @unique
+  coverImageMimeType String     @default("image/webp")
+  coverImageSize     Int        @default(0)
+  status             BlogStatus @default(ACTIVE)
+  metaTitle          String?
+  metaDescription    String?    @db.Text
+  createdAt          DateTime   @default(now())
+  updatedAt          DateTime   @updatedAt
+
+  @@index([status])
+  @@index([slug])
+  @@index([createdAt])
+  @@map("blogs")
+}
