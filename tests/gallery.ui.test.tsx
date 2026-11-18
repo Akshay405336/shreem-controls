@@ -180,6 +180,26 @@ describe("Gallery UI Components", () => {
       const titleInput = screen.getByDisplayValue("Smart Lighting System") as HTMLInputElement;
       expect(titleInput).toBeInTheDocument();
     });
+
+    it("renders Replace and Remove action buttons on preview and handles remove", () => {
+      render(
+        <EditGalleryModal
+          isOpen={true}
+          image={mockImages[0]}
+          onClose={vi.fn()}
+          onSuccess={vi.fn()}
+        />
+      );
+
+      const replaceBtn = screen.getByTitle("Replace image");
+      const removeBtn = screen.getByTitle("Remove image");
+      expect(replaceBtn).toBeInTheDocument();
+      expect(removeBtn).toBeInTheDocument();
+
+      fireEvent.click(removeBtn);
+      expect(screen.getByText("No image available")).toBeInTheDocument();
+      expect(screen.queryByTitle("Remove image")).not.toBeInTheDocument();
+    });
   });
 
   describe("DeleteGalleryDialog", () => {

@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
       { pathname: "/images/**" },
       { pathname: "/logo/**" },
       { pathname: "/gallery/**" },
+      { pathname: "/blogs/**" },
     ],
   },
   async redirects() {
@@ -14,6 +15,8 @@ const nextConfig: NextConfig = {
       { source: "/privacy", destination: "/privacy-policy", permanent: true },
       { source: "/terms", destination: "/terms-and-conditions", permanent: true },
       { source: "/cookies", destination: "/cookie-policy", permanent: true },
+      { source: "/blog", destination: "/blogs", permanent: true },
+      { source: "/blog/:slug", destination: "/blogs/:slug", permanent: true },
     ];
   },
   experimental: {

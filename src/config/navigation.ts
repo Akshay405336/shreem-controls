@@ -57,6 +57,7 @@ export const primaryNavigation: NavItem[] = [
     description: "Guides, news and support",
     children: [
       { label: "Resources Hub", href: "/resources", description: "All resources" },
+      { label: "Blogs & Insights", href: "/blogs", description: "Articles and news" },
       ...resources.slice(0, 4).map((item) => ({
         label: item.title,
         href: `/resources/${item.slug}`,

@@ -272,7 +272,7 @@ export function GalleryClientView() {
   const isReorderEnabled = !debouncedSearch && statusFilter === "ALL";
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-4 font-sans text-[13px] text-[#344542]">
       {/* Toast Notification */}
       {toast && (
         <div
@@ -301,57 +301,57 @@ export function GalleryClientView() {
       )}
 
       {/* CRM Breadcrumb & Page Header */}
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           {/* Breadcrumb: Dashboard / Gallery */}
-          <nav className="mb-1 flex items-center gap-1.5 text-xs text-slate-400">
+          <nav className="mb-1.5 flex items-center gap-1.5 text-[11px] font-medium text-[#879491]">
             <Link
               href="/admin/dashboard"
-              className="transition-colors hover:text-slate-600"
+              className="transition-colors hover:text-[#009E98]"
             >
               Dashboard
             </Link>
             <span>/</span>
-            <span className="font-medium text-[#0F172A]">Gallery</span>
+            <span className="font-semibold text-[#252A2A]">Gallery</span>
           </nav>
 
-          <h1 className="text-2xl font-bold tracking-tight text-[#0F172A]">
-            Gallery
+          <h1 className="font-display text-[23px] font-bold leading-tight tracking-[-0.045em] text-[#263332]">
+            Gallery Management
           </h1>
-          <p className="mt-0.5 text-xs text-slate-500">
+          <p className="mt-1 text-[12px] leading-5 text-[#879491]">
             Manage images displayed on your website.
           </p>
         </div>
 
-        {/* Primary Action Button: CRM Black Button */}
-        <div className="flex items-center gap-2.5">
+        {/* Primary Action Button */}
+        <div className="flex items-center gap-2">
           <button
             type="button"
             onClick={triggerReload}
             disabled={isLoading}
-            className="inline-flex h-9 items-center gap-1.5 rounded-md border border-slate-300 bg-white px-3 text-xs font-medium text-slate-700 shadow-2xs transition-colors hover:bg-slate-50 disabled:opacity-50"
+            className="inline-flex h-9 items-center gap-2 rounded-lg border border-[#DCE9E7] bg-white px-3.5 text-[12px] font-medium text-[#52615E] shadow-[0_1px_2px_rgba(20,50,45,0.04)] transition-all hover:border-[#8BCFC9] hover:bg-[#F6FBFA] hover:text-[#008F89] disabled:opacity-50"
             title="Refresh gallery list"
           >
-            <RefreshCw className={`h-3.5 w-3.5 ${isLoading ? "animate-spin" : ""}`} />
+            <RefreshCw className={`h-4 w-4 ${isLoading ? "animate-spin" : ""}`} />
             <span>Refresh</span>
           </button>
 
           <button
             type="button"
             onClick={() => setIsAddModalOpen(true)}
-            className="inline-flex h-9 items-center gap-1.5 rounded-md bg-black px-3.5 text-xs font-semibold text-white shadow-xs transition-colors hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-black"
+            className="inline-flex h-9 items-center gap-2 rounded-lg bg-gradient-to-r from-[#009E98] to-[#007D78] px-3.5 text-[12px] font-semibold text-white shadow-[0_3px_10px_rgba(0,137,130,0.18)] transition-all hover:-translate-y-px hover:from-[#008F89] hover:to-[#006C68] hover:shadow-[0_5px_14px_rgba(0,137,130,0.22)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#009E98]"
           >
             <Plus className="h-4 w-4" />
-            <span>+ Add Photo</span>
+            <span>Add Photo</span>
           </button>
         </div>
       </div>
 
-      {/* CRM Toolbar: Pale blue search input, white filter button, rows selector */}
-      <div className="flex flex-col gap-3 rounded-lg border border-slate-200 bg-white p-3 shadow-xs sm:flex-row sm:items-center sm:justify-between">
+      {/* Toolbar: Search input, filter buttons, rows selector */}
+      <div className="flex flex-col gap-3 rounded-xl border border-[#E2ECEA] bg-white p-3 shadow-[0_2px_10px_rgba(34,65,60,0.035)] sm:flex-row sm:items-center sm:justify-between">
         {/* Search with pale-blue background */}
         <div className="relative flex-1 sm:max-w-xs">
-          <Search className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-400" />
+          <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#737B7A]" />
           <input
             type="text"
             value={search}
@@ -361,7 +361,7 @@ export function GalleryClientView() {
               setSelectedIds(new Set());
             }}
             placeholder="Search gallery images..."
-            className="h-9 w-full rounded-md border border-slate-200 bg-[#F0F5FA] pl-8 pr-7 text-xs text-[#0F172A] placeholder-slate-400 transition-colors focus:border-[#0F172A] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#0F172A]"
+            className="h-9 w-full rounded-lg border border-[#E1EBE9] bg-[#F8FBFA] pl-9 pr-8 text-[12px] text-[#344542] placeholder:text-[#A0AAA7] transition-all focus:border-[#8BCFC9] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#009E98]/10"
           />
           {search && (
             <button
@@ -374,7 +374,7 @@ export function GalleryClientView() {
               className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
               title="Clear search"
             >
-              <X className="h-3.5 w-3.5" />
+              <X className="h-4 w-4" />
             </button>
           )}
         </div>
@@ -382,9 +382,9 @@ export function GalleryClientView() {
         {/* Filter & Rows Controls */}
         <div className="flex flex-wrap items-center gap-2.5">
           {/* Status Filter Pill Button Group */}
-          <div className="inline-flex items-center rounded-md border border-slate-200 bg-slate-50 p-0.5 text-xs">
-            <span className="hidden px-2 text-[11px] font-medium text-slate-400 md:inline-flex items-center gap-1">
-              <Filter className="h-3 w-3" /> Status:
+          <div className="inline-flex items-center rounded-lg border border-[#DDECEB] bg-[#F4FBFA] p-1 text-[12px]">
+            <span className="hidden px-2.5 text-[13px] font-medium text-[#737B7A] md:inline-flex items-center gap-1.5">
+              <Filter className="h-3.5 w-3.5 text-[#009E98]" /> Status:
             </span>
             {(["ALL", "PUBLISHED", "DRAFT"] as const).map((st) => (
               <button
@@ -395,10 +395,10 @@ export function GalleryClientView() {
                   setPage(1);
                   setSelectedIds(new Set());
                 }}
-                className={`rounded px-2.5 py-1 text-[11px] font-medium transition-colors ${
+                className={`rounded-md px-3 py-1.5 text-[12px] font-medium transition-colors ${
                   statusFilter === st
-                    ? "bg-white text-[#0F172A] shadow-2xs font-semibold"
-                    : "text-slate-500 hover:text-slate-900"
+                    ? "bg-white text-[#252A2A] shadow-xs font-semibold"
+                    : "text-[#737B7A] hover:text-[#252A2A]"
                 }`}
               >
                 {st === "ALL" ? "All" : st === "PUBLISHED" ? "Published" : "Draft"}
@@ -407,8 +407,8 @@ export function GalleryClientView() {
           </div>
 
           {/* Rows per page selector */}
-          <div className="flex items-center gap-1.5 text-xs text-slate-500">
-            <label htmlFor="gallery-limit" className="text-[11px]">Rows:</label>
+          <div className="flex items-center gap-2 text-[12px] text-[#737B7A]">
+            <label htmlFor="gallery-limit" className="font-medium">Rows:</label>
             <select
               id="gallery-limit"
               value={limit}
@@ -417,7 +417,7 @@ export function GalleryClientView() {
                 setPage(1);
                 setSelectedIds(new Set());
               }}
-              className="h-9 rounded-md border border-slate-200 bg-white px-2.5 text-xs text-[#0F172A] transition-colors focus:border-[#0F172A] focus:outline-none focus:ring-1 focus:ring-[#0F172A]"
+              className="h-9 rounded-lg border border-[#E1EBE9] bg-white px-2.5 text-[12px] font-medium text-[#52615E] transition-all focus:border-[#8BCFC9] focus:outline-none focus:ring-2 focus:ring-[#009E98]/10"
             >
               <option value={10}>10</option>
               <option value={25}>25</option>
@@ -429,9 +429,9 @@ export function GalleryClientView() {
 
       {/* Floating / Inline Bulk Actions Bar (if any selected) */}
       {selectedIds.size > 0 && (
-        <div className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-slate-200 bg-[#F0F5FA] px-4 py-2.5 text-xs">
-          <div className="flex items-center gap-2 text-[#0F172A] font-medium">
-            <span className="rounded-full bg-black px-2 py-0.5 text-[11px] font-bold text-white">
+        <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-[#D5EAE7] bg-[#F1F9F8] px-4 py-2.5 text-[12px]">
+          <div className="flex items-center gap-2.5 text-[#252A2A] font-medium">
+            <span className="rounded-full bg-[#252A2A] px-2.5 py-0.5 text-xs font-bold text-white">
               {selectedIds.size}
             </span>
             <span>image{selectedIds.size > 1 ? "s" : ""} selected</span>
@@ -441,29 +441,29 @@ export function GalleryClientView() {
             <button
               type="button"
               onClick={() => handleBulkStatusChange("PUBLISHED")}
-              className="rounded-md border border-slate-300 bg-white px-3 py-1 text-xs font-medium text-slate-700 shadow-2xs hover:bg-slate-50"
+              className="rounded-lg border border-[#E1EBE9] bg-white px-3 py-1.5 text-[13px] font-medium text-[#252A2A] shadow-xs hover:border-[#009E98] hover:text-[#009E98] transition-colors"
             >
               Publish
             </button>
             <button
               type="button"
               onClick={() => handleBulkStatusChange("DRAFT")}
-              className="rounded-md border border-slate-300 bg-white px-3 py-1 text-xs font-medium text-slate-700 shadow-2xs hover:bg-slate-50"
+              className="rounded-lg border border-[#E1EBE9] bg-white px-3 py-1.5 text-[13px] font-medium text-[#252A2A] shadow-xs hover:border-[#009E98] hover:text-[#009E98] transition-colors"
             >
               Set Draft
             </button>
             <button
               type="button"
               onClick={handleBulkDelete}
-              className="inline-flex items-center gap-1 rounded-md bg-red-600 px-3 py-1 text-xs font-medium text-white shadow-2xs hover:bg-red-700"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-red-600 px-3.5 py-1.5 text-[13px] font-medium text-white shadow-xs hover:bg-red-700 transition-colors"
             >
-              <Trash2 className="h-3 w-3" />
+              <Trash2 className="h-3.5 w-3.5" />
               <span>Delete</span>
             </button>
             <button
               type="button"
               onClick={() => setSelectedIds(new Set())}
-              className="text-xs text-slate-500 hover:text-slate-800 underline ml-1"
+              className="text-[13px] text-[#737B7A] hover:text-[#252A2A] underline ml-1"
             >
               Clear
             </button>
@@ -489,28 +489,28 @@ export function GalleryClientView() {
 
       {/* CRM Pagination & Footer */}
       {items.length > 0 && (
-        <div className="flex flex-col gap-3 rounded-lg border border-slate-200 bg-white px-4 py-3 text-xs text-slate-500 shadow-xs sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-3 rounded-xl border border-[#E2ECEA] bg-white px-4 py-3 text-[12px] text-[#879491] shadow-[0_2px_10px_rgba(34,65,60,0.035)] sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-2">
             <span>
               Showing{" "}
-              <span className="font-semibold text-[#0F172A]">
+              <span className="font-semibold text-[#252A2A]">
                 {total === 0 ? 0 : (page - 1) * limit + 1}
               </span>{" "}
               to{" "}
-              <span className="font-semibold text-[#0F172A]">
+              <span className="font-semibold text-[#252A2A]">
                 {Math.min(page * limit, total)}
               </span>{" "}
-              of <span className="font-semibold text-[#0F172A]">{total}</span> entries
+              of <span className="font-semibold text-[#252A2A]">{total}</span> entries
             </span>
             {!isReorderEnabled && (
-              <span className="text-[11px] text-slate-400 italic">
+              <span className="text-[12px] text-[#737B7A]/80 italic">
                 (Reordering is paused while filters or search are active)
               </span>
             )}
           </div>
 
           {/* CRM Pagination Buttons */}
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1.5">
             {/* First Page */}
             <button
               type="button"
@@ -519,11 +519,11 @@ export function GalleryClientView() {
                 setSelectedIds(new Set());
               }}
               disabled={page <= 1 || isLoading}
-              className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-200 bg-white text-slate-600 shadow-2xs hover:bg-slate-50 hover:text-slate-900 disabled:opacity-40"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[#DDECEB] bg-white text-[#737B7A] shadow-2xs hover:bg-[#F4FBFA] hover:text-[#252A2A] hover:border-[#009E98] disabled:opacity-40 transition-colors"
               aria-label="First page"
               title="First page"
             >
-              <ChevronsLeft className="h-3.5 w-3.5" />
+              <ChevronsLeft className="h-4 w-4" />
             </button>
 
             {/* Previous */}
@@ -534,20 +534,20 @@ export function GalleryClientView() {
                 setSelectedIds(new Set());
               }}
               disabled={page <= 1 || isLoading}
-              className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-200 bg-white text-slate-600 shadow-2xs hover:bg-slate-50 hover:text-slate-900 disabled:opacity-40"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[#DDECEB] bg-white text-[#737B7A] shadow-2xs hover:bg-[#F4FBFA] hover:text-[#252A2A] hover:border-[#009E98] disabled:opacity-40 transition-colors"
               aria-label="Previous page"
               title="Previous page"
             >
-              <ChevronLeft className="h-3.5 w-3.5" />
+              <ChevronLeft className="h-4 w-4" />
             </button>
 
-            {/* Page indicator (Active: Black pill, Inactive: border) */}
-            <div className="inline-flex items-center gap-1">
-              <span className="inline-flex h-8 min-w-[2rem] items-center justify-center rounded-md bg-black px-2.5 text-xs font-semibold text-white shadow-xs">
+            {/* Page indicator (Active: Dark charcoal pill, Inactive: border) */}
+            <div className="inline-flex items-center gap-1.5 px-1">
+              <span className="inline-flex h-9 min-w-[2.25rem] items-center justify-center rounded-lg bg-[#252A2A] px-3 text-[12px] font-semibold text-white shadow-xs">
                 {page}
               </span>
-              <span className="px-1 text-slate-400">/</span>
-              <span className="text-slate-600 font-medium">{totalPages}</span>
+              <span className="px-1 text-[#737B7A]/60">/</span>
+              <span className="text-[#252A2A] font-semibold text-[12px]">{totalPages}</span>
             </div>
 
             {/* Next */}
@@ -558,11 +558,11 @@ export function GalleryClientView() {
                 setSelectedIds(new Set());
               }}
               disabled={page >= totalPages || isLoading}
-              className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-200 bg-white text-slate-600 shadow-2xs hover:bg-slate-50 hover:text-slate-900 disabled:opacity-40"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[#DDECEB] bg-white text-[#737B7A] shadow-2xs hover:bg-[#F4FBFA] hover:text-[#252A2A] hover:border-[#009E98] disabled:opacity-40 transition-colors"
               aria-label="Next page"
               title="Next page"
             >
-              <ChevronRight className="h-3.5 w-3.5" />
+              <ChevronRight className="h-4 w-4" />
             </button>
 
             {/* Last Page */}
@@ -573,11 +573,11 @@ export function GalleryClientView() {
                 setSelectedIds(new Set());
               }}
               disabled={page >= totalPages || isLoading}
-              className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-200 bg-white text-slate-600 shadow-2xs hover:bg-slate-50 hover:text-slate-900 disabled:opacity-40"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[#DDECEB] bg-white text-[#737B7A] shadow-2xs hover:bg-[#F4FBFA] hover:text-[#252A2A] hover:border-[#009E98] disabled:opacity-40 transition-colors"
               aria-label="Last page"
               title="Last page"
             >
-              <ChevronsRight className="h-3.5 w-3.5" />
+              <ChevronsRight className="h-4 w-4" />
             </button>
           </div>
         </div>

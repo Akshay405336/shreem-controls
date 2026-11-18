@@ -16,6 +16,7 @@ export const footerNavigation = {
   support: [
     { label: "Contact", href: "/contact" },
     { label: "Resources", href: "/resources" },
+    { label: "Blogs", href: "/blogs" },
     { label: "FAQs", href: "/resources/consultation-faq" },
     { label: "Request Consultation", href: "#consultation" },
   ],

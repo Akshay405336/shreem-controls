@@ -28,8 +28,8 @@ export default async function AuthenticatedAdminLayout({
         {/* Main Content Area */}
         <div className="flex flex-1 flex-col overflow-hidden">
           <AdminHeader />
-          <main className="flex-1 overflow-y-auto p-6 md:p-8">
-            <div className="mx-auto max-w-5xl">{children}</div>
+          <main className="flex-1 overflow-y-auto p-6 md:p-8 font-sans">
+            <div className="mx-auto max-w-6xl">{children}</div>
           </main>
         </div>
       </div>
