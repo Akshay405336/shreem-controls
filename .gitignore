@@ -40,7 +40,7 @@ yarn-error.log*
 # vercel
 .vercel
 
-# uploads (serve via /api/media fallback + MEDIA_UPLOAD_ROOT in production)
+# CMS uploads (keep on server under public/; not committed to git)
 /public/gallery/*
 !/public/gallery/.gitkeep
 /public/blog-covers/*

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { CmsUploadImage } from "@/components/media/cms-upload-image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
@@ -125,7 +125,7 @@ async function BlogDetailContent({ params }: BlogDetailPageProps) {
           </div>
 
           <div className="relative mb-10 aspect-16/9 w-full overflow-hidden rounded-[24px] border border-[#DDECEB] bg-slate-100 shadow-sm">
-            <Image
+            <CmsUploadImage
               src={blog.coverImage}
               alt={blog.title}
               fill
@@ -190,7 +190,7 @@ async function BlogDetailContent({ params }: BlogDetailPageProps) {
                     href={`/blog/${item.slug}`}
                     className="relative block aspect-16/10 w-full overflow-hidden bg-slate-100"
                   >
-                    <Image
+                    <CmsUploadImage
                       src={item.coverImage}
                       alt={item.title}
                       fill

@@ -64,6 +64,23 @@ export function processCompanyLogo(buffer: Buffer) {
   return processBuffer(buffer, "vc-logo");
 }
 
+export async function readVisitingCardImageFile(
+  fileName: string,
+): Promise<{ buffer: Buffer; mimeType: string } | null> {
+  try {
+    const filePath = getSafeFilePath(fileName);
+    const buffer = await fs.readFile(filePath);
+    const mimeType = fileName.toLowerCase().endsWith(".webp")
+      ? VISITING_CARD_CONFIG.OUTPUT_MIME_TYPE
+      : "application/octet-stream";
+    return { buffer, mimeType };
+  } catch (error: unknown) {
+    const err = error as { code?: string };
+    if (err.code === "ENOENT") return null;
+    throw error;
+  }
+}
+
 export async function safeDeleteVisitingCardFile(fileName: string): Promise<boolean> {
   try {
     await fs.unlink(getSafeFilePath(fileName));

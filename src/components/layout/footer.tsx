@@ -1,11 +1,9 @@
-"use client";
-
 import Link from "next/link";
 
 import { ContactInfoList } from "@/components/contact/contact-info-list";
 import { SocialIconLinks } from "@/components/contact/social-icon-links";
 import { Container } from "@/components/ui/container";
-import { footerNavigation } from "@/config/footer";
+import { footerContent, footerNavigation } from "@/config/footer";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/cn";
 
@@ -37,10 +35,9 @@ export function Footer() {
               Premium smart-home automation through refined control devices and intelligent
               living experiences.
             </p>
-
             <div className="mt-5 flex w-full max-w-xs flex-col items-center md:items-start lg:items-center sm:mt-6">
               <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#C5E5E2]">
-                Follow Us
+                {footerContent.connectSocialHeading}
               </p>
               <SocialIconLinks
                 tone="dark"
@@ -57,13 +54,21 @@ export function Footer() {
               Support
             </p>
             <div className="mt-4 max-w-sm">
-              <ContactInfoList tone="dark" showCompany={false} showSocials={false} />
+              <ContactInfoList
+                tone="dark"
+                showCompany={false}
+                showSocials={false}
+                addressOverride={footerContent.address}
+              />
             </div>
           </div>
         </div>
 
         <div className="mt-7 flex flex-col gap-2 border-t border-white/12 pt-3 sm:mt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-[12px] leading-snug text-white/55 sm:text-[13px]">
+          <p
+            suppressHydrationWarning
+            className="text-[12px] leading-snug text-white/55 sm:text-[13px]"
+          >
             {siteConfig.copyright}
           </p>
           <div className="flex flex-wrap gap-x-4 gap-y-1">

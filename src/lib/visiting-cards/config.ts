@@ -1,8 +1,10 @@
-import { resolveMediaSubdir } from "@/lib/uploads/storage-root";
+import { resolvePublicUploadDir } from "@/lib/uploads/storage-root";
 
 export const VISITING_CARD_CONFIG = {
   RELATIVE_DIR: "public/visiting-cards",
-  UPLOAD_DIR: resolveMediaSubdir("visiting-cards"),
+  get UPLOAD_DIR() {
+    return resolvePublicUploadDir("visiting-cards");
+  },
   PUBLIC_URL_PREFIX: "/visiting-cards",
   MAX_FILE_SIZE_BYTES: 5 * 1024 * 1024,
   MAX_OUTPUT_DIMENSION: 1200,

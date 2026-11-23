@@ -9,6 +9,8 @@ type ContactInfoListProps = {
   className?: string;
   showCompany?: boolean;
   showSocials?: boolean;
+  /** When set, replaces the configured address (e.g. footer-only copy). */
+  addressOverride?: string;
 };
 
 export function ContactInfoList({
@@ -16,8 +18,10 @@ export function ContactInfoList({
   className,
   showCompany = true,
   showSocials = true,
+  addressOverride,
 }: ContactInfoListProps) {
   const isDark = tone === "dark";
+  const address = addressOverride ?? contactConfig.address;
 
   return (
     <div className={cn("space-y-4", className)}>
@@ -73,7 +77,7 @@ export function ContactInfoList({
         </li>
         <li>
           <ContactRow tone={tone} icon={MapPin} label="Address">
-            <span className="text-pretty break-words">{contactConfig.address}</span>
+            <span className="text-pretty break-words">{address}</span>
           </ContactRow>
         </li>
         <li>

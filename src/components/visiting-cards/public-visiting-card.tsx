@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { CmsUploadImage, isCmsUploadImagePath } from "@/components/media/cms-upload-image";
 import { Download, Globe, Mail, MapPin, Phone, Share2 } from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
 import type { VisitingCardDto } from "@/lib/visiting-cards/types";
@@ -61,14 +62,25 @@ export function PublicVisitingCard({ card, publicUrl }: PublicVisitingCardProps)
       <article className="relative overflow-hidden rounded-[24px] border border-[#DDECEB] bg-white shadow-[0_12px_40px_rgba(37,42,42,0.08)]">
         <div className="relative z-0 aspect-video w-full min-h-[9rem] sm:min-h-[10.5rem]">
           {hasCompanyCover ? (
-            <Image
-              src={card.companyLogoUrl!}
-              alt={card.companyName ? `${card.companyName} cover` : "Company cover"}
-              fill
-              priority
-              sizes="(max-width: 640px) 100vw, 576px"
-              className="h-full w-full object-cover object-center"
-            />
+            isCmsUploadImagePath(card.companyLogoUrl!) ? (
+              <CmsUploadImage
+                src={card.companyLogoUrl!}
+                alt={card.companyName ? `${card.companyName} cover` : "Company cover"}
+                fill
+                priority
+                sizes="(max-width: 640px) 100vw, 576px"
+                className="h-full w-full object-cover object-center"
+              />
+            ) : (
+              <Image
+                src={card.companyLogoUrl!}
+                alt={card.companyName ? `${card.companyName} cover` : "Company cover"}
+                fill
+                priority
+                sizes="(max-width: 640px) 100vw, 576px"
+                className="h-full w-full object-cover object-center"
+              />
+            )
           ) : (
             <div
               className="absolute inset-0 bg-gradient-to-br from-[#009E98] via-[#00847F] to-[#006E6A]"
@@ -89,14 +101,25 @@ export function PublicVisitingCard({ card, publicUrl }: PublicVisitingCardProps)
           <div className="-mt-14 mx-auto flex h-28 w-28 justify-center">
             <div className="relative h-28 w-28 overflow-hidden rounded-2xl border-4 border-white bg-[#F4FBFA] shadow-md ring-1 ring-black/5">
               {card.profilePhotoUrl ? (
-                <Image
-                  src={card.profilePhotoUrl}
-                  alt={card.fullName}
-                  fill
-                  className="object-cover object-center"
-                  sizes="112px"
-                  priority
-                />
+                isCmsUploadImagePath(card.profilePhotoUrl) ? (
+                  <CmsUploadImage
+                    src={card.profilePhotoUrl}
+                    alt={card.fullName}
+                    fill
+                    className="object-cover object-center"
+                    sizes="112px"
+                    priority
+                  />
+                ) : (
+                  <Image
+                    src={card.profilePhotoUrl}
+                    alt={card.fullName}
+                    fill
+                    className="object-cover object-center"
+                    sizes="112px"
+                    priority
+                  />
+                )
               ) : (
                 <div className="flex h-full items-center justify-center text-2xl font-bold text-[#009E98]">
                   {card.fullName.charAt(0)}
@@ -300,7 +323,7 @@ export function PublicVisitingCard({ card, publicUrl }: PublicVisitingCardProps)
           )}
         </div>
 
-        <VisitingCardFooter card={card} />
+        <VisitingCardFooter />
       </article>
     </div>
   );

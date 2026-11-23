@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 import type { GalleryImageDto } from "@/lib/gallery/types";
 
@@ -10,6 +11,12 @@ type PublicGalleryLightboxProps = {
 };
 
 export function PublicGalleryLightbox({ image, onClose }: PublicGalleryLightboxProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   useEffect(() => {
     if (!image) return;
 
@@ -33,11 +40,11 @@ export function PublicGalleryLightbox({ image, onClose }: PublicGalleryLightboxP
     };
   }, [image, onClose]);
 
-  if (!image) return null;
+  if (!image || !mounted) return null;
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 sm:p-6 backdrop-blur-xs"
+      className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 p-4 sm:p-8 backdrop-blur-sm"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -45,32 +52,33 @@ export function PublicGalleryLightbox({ image, onClose }: PublicGalleryLightboxP
     >
       <div
         data-lenis-prevent
-        className="relative flex max-h-[calc(100vh-2rem)] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-[#DDECEB] bg-white shadow-2xl"
+        className="relative flex max-h-[min(100vh-2rem,900px)] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#1a1f1f] shadow-2xl"
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="flex shrink-0 items-center justify-between gap-3 border-b border-[#DDECEB] px-5 py-3.5 sm:px-6">
-          <h2 className="truncate font-display text-[16px] font-medium text-[#252A2A] sm:text-[18px]">
+        <div className="flex shrink-0 items-center justify-between gap-3 border-b border-white/10 px-5 py-3.5 sm:px-6">
+          <h2 className="truncate font-display text-[16px] font-medium text-white sm:text-[18px]">
             {image.title}
           </h2>
           <button
             type="button"
             onClick={onClose}
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#DDECEB] text-[#737B7A] transition-colors hover:border-[#009E98] hover:bg-[#EFF9F8] hover:text-[#252A2A]"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/15 bg-white/10 text-white transition-colors hover:bg-white/20"
             aria-label="Close preview"
           >
             <X className="h-4 w-4" />
           </button>
         </div>
 
-        <div className="flex min-h-0 flex-1 items-center justify-center bg-[#171B1B] p-4 sm:p-6">
+        <div className="flex min-h-0 flex-1 items-center justify-center p-4 sm:p-8">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={image.imageUrl}
             alt={image.title}
-            className="max-h-[min(70vh,720px)] max-w-full object-contain"
+            className="max-h-[min(75vh,780px)] w-auto max-w-full object-contain"
           />
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

@@ -1,4 +1,5 @@
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
+import { cachePublicCmsData } from "../cache/public-data-cache";
 import { prisma } from "../db/prisma";
 import type { Prisma } from "@prisma/client";
 import {
@@ -18,11 +19,14 @@ import type {
 } from "./types";
 import { GALLERY_CONFIG } from "./config";
 
+const GALLERY_PUBLISHED_CACHE_TAG = "gallery-published";
+
 /** Safely revalidate the public Gallery page after CMS mutations. */
 export function revalidateGalleryCache(): void {
   try {
     revalidatePath("/gallery");
     revalidatePath("/gallery", "page");
+    revalidateTag(GALLERY_PUBLISHED_CACHE_TAG, "max");
   } catch {
     // Non-fatal outside Next.js request context
   }
@@ -30,12 +34,18 @@ export function revalidateGalleryCache(): void {
 
 /** Published gallery images for the public website, ordered for display. */
 export async function getPublishedGalleryImages(): Promise<GalleryImageDto[]> {
-  const records = await prisma.galleryImage.findMany({
-    where: { status: "PUBLISHED" },
-    orderBy: [{ sortOrder: "asc" }, { createdAt: "desc" }],
-  });
+  return cachePublicCmsData(
+    async () => {
+      const records = await prisma.galleryImage.findMany({
+        where: { status: "PUBLISHED" },
+        orderBy: [{ sortOrder: "asc" }, { createdAt: "desc" }],
+      });
 
-  return records as GalleryImageDto[];
+      return records as GalleryImageDto[];
+    },
+    ["gallery-published-images"],
+    [GALLERY_PUBLISHED_CACHE_TAG],
+  );
 }
 
 export async function getGalleryImages(

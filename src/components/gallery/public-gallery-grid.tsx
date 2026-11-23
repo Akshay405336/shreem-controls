@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { CmsUploadImage } from "@/components/media/cms-upload-image";
 import { useState } from "react";
 import { Images } from "lucide-react";
 import { PublicGalleryLightbox } from "@/components/gallery/public-gallery-lightbox";
@@ -38,7 +38,7 @@ export function PublicGalleryGrid({ images }: PublicGalleryGridProps) {
             className="group overflow-hidden rounded-[20px] border border-[#DDECEB] bg-white text-left shadow-[0_6px_24px_rgba(37,42,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,158,152,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#009E98]"
           >
             <div className="relative aspect-4/3 overflow-hidden bg-[#F4FBFA]">
-              <Image
+              <CmsUploadImage
                 src={image.imageUrl}
                 alt={image.title}
                 fill

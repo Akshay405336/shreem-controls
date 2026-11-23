@@ -1,10 +1,12 @@
-import { resolveMediaSubdir } from "@/lib/uploads/storage-root";
+import { resolvePublicUploadDir } from "@/lib/uploads/storage-root";
 
 export const BLOGS_CONFIG = {
   /** Relative directory inside project where blog images are stored */
   RELATIVE_DIR: "public/blog-covers",
-  /** Absolute directory resolved from upload root (see MEDIA_UPLOAD_ROOT) */
-  UPLOAD_DIR: resolveMediaSubdir("blog-covers"),
+  /** Absolute directory inside `public/blog-covers` (resolved when accessed). */
+  get UPLOAD_DIR() {
+    return resolvePublicUploadDir("blog-covers");
+  },
   /** Public URL prefix (must not overlap with /blogs → /blog redirects) */
   PUBLIC_URL_PREFIX: "/blog-covers",
   /** Maximum upload size in bytes (10 MB) */

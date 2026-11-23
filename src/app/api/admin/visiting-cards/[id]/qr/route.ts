@@ -1,6 +1,7 @@
 import QRCode from "qrcode";
 import { getVisitingCardById } from "@/lib/visiting-cards/service";
 import { requireRouteAdmin } from "@/lib/auth/presentation/guard";
+import { resolvePublicSiteOrigin } from "@/lib/site-origin";
 
 export async function GET(
   request: Request,
@@ -10,7 +11,10 @@ export async function GET(
     await requireRouteAdmin(request);
     const { id } = await params;
     const card = await getVisitingCardById(id);
-    const origin = new URL(request.url).origin;
+    const origin = resolvePublicSiteOrigin(
+      request.headers.get("x-forwarded-host") ?? request.headers.get("host"),
+      request.headers.get("x-forwarded-proto"),
+    );
     const publicUrl = `${origin}/${card.slug}`;
     const png = await QRCode.toBuffer(publicUrl, {
       type: "png",

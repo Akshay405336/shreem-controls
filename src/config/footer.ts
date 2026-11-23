@@ -1,6 +1,12 @@
 import { mainCategories } from "@/data/main-categories";
 import { categoryPath } from "@/lib/product-catalog-utils";
 
+export const footerContent = {
+  connectSocialHeading: "Connect on social",
+  address:
+    "#93, Anushree Enclave -2B, 1st Main Road, SMB Coloy, Anandnagar, Bangalore - 560024, Karnataka, India.",
+} as const;
+
 export const footerNavigation = {
   explore: [
     { label: "Products", href: "/products" },

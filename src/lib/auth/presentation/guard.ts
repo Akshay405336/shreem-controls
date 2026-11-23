@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 import { cookies } from "next/headers";
 import { prisma } from "../../db/prisma";
 import { getCurrentAdmin } from "../application/me";
@@ -76,6 +77,7 @@ export async function getAdminFromTokens({
  * Safe for use in Server Components, Layouts, and Actions.
  */
 export async function getServerAdmin(): Promise<AdminSafeUser | null> {
+  await connection();
   try {
     const cookieStore = await cookies();
     const accessToken = cookieStore.get(AUTH_COOKIES.ACCESS_TOKEN)?.value;

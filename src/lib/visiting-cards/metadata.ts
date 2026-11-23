@@ -1,19 +1,31 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
-import { toAbsoluteAssetUrl } from "@/lib/site-origin";
+import { toAbsoluteAssetUrl } from "@/lib/site-public-origin";
 import type { VisitingCardDto } from "./types";
 
 export function buildVisitingCardShareDescription(card: VisitingCardDto): string {
-  const parts: string[] = [card.fullName];
-  if (card.designation) parts.push(card.designation);
-  if (card.companyName) {
-    const role = parts.length > 1 ? ` at ${card.companyName}` : ` — ${card.companyName}`;
-    parts[0] = `${card.fullName}${role}`;
+  const headlineParts: string[] = [card.fullName];
+  if (card.designation) headlineParts.push(card.designation);
+  if (card.companyName) headlineParts.push(card.companyName);
+
+  const headline = headlineParts.join(" · ");
+
+  if (card.shortDescription?.trim()) {
+    return `${headline}. ${card.shortDescription.trim()}`;
   }
-  if (card.shortDescription) {
-    return `${parts.join(" • ")}. ${card.shortDescription}`;
+
+  const extras: string[] = [];
+  if (card.email) extras.push(card.email);
+  if (card.companyWebsite) {
+    extras.push(card.companyWebsite.replace(/^https?:\/\//, ""));
   }
-  return `${card.fullName}${card.companyName ? ` — ${card.companyName}` : ""}. View contact information, professional profile and social media links.`;
+
+  const suffix =
+    extras.length > 0
+      ? ` Contact: ${extras.join(" · ")}.`
+      : " View the digital visiting card for contact details and social links.";
+
+  return `${headline}.${suffix}`;
 }
 
 export function buildVisitingCardPageTitle(card: VisitingCardDto): string {
@@ -32,11 +44,13 @@ export function buildVisitingCardMetadata(
   const title = buildVisitingCardPageTitle(card);
   const description = buildVisitingCardShareDescription(card);
   const canonical = `${origin}/${slug}`;
-  const ogImage = card.profilePhotoUrl
-    ? toAbsoluteAssetUrl(card.profilePhotoUrl, origin)
-    : toAbsoluteAssetUrl("/logo/logo-dark.png", origin);
+  const ogImage = toAbsoluteAssetUrl(`/api/visiting-cards/${slug}/og-image`, origin);
+  const profileImageAlt = `${card.fullName}${card.designation ? `, ${card.designation}` : ""}${
+    card.companyName ? ` at ${card.companyName}` : ""
+  }`;
 
   return {
+    metadataBase: new URL(origin),
     title,
     description,
     openGraph: {
@@ -45,12 +59,15 @@ export function buildVisitingCardMetadata(
       url: canonical,
       siteName: siteConfig.name,
       type: "profile",
+      locale: "en_IN",
       images: [
         {
           url: ogImage,
+          secureUrl: ogImage,
           width: 1200,
           height: 1200,
-          alt: `${card.fullName} profile photo`,
+          alt: profileImageAlt,
+          type: "image/webp",
         },
       ],
     },

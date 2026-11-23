@@ -1,7 +1,5 @@
 "use client";
 
-import { useId } from "react";
-
 import { contactConfig } from "@/config/contact";
 import { cn } from "@/lib/cn";
 
@@ -15,7 +13,8 @@ export function SocialIconLinks({
   className,
 }: SocialIconLinksProps) {
   const isDark = tone === "dark";
-  const gradientId = useId().replace(/:/g, "");
+  /** Stable id avoids useId drift across client/server subtrees (e.g. footer hydration). */
+  const gradientId = isDark ? "ig-footer-dark" : "ig-footer-light";
 
   return (
     <div className={cn("flex items-center gap-3", className)}>

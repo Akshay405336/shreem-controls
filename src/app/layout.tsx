@@ -4,10 +4,10 @@ import { Geist_Mono, Manrope } from "next/font/google";
 
 import { Providers } from "@/components/providers/providers";
 import { siteConfig } from "@/config/site";
-import { getConfiguredSiteOrigin } from "@/lib/site-origin";
+import { getPublicSiteOrigin } from "@/lib/site-public-origin";
 import "@/styles/globals.css";
 
-const siteOrigin = getConfiguredSiteOrigin();
+const siteOrigin = getPublicSiteOrigin();
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: siteOrigin ? new URL(siteOrigin) : undefined,
+  metadataBase: new URL(siteOrigin),
   title: {
     default: `${siteConfig.name} | Intelligent Smart Home Automation`,
     template: `%s | ${siteConfig.name}`,

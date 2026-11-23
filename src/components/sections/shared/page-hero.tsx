@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { useState, type ReactNode } from "react";
 
 import { CATALOG_IMAGE_FALLBACK } from "@/data/catalog/catalog-image-paths";
+import { isCmsUploadImagePath } from "@/components/media/cms-upload-image";
 
 import { cn } from "@/lib/cn";
 
@@ -172,6 +173,28 @@ function PageHeroBackgroundImage({
         ? fallback
         : CATALOG_IMAGE_FALLBACK;
 
+  const onError = () => {
+    if (stage === "primary" && fallback && fallback !== src) {
+      setStage("fallback");
+      return;
+    }
+    if (stage !== "catalog") setStage("catalog");
+  };
+
+  if (isCmsUploadImagePath(currentSrc)) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={currentSrc}
+        alt=""
+        className="absolute inset-0 h-full w-full object-cover"
+        loading="eager"
+        decoding="async"
+        onError={onError}
+      />
+    );
+  }
+
   return (
     <Image
       src={currentSrc}
@@ -181,13 +204,7 @@ function PageHeroBackgroundImage({
       fetchPriority="high"
       className="object-cover"
       sizes="100vw"
-      onError={() => {
-        if (stage === "primary" && fallback && fallback !== src) {
-          setStage("fallback");
-          return;
-        }
-        if (stage !== "catalog") setStage("catalog");
-      }}
+      onError={onError}
     />
   );
 }

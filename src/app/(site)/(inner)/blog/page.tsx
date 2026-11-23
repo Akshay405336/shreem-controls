@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { CmsUploadImage } from "@/components/media/cms-upload-image";
 import Link from "next/link";
 import { ArrowUpRight, Calendar, Clock, Newspaper } from "lucide-react";
 import { getActiveBlogs } from "@/lib/blogs/service";
@@ -72,7 +72,7 @@ export default async function BlogListingPage() {
                     href={`/blog/${blog.slug}`}
                     className="relative block aspect-16/10 w-full overflow-hidden bg-slate-100"
                   >
-                    <Image
+                    <CmsUploadImage
                       src={blog.coverImage}
                       alt={blog.title}
                       fill

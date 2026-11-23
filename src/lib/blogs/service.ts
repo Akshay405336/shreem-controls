@@ -1,4 +1,5 @@
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
+import { cachePublicCmsData } from "../cache/public-data-cache";
 import { prisma } from "../db/prisma";
 import type { Prisma } from "@prisma/client";
 import {
@@ -18,21 +19,32 @@ import type {
 } from "./types";
 import { BLOGS_CONFIG } from "./config";
 
+const BLOG_ACTIVE_LIST_CACHE_TAG = "blogs-active-list";
+
+function blogSlugCacheTag(slug: string): string {
+  return `blog-slug-${slug}`;
+}
+
 /**
  * Safely triggers Next.js cache revalidation for blogs.
  * Silently catches errors if run in non-request contexts (e.g., test runners).
  */
-export function revalidateBlogCache(slug?: string): void {
+export function revalidateBlogCache(slug?: string, previousSlug?: string): void {
   try {
     revalidatePath("/blog");
     revalidatePath("/blog", "page");
     revalidatePath("/blogs");
     revalidatePath("/blogs", "page");
+    revalidateTag(BLOG_ACTIVE_LIST_CACHE_TAG, "max");
     if (slug) {
       revalidatePath(`/blog/${slug}`);
       revalidatePath(`/blog/${slug}`, "page");
       revalidatePath(`/blogs/${slug}`);
       revalidatePath(`/blogs/${slug}`, "page");
+      revalidateTag(blogSlugCacheTag(slug), "max");
+    }
+    if (previousSlug && previousSlug !== slug) {
+      revalidateTag(blogSlugCacheTag(previousSlug), "max");
     }
   } catch {
     // Non-fatal if called outside Next.js request context
@@ -117,14 +129,20 @@ export async function getBlogBySlug(
   slug: string,
   requireActive: boolean = false,
 ): Promise<BlogDto | null> {
-  const record = await prisma.blog.findUnique({
-    where: { slug },
-  });
+  return cachePublicCmsData(
+    async () => {
+      const record = await prisma.blog.findUnique({
+        where: { slug },
+      });
 
-  if (!record) return null;
-  if (requireActive && record.status !== "ACTIVE") return null;
+      if (!record) return null;
+      if (requireActive && record.status !== "ACTIVE") return null;
 
-  return record as BlogDto;
+      return record as BlogDto;
+    },
+    ["blog-by-slug", slug, String(requireActive)],
+    [BLOG_ACTIVE_LIST_CACHE_TAG, blogSlugCacheTag(slug)],
+  );
 }
 
 /**
@@ -283,10 +301,7 @@ export async function updateBlog(
         await safeDeleteBlogFile(existing.coverImageFileName);
       }
 
-      revalidateBlogCache(existing.slug);
-      if (updated.slug !== existing.slug) {
-        revalidateBlogCache(updated.slug);
-      }
+      revalidateBlogCache(updated.slug, existing.slug);
 
       return updated as BlogDto;
     } catch (dbError) {
@@ -387,12 +402,18 @@ export async function deleteBlog(id: string): Promise<{ success: boolean; id: st
  * Retrieves all published (ACTIVE) blogs for the public website.
  */
 export async function getActiveBlogs(limit?: number, skip?: number): Promise<BlogDto[]> {
-  const records = await prisma.blog.findMany({
-    where: { status: "ACTIVE" },
-    orderBy: { createdAt: "desc" },
-    ...(limit ? { take: limit } : {}),
-    ...(skip ? { skip } : {}),
-  });
+  return cachePublicCmsData(
+    async () => {
+      const records = await prisma.blog.findMany({
+        where: { status: "ACTIVE" },
+        orderBy: { createdAt: "desc" },
+        ...(limit ? { take: limit } : {}),
+        ...(skip ? { skip } : {}),
+      });
 
-  return records as BlogDto[];
+      return records as BlogDto[];
+    },
+    ["blogs-active-list", String(limit ?? "all"), String(skip ?? 0)],
+    [BLOG_ACTIVE_LIST_CACHE_TAG],
+  );
 }

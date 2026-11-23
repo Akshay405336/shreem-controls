@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { PublicVisitingCard } from "@/components/visiting-cards/public-visiting-card";
 import { SlugPageFallback } from "@/components/layout/slug-page-fallback";
-import { getRequestSiteOrigin } from "@/lib/site-origin";
+import { getPublicSiteOrigin } from "@/lib/site-public-origin";
 import { buildVisitingCardMetadata } from "@/lib/visiting-cards/metadata";
 import { RESERVED_VISITING_CARD_SLUGS } from "@/lib/visiting-cards/reserved-slugs";
 import { getActiveVisitingCardBySlug } from "@/lib/visiting-cards/service";
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const card = await getActiveVisitingCardBySlug(normalized);
   if (!card) return { title: "Not Found", robots: { index: false, follow: false } };
 
-  const origin = await getRequestSiteOrigin();
+  const origin = getPublicSiteOrigin();
   return buildVisitingCardMetadata(card, origin, normalized);
 }
 
@@ -48,7 +48,7 @@ async function VisitingCardPublicContent({ params }: PageProps) {
     notFound();
   }
 
-  const publicUrl = `${await getRequestSiteOrigin()}/${card.slug}`;
+  const publicUrl = `${getPublicSiteOrigin()}/${card.slug}`;
 
   return <PublicVisitingCard card={card} publicUrl={publicUrl} />;
 }
