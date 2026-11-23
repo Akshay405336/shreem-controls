@@ -11,6 +11,24 @@ const nextConfig: NextConfig = {
       { pathname: "/visiting-cards/**" },
     ],
   },
+  async rewrites() {
+    return {
+      fallback: [
+        {
+          source: "/gallery/:path*",
+          destination: "/api/media/gallery/:path*",
+        },
+        {
+          source: "/blog-covers/:path*",
+          destination: "/api/media/blog-covers/:path*",
+        },
+        {
+          source: "/visiting-cards/:path*",
+          destination: "/api/media/visiting-cards/:path*",
+        },
+      ],
+    };
+  },
   async redirects() {
     return [
       { source: "/privacy", destination: "/privacy-policy", permanent: true },

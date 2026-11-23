@@ -1,8 +1,8 @@
-import path from "node:path";
+import { resolveMediaSubdir } from "@/lib/uploads/storage-root";
 
 export const VISITING_CARD_CONFIG = {
   RELATIVE_DIR: "public/visiting-cards",
-  UPLOAD_DIR: path.join(process.cwd(), "public", "visiting-cards"),
+  UPLOAD_DIR: resolveMediaSubdir("visiting-cards"),
   PUBLIC_URL_PREFIX: "/visiting-cards",
   MAX_FILE_SIZE_BYTES: 5 * 1024 * 1024,
   MAX_OUTPUT_DIMENSION: 1200,

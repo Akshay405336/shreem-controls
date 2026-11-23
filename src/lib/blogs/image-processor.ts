@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import fsSync from "node:fs";
 import path from "node:path";
 import sharp, { type Metadata } from "sharp";
+import { ensureMediaSubdir } from "@/lib/uploads/storage-root";
 import { BLOGS_CONFIG } from "./config";
 import type { ProcessedBlogImageResult } from "./types";
 
@@ -47,9 +48,7 @@ export async function validateImageBuffer(buffer: Buffer): Promise<ImageValidati
  * Ensures the public/blog-covers directory exists.
  */
 export function ensureBlogsDirExists(): void {
-  if (!fsSync.existsSync(BLOGS_CONFIG.UPLOAD_DIR)) {
-    fsSync.mkdirSync(BLOGS_CONFIG.UPLOAD_DIR, { recursive: true });
-  }
+  ensureMediaSubdir("blog-covers");
 }
 
 /**

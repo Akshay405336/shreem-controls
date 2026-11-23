@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import fsSync from "node:fs";
 import path from "node:path";
 import sharp from "sharp";
+import { ensureMediaSubdir } from "@/lib/uploads/storage-root";
 import { VISITING_CARD_CONFIG } from "./config";
 import type { ProcessedCardImageResult } from "./types";
 
@@ -24,9 +25,7 @@ function getSafeFilePath(fileName: string): string {
 }
 
 export function ensureVisitingCardDirExists(): void {
-  if (!fsSync.existsSync(VISITING_CARD_CONFIG.UPLOAD_DIR)) {
-    fsSync.mkdirSync(VISITING_CARD_CONFIG.UPLOAD_DIR, { recursive: true });
-  }
+  ensureMediaSubdir("visiting-cards");
 }
 
 async function processBuffer(buffer: Buffer, prefix: string): Promise<ProcessedCardImageResult> {

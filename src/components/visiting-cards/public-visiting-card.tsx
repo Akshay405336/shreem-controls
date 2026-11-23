@@ -9,6 +9,7 @@ import {
   IconBadge,
   SocialBrandIcon,
 } from "@/components/visiting-cards/platform-brand-icons";
+import { VisitingCardFooter } from "@/components/visiting-cards/visiting-card-footer";
 
 type PublicVisitingCardProps = {
   card: VisitingCardDto;
@@ -298,6 +299,8 @@ export function PublicVisitingCard({ card, publicUrl }: PublicVisitingCardProps)
             </div>
           )}
         </div>
+
+        <VisitingCardFooter card={card} />
       </article>
     </div>
   );

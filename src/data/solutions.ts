@@ -9,6 +9,15 @@ export type Solution = {
 
 export const solutions: Solution[] = [
   {
+    slug: "complete-home-automation",
+    name: "Complete Home Automation",
+    summary: "Unified control across every connected experience.",
+    description:
+      "Bring lighting, climate, curtains, entertainment and scenes together through Shreem Controls intelligent living.",
+    image: "/images/Sunset-Smart.png",
+    features: ["Centralised scenes", "Multi-device orchestration", "Premium residential scale"],
+  },
+  {
     slug: "smart-lighting",
     name: "Smart Lighting",
     summary: "Layered ambience with intelligent dimming and scenes.",
@@ -65,15 +74,6 @@ export const solutions: Solution[] = [
       "Smart Video Door Phone capabilities",
       "Mobile security status and visitor alerts",
     ],
-  },
-  {
-    slug: "complete-home-automation",
-    name: "Complete Home Automation",
-    summary: "Unified control across every connected experience.",
-    description:
-      "Bring lighting, climate, curtains, entertainment and scenes together through Shreem Controls intelligent living.",
-    image: "/images/Sunset-Smart.png",
-    features: ["Centralised scenes", "Multi-device orchestration", "Premium residential scale"],
   },
 ];
 

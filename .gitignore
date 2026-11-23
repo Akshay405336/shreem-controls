@@ -40,9 +40,13 @@ yarn-error.log*
 # vercel
 .vercel
 
-# uploads
+# uploads (serve via /api/media fallback + MEDIA_UPLOAD_ROOT in production)
 /public/gallery/*
 !/public/gallery/.gitkeep
+/public/blog-covers/*
+!/public/blog-covers/.gitkeep
+/public/visiting-cards/*
+!/public/visiting-cards/.gitkeep
 
 # typescript
 *.tsbuildinfo

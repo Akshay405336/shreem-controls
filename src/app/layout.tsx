@@ -4,7 +4,10 @@ import { Geist_Mono, Manrope } from "next/font/google";
 
 import { Providers } from "@/components/providers/providers";
 import { siteConfig } from "@/config/site";
+import { getConfiguredSiteOrigin } from "@/lib/site-origin";
 import "@/styles/globals.css";
+
+const siteOrigin = getConfiguredSiteOrigin();
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -19,6 +22,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: siteOrigin ? new URL(siteOrigin) : undefined,
   title: {
     default: `${siteConfig.name} | Intelligent Smart Home Automation`,
     template: `%s | ${siteConfig.name}`,
@@ -26,6 +30,10 @@ export const metadata: Metadata = {
   description:
     "Discover Shreem Controls smart home automation. Experience intelligent lighting, climate, music, curtains and connected living through beautifully designed control systems.",
   applicationName: siteConfig.name,
+  icons: {
+    icon: [{ url: "/favicon.ico", sizes: "any" }],
+    apple: [{ url: "/logo/logo-dark.png", type: "image/png" }],
+  },
   keywords: [
     "Shreem Controls",
     "Smart Home Automation",

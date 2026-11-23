@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import fsSync from "node:fs";
 import path from "node:path";
 import sharp, { type Metadata } from "sharp";
+import { ensureMediaSubdir } from "@/lib/uploads/storage-root";
 import { GALLERY_CONFIG } from "./config";
 import type { ProcessedImageResult } from "./types";
 
@@ -47,9 +48,7 @@ export async function validateImageBuffer(buffer: Buffer): Promise<ImageValidati
  * Ensures the public/gallery directory exists.
  */
 export function ensureGalleryDirExists(): void {
-  if (!fsSync.existsSync(GALLERY_CONFIG.UPLOAD_DIR)) {
-    fsSync.mkdirSync(GALLERY_CONFIG.UPLOAD_DIR, { recursive: true });
-  }
+  ensureMediaSubdir("gallery");
 }
 
 /**

@@ -48,8 +48,13 @@ export const primaryNavigation: NavItem[] = [
     href: "/projects",
   },
   {
-    label: "About",
+    label: "About Us",
     href: "/about",
+    description: "Company, gallery and articles",
+    children: [
+      { label: "Gallery", href: "/gallery", description: "Project photography" },
+      { label: "Blogs", href: "/blog", description: "Articles and insights" },
+    ],
   },
   {
     label: "Resources",

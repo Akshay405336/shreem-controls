@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { PublicVisitingCard } from "@/components/visiting-cards/public-visiting-card";
 import { SlugPageFallback } from "@/components/layout/slug-page-fallback";
+import { getRequestSiteOrigin } from "@/lib/site-origin";
+import { buildVisitingCardMetadata } from "@/lib/visiting-cards/metadata";
 import { RESERVED_VISITING_CARD_SLUGS } from "@/lib/visiting-cards/reserved-slugs";
 import { getActiveVisitingCardBySlug } from "@/lib/visiting-cards/service";
 
@@ -20,11 +21,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: "Not Found" };
   }
   const card = await getActiveVisitingCardBySlug(normalized);
-  if (!card) return { title: "Not Found" };
-  return {
-    title: `${card.fullName} | Digital Visiting Card`,
-    description: card.shortDescription || `${card.fullName} digital visiting card`,
-  };
+  if (!card) return { title: "Not Found", robots: { index: false, follow: false } };
+
+  const origin = await getRequestSiteOrigin();
+  return buildVisitingCardMetadata(card, origin, normalized);
 }
 
 export default function VisitingCardPublicPage({ params }: PageProps) {
@@ -48,10 +48,7 @@ async function VisitingCardPublicContent({ params }: PageProps) {
     notFound();
   }
 
-  const h = await headers();
-  const host = h.get("x-forwarded-host") ?? h.get("host") ?? "localhost:3000";
-  const proto = h.get("x-forwarded-proto") ?? "https";
-  const publicUrl = `${proto}://${host}/${card.slug}`;
+  const publicUrl = `${await getRequestSiteOrigin()}/${card.slug}`;
 
   return <PublicVisitingCard card={card} publicUrl={publicUrl} />;
 }

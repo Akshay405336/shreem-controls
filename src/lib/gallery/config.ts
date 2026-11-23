@@ -1,10 +1,10 @@
-import path from "node:path";
+import { resolveMediaSubdir } from "@/lib/uploads/storage-root";
 
 export const GALLERY_CONFIG = {
   /** Relative directory inside project where gallery images are stored */
   RELATIVE_DIR: "public/gallery",
-  /** Absolute directory resolved from current working directory */
-  UPLOAD_DIR: path.join(process.cwd(), "public", "gallery"),
+  /** Absolute directory resolved from upload root (see MEDIA_UPLOAD_ROOT) */
+  UPLOAD_DIR: resolveMediaSubdir("gallery"),
   /** Public URL prefix */
   PUBLIC_URL_PREFIX: "/gallery",
   /** Maximum upload size in bytes (10 MB) */
