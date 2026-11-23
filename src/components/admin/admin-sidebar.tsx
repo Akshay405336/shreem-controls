@@ -7,6 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   BookOpen,
+  IdCard,
   Image as ImageIcon,
   LayoutDashboard,
   LogOut,
@@ -26,6 +27,7 @@ export function AdminSidebar() {
     pathname === "/admin/dashboard" || pathname === "/admin";
   const isGalleryActive = pathname.startsWith("/admin/gallery");
   const isBlogsActive = pathname.startsWith("/admin/blogs");
+  const isVisitingCardsActive = pathname.startsWith("/admin/visiting-cards");
 
   const handleSignOut = async () => {
     if (isSigningOut) return;
@@ -56,6 +58,12 @@ export function AdminSidebar() {
       href: "/admin/blogs",
       icon: BookOpen,
       active: isBlogsActive,
+    },
+    {
+      label: "Visiting Cards",
+      href: "/admin/visiting-cards",
+      icon: IdCard,
+      active: isVisitingCardsActive,
     },
   ];
 

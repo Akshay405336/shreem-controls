@@ -24,6 +24,11 @@ enum BlogStatus {
   INACTIVE
 }
 
+enum VisitingCardStatus {
+  ACTIVE
+  INACTIVE
+}
+
 model AdminUser {
   id                 String         @id @default(cuid())
   name               String
@@ -104,4 +109,40 @@ model Blog {
   @@index([slug])
   @@index([createdAt])
   @@map("blogs")
+}
+
+model VisitingCard {
+  id                     String             @id @default(cuid())
+  slug                   String             @unique
+  fullName               String
+  designation            String?
+  department             String?
+  shortDescription       String?            @db.Text
+  profilePhotoUrl        String?
+  profilePhotoFileName   String?            @unique
+  profilePhotoMimeType   String?
+  profilePhotoSize       Int                @default(0)
+  companyName            String?
+  companyLogoUrl         String?
+  companyLogoFileName    String?            @unique
+  companyLogoMimeType    String?
+  companyLogoSize        Int                @default(0)
+  companyWebsite         String?
+  companyAddress         String?            @db.Text
+  phone                  String?
+  whatsapp               String?
+  email                  String?
+  altPhone               String?
+  socialLinks            Json               @default("[]")
+  sortOrder              Int                @default(0)
+  status                 VisitingCardStatus @default(INACTIVE)
+  createdAt              DateTime           @default(now())
+  updatedAt              DateTime           @updatedAt
+
+  @@index([status])
+  @@index([sortOrder])
+  @@index([fullName])
+  @@index([companyName])
+  @@index([createdAt])
+  @@map("visiting_cards")
 }

@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
       { pathname: "/logo/**" },
       { pathname: "/gallery/**" },
       { pathname: "/blog-covers/**" },
+      { pathname: "/visiting-cards/**" },
     ],
   },
   async redirects() {
