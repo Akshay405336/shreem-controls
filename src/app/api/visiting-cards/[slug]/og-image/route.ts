@@ -1,12 +1,7 @@
-import { readFile } from "node:fs/promises";
-import path from "node:path";
-
+import { VISITING_CARD_CONFIG } from "@/lib/visiting-cards/config";
+import { generateVisitingCardOgImageBuffer } from "@/lib/visiting-cards/og-image-handler";
 import { getActiveVisitingCardBySlug } from "@/lib/visiting-cards/service";
-import { readVisitingCardImageFile } from "@/lib/visiting-cards/image-processor";
 
-const LOGO_FALLBACK = path.join(process.cwd(), "public", "logo", "logo-dark.png");
-
-/** Public OG image for social crawlers (no auth, no client JS). */
 export async function GET(
   _request: Request,
   { params }: { params: Promise<{ slug: string }> },
@@ -17,29 +12,13 @@ export async function GET(
     return new Response("Not found", { status: 404 });
   }
 
-  if (card.profilePhotoFileName) {
-    const file = await readVisitingCardImageFile(card.profilePhotoFileName);
-    if (file) {
-      return new Response(new Uint8Array(file.buffer), {
-        status: 200,
-        headers: {
-          "Content-Type": file.mimeType,
-          "Cache-Control": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
-        },
-      });
-    }
-  }
+  const buffer = await generateVisitingCardOgImageBuffer(card);
 
-  try {
-    const buffer = await readFile(LOGO_FALLBACK);
-    return new Response(new Uint8Array(buffer), {
-      status: 200,
-      headers: {
-        "Content-Type": "image/png",
-        "Cache-Control": "public, max-age=86400",
-      },
-    });
-  } catch {
-    return new Response("Not found", { status: 404 });
-  }
+  return new Response(new Uint8Array(buffer), {
+    status: 200,
+    headers: {
+      "Content-Type": VISITING_CARD_CONFIG.OG_IMAGE_CONTENT_TYPE,
+      "Cache-Control": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
+    },
+  });
 }

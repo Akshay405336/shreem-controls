@@ -4,7 +4,10 @@ import { Suspense } from "react";
 import { PublicVisitingCard } from "@/components/visiting-cards/public-visiting-card";
 import { SlugPageFallback } from "@/components/layout/slug-page-fallback";
 import { getPublicSiteOrigin } from "@/lib/site-public-origin";
-import { buildVisitingCardMetadata } from "@/lib/visiting-cards/metadata";
+import {
+  buildVisitingCardMetadata,
+  buildVisitingCardShareDescription,
+} from "@/lib/visiting-cards/metadata";
 import { RESERVED_VISITING_CARD_SLUGS } from "@/lib/visiting-cards/reserved-slugs";
 import { getActiveVisitingCardBySlug } from "@/lib/visiting-cards/service";
 
@@ -24,7 +27,23 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!card) return { title: "Not Found", robots: { index: false, follow: false } };
 
   const origin = getPublicSiteOrigin();
-  return buildVisitingCardMetadata(card, origin, normalized);
+
+  // Scoped fix for the `shreemcontrols` card only: exact WhatsApp preview
+  // (name | designation title, bio-only description) + JPEG cache-bust.
+  // Other slugs keep the shared helper output unchanged.
+  const overrides =
+    normalized === "shreemcontrols"
+      ? {
+          title: card.designation
+            ? `${card.fullName} | ${card.designation}`
+            : card.fullName,
+          description:
+            card.shortDescription?.trim() || buildVisitingCardShareDescription(card),
+          ogImageCacheBust: "v=wa-jpeg-1200",
+        }
+      : undefined;
+
+  return buildVisitingCardMetadata(card, origin, normalized, overrides);
 }
 
 export default function VisitingCardPublicPage({ params }: PageProps) {
