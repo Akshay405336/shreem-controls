@@ -1,4 +1,5 @@
 import type { NavItem } from "@/types/navigation";
+import { PRODUCTS_MEGA_MENU_CATEGORY_ORDER } from "@/config/products-mega-menu-category-order";
 import { mainCategories } from "@/data/main-categories";
 import { solutions } from "@/data/solutions";
 import { resources } from "@/data/resources";
@@ -12,7 +13,9 @@ export const primaryNavigation: NavItem[] = [
     megaMenu: "products",
     children: [
       { label: "All Products", href: "/products", description: "Browse all categories" },
-      ...mainCategories.map((category) => ({
+      ...PRODUCTS_MEGA_MENU_CATEGORY_ORDER.map(
+        (slug) => mainCategories.find((category) => category.slug === slug)!,
+      ).map((category) => ({
         label: category.name,
         href: categoryPath(category.slug),
         description:

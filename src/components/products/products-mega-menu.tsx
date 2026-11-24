@@ -7,6 +7,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 
 import type { MegaMenuTone } from "@/components/navigation/mega-menu-panel-theme";
 import { CatalogProductImage } from "@/components/products/catalog-product-image";
+import { PRODUCTS_MEGA_MENU_CATEGORY_ORDER } from "@/config/products-mega-menu-category-order";
 import { catalogProducts } from "@/data/catalog";
 import { mainCategories } from "@/data/main-categories";
 import {
@@ -23,17 +24,6 @@ type ProductsMegaMenuProps = {
   onNavigate: () => void;
 };
 
-/** Mega-menu-only category order — does not change shared catalogue displayOrder. */
-const MEGA_MENU_CATEGORY_ORDER: readonly MainCategorySlug[] = [
-  "smart-keypad-switch",
-  "smart-dimming-knob",
-  "curtain-controller",
-  "smart-lighting",
-  "smart-touch-panel",
-  "video-door-phone-vdp",
-  "door-lock-system",
-];
-
 function firstBrandSlugForCategory(categorySlug: MainCategorySlug) {
   return getBrandsInCategory(catalogProducts, categorySlug)[0]?.slug ?? null;
 }
@@ -43,7 +33,7 @@ export function ProductsMegaMenu({ tone, onNavigate }: ProductsMegaMenuProps) {
   const isHero = tone === "hero";
   const megaMenuCategories = useMemo(
     () =>
-      MEGA_MENU_CATEGORY_ORDER.map(
+      PRODUCTS_MEGA_MENU_CATEGORY_ORDER.map(
         (slug) => mainCategories.find((category) => category.slug === slug)!,
       ),
     [],
