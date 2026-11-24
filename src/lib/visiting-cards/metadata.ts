@@ -57,22 +57,26 @@ export function buildVisitingCardMetadata(
   slug: string,
   overrides: VisitingCardMetadataOverrides = {},
 ): Metadata {
-  const title = overrides.title?.trim() || buildVisitingCardPageTitle(card);
+  const titleText = overrides.title?.trim() || buildVisitingCardPageTitle(card);
   const description = overrides.description?.trim() || buildVisitingCardShareDescription(card);
+  /** Avoid root `title.template` suffix on scoped share pages (WhatsApp reads `<title>` too). */
+  const pageTitle: Metadata["title"] = overrides.title?.trim()
+    ? { absolute: titleText }
+    : titleText;
   const canonical = `${origin}/${slug}`;
   let ogImage = toAbsoluteAssetUrl(`/api/visiting-cards/${slug}/og-image`, origin);
   if (overrides.ogImageCacheBust) {
     const q = overrides.ogImageCacheBust;
     ogImage += q.startsWith("?") ? q : `?${q}`;
   }
-  const profileImageAlt = title;
+  const profileImageAlt = titleText;
 
   return {
     metadataBase: new URL(origin),
-    title,
+    title: pageTitle,
     description,
     openGraph: {
-      title,
+      title: titleText,
       description,
       url: canonical,
       siteName: siteConfig.name,
@@ -91,7 +95,7 @@ export function buildVisitingCardMetadata(
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: titleText,
       description,
       images: [ogImage],
     },

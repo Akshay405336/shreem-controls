@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             : card.fullName,
           description:
             card.shortDescription?.trim() || buildVisitingCardShareDescription(card),
-          ogImageCacheBust: "v=wa-jpeg-1200",
+          ogImageCacheBust: "v=wa-jpeg-1200-r2",
         }
       : undefined;
 

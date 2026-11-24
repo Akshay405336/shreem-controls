@@ -60,7 +60,7 @@ function shreemOverrides(card: VisitingCardDto) {
   return {
     title: card.designation ? `${card.fullName} | ${card.designation}` : card.fullName,
     description: card.shortDescription?.trim() || buildVisitingCardShareDescription(card),
-    ogImageCacheBust: "v=wa-jpeg-1200",
+    ogImageCacheBust: "v=wa-jpeg-1200-r2",
   };
 }
 
@@ -160,7 +160,7 @@ describe("buildVisitingCardMetadata (shreemcontrols scoped preview)", () => {
   );
 
   it("returns the exact title", () => {
-    expect(meta.title).toBe("Vinay A P | Founder Shreem Controls");
+    expect(meta.title).toEqual({ absolute: "Vinay A P | Founder Shreem Controls" });
     expect(meta.openGraph?.title).toBe("Vinay A P | Founder Shreem Controls");
   });
 
@@ -180,7 +180,7 @@ describe("buildVisitingCardMetadata (shreemcontrols scoped preview)", () => {
   it("points og:image at the cache-busted JPEG endpoint, 1200×1200", () => {
     const imageUrl = imageField<string>(meta, "url");
     expect(imageUrl).toBe(
-      "https://shreemcontrols.in/api/visiting-cards/shreemcontrols/og-image?v=wa-jpeg-1200",
+      "https://shreemcontrols.in/api/visiting-cards/shreemcontrols/og-image?v=wa-jpeg-1200-r2",
     );
     expect(imageField<string>(meta, "type")).toBe("image/jpeg");
     expect(imageField<number>(meta, "width")).toBe(1200);
@@ -198,7 +198,7 @@ describe("buildVisitingCardMetadata (shreemcontrols scoped preview)", () => {
     expect(get("title")).toBe("Vinay A P | Founder Shreem Controls");
     expect(get("description")).toBe("Certified KNX Consultant");
     expect(get("images")).toEqual([
-      "https://shreemcontrols.in/api/visiting-cards/shreemcontrols/og-image?v=wa-jpeg-1200",
+      "https://shreemcontrols.in/api/visiting-cards/shreemcontrols/og-image?v=wa-jpeg-1200-r2",
     ]);
   });
 });

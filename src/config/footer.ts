@@ -4,7 +4,7 @@ import { categoryPath } from "@/lib/product-catalog-utils";
 export const footerContent = {
   connectSocialHeading: "Connect on social",
   address:
-    "#93, Anushree Enclave -2B, 1st Main Road, SMB Coloy, Anandnagar, Bangalore - 560024, Karnataka, India.",
+    "#93, Anushree Enclave -2B, 1st Main Road, SBM Colony, Anandnagar, Bangalore - 560024, Karnataka, India.",
 } as const;
 
 export const footerNavigation = {

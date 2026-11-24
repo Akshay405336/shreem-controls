@@ -2,11 +2,11 @@ const defaults = {
   companyName: "Shreem Controls",
   tagline: "Integrating technology, simplifying life.",
   category: "Home Automation",
-  email: "sales@shreemcontrols.in",
+  email: "vinay@shreemcontrols.in",
   phoneDisplay: "+91 94485 24400",
   phoneTel: "+919448524400",
   address:
-    "No 6, ASB LOTUS City, Kengeri Tavarekere Main Road, Bangalore - 562130, Karnataka, India.",
+    "#93, Anushree Enclave -2B, 1st Main Road, SBM Colony, Anandnagar, Bangalore - 560024, Karnataka, India.",
   websiteUrl: "https://shreemcontrols.in",
   websiteLabel: "shreemcontrols.in",
   businessHours: "",
